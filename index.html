@@ -255,7 +255,7 @@ body.dark .ad{background:#111827}
       <a href="privacy.html">Privacy Policy</a>
       <a href="https://www.nasa.gov/news/" target="_blank" rel="noopener">NASA News</a>
       <a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a>
-      <a href="mailto:YOUR_EMAIL@example.com">Contact</a>
+      <a href="mailto:sudipbudha23@example.com">Contact</a>
     </p>
   </div>
 </footer>
@@ -297,19 +297,30 @@ function dateLabel(value) {
     date.toLocaleDateString(undefined, {year:"numeric",month:"short",day:"numeric"});
 }
 
+
 function renderNews() {
   const q = search.value.trim().toLowerCase();
   const selected = category.value;
 
   const results = stories.filter(s => {
-    const cat = s.category || classify(s);
+    const cat = classify(s);
     const text = `${s.title || ""} ${s.summary || ""} ${s.source || ""}`.toLowerCase();
-    return (selected === "all" || cat === selected) && text.includes(q);
+
+    return (selected === "all" || cat === selected) &&
+           text.includes(q);
   });
 
   if (!results.length) {
-    grid.innerHTML = '<div class="empty">No matching stories. Try another search or topic.</div>';
-    document.getElementById("feedStatus").textContent = "No matching stories.";
+    grid.innerHTML = `
+      <div class="empty">
+        ${stories.length === 0
+          ? "No science news available yet. Please refresh later."
+          : "No matching stories. Try another search or topic."}
+      </div>`;
+    document.getElementById("feedStatus").textContent =
+      stories.length === 0
+        ? "The news feed contains no articles."
+        : "No matching stories.";
     return;
   }
 
@@ -317,8 +328,9 @@ function renderNews() {
     `Showing ${results.length} stories. Visit the original publisher for full details.`;
 
   grid.innerHTML = results.map(s => {
-    const cat = s.category || classify(s);
-    const url = /^https?:\/\//i.test(s.url || "") ? s.url : "#";
+    const cat = classify(s);
+   const url = /^https?:\/\//i.test(s.url || "") ? s.url : "#";
+
     return `
       <article class="card">
         <div class="card-art">${icons[cat] || "🔬"}</div>
@@ -328,11 +340,15 @@ function renderNews() {
           <h3>${escapeHTML(s.title || "Science discovery")}</h3>
           <p>${escapeHTML(s.summary || "Open the original source for more information.")}</p>
           <div class="source">Source: ${escapeHTML(s.source || "Publisher")}</div>
-          <a class="read" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">Read original source ↗</a>
+          <a class="read" href="${escapeHTML(url)}"
+             target="_blank" rel="noopener noreferrer">
+            Read original source ↗
+          </a>
         </div>
       </article>`;
   }).join("");
 }
+
 
 async function loadNews() {
   document.getElementById("feedStatus").textContent = "Checking the science feed…";
