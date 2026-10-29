@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact NovaFacts for questions, feedback, corrections, and science-related inquiries.">
+  <title>Contact Us | NovaFacts</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+      line-height: 1.7;
+    }
+    header {
+      background: #10264e;
+      color: white;
+      padding: 22px 16px;
+      text-align: center;
+    }
+    header h1 { margin: 0; }
+    nav { margin-top: 12px; }
+    nav a { color: white; margin: 0 10px; }
+    main {
+      max-width: 760px;
+      margin: 35px auto;
+      padding: 28px;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 5px 24px #17203312;
+    }
+    h2 { color: #2563eb; }
+    .contact-card {
+      background: #eff6ff;
+      padding: 18px;
+      border-radius: 10px;
+      overflow-wrap: anywhere;
+    }
+    a { color: #2563eb; }
+    footer {
+      text-align: center;
+      padding: 22px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contact NovaFacts</h1>
+    <p>Science, space, physics, and discovery.</p>
+    <nav>
+      <a href="./">Home</a>
+      <a href="./about.html">About Us</a>
+      <a href="./privacy-policy.html">Privacy Policy</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>We'd Love to Hear From You</h2>
+    <p>
+      Have a question about a science article, found an error, or want to
+      share feedback? You can contact the NovaFacts team using the email below.
+    </p>
+
+    <div class="contact-card">
+      <strong>Email:</strong>
+      <p>
+        <a href="mailto:sudipbudha23@example.com">
+          example.com
+        </a>
+      </p>
+      <p>
+        Replace this placeholder with your real contact email before publishing.
+      </p>
+    </div>
+
+    <h2>What You Can Contact Us About</h2>
+    <ul>
+      <li>Questions about our science articles</li>
+      <li>Corrections or factual feedback</li>
+      <li>Website issues and suggestions</li>
+      <li>General inquiries about NovaFacts</li>
+    </ul>
+
+    <p>Thank you for visiting NovaFacts!</p>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> NovaFacts. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
