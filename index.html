@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="NovaFacts — Discover the latest science news, space discoveries, AI research and physics.">
+<title>NovaFacts — Discover What's Next</title>
+<style>
+:root {
+  --bg:#ffffff;
+  --text:#111827;
+  --muted:#64748b;
+  --line:#e5e7eb;
+  --blue:#2563eb;
+  --card:#ffffff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.6;
+  transition:background .25s,color .25s;
+}
+a{color:inherit}
+.wrap{width:min(1100px,92%);margin:auto}
+header{
+  position:sticky;top:0;z-index:5;background:var(--bg);
+  border-bottom:1px solid var(--line)
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:15px 0;gap:12px}
+.brand{font-size:24px;font-weight:900;text-decoration:none;letter-spacing:-1px}
+.brand span{color:var(--blue)}
+nav{display:flex;gap:18px}
+nav a{text-decoration:none;font-weight:700;font-size:14px}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.theme,.secondary{
+  border:1px solid var(--line);border-radius:11px;
+  background:var(--card);color:var(--text);padding:10px 13px
+}
+.hero{
+  padding:65px 0;background:
+  radial-gradient(circle at 85% 20%,#dbeafe,transparent 38%),
+  linear-gradient(180deg,#f8fbff,#fff)
+}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:35px}
+.eyebrow{color:var(--blue);font-size:13px;font-weight:900;letter-spacing:2px}
+h1{font-size:clamp(42px,6vw,72px);line-height:1.02;letter-spacing:-3px;margin:18px 0}
+.blue{color:var(--blue)}
+.lead{color:var(--muted);font-size:18px;max-width:570px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-block;text-decoration:none;border:0;border-radius:11px;padding:12px 16px;font-weight:800}
+.primary{background:var(--blue);color:white}
+.space{
+  min-height:290px;border-radius:25px;position:relative;overflow:hidden;
+  display:grid;place-items:center;background:radial-gradient(circle at center,#183a76,#071225 75%);
+}
+.planet{
+  width:125px;height:125px;border-radius:50%;
+  background:radial-gradient(circle at 30% 25%,#dbeafe,#6096f5 40%,#16366e 75%);
+  box-shadow:0 0 60px #5796ff99;z-index:1
+}
+.orbit{position:absolute;width:280px;height:110px;border:1px solid #ffffff55;border-radius:50%;transform:rotate(-30deg)}
+.orbit.two{width:330px;height:150px;transform:rotate(30deg)}
+.star{position:absolute;color:white;animation:twinkle 2s infinite alternate}
+.s1{top:18%;left:20%}.s2{right:20%;top:25%}.s3{left:25%;bottom:18%}.s4{right:25%;bottom:22%}
+@keyframes twinkle{to{opacity:.25;transform:scale(.7)}}
+.section{padding:45px 0}
+.heading{margin-bottom:22px}
+.heading h2{font-size:32px;letter-spacing:-1px;margin:5px 0}
+.heading p,.muted{color:var(--muted)}
+.ad{
+  min-height:85px;border:1px dashed #cbd5e1;border-radius:13px;
+  margin:25px auto;padding:15px;display:grid;place-items:center;
+  text-align:center;color:#94a3b8;font-size:13px
+}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.controls input,.controls select{
+  padding:12px;border:1px solid var(--line);border-radius:10px;
+  background:var(--card);color:var(--text)
+}
+.controls input{flex:1;min-width:190px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  background:var(--card);display:flex;flex-direction:column;
+  transition:transform .2s,box-shadow .2s
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px #64748b20}
+.card-art{height:105px;display:grid;place-items:center;font-size:38px;background:#eff6ff}
+.card-content{padding:17px;display:flex;flex-direction:column;flex:1}
+.tag{font-size:11px;font-weight:900;color:var(--blue);text-transform:uppercase}
+.card h3{font-size:18px;line-height:1.35;margin:10px 0}
+.card p{font-size:14px;color:var(--muted)}
+.source{font-size:12px;color:var(--muted);margin-bottom:14px}
+.read{color:var(--blue);text-decoration:none;font-weight:800;margin-top:auto}
+.empty{grid-column:1/-1;text-align:center;padding:30px;border:1px dashed var(--line);border-radius:12px;color:var(--muted)}
+.topics{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.topic{border:1px solid var(--line);border-radius:14px;padding:17px;text-decoration:none}
+.topic:hover{border-color:var(--blue)}
+.topic b{display:block}
+.quiz{
+  background:#111827;color:#fff;border-radius:20px;padding:25px;
+  display:grid;grid-template-columns:1fr 1fr;gap:25px
+}
+.quiz p{color:#cbd5e1}
+.quiz-box{background:#1f2937;border:1px solid #374151;padding:18px;border-radius:14px}
+.answers{display:grid;gap:9px}
+.answer{background:#111827;color:#fff;text-align:left;padding:11px;border:1px solid #4b5563;border-radius:9px}
+.answer.correct{background:#065f46}
+.answer.wrong{background:#991b1b}
+.answer:disabled{cursor:default}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.info{border:1px solid var(--line);border-radius:15px;padding:20px}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}
+footer a{margin-right:12px}
+body.dark{
+  --bg:#0b1020;--text:#e5e7eb;--muted:#a7b2c4;
+  --line:#30394b;--card:#111827
+}
+body.dark .hero{background:radial-gradient(circle at 85% 20%,#17294b,transparent 40%),#0b1020}
+body.dark .card-art{background:#172033}
+body.dark .ad{background:#111827}
+@media(max-width:760px){
+  .hero-grid,.quiz{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .topics{grid-template-columns:repeat(3,1fr)}
+  nav{gap:10px}
+  nav a{font-size:12px}
+}
+@media(max-width:500px){
+  .grid,.about{grid-template-columns:1fr}
+  .topics{grid-template-columns:repeat(2,1fr)}
+  .hero{padding:40px 0}
+  h1{letter-spacing:-2px}
+  nav a:nth-child(2),nav a:nth-child(3){display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">✦ Nova<span>Facts</span></a>
+    <nav>
+      <a href="#discoveries">Discoveries</a>
+      <a href="#topics">Topics</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#about">About</a>
+    </nav>
+    <button class="theme" id="themeBtn">☾ Theme</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">SCIENCE · DISCOVERY · KNOWLEDGE</div>
+      <h1>Discover what's <span class="blue">next.</span></h1>
+      <p class="lead">Explore new discoveries in space, physics, artificial intelligence, biology and our changing planet.</p>
+      <div class="actions">
+        <a class="btn primary" href="#discoveries">Explore discoveries ↗</a>
+        <a class="btn secondary" href="#quiz">Try the science quiz</a>
+      </div>
+      <p class="muted" id="updatedText">Loading science feed…</p>
+    </div>
+    <div class="space" aria-label="Illustration of a planet and orbits">
+      <span class="star s1">✦</span><span class="star s2">✧</span>
+      <span class="star s3">✦</span><span class="star s4">✧</span>
+      <div class="orbit"></div><div class="orbit two"></div><div class="planet"></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="ad">Advertisement space — add approved AdSense code here later.</div>
+</div>
+
+<section class="section" id="discoveries">
+  <div class="wrap">
+    <div class="heading">
+      <span class="tag">AUTOMATIC SCIENCE FEED</span>
+      <h2>Latest discoveries</h2>
+      <p>Headlines and short summaries from external science publishers.</p>
+    </div>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search space, AI, physics…" aria-label="Search news">
+      <select id="category" aria-label="Filter category">
+        <option value="all">All topics</option>
+        <option>Space</option><option>Physics</option><option>AI</option>
+        <option>Biology</option><option>Earth</option><option>Science</option>
+      </select>
+      <button class="secondary" id="refresh">↻ Refresh</button>
+    </div>
+    <p class="muted" id="feedStatus" aria-live="polite">Loading news.json…</p>
+    <div class="grid" id="newsGrid">
+      <div class="empty">Loading latest stories…</div>
+    </div>
+    <div class="ad">Advertisement space — optional second ad placement.</div>
+  </div>
+</section>
+
+<section class="section" id="topics">
+  <div class="wrap">
+    <div class="heading"><h2>Explore by topic</h2><p>Choose a subject to explore.</p></div>
+    <div class="topics">
+      <a class="topic" href="#discoveries" data-topic="Space">🪐 <b>Space</b><small>Planets and cosmos</small></a>
+      <a class="topic" href="#discoveries" data-topic="Physics">⚛️ <b>Physics</b><small>How nature works</small></a>
+      <a class="topic" href="#discoveries" data-topic="AI">🤖 <b>AI & Tech</b><small>New technology</small></a>
+      <a class="topic" href="#discoveries" data-topic="Biology">🧬 <b>Biology</b><small>Life and health</small></a>
+      <a class="topic" href="#discoveries" data-topic="Earth">🌍 <b>Earth</b><small>Our planet</small></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="quiz">
+  <div class="wrap quiz">
+    <div>
+      <span class="tag">QUICK CHALLENGE</span>
+      <h2>Test your curiosity.</h2>
+      <p>Answer five science questions and learn something new.</p>
+    </div>
+    <div class="quiz-box">
+      <p>QUESTION <span id="qNumber">1</span>/5 · SCORE <span id="score">0</span></p>
+      <h3 id="question">Loading question…</h3>
+      <div class="answers" id="answers"></div>
+      <p id="feedback" aria-live="polite"></p>
+      <button class="btn primary" id="next" hidden>Next question →</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap about">
+    <div class="info">
+      <h2>About NovaFacts</h2>
+      <p class="muted">NovaFacts is an educational science project that helps curious readers explore discoveries. Headlines and short summaries link to their original publishers.</p>
+    </div>
+    <div class="info">
+      <h2>Read science carefully</h2>
+      <p class="muted">A headline is not proof. Check the original research, publication date, methods and whether a result is peer-reviewed or preliminary.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="ad">Advertisement space — optional third placement.</div></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    © <span id="year"></span> NovaFacts · Built for curious minds.
+    <p>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="https://www.nasa.gov/news/" target="_blank" rel="noopener">NASA News</a>
+      <a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a>
+      <a href="mailto:YOUR_EMAIL@example.com">Contact</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+const grid = document.getElementById("newsGrid");
+const search = document.getElementById("search");
+const category = document.getElementById("category");
+let stories = [];
+
+const icons = {
+  Space:"🪐", Physics:"⚛️", AI:"🤖",
+  Biology:"🧬", Earth:"🌍", Science:"🔬"
+};
+
+function escapeHTML(value="") {
+  return String(value).replace(/[&<>"']/g, ch => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;",
+    '"':"&quot;", "'":"&#39;"
+  })[ch]);
+}
+
+function classify(story) {
+  const t = ((story.title || "") + " " +
+    (story.summary || "")).toLowerCase();
+
+  if (/artificial intelligence|\bai\b|robot|machine learning|technology/.test(t)) return "AI";
+  if (/climate|earth|ocean|wildlife|environment|weather/.test(t)) return "Earth";
+  if (/biology|cell|gene|dna|medical|health|brain|species/.test(t)) return "Biology";
+  if (/physics|quantum|particle|gravity|energy|laser/.test(t)) return "Physics";
+  if (/space|nasa|astronom|planet|galaxy|black hole|moon|mars|cosmos/.test(t)) return "Space";
+  return story.category || "Science";
+}
+
+function dateLabel(value) {
+  if (!value) return "Recent";
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? "Recent" :
+    date.toLocaleDateString(undefined, {year:"numeric",month:"short",day:"numeric"});
+}
+
+function renderNews() {
+  const q = search.value.trim().toLowerCase();
+  const selected = category.value;
+
+  const results = stories.filter(s => {
+    const cat = s.category || classify(s);
+    const text = `${s.title || ""} ${s.summary || ""} ${s.source || ""}`.toLowerCase();
+    return (selected === "all" || cat === selected) && text.includes(q);
+  });
+
+  if (!results.length) {
+    grid.innerHTML = '<div class="empty">No matching stories. Try another search or topic.</div>';
+    document.getElementById("feedStatus").textContent = "No matching stories.";
+    return;
+  }
+
+  document.getElementById("feedStatus").textContent =
+    `Showing ${results.length} stories. Visit the original publisher for full details.`;
+
+  grid.innerHTML = results.map(s => {
+    const cat = s.category || classify(s);
+    const url = /^https?:\/\//i.test(s.url || "") ? s.url : "#";
+    return `
+      <article class="card">
+        <div class="card-art">${icons[cat] || "🔬"}</div>
+        <div class="card-content">
+          <span class="tag">${escapeHTML(cat)}</span>
+          <div class="source">${escapeHTML(dateLabel(s.published))}</div>
+          <h3>${escapeHTML(s.title || "Science discovery")}</h3>
+          <p>${escapeHTML(s.summary || "Open the original source for more information.")}</p>
+          <div class="source">Source: ${escapeHTML(s.source || "Publisher")}</div>
+          <a class="read" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">Read original source ↗</a>
+        </div>
+      </article>`;
+  }).join("");
+}
+
+async function loadNews() {
+  document.getElementById("feedStatus").textContent = "Checking the science feed…";
+  try {
+    const response = await fetch("./news.json?time=" + Date.now(), {cache:"no-store"});
+    if (!response.ok) throw new Error("news.json unavailable");
+
+    const data = await response.json();
+    stories = Array.isArray(data.articles) ? data.articles : [];
+    stories = stories.map(s => ({...s, category:s.category || classify(s)}));
+
+    renderNews();
+    const updated = data.updated_at ? new Date(data.updated_at).toLocaleString() : "not updated yet";
+    document.getElementById("updatedText").textContent = "Last feed update: " + updated;
+  } catch (error) {
+    document.getElementById("feedStatus").textContent =
+      "News feed unavailable. Check that news.json exists and the website is published.";
+    grid.innerHTML = '<div class="empty">Could not load the feed. Please try again later.</div>';
+    document.getElementById("updatedText").textContent = "Science feed unavailable";
+  }
+}
+
+search.addEventListener("input", renderNews);
+category.addEventListener("change", renderNews);
+document.getElementById("refresh").addEventListener("click", loadNews);
+
+document.querySelectorAll("[data-topic]").forEach(link => {
+  link.addEventListener("click", () => {
+    category.value = link.dataset.topic;
+    renderNews();
+  });
+});
+
+document.getElementById("themeBtn").addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  document.getElementById("themeBtn").textContent =
+    document.body.classList.contains("dark") ? "☀ Light" : "☾ Theme";
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* Five-question science quiz */
+const quiz = [
+ {q:"Which planet is famous for its prominent rings?",a:["Mars","Saturn","Venus","Mercury"],c:1,why:"Saturn's rings contain ice and rocky particles."},
+ {q:"What is the center of an atom called?",a:["Electron","Molecule","Nucleus","Photon"],c:2,why:"The nucleus contains protons and usually neutrons."},
+ {q:"Which star is closest to Earth?",a:["Sirius","The Sun","Polaris","Vega"],c:1,why:"The Sun is our nearest star."},
+ {q:"What does DNA store?",a:["Genetic information","Sound waves","Cloud patterns","Magnetic fields"],c:0,why:"DNA carries genetic instructions."},
+ {q:"Which gas do plants use in photosynthesis?",a:["Oxygen","Helium","Carbon dioxide","Hydrogen"],c:2,why:"Plants use carbon dioxide, water and light to make sugars."}
+];
+
+let qi = 0, points = 0, answered = false;
+const questionEl = document.getElementById("question");
+const answersEl = document.getElementById("answers");
+const feedbackEl = document.getElementById("feedback");
+const nextBtn = document.getElementById("next");
+
+function showQuestion() {
+  answered = false;
+  const q = quiz[qi];
+  document.getElementById("qNumber").textContent = qi + 1;
+  document.getElementById("score").textContent = points;
+  questionEl.textContent = q.q;
+  feedbackEl.textContent = "";
+  nextBtn.hidden = true;
+  answersEl.innerHTML = q.a.map((a,i) =>
+    `<button class="answer" data-index="${i}">${escapeHTML(a)}</button>`
+  ).join("");
+
+  answersEl.querySelectorAll("button").forEach(button => {
+    button.addEventListener("click", () => {
+      if (answered) return;
+      answered = true;
+      const chosen = Number(button.dataset.index);
+
+      answersEl.querySelectorAll("button").forEach((b,i) => {
+        b.disabled = true;
+        if (i === q.c) b.classList.add("correct");
+        if (i === chosen && chosen !== q.c) b.classList.add("wrong");
+      });
+
+      if (chosen === q.c) points++;
+      document.getElementById("score").textContent = points;
+      feedbackEl.textContent = (chosen === q.c ? "Correct! " : "Not quite. ") + q.why;
+      nextBtn.hidden = false;
+      nextBtn.textContent = qi === quiz.length - 1 ? "Try again ↻" : "Next question →";
+    });
+  });
+}
+
+nextBtn.addEventListener("click", () => {
+  if (qi === quiz.length - 1) {
+    qi = 0;
+    points = 0;
+  } else {
+    qi++;
+  }
+  showQuestion();
+});
+
+showQuestion();
+loadNews();
+</script>
+</body>
+</html>
