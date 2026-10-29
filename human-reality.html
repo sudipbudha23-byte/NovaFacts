@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#030817">
+<meta name="description" content="The Reality of Human Life — a bilingual English and Nepali exploration of human birth, consciousness, identity, society and the meaning of life.">
+<title>The Reality of Human Life | NovaFacts</title>
+
+<style>
+:root {
+  --bg: #030817;
+  --panel: rgba(11, 27, 52, .82);
+  --cyan: #4ce7ff;
+  --purple: #b69aff;
+  --text: #edf6ff;
+  --muted: #a9bdd4;
+  --border: rgba(76, 231, 255, .22);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 50% 0%, #102d54 0%, transparent 48%),
+    var(--bg);
+  font-family: Inter, "Noto Sans Devanagari", Arial, sans-serif;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+a { color: var(--cyan); text-decoration: none; }
+a:hover { color: white; }
+button { font: inherit; cursor: pointer; }
+#stars {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 6%;
+  background: rgba(3, 8, 23, .88);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
+}
+.logo { font-size: 22px; font-weight: 900; }
+.logo span { color: var(--cyan); }
+.navlinks { display: flex; flex-wrap: wrap; gap: 17px; font-size: 13px; }
+.hero {
+  min-height: 500px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 90px 20px 65px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.orbit {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(76,231,255,.25);
+  border-radius: 50%;
+  animation: orbit 18s linear infinite;
+}
+.orbit::before, .orbit::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(182,154,255,.3);
+  border-radius: 50%;
+  inset: 25px;
+}
+.orbit::after { inset: 55px; }
+@keyframes orbit { to { transform: rotate(360deg); } }
+.hero-content { position: relative; z-index: 1; max-width: 850px; }
+.eyebrow {
+  color: var(--cyan);
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: 800;
+}
+h1 {
+  font-size: clamp(35px, 7vw, 70px);
+  line-height: 1.13;
+  margin: 18px 0;
+  letter-spacing: -2px;
+}
+.gradient {
+  background: linear-gradient(90deg, var(--cyan), #b9a3ff, #fff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.hero p { max-width: 680px; margin: 18px auto; color: var(--muted); }
+.actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
+.btn {
+  border: 1px solid var(--border);
+  padding: 10px 19px;
+  border-radius: 30px;
+  color: var(--text);
+  background: #102442;
+}
+.btn.primary { color: #00101a; background: var(--cyan); font-weight: 800; }
+.btn:hover { transform: translateY(-2px); }
+.wrap { max-width: 1080px; margin: auto; padding: 35px 20px; }
+.section-title { font-size: clamp(25px, 4vw, 38px); line-height: 1.3; }
+.section-title span { color: var(--cyan); }
+.intro {
+  padding: 24px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  margin-bottom: 25px;
+}
+.story {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 18px;
+  padding: 25px 0;
+  border-bottom: 1px solid var(--border);
+}
+.number {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #00101a;
+  font-size: 20px;
+  font-weight: 900;
+  background: var(--cyan);
+  box-shadow: 0 0 22px #4ce7ff44;
+}
+h2 { line-height: 1.4; }
+h3 { color: var(--cyan); margin-bottom: 8px; }
+p { color: #d3e1f1; }
+.muted { color: var(--muted); }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 25px 0;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  min-width: 0;
+}
+.card:hover { border-color: var(--cyan); }
+.quote {
+  padding: 40px 22px;
+  text-align: center;
+  margin: 35px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.quote blockquote {
+  max-width: 780px;
+  margin: 0 auto;
+  font-size: clamp(22px, 4vw, 36px);
+  line-height: 1.5;
+  font-weight: 800;
+}
+.quote small { display: block; color: var(--cyan); margin-top: 18px; }
+details {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin: 12px 0;
+  padding: 15px 18px;
+}
+summary { cursor: pointer; color: var(--cyan); font-weight: 700; }
+.quiz-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 8px 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  background: #0b1b34;
+  color: var(--text);
+  border-radius: 10px;
+}
+.quiz-option:hover { border-color: var(--cyan); }
+#quiz-result { color: var(--cyan); font-weight: 700; }
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+footer a { margin: 0 8px; }
+@media(max-width:650px) {
+  nav { align-items: flex-start; }
+  .navlinks { gap: 9px; }
+  .grid { grid-template-columns: 1fr; }
+  .hero { min-height: 430px; padding-top: 65px; }
+  .story { grid-template-columns: 42px 1fr; gap: 12px; }
+  .number { width: 38px; height: 38px; font-size: 16px; }
+  .wrap { padding: 25px 15px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+
+<body>
+<canvas id="stars"></canvas>
+
+<nav>
+  <a class="logo" href="index.html">✦ Nova<span>Facts</span></a>
+  <div class="navlinks">
+    <a href="index.html">Home</a>
+    <a href="index.html">Articles</a>
+    <button class="btn" onclick="setLanguage('en')">English</button>
+    <button class="btn" onclick="setLanguage('ne')">नेपाली</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="orbit"></div>
+  <div class="hero-content">
+    <div class="eyebrow" data-en="HUMANITY · SCIENCE · EXISTENCE"
+         data-ne="मानवता · विज्ञान · अस्तित्व">
+      HUMANITY · SCIENCE · EXISTENCE
+    </div>
+    <h1 data-en="The Reality of <span class='gradient'>Being Human</span>"
+        data-ne="मानिस हुनुको <span class='gradient'>वास्तविकता</span>">
+      The Reality of <span class="gradient">Being Human</span>
+    </h1>
+    <p data-en="Where did we come from? Who are we beneath our names, fears, dreams and social identities? Explore the science of human life—and the questions science alone cannot settle."
+       data-ne="हामी कहाँबाट आयौँ? नाम, डर, सपना र सामाजिक पहिचानभन्दा भित्र हामी को हौँ? मानव जीवनको विज्ञान र विज्ञानले मात्र टुङ्ग्याउन नसक्ने प्रश्नहरूलाई बुझ्ने प्रयास गरौँ।">
+      Where did we come from? Who are we beneath our names, fears, dreams and social identities?
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="#journey" data-en="Explore the Reality ↓" data-ne="वास्तविकता बुझौँ ↓">Explore the Reality ↓</a>
+      <a class="btn" href="#questions" data-en="Questions to Think About" data-ne="सोच्नुपर्ने प्रश्नहरू">Questions to Think About</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro reveal">
+    <h2 data-en="Before we judge the world, let's understand ourselves."
+        data-ne="संसारलाई दोष दिनुअघि, आफैँलाई बुझ्ने प्रयास गरौँ।">
+      Before we judge the world, let's understand ourselves.
+    </h2>
+    <p data-en="Every human being has a beginning, a body, a mind, relationships and a limited amount of time. Yet each person's experience is different. This article brings together established science, careful reflection and open questions—not a claim that one explanation answers everything."
+       data-ne="हरेक मानिसको एउटा सुरुवात, शरीर, मन, सम्बन्ध र सीमित समय हुन्छ। तर प्रत्येक व्यक्तिको अनुभव फरक हुन्छ। यो लेखमा प्रमाणित विज्ञान, गहिरो चिन्तन र खुला प्रश्नहरू जोडिएका छन्—एउटै व्याख्याले सबै कुरा समाधान गर्छ भन्ने दाबी होइन।">
+      Every human being has a beginning, a body, a mind, relationships and a limited amount of time.
+    </p>
+  </section>
+
+  <section id="journey">
+    <h2 class="section-title reveal" data-en="01. The Journey <span>of Being Human</span>"
+        data-ne="०१. मानिस बन्ने <span>यात्रा</span>">
+      01. The Journey <span>of Being Human</span>
+    </h2>
+
+    <article class="story reveal">
+      <div class="number">1</div>
+      <div>
+        <h3 data-en="We Begin Before We Can Remember" data-ne="हाम्रो सुरुवात, जुन हामीलाई याद हुँदैन">We Begin Before We Can Remember</h3>
+        <p data-en="Human development usually begins when a sperm cell fertilizes an egg, forming a single cell called a zygote. Through cell division and development, an embryo and later a fetus form. Pregnancy and birth involve complex biological processes."
+           data-ne="मानव विकास सामान्यतया शुक्रकीटले अण्डकोष होइन, अण्डाणुलाई निषेचन गर्दा सुरु हुन्छ। यसबाट जाइगोट नामको एक कोष बन्छ। कोष विभाजन र विकास हुँदै भ्रूण बन्छ र पछि गर्भस्थ शिशुको विकास हुन्छ। गर्भावस्था र जन्म जटिल जैविक प्रक्रियाहरू हुन्।">
+          Human development usually begins when a sperm cell fertilizes an egg, forming a single cell called a zygote.
+        </p>
+        <p class="muted" data-en="You did not choose your first breath, your first language or the place where your life began. Many starting conditions are given to us—not chosen by us."
+           data-ne="तपाईंले आफ्नो पहिलो सास, पहिलो भाषा वा जन्मिएको ठाउँ रोज्नुभएको थिएन। जीवनका धेरै सुरुवाती अवस्था हामीलाई प्राप्त हुन्छन्; हामीले आफैँ छानेका हुँदैनौँ।">
+          You did not choose your first breath or the place where your life began.
+        </p>
+      </div>
+    </article>
+
+    <article class="story reveal">
+      <div class="number">2</div>
+      <div>
+        <h3 data-en="Our Bodies Carry a Long Story" data-ne="हाम्रो शरीरमा लामो इतिहास छ">Our Bodies Carry a Long Story</h3>
+        <p data-en="Our bodies develop through genes, cellular processes and interactions with the environment. Human beings are also part of the long history of evolution. Our DNA carries biological information, but it does not by itself determine every choice, personality trait or future event."
+           data-ne="हाम्रो शरीर जीन, कोषभित्रका प्रक्रिया र वातावरणसँगको अन्तरक्रियाबाट विकसित हुन्छ। मानव पनि विकासक्रमको लामो इतिहासको हिस्सा हो। हाम्रो DNA मा जैविक सूचना हुन्छ, तर त्यसैले मात्र हाम्रो हरेक निर्णय, व्यक्तित्व वा भविष्य निर्धारण गर्दैन।">
+          Our bodies develop through genes, cellular processes and interactions with the environment.
+        </p>
+      </div>
+    </article>
+
+    <article class="story reveal">
+      <div class="number">3</div>
+      <div>
+        <h3 data-en="We Learn Who We Are" data-ne="हामी आफू को हौँ भनेर सिक्छौँ">We Learn Who We Are</h3>
+        <p data-en="A child learns language, habits, beliefs and social rules through family, community, education and experience. Some lessons help us grow; others may limit us. As we mature, we can examine what we were taught and decide what deserves to guide our lives."
+           data-ne="बालबालिकाले परिवार, समुदाय, शिक्षा र अनुभवबाट भाषा, बानी, विश्वास र सामाजिक नियम सिक्छन्। केही सिकाइले हामीलाई अघि बढाउँछ; केहीले सीमित बनाउन सक्छ। उमेर र अनुभव बढ्दै जाँदा हामीले सिकेका कुरालाई जाँचेर कुन कुराले हाम्रो जीवनलाई सही दिशा दिन्छ भन्ने निर्णय गर्न सक्छौँ।">
+          We learn language, habits, beliefs and social rules through experience.
+        </p>
+      </div>
+    </article>
+
+    <article class="story reveal">
+      <div class="number">4</div>
+      <div>
+        <h3 data-en="The Mind Is More Complex Than It Looks" data-ne="मानव मन देखिएभन्दा जटिल छ">The Mind Is More Complex Than It Looks</h3>
+        <p data-en="The brain helps us remember, feel, imagine, make decisions and understand others. Emotions are real experiences, but they do not always tell the whole story. A feeling can be important without being a complete or accurate explanation of a situation."
+           data-ne="मस्तिष्कले सम्झन, महसुस गर्न, कल्पना गर्न, निर्णय लिन र अरूलाई बुझ्न मद्दत गर्छ। भावना वास्तविक अनुभव हुन्, तर तिनले सधैँ सम्पूर्ण सत्य बताउँदैनन्। कुनै भावना महत्त्वपूर्ण हुन सक्छ, तर त्यसले मात्र कुनै परिस्थितिको पूर्ण वा सही व्याख्या नदिन सक्छ।">
+          Emotions are real experiences, but they do not always tell the whole story.
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <div class="quote reveal">
+    <blockquote data-en="You entered the world without a finished story. Every day, your actions help write the next part."
+      data-ne="तपाईं संसारमा आउँदा तपाईंको जीवनकथा पूरा भइसकेको थिएन। हरेक दिनका कामले त्यसको अर्को अध्याय लेख्न मद्दत गर्छन्।">
+      You entered the world without a finished story. Every day, your actions help write the next part.
+    </blockquote>
+    <small data-en="A reflection—not a scientific law." data-ne="यो चिन्तन हो, वैज्ञानिक नियम होइन।">A reflection—not a scientific law.</small>
+  </div>
+
+  <section>
+    <h2 class="section-title reveal" data-en="02. The Reality <span>We Often Overlook</span>"
+        data-ne="०२. हामीले प्रायः <span>बिर्सने वास्तविकता</span>">
+      02. The Reality <span>We Often Overlook</span>
+    </h2>
+
+    <div class="grid">
+      <article class="card reveal">
+        <h3 data-en="The Mask We Show" data-ne="हामीले देखाउने मुखौटा">The Mask We Show</h3>
+        <p data-en="People sometimes hide fear, uncertainty or sadness because they worry about being judged. A confident appearance does not reveal everything someone is experiencing. We should avoid assuming that we know another person's inner life from appearances alone."
+           data-ne="अरूले के भन्लान् भन्ने डरले मानिसले कहिलेकाहीँ आफ्नो डर, अन्योल वा दुःख लुकाउँछन्। आत्मविश्वासी देखिनुले व्यक्तिले भित्र के अनुभव गरिरहेको छ भन्ने सबै कुरा देखाउँदैन। बाहिरी रूप हेरेर मात्र कसैको भित्री संसार थाहा छ भन्ने निष्कर्ष निकाल्नु उचित हुँदैन।">
+          A confident appearance does not reveal everything someone is experiencing.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <h3 data-en="The Pressure to Compare" data-ne="अरूसँग तुलना गर्ने दबाब">The Pressure to Compare</h3>
+        <p data-en="Money, grades, popularity and status can affect opportunities, but they do not measure the full worth of a person. Comparing our private struggles with another person's public success can give us an incomplete picture."
+           data-ne="पैसा, नतिजा, लोकप्रियता र सामाजिक हैसियतले अवसरमा असर पार्न सक्छन्, तर तिनले मानिसको सम्पूर्ण मूल्य मापन गर्दैनन्। आफ्ना निजी संघर्षलाई अरूको सार्वजनिक सफलतासँग तुलना गर्दा वास्तविकताको अधुरो चित्र देखिन सक्छ।">
+          Status can affect opportunities, but it does not measure the full worth of a person.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <h3 data-en="The Stories We Believe" data-ne="हामीले सत्य ठान्ने कथाहरू">The Stories We Believe</h3>
+        <p data-en="Family, culture, media and personal experience shape our beliefs. Some beliefs are supported by evidence; others deserve more questions. Changing your mind after learning better evidence is not weakness—it can be intellectual honesty."
+           data-ne="परिवार, संस्कृति, सञ्चारमाध्यम र व्यक्तिगत अनुभवले हाम्रा विश्वासलाई आकार दिन्छन्। केही विश्वास प्रमाणमा आधारित हुन्छन्; केहीबारे थप प्रश्न गर्नुपर्छ। राम्रो प्रमाण पाएपछि आफ्नो विचार बदल्नु कमजोरी होइन—यो बौद्धिक इमानदारी हुन सक्छ।">
+          Good evidence can give us a reason to rethink an old belief.
+        </p>
+      </article>
+
+      <article class="card reveal">
+        <h3 data-en="Our Time Is Limited" data-ne="हाम्रो समय सीमित छ">Our Time Is Limited</h3>
+        <p data-en="Human life does not last forever. This fact can remind us to care for people, learn, create and repair relationships where possible. We do not need to know every answer about existence to make meaningful choices today."
+           data-ne="मानव जीवन सधैँ रहँदैन। यसले हामीलाई मानिसहरूको ख्याल राख्न, सिक्न, सिर्जना गर्न र सम्भव भएसम्म सम्बन्ध सुधार्न सम्झाउन सक्छ। आज अर्थपूर्ण निर्णय लिन अस्तित्वका सबै प्रश्नको उत्तर थाहा हुनु आवश्यक छैन।">
+          We do not need every answer about existence to make meaningful choices today.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="intro reveal">
+    <h2 data-en="03. What Is the Meaning of Life?"
+        data-ne="०३. जीवनको अर्थ के हो?">
+      03. What Is the Meaning of Life?
+    </h2>
+    <p data-en="Science can investigate how human life develops, how the brain works and how our species evolved. The question of what makes a life meaningful also involves philosophy, culture, relationships and personal values. There is no single scientifically established answer that everyone must accept."
+       data-ne="मानव जीवन कसरी विकसित हुन्छ, मस्तिष्कले कसरी काम गर्छ र हाम्रो प्रजातिको विकास कसरी भयो भन्ने कुरा विज्ञानले अध्ययन गर्न सक्छ। तर जीवनलाई अर्थपूर्ण बनाउने कुरा दर्शन, संस्कृति, सम्बन्ध र व्यक्तिगत मूल्यसँग पनि जोडिएको छ। सबैले अनिवार्य रूपमा स्वीकार गर्नुपर्ने एउटै वैज्ञानिक उत्तर स्थापित भएको छैन।">
+      Science can investigate how life develops. Meaning also involves philosophy, culture, relationships and personal values.
+    </p>
+    <p data-en="For one person, meaning may come from family. For another, learning, creativity, service, faith or discovery may matter most. You can explore these possibilities without pretending that every person must live the same way."
+       data-ne="कसैका लागि परिवार जीवनको अर्थ हुन सक्छ। अरूका लागि सिकाइ, सिर्जना, सेवा, आस्था वा नयाँ कुरा पत्ता लगाउनु महत्त्वपूर्ण हुन सक्छ। सबै मानिसले एउटै तरिकाले जीवन बिताउनुपर्छ भन्ने नठानी यी सम्भावनाहरू खोज्न सकिन्छ।">
+      Meaning can look different for different people.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="section-title reveal" data-en="04. Questions <span>Worth Asking</span>"
+        data-ne="०४. आफैँलाई <span>सोध्नुपर्ने प्रश्नहरू</span>">
+      04. Questions <span>Worth Asking</span>
+    </h2>
+
+    <details class="reveal">
+      <summary data-en="Am I living by my values or only by others' expectations?"
+        data-ne="म आफ्ना मूल्यअनुसार बाँचिरहेको छु, कि अरूको अपेक्षाअनुसार मात्र?">
+        Am I living by my values or only by others' expectations?
+      </summary>
+      <p data-en="Notice which goals genuinely matter to you and which ones you follow only to avoid criticism. You can listen to others without letting every opinion define you."
+        data-ne="तपाईंका लागि साँच्चै महत्त्वपूर्ण लक्ष्य कुन हुन् र आलोचनाबाट बच्न मात्र पछ्याइएका लक्ष्य कुन हुन्, विचार गर्नुहोस्। अरूको कुरा सुन्न सकिन्छ, तर हरेक विचारले तपाईंको पहिचान निर्धारण गर्नुपर्दैन।">
+        Notice which goals genuinely matter to you.
+      </p>
+    </details>
+
+    <details class="reveal">
+      <summary data-en="What evidence would change my mind?"
+        data-ne="कस्तो प्रमाणले मेरो विचार बदल्न सक्छ?">
+        What evidence would change my mind?
+      </summary>
+      <p data-en="A belief that can be examined is stronger than one protected from every question. Look for reliable sources, consider alternative explanations and admit uncertainty when evidence is limited."
+        data-ne="जाँच्न सकिने विश्वास, हरेक प्रश्नबाट जोगाइएको विश्वासभन्दा बलियो हुन सक्छ। विश्वसनीय स्रोत खोज्नुहोस्, वैकल्पिक व्याख्या विचार गर्नुहोस् र प्रमाण सीमित हुँदा अनिश्चितता स्वीकार गर्नुहोस्।">
+        Look for reliable sources and consider alternative explanations.
+      </p>
+    </details>
+
+    <details class="reveal">
+      <summary data-en="How do I treat people when I gain nothing from them?"
+        data-ne="कसैबाट आफ्नो फाइदा नहुँदा म उसलाई कस्तो व्यवहार गर्छु?">
+        How do I treat people when I gain nothing from them?
+      </summary>
+      <p data-en="Respect, fairness, compassion and boundaries matter even when there is no reward. We cannot know every person's struggle, so curiosity and kindness are often wiser than quick judgment."
+        data-ne="प्रतिफल नपाउँदा पनि सम्मान, निष्पक्षता, करुणा र व्यक्तिगत सीमाको महत्त्व हुन्छ। हामीले हरेक व्यक्तिको संघर्ष जान्दैनौँ, त्यसैले तुरुन्तै निर्णय गर्नुभन्दा बुझ्ने प्रयास र दयालु व्यवहार धेरैपटक उचित हुन्छ।">
+        Curiosity and kindness are often wiser than quick judgment.
+      </p>
+    </details>
+  </section>
+
+  <section class="card reveal" id="quiz">
+    <h2 data-en="05. Test Your Understanding" data-ne="०५. आफ्नो बुझाइ जाँच्नुहोस्">05. Test Your Understanding</h2>
+    <p data-en="Which statement best separates scientific evidence from philosophical reflection?"
+       data-ne="कुन भनाइले वैज्ञानिक प्रमाण र दार्शनिक चिन्तनबीचको भिन्नता राम्रोसँग देखाउँछ?">
+      Which statement best separates scientific evidence from philosophical reflection?
+    </p>
+    <button class="quiz-option" onclick="answer(0)" data-en="A. Every question about life's meaning has one proven scientific answer."
+      data-ne="क. जीवनको अर्थसम्बन्धी हरेक प्रश्नको एउटै प्रमाणित वैज्ञानिक उत्तर हुन्छ।">
+      A. Every question about life's meaning has one proven scientific answer.
+    </button>
+    <button class="quiz-option" onclick="answer(1)" data-en="B. Science tests evidence; meaning also involves values and philosophy."
+      data-ne="ख. विज्ञानले प्रमाण जाँच्छ; अर्थमा मूल्य र दर्शन पनि जोडिन्छन्।">
+      B. Science tests evidence; meaning also involves values and philosophy.
+    </button>
+    <button class="quiz-option" onclick="answer(2)" data-en="C. Personal feelings are always scientific proof."
+      data-ne="ग. व्यक्तिगत भावना सधैँ वैज्ञानिक प्रमाण हुन्।">
+      C. Personal feelings are always scientific proof.
+    </button>
+    <p id="quiz-result" aria-live="polite"></p>
+  </section>
+
+  <section class="card reveal">
+    <h2 data-en="Scientific Sources & Further Reading" data-ne="वैज्ञानिक स्रोत र थप अध्ययन">Scientific Sources & Further Reading</h2>
+    <p data-en="Use these sources to learn more about human development and evolution. The philosophical reflections in this article are interpretations, not conclusions established by these sources."
+       data-ne="मानव विकास र विकासक्रमबारे थप अध्ययन गर्न यी स्रोत प्रयोग गर्नुहोस्। यस लेखका दार्शनिक चिन्तनहरू व्याख्या हुन्; यी स्रोतहरूले ती सबै विचारलाई प्रमाणित गरेका निष्कर्ष होइनन्।">
+      Use these sources to learn more about human development and evolution.
+    </p>
+    <ul>
+      <li><a href="https://medlineplus.gov/ency/article/002398.htm" target="_blank" rel="noopener noreferrer">MedlinePlus — Fetal Development</a></li>
+      <li><a href="https://www.who.int/health-topics/pregnancy" target="_blank" rel="noopener noreferrer">World Health Organization — Pregnancy</a></li>
+      <li><a href="https://humanorigins.si.edu/" target="_blank" rel="noopener noreferrer">Smithsonian — Human Origins</a></li>
+      <li><a href="https://www.genome.gov/about-genomics/fact-sheets" target="_blank" rel="noopener noreferrer">National Human Genome Research Institute — Genomics Fact Sheets</a></li>
+    </ul>
+  </section>
+
+  <section class="quote reveal">
+    <blockquote data-en="The world may not give you every answer. But you can keep asking better questions—and choose how you treat the people sharing this world with you."
+      data-ne="संसारले तपाईंलाई हरेक उत्तर नदिन सक्छ। तर तपाईं अझ राम्रा प्रश्न सोधिरहन र यही संसार बाँडिरहेका मानिसलाई कस्तो व्यवहार गर्ने भनेर रोज्न सक्नुहुन्छ।">
+      The world may not give you every answer. But you can keep asking better questions.
+    </blockquote>
+    <small data-en="NovaFacts · Explore science. Question assumptions. Respect humanity."
+      data-ne="NovaFacts · विज्ञान बुझौँ। धारणामाथि प्रश्न गरौँ। मानवताको सम्मान गरौँ।">
+      NovaFacts · Explore science. Question assumptions. Respect humanity.
+    </small>
+  </section>
+
+  <div class="actions">
+    <a class="btn primary" href="index.html" data-en="← Back to NovaFacts" data-ne="← NovaFacts मा फर्कनुहोस्">← Back to NovaFacts</a>
+    <a class="btn" href="black-holes.html" data-en="My Explanation: Black Holes" data-ne="मेरो व्याख्या: ब्ल्याक होल">My Explanation: Black Holes</a>
+  </div>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> NovaFacts · Developed by Sudip Budha</p>
+  <p data-en="Science, humanity and the courage to ask questions."
+     data-ne="विज्ञान, मानवता र प्रश्न सोध्ने साहस।">
+    Science, humanity and the courage to ask questions.
+  </p>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="privacy-policy.html">Privacy</a>
+</footer>
+
+<script>
+let currentLanguage = "en";
+
+function setLanguage(language) {
+  currentLanguage = language;
+  document.documentElement.lang = language;
+
+  document.querySelectorAll("[data-en][data-ne]").forEach(element => {
+    const value = element.getAttribute("data-" + language);
+    if (value !== null) element.innerHTML = value;
+  });
+
+  document.querySelectorAll("button[onclick^='setLanguage']").forEach(button => {
+    const active = button.getAttribute("onclick").includes("'" + language + "'");
+    button.style.outline = active ? "2px solid #4ce7ff" : "none";
+  });
+}
+
+function answer(choice) {
+  const result = document.getElementById("quiz-result");
+  if (choice === 1) {
+    result.textContent = currentLanguage === "ne"
+      ? "सही! विज्ञानले प्रमाण जाँच्छ; जीवनको अर्थमा दर्शन र व्यक्तिगत मूल्य पनि जोडिन्छन्।"
+      : "Correct! Science tests evidence; questions of meaning also involve philosophy and values.";
+  } else {
+    result.textContent = currentLanguage === "ne"
+      ? "फेरि सोच्नुहोस्। वैज्ञानिक प्रमाण र व्यक्तिगत विचार एउटै कुरा होइनन्।"
+      : "Try again. Scientific evidence and personal interpretation are not the same thing.";
+  }
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* Scroll reveal */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
+
+/* Animated star field */
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+let stars = [];
+let width = 0;
+let height = 0;
+let animationFrame;
+
+function resizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const count = Math.min(140, Math.floor(width / 7));
+  stars = Array.from({ length: count }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    r: Math.random() * 1.5 + 0.3,
+    speed: Math.random() * 0.18 + 0.03,
+    alpha: Math.random() * 0.6 + 0.2
+  }));
+}
+
+function animateStars() {
+  ctx.clearRect(0, 0, width, height);
+
+  for (const star of stars) {
+    star.y -= star.speed;
+    if (star.y < 0) {
+      star.y = height;
+      star.x = Math.random() * width;
+    }
+
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(150, 220, 255, ${star.alpha})`;
+    ctx.fill();
+  }
+
+  animationFrame = requestAnimationFrame(animateStars);
+}
+
+resizeCanvas();
+animateStars();
+window.addEventListener("resize", resizeCanvas);
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    cancelAnimationFrame(animationFrame);
+  } else {
+    cancelAnimationFrame(animationFrame);
+    animateStars();
+  }
+});
+</script>
+</body>
+</html>
