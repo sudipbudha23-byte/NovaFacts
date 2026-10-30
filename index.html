@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,43 +9,13 @@
 <title>NovaFacts — Explore Science, Space and Physics</title>
 
 <meta name="description" content="Explore science, space, physics, artificial intelligence, biology and the latest discoveries through educational articles and quizzes on NovaFacts.">
-
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://novafacts.pages.dev/">
-<meta name="google-site-verification" content="kw_LZmJVMz_6cTzYAYEI3S8fpvcNAgPXlO54PUzWBfc" />
-<link rel="icon" type="image/png" href="favicon.png">
+<meta name="google-site-verification" content="kw_LZmJVMz_6cTzYAYEI3S8fpvcNAgPXlO54PUzWBfc">
 
-<!-- NovaFacts Favicon -->
-<link rel="icon" type="image/png" href="/favicon.png">
-
-
-<!-- Website SEO -->
-<meta name="description" content="NovaFacts - Explore science, space, physics, artificial intelligence, biology and amazing discoveries.">
-
-<meta name="robots" content="index, follow">
-<!--
-GOOGLE ADSENSE
-After receiving your real Publisher ID, paste this inside HEAD:
-
-<script async
-src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-crossorigin="anonymous"></script>
-
-Replace XXXXXXXXXXXXXXXX with your actual Publisher ID.
--->
-<!-- Google Website Logo Structured Data -->
-
-
-<!-- NovaFacts Favicon -->
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
 
-<!-- Website SEO -->
-<meta name="description" content="NovaFacts - Explore science, space, physics, artificial intelligence, biology and amazing discoveries.">
-
-<meta name="robots" content="index, follow">
-
-<!-- Google Website Logo Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -65,143 +36,529 @@ Replace XXXXXXXXXXXXXXXX with your actual Publisher ID.
 }
 </script>
 
-
 <style>
 :root {
-  --bg:#fff; --text:#111827; --muted:#64748b;
-  --line:#e5e7eb; --blue:#2563eb; --card:#fff;
+  --bg:#fff;
+  --text:#111827;
+  --muted:#64748b;
+  --line:#e5e7eb;
+  --blue:#2563eb;
+  --card:#fff;
 }
+
 * { box-sizing:border-box; }
+
 html { scroll-behavior:smooth; }
+
 body {
-  margin:0; background:var(--bg); color:var(--text);
-  font-family:Arial,Helvetica,sans-serif; line-height:1.6;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.6;
   transition:background .25s,color .25s;
 }
+
 a { color:inherit; }
 button,input,select { font:inherit; }
 button { cursor:pointer; }
-.wrap { width:min(1100px,92%); margin:auto; }
+
+.wrap {
+  width:min(1100px,92%);
+  margin:auto;
+}
+
 header {
-  position:sticky; top:0; z-index:5;
-  background:var(--bg); border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:5;
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
 }
+
 .nav {
-  display:flex; align-items:center; justify-content:space-between;
-  padding:15px 0; gap:12px; flex-wrap:wrap;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 0;
+  gap:12px;
+  flex-wrap:wrap;
 }
-.brand { font-size:24px; font-weight:900; text-decoration:none; }
-.brand span,.blue { color:var(--blue); }
-nav { display:flex; gap:18px; }
-nav a { text-decoration:none; font-weight:700; font-size:14px; }
+
+.brand {
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  flex-shrink:0;
+}
+
+.brand img {
+  display:block;
+  width:190px;
+  max-width:100%;
+  height:58px;
+  object-fit:contain;
+  object-position:left center;
+}
+
+nav {
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+nav a {
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+}
+
 .theme,.secondary {
-  border:1px solid var(--line); border-radius:11px;
-  background:var(--card); color:var(--text); padding:10px 13px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:var(--card);
+  color:var(--text);
+  padding:10px 13px;
 }
+
 .hero {
   padding:65px 0;
-  background:radial-gradient(circle at 85% 20%,#dbeafe,transparent 38%),
-  linear-gradient(180deg,#f8fbff,#fff);
+  background:
+    radial-gradient(circle at 85% 20%,#dbeafe,transparent 38%),
+    linear-gradient(180deg,#f8fbff,#fff);
 }
+
 .hero-grid {
-  display:grid; grid-template-columns:1fr 1fr;
-  align-items:center; gap:35px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:35px;
 }
+
 .eyebrow {
-  color:var(--blue); font-size:13px; font-weight:900; letter-spacing:2px;
+  color:var(--blue);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:2px;
 }
-h1 { font-size:clamp(42px,6vw,72px); line-height:1.02; margin:18px 0; }
-.lead { color:var(--muted); font-size:18px; max-width:570px; }
-.actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+
+h1 {
+  font-size:clamp(42px,6vw,72px);
+  line-height:1.02;
+  margin:18px 0;
+}
+
+.lead {
+  color:var(--muted);
+  font-size:18px;
+  max-width:570px;
+}
+
+.blue { color:var(--blue); }
+
+.actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
+}
+
 .btn {
-  display:inline-block; text-decoration:none; border:0;
-  border-radius:11px; padding:12px 16px; font-weight:800;
+  display:inline-block;
+  text-decoration:none;
+  border:0;
+  border-radius:11px;
+  padding:12px 16px;
+  font-weight:800;
 }
-.primary { background:var(--blue); color:white; }
+
+.primary {
+  background:var(--blue);
+  color:white;
+}
+
 .space {
-  min-height:290px; border-radius:25px; position:relative;
-  overflow:hidden; display:grid; place-items:center;
+  min-height:290px;
+  border-radius:25px;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
   background:radial-gradient(circle at center,#183a76,#071225 75%);
 }
+
 .planet {
-  width:125px; height:125px; border-radius:50%;
+  width:125px;
+  height:125px;
+  border-radius:50%;
   background:radial-gradient(circle at 30% 25%,#dbeafe,#6096f5 40%,#16366e 75%);
-  box-shadow:0 0 60px #5796ff99; z-index:1;
+  box-shadow:0 0 60px #5796ff99;
+  z-index:1;
 }
+
 .orbit {
-  position:absolute; width:280px; height:110px;
-  border:1px solid #ffffff55; border-radius:50%; transform:rotate(-30deg);
+  position:absolute;
+  width:280px;
+  height:110px;
+  border:1px solid #ffffff55;
+  border-radius:50%;
+  transform:rotate(-30deg);
 }
-.orbit.two { width:330px; height:150px; transform:rotate(30deg); }
-.star { position:absolute; color:white; animation:twinkle 2s infinite alternate; }
-.s1 { top:18%; left:20%; } .s2 { right:20%; top:25%; }
-.s3 { left:25%; bottom:18%; } .s4 { right:25%; bottom:22%; }
-@keyframes twinkle { to { opacity:.25; transform:scale(.7); } }
+
+.orbit.two {
+  width:330px;
+  height:150px;
+  transform:rotate(30deg);
+}
+
+.star {
+  position:absolute;
+  color:white;
+  animation:twinkle 2s infinite alternate;
+}
+
+.s1 {top:18%;left:20%;}
+.s2 {right:20%;top:25%;}
+.s3 {left:25%;bottom:18%;}
+.s4 {right:25%;bottom:22%;}
+
+@keyframes twinkle {
+  to {opacity:.25;transform:scale(.7);}
+}
+
 .section { padding:45px 0; }
+
 .heading { margin-bottom:22px; }
-.heading h2 { font-size:32px; margin:5px 0; }
+
+.heading h2 {
+  font-size:32px;
+  margin:5px 0;
+}
+
 .heading p,.muted { color:var(--muted); }
+
 .ad {
-  min-height:85px; border:1px dashed #cbd5e1; border-radius:13px;
-  margin:25px auto; padding:15px; display:grid; place-items:center;
-  text-align:center; color:#94a3b8; font-size:13px;
+  min-height:85px;
+  border:1px dashed #cbd5e1;
+  border-radius:13px;
+  margin:25px auto;
+  padding:15px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  color:#94a3b8;
+  font-size:13px;
 }
-.controls { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px; }
-.controls input,.controls select {
-  padding:12px; border:1px solid var(--line); border-radius:10px;
-  background:var(--card); color:var(--text); min-width:140px;
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
 }
-.controls input { flex:1; min-width:190px; }
-.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
+
 .card {
-  border:1px solid var(--line); border-radius:16px; overflow:hidden;
-  background:var(--card); display:flex; flex-direction:column;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--card);
+  display:flex;
+  flex-direction:column;
   transition:transform .2s,box-shadow .2s;
 }
-.card:hover { transform:translateY(-4px); box-shadow:0 12px 30px #64748b20; }
+
+.card:hover {
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px #64748b20;
+}
+
 .card-art {
-  height:105px; display:grid; place-items:center; font-size:38px;
+  height:105px;
+  display:grid;
+  place-items:center;
+  font-size:38px;
   background:#eff6ff;
 }
-.card-content { padding:17px; display:flex; flex-direction:column; flex:1; }
-.tag { font-size:11px; font-weight:900; color:var(--blue); text-transform:uppercase; }
-.card h3 { font-size:18px; line-height:1.35; margin:10px 0; }
-.card p { font-size:14px; color:var(--muted); }
-.source { font-size:12px; color:var(--muted); margin-bottom:14px; }
-.read { color:var(--blue); text-decoration:none; font-weight:800; margin-top:auto; }
+
+.card-content {
+  padding:17px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.tag {
+  font-size:11px;
+  font-weight:900;
+  color:var(--blue);
+  text-transform:uppercase;
+}
+
+.card h3 {
+  font-size:18px;
+  line-height:1.35;
+  margin:10px 0;
+}
+
+.card p {
+  font-size:14px;
+  color:var(--muted);
+}
+
+.source {
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+
+.read {
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:800;
+  margin-top:auto;
+}
+
 .empty {
-  grid-column:1/-1; text-align:center; padding:30px;
-  border:1px dashed var(--line); border-radius:12px; color:var(--muted);
+  grid-column:1/-1;
+  text-align:center;
+  padding:30px;
+  border:1px dashed var(--line);
+  border-radius:12px;
+  color:var(--muted);
 }
-.topics { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
-.topic { border:1px solid var(--line); border-radius:14px; padding:17px; text-decoration:none; }
+
+.topics {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+
+.topic {
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:17px;
+  text-decoration:none;
+}
+
 .topic:hover { border-color:var(--blue); }
+
 .topic b { display:block; }
+
 .quiz {
-  background:#111827; color:#fff; border-radius:20px; padding:25px;
-  display:grid; grid-template-columns:1fr 1fr; gap:25px;
+  background:#111827;
+  color:#fff;
+  border-radius:20px;
+  padding:25px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
 }
+
 .quiz p { color:#cbd5e1; }
-.quiz-box { background:#1f2937; border:1px solid #374151; padding:18px; border-radius:14px; }
-.answers { display:grid; gap:9px; }
-.answer {
-  background:#111827; color:#fff; text-align:left; padding:11px;
-  border:1px solid #4b5563; border-radius:9px;
+
+.quiz-box {
+  background:#1f2937;
+  border:1px solid #374151;
+  padding:18px;
+  border-radius:14px;
 }
+
+.answers {
+  display:grid;
+  gap:9px;
+}
+
+.answer {
+  background:#111827;
+  color:#fff;
+  text-align:left;
+  padding:11px;
+  border:1px solid #4b5563;
+  border-radius:9px;
+}
+
 .answer.correct { background:#065f46; }
 .answer.wrong { background:#991b1b; }
 .answer:disabled { cursor:default; }
-.about { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
-.info { border:1px solid var(--line); border-radius:15px; padding:20px; }
-footer { border-top:1px solid var(--line); padding:25px 0; color:var(--muted); font-size:13px; }
-footer a { margin-right:12px; }
-body.dark {
-  --bg:#0b1020; --text:#e5e7eb; --muted:#a7b2c4;
-  --line:#30394b; --card:#111827;
+
+.about {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
 }
-body.dark .hero { background:radial-gradient(circle at 85% 20%,#17294b,transparent 40%),#0b1020; }
+
+.info {
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:20px;
+}
+
+footer {
+  border-top:1px solid var(--line);
+  padding:25px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+footer a { margin-right:12px; }
+
+/* DARK THEME */
+
+body.dark {
+  --bg:#0b1020;
+  --text:#e5e7eb;
+  --muted:#a7b2c4;
+  --line:#30394b;
+  --card:#111827;
+}
+
+body.dark .hero {
+  background:
+    radial-gradient(circle at 85% 20%,#17294b,transparent 40%),
+    #0b1020;
+}
+
 body.dark .card-art { background:#172033; }
 body.dark .ad { background:#111827; }
+
+/* NOVAFACTS AUTOMATIC NEWS */
+
+#nova-news {
+  width:min(1200px,94%);
+  margin:50px auto;
+  color:inherit;
+}
+
+.news-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  margin-bottom:24px;
+}
+
+.news-label {
+  color:#f5a623;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.news-heading h2 {
+  font-size:clamp(26px,4vw,38px);
+  margin:8px 0;
+}
+
+.news-heading p {
+  opacity:.65;
+  margin:0;
+}
+
+#news-refresh {
+  border:1px solid #f5a623;
+  background:#f5a623;
+  color:#151515;
+  padding:12px 20px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:800;
+}
+
+#news-refresh:disabled {
+  opacity:.6;
+  cursor:wait;
+}
+
+.news-toolbar {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:20px 0;
+}
+
+.news-toolbar select {
+  background:var(--card);
+  color:var(--text);
+  border:1px solid var(--line);
+  padding:12px 15px;
+  border-radius:10px;
+  max-width:100%;
+}
+
+#news-status {
+  margin:15px 0;
+  opacity:.75;
+}
+
+.news-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));
+  gap:18px;
+}
+
+.news-card {
+  border:1px solid rgba(150,160,180,.22);
+  background:var(--card);
+  border-radius:17px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  min-height:190px;
+  transition:transform .2s,border-color .2s;
+}
+
+.news-card:hover {
+  transform:translateY(-4px);
+  border-color:#f5a623;
+}
+
+.news-card-top {
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:15px;
+  font-size:12px;
+}
+
+.news-category {
+  color:#d99012;
+  font-weight:800;
+}
+
+.news-language { opacity:.7; }
+
+.news-card h3 {
+  font-size:17px;
+  line-height:1.55;
+  margin:0 0 16px;
+}
+
+.news-meta {
+  font-size:12px;
+  opacity:.65;
+  margin-top:auto;
+  margin-bottom:14px;
+}
+
+.news-read {
+  color:#d99012;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.news-read:hover { text-decoration:underline; }
+
+#news-updated {
+  text-align:center;
+  opacity:.6;
+  font-size:12px;
+  margin-top:24px;
+}
+
+body.dark .news-category,
+body.dark .news-read {
+  color:#f5b942;
+}
+
 @media(max-width:760px) {
   .hero-grid,.quiz { grid-template-columns:1fr; }
   .grid { grid-template-columns:repeat(2,1fr); }
@@ -209,41 +566,37 @@ body.dark .ad { background:#111827; }
   nav { gap:10px; }
   nav a { font-size:12px; }
 }
+
+@media(max-width:600px) {
+  .brand img {
+    width:145px;
+    height:46px;
+  }
+
+  .news-heading {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .news-toolbar select { flex:1; }
+
+  nav a:nth-child(2),
+  nav a:nth-child(3) {
+    display:none;
+  }
+}
+
 @media(max-width:500px) {
   .grid,.about { grid-template-columns:1fr; }
   .topics { grid-template-columns:repeat(2,1fr); }
   .hero { padding:40px 0; }
-  nav a:nth-child(2),nav a:nth-child(3) { display:none; }
-}
-.brand {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-.brand img {
-  display: block;
-  width: 190px;
-  max-width: 100%;
-  height: 58px;
-  object-fit: contain;
-  object-position: left center;
-}
-
-@media (max-width: 600px) {
-  .brand img {
-    width: 145px;
-    height: 46px;
-  }
 }
 </style>
 </head>
 
 <body>
+
 <header>
-
-
   <div class="wrap nav">
 
     <a href="index.html" class="brand">
@@ -261,118 +614,257 @@ body.dark .ad { background:#111827; }
       <a href="black-holes.html">My Explanation</a>
     </nav>
 
-    <button class="theme" id="themeBtn">☾ Theme</button>
+    <button class="theme" id="themeBtn" type="button">☾ Theme</button>
 
   </div>
-
-
 </header>
 
 <main>
+
+<!-- HERO -->
+
 <section class="hero">
   <div class="wrap hero-grid">
+
     <div>
       <div class="eyebrow">SCIENCE · DISCOVERY · KNOWLEDGE</div>
+
       <h1>Discover what's <span class="blue">next.</span></h1>
-      <p class="lead">Explore discoveries in space, physics, artificial intelligence, biology and our changing planet.</p>
+
+      <p class="lead">
+        Explore discoveries in space, physics, artificial intelligence,
+        biology and our changing planet.
+      </p>
+
       <div class="actions">
         <a class="btn primary" href="#discoveries">Explore discoveries ↗</a>
         <a class="btn secondary" href="#quiz">Try the science quiz</a>
       </div>
+
       <p class="muted" id="updatedText">Loading science feed…</p>
     </div>
+
     <div class="space" aria-label="Planet illustration">
-      <span class="star s1">✦</span><span class="star s2">✧</span>
-      <span class="star s3">✦</span><span class="star s4">✧</span>
-      <div class="orbit"></div><div class="orbit two"></div><div class="planet"></div>
+      <span class="star s1">✦</span>
+      <span class="star s2">✧</span>
+      <span class="star s3">✦</span>
+      <span class="star s4">✧</span>
+      <div class="orbit"></div>
+      <div class="orbit two"></div>
+      <div class="planet"></div>
     </div>
+
   </div>
 </section>
 
+<!-- ADVERTISEMENT 1 -->
 
-
-<!-- Advertisement Placement 1 -->
 <div class="wrap">
   <div class="ad">
     <span>Advertisement</span>
   </div>
 </div>
 
+<!-- AUTOMATIC RSS NEWS -->
+
+<section id="nova-news">
+
+  <div class="news-heading">
+    <div>
+      <span class="news-label">LIVE RSS NEWS</span>
+      <h2>Latest News</h2>
+      <p>Science • Space • AI • Nepal • World</p>
+    </div>
+
+    <button id="news-refresh" type="button">
+      ↻ Refresh
+    </button>
+  </div>
+
+  <div class="news-toolbar">
+
+    <select id="news-category" aria-label="Select news category">
+      <option value="All">All Categories</option>
+      <option value="Nepal">🇳🇵 Nepal</option>
+      <option value="World">🌍 World</option>
+      <option value="Science">🔬 Science</option>
+      <option value="Space">🌌 Space</option>
+      <option value="AI">🤖 AI & Technology</option>
+      <option value="Environment">🌱 Environment</option>
+    </select>
+
+    <select id="news-language" aria-label="Select news language">
+      <option value="both">नेपाली + English</option>
+      <option value="ne">नेपाली</option>
+      <option value="en">English</option>
+    </select>
+
+  </div>
+
+  <div id="news-status" aria-live="polite">
+    Loading latest news...
+  </div>
+
+  <div id="news-grid" class="news-grid"></div>
+
+  <div id="news-updated"></div>
+
+</section>
+
+<!-- DISCOVERIES -->
+
 <section class="section" id="discoveries">
   <div class="wrap">
+
     <div class="heading">
-      <span class="tag">AUTOMATIC SCIENCE FEED</span>
-      <h2>Latest discoveries / पछिल्ला खोजहरू</h2>
-      <p>Read science news in English or Nepali.</p>
+      <h2>Explore Discoveries</h2>
+      <p>Explore the fascinating world of science and technology.</p>
     </div>
 
-    <div class="controls">
-      <input id="search" type="search" placeholder="Search space, AI, physics…" aria-label="Search news">
-      <select id="category" aria-label="Filter category">
-        <option value="all">All topics</option>
-        <option>Space</option><option>Physics</option><option>AI</option>
-        <option>Biology</option><option>Earth</option><option>Science</option>
-      </select>
-      <select id="newsLanguage" aria-label="News language">
-        <option value="en">🇬🇧 English</option>
-        <option value="ne">🇳🇵 नेपाली</option>
-      </select>
-      <button class="secondary" id="refresh">↻ Refresh</button>
-    </div>
+    <div class="grid">
 
-    <p class="muted" id="feedStatus" aria-live="polite">Loading news.json…</p>
-    <div class="grid" id="newsGrid">
-      <div class="empty">Loading latest stories…</div>
+      <article class="card">
+        <div class="card-art">🌌</div>
+        <div class="card-content">
+          <span class="tag">ASTRONOMY</span>
+          <h3>Exploring the Universe</h3>
+          <p>Discover galaxies, stars, planets and the mysteries of our universe.</p>
+          <a class="read" href="black-holes.html">Explore more ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-art">⚛️</div>
+        <div class="card-content">
+          <span class="tag">PHYSICS</span>
+          <h3>The Laws of Physics</h3>
+          <p>Learn how gravity, energy and matter shape the natural world.</p>
+          <a class="read" href="#topics">Explore topics ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-art">🤖</div>
+        <div class="card-content">
+          <span class="tag">TECHNOLOGY</span>
+          <h3>Artificial Intelligence</h3>
+          <p>Explore machine learning, robotics and modern AI discoveries.</p>
+          <a class="read" href="#nova-news">Latest technology news ↗</a>
+        </div>
+      </article>
+
     </div>
-    <div class="ad">Advertisement space — optional second ad placement.</div>
   </div>
 </section>
+
+<!-- TOPICS -->
 
 <section class="section" id="topics">
   <div class="wrap">
-    <div class="heading"><h2>Explore by topic</h2><p>Choose a subject to explore.</p></div>
+
+    <div class="heading">
+      <h2>Explore by topic</h2>
+      <p>Choose a subject to explore.</p>
+    </div>
+
     <div class="topics">
-      <a class="topic" href="#discoveries" data-topic="Space">🪐 <b>Space</b><small>Planets and cosmos</small></a>
-      <a class="topic" href="#discoveries" data-topic="Physics">⚛️ <b>Physics</b><small>How nature works</small></a>
-      <a class="topic" href="#discoveries" data-topic="AI">🤖 <b>AI & Tech</b><small>New technology</small></a>
-      <a class="topic" href="#discoveries" data-topic="Biology">🧬 <b>Biology</b><small>Life and health</small></a>
-      <a class="topic" href="#discoveries" data-topic="Earth">🌍 <b>Earth</b><small>Our planet</small></a>
+
+      <a class="topic" href="#nova-news" data-topic="Space">
+        🪐 <b>Space</b>
+        <small>Planets and cosmos</small>
+      </a>
+
+      <a class="topic" href="#nova-news" data-topic="Science">
+        ⚛️ <b>Physics</b>
+        <small>How nature works</small>
+      </a>
+
+      <a class="topic" href="#nova-news" data-topic="AI">
+        🤖 <b>AI & Tech</b>
+        <small>New technology</small>
+      </a>
+
+      <a class="topic" href="#nova-news" data-topic="Science">
+        🧬 <b>Biology</b>
+        <small>Life and health</small>
+      </a>
+
+      <a class="topic" href="#nova-news" data-topic="Environment">
+        🌍 <b>Earth</b>
+        <small>Our planet</small>
+      </a>
+
     </div>
   </div>
 </section>
 
+<!-- SCIENCE QUIZ -->
+
 <section class="section" id="quiz">
   <div class="wrap quiz">
+
     <div>
       <span class="tag">QUICK CHALLENGE</span>
       <h2>Test your curiosity.</h2>
       <p>Answer five science questions and learn something new.</p>
     </div>
+
     <div class="quiz-box">
-      <p>QUESTION <span id="qNumber">1</span>/5 · SCORE <span id="score">0</span></p>
+
+      <p>
+        QUESTION <span id="qNumber">1</span>/5
+        · SCORE <span id="score">0</span>
+      </p>
+
       <h3 id="question">Loading question…</h3>
+
       <div class="answers" id="answers"></div>
+
       <p id="feedback" aria-live="polite"></p>
-      <button class="btn primary" id="next" hidden>Next question →</button>
+
+      <button class="btn primary" id="next" type="button" hidden>
+        Next question →
+      </button>
+
     </div>
   </div>
 </section>
+
+<!-- ABOUT -->
 
 <section class="section" id="about">
   <div class="wrap about">
+
     <div class="info">
       <h2>About NovaFacts</h2>
-      <p class="muted">NovaFacts is an educational science project that helps curious readers explore discoveries. Headlines and summaries link to their original publishers.</p>
+      <p class="muted">
+        NovaFacts is an educational science project that helps curious
+        readers explore discoveries. Headlines link to their original publishers.
+      </p>
     </div>
+
     <div class="info">
       <h2>Read science carefully</h2>
-      <p class="muted">Check original research, publication dates, methods and whether a result is peer-reviewed or preliminary.</p>
+      <p class="muted">
+        Check original research, publication dates, methods and whether
+        a result is peer-reviewed or preliminary.
+      </p>
     </div>
+
   </div>
 </section>
-<div class="wrap"><div class="ad">Advertisement space — optional third placement.</div></div>
+
+<!-- ADVERTISEMENT 2 -->
+
+<div class="wrap">
+  <div class="ad">
+    Advertisement space — optional third placement.
+  </div>
+</div>
+
 </main>
 
+<!-- FOOTER -->
 
 <footer>
   <div class="wrap" style="text-align:center">
@@ -391,11 +883,8 @@ body.dark .ad { background:#111827; }
     </p>
 
     <p>
-      <a href="https://www.nasa.gov/news/"
-         target="_blank" rel="noopener noreferrer">NASA News</a>
-
-      <a href="https://arxiv.org/"
-         target="_blank" rel="noopener noreferrer">arXiv</a>
+      <a href="https://www.nasa.gov/news/" target="_blank" rel="noopener noreferrer">NASA News</a>
+      <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">arXiv</a>
     </p>
 
     <p>Built for curious minds. 🚀</p>
@@ -403,275 +892,442 @@ body.dark .ad { background:#111827; }
   </div>
 </footer>
 
-
 <script>
-const grid = document.getElementById("newsGrid");
-const search = document.getElementById("search");
-const category = document.getElementById("category");
-const languageSelect = document.getElementById("newsLanguage");
-let stories = [];
-let newsLanguage = "en";
-let renderRun = 0;
-const translationCache = new Map();
+"use strict";
 
-const icons = {
-  Space:"🪐", Physics:"⚛️", AI:"🤖",
-  Biology:"🧬", Earth:"🌍", Science:"🔬"
+/* ========================================
+   NOVAFACTS THEME
+======================================== */
+
+const themeBtn = document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  themeBtn.textContent =
+    document.body.classList.contains("dark")
+      ? "☀ Light"
+      : "☾ Theme";
+});
+
+/* ========================================
+   FOOTER YEAR
+======================================== */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+/* ========================================
+   NOVAFACTS RSS NEWS
+   API: /api/news
+   AUTO REFRESH: 60 MINUTES
+======================================== */
+
+const newsGrid = document.getElementById("news-grid");
+const newsStatus = document.getElementById("news-status");
+const newsUpdated = document.getElementById("news-updated");
+
+const categorySelect =
+  document.getElementById("news-category");
+
+const languageSelect =
+  document.getElementById("news-language");
+
+const refreshButton =
+  document.getElementById("news-refresh");
+
+const updatedText =
+  document.getElementById("updatedText");
+
+let allNews = [];
+let newsRequestRunning = false;
+
+const categoryEmoji = {
+  Nepal: "🇳🇵",
+  World: "🌍",
+  Science: "🔬",
+  Space: "🌌",
+  AI: "🤖",
+  Environment: "🌱"
 };
 
-function escapeHTML(value = "") {
-  return String(value).replace(/[&<>"']/g, ch => ({
-    "&":"&amp;", "<":"&lt;", ">":"&gt;",
-    '"':"&quot;", "'":"&#39;"
-  })[ch]);
-}
+function safeDate(value) {
+  if (!value) return "Date unavailable";
 
-function classify(story) {
-  const t = ((story.title || "") + " " + (story.summary || "")).toLowerCase();
-  if (/artificial intelligence|\bai\b|robot|machine learning|technology/.test(t)) return "AI";
-  if (/climate|earth|ocean|wildlife|environment|weather/.test(t)) return "Earth";
-  if (/biology|cell|gene|dna|medical|health|brain|species/.test(t)) return "Biology";
-  if (/physics|quantum|particle|gravity|energy|laser/.test(t)) return "Physics";
-  if (/space|nasa|astronom|planet|galaxy|black hole|moon|mars|cosmos/.test(t)) return "Space";
-  return story.category || "Science";
-}
-
-function dateLabel(value) {
-  if (!value) return "Recent";
   const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? "Recent" :
-    date.toLocaleDateString(undefined, {year:"numeric",month:"short",day:"numeric"});
-}
 
-// Translates text to Nepali. Original story data and URLs remain unchanged.
-async function translateToNepali(text) {
-  const original = String(text || "");
-  if (!original.trim()) return original;
-  if (translationCache.has(original)) return translationCache.get(original);
-
-  try {
-    const endpoint =
-      "https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ne&dt=t&q="
-      + encodeURIComponent(original);
-
-    const response = await fetch(endpoint);
-    if (!response.ok) throw new Error("Translation unavailable");
-
-    const data = await response.json();
-    const translated = Array.isArray(data[0])
-      ? data[0].map(part => part[0] || "").join("")
-      : original;
-
-    translationCache.set(original, translated || original);
-    return translated || original;
-  } catch (error) {
-    return original;
+  if (Number.isNaN(date.getTime())) {
+    return "Date unavailable";
   }
+
+  return date.toLocaleString(undefined, {
+    dateStyle: "medium",
+    timeStyle: "short"
+  });
 }
 
-async function renderNews() {
-  const run = ++renderRun;
-  const q = search.value.trim().toLowerCase();
-  const selected = category.value;
+function renderNews() {
+  const category = categorySelect.value;
+  const language = languageSelect.value;
 
-  const results = stories.filter(s => {
-    const cat = classify(s);
-    const text = `${s.title || ""} ${s.summary || ""} ${s.source || ""}`.toLowerCase();
-    return (selected === "all" || cat === selected) && text.includes(q);
+  const filtered = allNews.filter(item => {
+
+    const categoryMatch =
+      category === "All" ||
+      item.category === category;
+
+    const languageMatch =
+      language === "both" ||
+      item.language === language;
+
+    return categoryMatch && languageMatch;
   });
 
-  if (!results.length) {
-    grid.innerHTML = `<div class="empty">${
-      stories.length === 0
-        ? "No science news available yet. Please refresh later."
-        : "No matching stories. Try another search or topic."
-    }</div>`;
-    document.getElementById("feedStatus").textContent =
-      stories.length === 0 ? "The news feed contains no articles." : "No matching stories.";
+  newsGrid.replaceChildren();
+
+  if (!filtered.length) {
+    newsStatus.textContent =
+      allNews.length
+        ? "No news available in this category or language."
+        : "No news articles are available right now.";
+
     return;
   }
 
-  document.getElementById("feedStatus").textContent =
-    newsLanguage === "ne"
-      ? `नेपाली अनुवाद तयार हुँदैछ… ${results.length} समाचार`
-      : `Showing ${results.length} stories. Visit the original publisher for full details.`;
+  newsStatus.textContent =
+    `${filtered.length} news articles available`;
 
-  grid.innerHTML = results.map((s, index) => {
-    const cat = classify(s);
-    const url = /^https?:\/\//i.test(s.url || "") ? s.url : "#";
+  filtered.forEach(item => {
 
-    return `
-      <article class="card">
-        <div class="card-art">${icons[cat] || "🔬"}</div>
-        <div class="card-content">
-          <span class="tag">${escapeHTML(cat)}</span>
-          <div class="source">${escapeHTML(dateLabel(s.published))}</div>
-          <h3 class="story-title">${escapeHTML(s.title || "Science discovery")}</h3>
-          <p class="story-summary">${escapeHTML(s.summary || "Open the original source for more information.")}</p>
-          <div class="source">
-            ${newsLanguage === "ne" ? "स्रोत: " : "Source: "}
-            ${escapeHTML(s.source || "Publisher")}
-          </div>
-          <a class="read" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">
-            ${newsLanguage === "ne" ? "मूल स्रोत पढ्नुहोस् ↗" : "Read original source ↗"}
-          </a>
-        </div>
-      </article>`;
-  }).join("");
+    const card = document.createElement("article");
+    card.className = "news-card";
 
-  if (newsLanguage === "ne") {
-    const cards = [...grid.querySelectorAll(".card")];
+    const top = document.createElement("div");
+    top.className = "news-card-top";
 
-    await Promise.all(cards.map(async (card, index) => {
-      const story = results[index];
+    const categoryLabel = document.createElement("span");
+    categoryLabel.className = "news-category";
 
-      const [title, summary] = await Promise.all([
-        translateToNepali(story.title || "Science discovery"),
-        translateToNepali(story.summary || "Open the original source for more information.")
-      ]);
+    categoryLabel.textContent =
+      `${categoryEmoji[item.category] || "📰"} ${item.category || "News"}`;
 
-      // Prevent an old translation from changing the current results.
-      if (run !== renderRun || newsLanguage !== "ne") return;
+    const langLabel = document.createElement("span");
+    langLabel.className = "news-language";
 
-      card.querySelector(".story-title").textContent = title;
-      card.querySelector(".story-summary").textContent = summary;
-    }));
+    langLabel.textContent =
+      item.language === "ne" ? "नेपाली" : "English";
 
-    if (run === renderRun && newsLanguage === "ne") {
-      document.getElementById("feedStatus").textContent =
-        `नेपालीमा ${results.length} वटा समाचार देखाइँदै छन्। पूरा विवरणका लागि मूल स्रोत खोल्नुहोस्।`;
+    top.append(categoryLabel, langLabel);
+
+    const title = document.createElement("h3");
+    title.textContent = item.title || "News headline";
+
+    const meta = document.createElement("div");
+    meta.className = "news-meta";
+
+    meta.textContent =
+      `${item.source || "News Source"} • ${safeDate(item.publishedAt)}`;
+
+    const link = document.createElement("a");
+    link.className = "news-read";
+    link.textContent = "Read Full News →";
+
+    // Only allow valid HTTP or HTTPS links.
+    try {
+      const url = new URL(item.link);
+
+      if (url.protocol === "https:" || url.protocol === "http:") {
+        link.href = url.href;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      } else {
+        link.textContent = "Link unavailable";
+      }
+    } catch {
+      link.textContent = "Link unavailable";
     }
-  }
+
+    card.append(top, title, meta, link);
+    newsGrid.appendChild(card);
+  });
 }
 
-async function loadNews() {
-  document.getElementById("feedStatus").textContent = "Checking the science feed…";
+async function loadNews(force = false) {
+
+  if (newsRequestRunning) return;
+
+  newsRequestRunning = true;
+
+  newsStatus.textContent = "Loading latest news...";
+
+  refreshButton.disabled = true;
+  refreshButton.textContent = "Loading...";
 
   try {
-    const response = await fetch("./news.json?time=" + Date.now(), {cache:"no-store"});
-    if (!response.ok) throw new Error("news.json unavailable");
+
+    const endpoint = force
+      ? "/api/news?refresh=1"
+      : "/api/news";
+
+    const response = await fetch(endpoint, {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error("News API error: " + response.status);
+    }
 
     const data = await response.json();
-    stories = Array.isArray(data.articles) ? data.articles : [];
-    stories = stories.map(s => ({...s, category:s.category || classify(s)}));
 
-    await renderNews();
+    if (!Array.isArray(data.items)) {
+      throw new Error("Invalid news API data");
+    }
 
-    const updated = data.updated_at
-      ? new Date(data.updated_at).toLocaleString()
-      : "not updated yet";
+    allNews = data.items;
 
-    document.getElementById("updatedText").textContent = "Last feed update: " + updated;
+    renderNews();
+
+    const updated = safeDate(data.updatedAt);
+
+    newsUpdated.textContent =
+      "Last updated: " + updated;
+
+    updatedText.textContent =
+      "Latest news updated: " + updated;
+
   } catch (error) {
-    document.getElementById("feedStatus").textContent =
-      "News feed unavailable. Check that news.json exists and the website is published.";
-    grid.innerHTML =
-      '<div class="empty">Could not load the feed. Please try again later.</div>';
-    document.getElementById("updatedText").textContent = "Science feed unavailable";
+
+    console.error("NovaFacts News:", error);
+
+    newsStatus.textContent =
+      "Unable to load news. Please try again later.";
+
+    newsGrid.replaceChildren();
+
+    newsUpdated.textContent =
+      "News service is temporarily unavailable.";
+
+    updatedText.textContent =
+      "Science feed unavailable.";
+
+  } finally {
+
+    newsRequestRunning = false;
+
+    refreshButton.disabled = false;
+    refreshButton.textContent = "↻ Refresh";
   }
 }
 
-search.addEventListener("input", renderNews);
-category.addEventListener("change", renderNews);
+/* NEWS FILTERS */
 
-languageSelect.addEventListener("change", event => {
-  newsLanguage = event.target.value;
-  renderNews();
+categorySelect.addEventListener("change", renderNews);
+
+languageSelect.addEventListener("change", renderNews);
+
+/* MANUAL REFRESH */
+
+refreshButton.addEventListener("click", () => {
+  loadNews(true);
 });
 
-document.getElementById("refresh").addEventListener("click", loadNews);
+/* TOPIC SHORTCUTS */
 
 document.querySelectorAll("[data-topic]").forEach(link => {
+
   link.addEventListener("click", () => {
-    category.value = link.dataset.topic;
+
+    categorySelect.value = link.dataset.topic;
+
     renderNews();
   });
+
 });
 
-document.getElementById("themeBtn").addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  document.getElementById("themeBtn").textContent =
-    document.body.classList.contains("dark") ? "☀ Light" : "☾ Theme";
-});
+/* FIRST NEWS LOAD */
 
-document.getElementById("year").textContent = new Date().getFullYear();
+loadNews();
 
-/* Five-question science quiz */
+/* AUTOMATIC REFRESH EVERY 60 MINUTES */
+
+setInterval(() => {
+  loadNews(false);
+}, 60 * 60 * 1000);
+
+/* ========================================
+   FIVE QUESTION SCIENCE QUIZ
+======================================== */
+
 const quiz = [
-  {q:"Which planet is famous for its prominent rings?",
-   a:["Mars","Saturn","Venus","Mercury"],c:1,
-   why:"Saturn's rings contain ice and rocky particles."},
-  {q:"What is the center of an atom called?",
-   a:["Electron","Molecule","Nucleus","Photon"],c:2,
-   why:"The nucleus contains protons and usually neutrons."},
-  {q:"Which star is closest to Earth?",
-   a:["Sirius","The Sun","Polaris","Vega"],c:1,
-   why:"The Sun is our nearest star."},
-  {q:"What does DNA store?",
-   a:["Genetic information","Sound waves","Cloud patterns","Magnetic fields"],c:0,
-   why:"DNA carries genetic instructions."},
-  {q:"Which gas do plants use in photosynthesis?",
-   a:["Oxygen","Helium","Carbon dioxide","Hydrogen"],c:2,
-   why:"Plants use carbon dioxide, water and light to make sugars."}
+
+  {
+    q:"Which planet is famous for its prominent rings?",
+    a:["Mars","Saturn","Venus","Mercury"],
+    c:1,
+    why:"Saturn's rings contain ice and rocky particles."
+  },
+
+  {
+    q:"What is the center of an atom called?",
+    a:["Electron","Molecule","Nucleus","Photon"],
+    c:2,
+    why:"The nucleus contains protons and usually neutrons."
+  },
+
+  {
+    q:"Which star is closest to Earth?",
+    a:["Sirius","The Sun","Polaris","Vega"],
+    c:1,
+    why:"The Sun is our nearest star."
+  },
+
+  {
+    q:"What does DNA store?",
+    a:[
+      "Genetic information",
+      "Sound waves",
+      "Cloud patterns",
+      "Magnetic fields"
+    ],
+    c:0,
+    why:"DNA carries genetic instructions."
+  },
+
+  {
+    q:"Which gas do plants use in photosynthesis?",
+    a:[
+      "Oxygen",
+      "Helium",
+      "Carbon dioxide",
+      "Hydrogen"
+    ],
+    c:2,
+    why:"Plants use carbon dioxide, water and light to make sugars."
+  }
+
 ];
 
-let qi = 0, points = 0, answered = false;
-const questionEl = document.getElementById("question");
-const answersEl = document.getElementById("answers");
-const feedbackEl = document.getElementById("feedback");
-const nextBtn = document.getElementById("next");
+let qi = 0;
+let points = 0;
+let answered = false;
+
+const questionEl =
+  document.getElementById("question");
+
+const answersEl =
+  document.getElementById("answers");
+
+const feedbackEl =
+  document.getElementById("feedback");
+
+const nextBtn =
+  document.getElementById("next");
+
+function escapeHTML(value = "") {
+
+  return String(value).replace(/[&<>"']/g, ch => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  })[ch]);
+
+}
 
 function showQuestion() {
+
   answered = false;
+
   const q = quiz[qi];
 
-  document.getElementById("qNumber").textContent = qi + 1;
-  document.getElementById("score").textContent = points;
+  document.getElementById("qNumber").textContent =
+    qi + 1;
+
+  document.getElementById("score").textContent =
+    points;
+
   questionEl.textContent = q.q;
+
   feedbackEl.textContent = "";
+
   nextBtn.hidden = true;
 
-  answersEl.innerHTML = q.a.map((a,i) =>
-    `<button class="answer" data-index="${i}">${escapeHTML(a)}</button>`
+  answersEl.innerHTML = q.a.map((a, i) =>
+    `<button class="answer" data-index="${i}" type="button">${escapeHTML(a)}</button>`
   ).join("");
 
   answersEl.querySelectorAll("button").forEach(button => {
+
     button.addEventListener("click", () => {
+
       if (answered) return;
+
       answered = true;
+
       const chosen = Number(button.dataset.index);
 
-      answersEl.querySelectorAll("button").forEach((b,i) => {
+      answersEl.querySelectorAll("button").forEach((b, i) => {
+
         b.disabled = true;
-        if (i === q.c) b.classList.add("correct");
-        if (i === chosen && chosen !== q.c) b.classList.add("wrong");
+
+        if (i === q.c) {
+          b.classList.add("correct");
+        }
+
+        if (i === chosen && chosen !== q.c) {
+          b.classList.add("wrong");
+        }
+
       });
 
-      if (chosen === q.c) points++;
-      document.getElementById("score").textContent = points;
+      if (chosen === q.c) {
+        points++;
+      }
+
+      document.getElementById("score").textContent =
+        points;
+
       feedbackEl.textContent =
         (chosen === q.c ? "Correct! " : "Not quite. ") + q.why;
 
       nextBtn.hidden = false;
-      nextBtn.textContent = qi === quiz.length - 1
-        ? "Try again ↻"
-        : "Next question →";
+
+      nextBtn.textContent =
+        qi === quiz.length - 1
+          ? "Try again ↻"
+          : "Next question →";
+
     });
+
   });
+
 }
 
+/* NEXT QUESTION */
+
 nextBtn.addEventListener("click", () => {
+
   if (qi === quiz.length - 1) {
+
     qi = 0;
     points = 0;
+
   } else {
+
     qi++;
+
   }
+
   showQuestion();
+
 });
 
+/* START QUIZ */
+
 showQuestion();
-loadNews();
+
 </script>
+
 </body>
 </html>
