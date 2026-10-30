@@ -34,9 +34,13 @@
     }
   }
 }
+
+
 </script>
 
 <style>
+ 
+
 :root {
   --bg:#fff;
   --text:#111827;
@@ -895,49 +899,21 @@ body.dark .news-read {
 <script>
 "use strict";
 
-/* ========================================
-   NOVAFACTS THEME
-======================================== */
-
-const themeBtn = document.getElementById("themeBtn");
-
-themeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-
-  themeBtn.textContent =
-    document.body.classList.contains("dark")
-      ? "☀ Light"
-      : "☾ Theme";
-});
 
 /* ========================================
-   FOOTER YEAR
-======================================== */
-
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-
-/* ========================================
-   NOVAFACTS RSS NEWS
-   API: /api/news
-   AUTO REFRESH: 60 MINUTES
+   NOVAFACTS RSS NEWS - FIXED
+   Supports: articles / items
+   Auto Refresh: 60 Minutes
 ======================================== */
 
 const newsGrid = document.getElementById("news-grid");
 const newsStatus = document.getElementById("news-status");
 const newsUpdated = document.getElementById("news-updated");
 
-const categorySelect =
-  document.getElementById("news-category");
-
-const languageSelect =
-  document.getElementById("news-language");
-
-const refreshButton =
-  document.getElementById("news-refresh");
-
-const updatedText =
-  document.getElementById("updatedText");
+const categorySelect = document.getElementById("news-category");
+const languageSelect = document.getElementById("news-language");
+const refreshButton = document.getElementById("news-refresh");
+const updatedText = document.getElementById("updatedText");
 
 let allNews = [];
 let newsRequestRunning = false;
@@ -948,7 +924,10 @@ const categoryEmoji = {
   Science: "🔬",
   Space: "🌌",
   AI: "🤖",
-  Environment: "🌱"
+  Environment: "🌱",
+  Earth: "🌍",
+  Biology: "🧬",
+  Physics: "⚛️"
 };
 
 function safeDate(value) {
@@ -967,18 +946,23 @@ function safeDate(value) {
 }
 
 function renderNews() {
-  const category = categorySelect.value;
-  const language = languageSelect.value;
+  if (!newsGrid) return;
+
+  const category = categorySelect?.value || "All";
+  const language = languageSelect?.value || "both";
 
   const filtered = allNews.filter(item => {
-
     const categoryMatch =
       category === "All" ||
-      item.category === category;
+      item.category?.toLowerCase() === category.toLowerCase();
+
+    // Your current API does not provide language.
+    // Therefore, articles without language are treated as English.
+    const articleLanguage = item.language || "en";
 
     const languageMatch =
       language === "both" ||
-      item.language === language;
+      articleLanguage === language;
 
     return categoryMatch && languageMatch;
   });
@@ -987,10 +971,7 @@ function renderNews() {
 
   if (!filtered.length) {
     newsStatus.textContent =
-      allNews.length
-        ? "No news available in this category or language."
-        : "No news articles are available right now.";
-
+      "No news available in this category or language.";
     return;
   }
 
@@ -998,7 +979,6 @@ function renderNews() {
     `${filtered.length} news articles available`;
 
   filtered.forEach(item => {
-
     const card = document.createElement("article");
     card.className = "news-card";
 
@@ -1013,7 +993,6 @@ function renderNews() {
 
     const langLabel = document.createElement("span");
     langLabel.className = "news-language";
-
     langLabel.textContent =
       item.language === "ne" ? "नेपाली" : "English";
 
@@ -1022,21 +1001,31 @@ function renderNews() {
     const title = document.createElement("h3");
     title.textContent = item.title || "News headline";
 
+    const summary = document.createElement("p");
+    summary.textContent = item.summary || "";
+
     const meta = document.createElement("div");
     meta.className = "news-meta";
 
     meta.textContent =
-      `${item.source || "News Source"} • ${safeDate(item.publishedAt)}`;
+      `${item.source || "News Source"} • ${safeDate(
+        item.published || item.publishedAt
+      )}`;
 
     const link = document.createElement("a");
     link.className = "news-read";
     link.textContent = "Read Full News →";
 
-    // Only allow valid HTTP or HTTPS links.
     try {
-      const url = new URL(item.link);
+      const url = new URL(
+        item.url || item.link,
+        window.location.origin
+      );
 
-      if (url.protocol === "https:" || url.protocol === "http:") {
+      if (
+        url.protocol === "https:" ||
+        url.protocol === "http:"
+      ) {
         link.href = url.href;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
@@ -1047,24 +1036,24 @@ function renderNews() {
       link.textContent = "Link unavailable";
     }
 
-    card.append(top, title, meta, link);
+    card.append(top, title, summary, meta, link);
     newsGrid.appendChild(card);
   });
 }
 
 async function loadNews(force = false) {
-
   if (newsRequestRunning) return;
 
   newsRequestRunning = true;
 
   newsStatus.textContent = "Loading latest news...";
 
-  refreshButton.disabled = true;
-  refreshButton.textContent = "Loading...";
+  if (refreshButton) {
+    refreshButton.disabled = true;
+    refreshButton.textContent = "Loading...";
+  }
 
   try {
-
     const endpoint = force
       ? "/api/news?refresh=1"
       : "/api/news";
@@ -1074,79 +1063,97 @@ async function loadNews(force = false) {
     });
 
     if (!response.ok) {
-      throw new Error("News API error: " + response.status);
+      throw new Error("API error: " + response.status);
     }
 
     const data = await response.json();
 
-    if (!Array.isArray(data.items)) {
-      throw new Error("Invalid news API data");
+    // Accept both API formats.
+    const articles = Array.isArray(data.articles)
+      ? data.articles
+      : Array.isArray(data.items)
+        ? data.items
+        : [];
+
+    if (!articles.length) {
+      throw new Error("No articles received from API");
     }
 
-    allNews = data.items;
+    allNews = articles;
 
     renderNews();
 
-    const updated = safeDate(data.updatedAt);
+    const updated = safeDate(
+      data.updated_at || data.updatedAt
+    );
 
-    newsUpdated.textContent =
-      "Last updated: " + updated;
+    if (newsUpdated) {
+      newsUpdated.textContent = "Last updated: " + updated;
+    }
 
-    updatedText.textContent =
-      "Latest news updated: " + updated;
+    if (updatedText) {
+      updatedText.textContent =
+        "Latest news updated: " + updated;
+    }
 
   } catch (error) {
-
-    console.error("NovaFacts News:", error);
+    console.error("NovaFacts News Error:", error);
 
     newsStatus.textContent =
       "Unable to load news. Please try again later.";
 
     newsGrid.replaceChildren();
 
-    newsUpdated.textContent =
-      "News service is temporarily unavailable.";
+    if (newsUpdated) {
+      newsUpdated.textContent =
+        "News service is temporarily unavailable.";
+    }
 
-    updatedText.textContent =
-      "Science feed unavailable.";
+    if (updatedText) {
+      updatedText.textContent = "Science feed unavailable.";
+    }
 
   } finally {
-
     newsRequestRunning = false;
 
-    refreshButton.disabled = false;
-    refreshButton.textContent = "↻ Refresh";
+    if (refreshButton) {
+      refreshButton.disabled = false;
+      refreshButton.textContent = "↻ Refresh";
+    }
   }
 }
 
-/* NEWS FILTERS */
+// Category filter
+categorySelect?.addEventListener("change", renderNews);
 
-categorySelect.addEventListener("change", renderNews);
+// Language filter
+languageSelect?.addEventListener("change", renderNews);
 
-languageSelect.addEventListener("change", renderNews);
-
-/* MANUAL REFRESH */
-
-refreshButton.addEventListener("click", () => {
+// Manual refresh
+refreshButton?.addEventListener("click", () => {
   loadNews(true);
 });
 
-/* TOPIC SHORTCUTS */
-
+// Topic shortcuts
 document.querySelectorAll("[data-topic]").forEach(link => {
-
   link.addEventListener("click", () => {
+    const topic = link.dataset.topic;
 
-    categorySelect.value = link.dataset.topic;
-
-    renderNews();
+    if (categorySelect) {
+      categorySelect.value = topic;
+      renderNews();
+    }
   });
-
 });
 
-/* FIRST NEWS LOAD */
-
+// First load
 loadNews();
+
+// Automatic refresh every 60 minutes
+setInterval(() => {
+  loadNews(false);
+}, 60 * 60 * 1000);
+
 
 /* AUTOMATIC REFRESH EVERY 60 MINUTES */
 
