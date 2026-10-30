@@ -1,14 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="NovaFacts — Science news, space discoveries, AI research and physics.">
-<link rel="icon" type="image/png" href="favicon.png">
+
 <title>NovaFacts — Explore Science, Space and Physics</title>
-<meta name="description" content="Explore science, space, physics, AI, biology, and discoveries through educational articles and quizzes on NovaFacts.">
+
+<meta name="description" content="Explore science, space, physics, artificial intelligence, biology and the latest discoveries through educational articles and quizzes on NovaFacts.">
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sudipbudha23-byte.github.io/NovaFacts/">
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<!--
+GOOGLE ADSENSE
+After receiving your real Publisher ID, paste this inside HEAD:
+
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+crossorigin="anonymous"></script>
+
+Replace XXXXXXXXXXXXXXXX with your actual Publisher ID.
+-->
+
 <style>
 :root {
   --bg:#fff; --text:#111827; --muted:#64748b;
@@ -185,28 +201,30 @@ body.dark .ad { background:#111827; }
 
 <body>
 <header>
-  <a href="index.html" class="brand">
-  <img src="logo.png" alt="NovaFacts Logo">
-</a>
+
+
   <div class="wrap nav">
-    <a class="brand" href="#">✦ Nova<span>Facts</span></a>
+
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="NovaFacts Logo">
+    </a>
+
     <nav>
       <a href="#discoveries">Discoveries</a>
       <a href="#topics">Topics</a>
       <a href="#quiz">Quiz</a>
       <a href="#about">About</a>
-      
-<a href="about.html">About Us</a>
-<a href="contact.html">Contact Us</a>
-<a href="privacy-policy.html">Privacy Policy</a>
-<a href="black-holes.html" class="article-link">
-  🖼️ My Explanation
-</a>
-</a>
-
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="black-holes.html">My Explanation</a>
     </nav>
+
     <button class="theme" id="themeBtn">☾ Theme</button>
+
   </div>
+
+
 </header>
 
 <main>
@@ -230,7 +248,14 @@ body.dark .ad { background:#111827; }
   </div>
 </section>
 
-<div class="wrap"><div class="ad">Advertisement space — add approved AdSense code here later.</div></div>
+
+
+<!-- Advertisement Placement 1 -->
+<div class="wrap">
+  <div class="ad">
+    <span>Advertisement</span>
+  </div>
+</div>
 
 <section class="section" id="discoveries">
   <div class="wrap">
@@ -307,32 +332,36 @@ body.dark .ad { background:#111827; }
 <div class="wrap"><div class="ad">Advertisement space — optional third placement.</div></div>
 </main>
 
-<footer style="text-align: center; padding: 20px;">
-  <p>© 2026 NovaFacts. All rights reserved.</p>
-  <p>
-    <a href="about.html">About Us</a> |
-    <a href="contact.html">Contact Us</a> |
-    <a href="privacy-policy.html">Privacy Policy</a>
-  </p>
-<a href="black-holes.html" class="article-link">
-  🖼️ My Explanation
-  <a href="human-reality.html" class="article-link">
-  🌌 MY VIEW
-</a>
 
-</a>
+<footer>
+  <div class="wrap" style="text-align:center">
 
+    <p>© <span id="year"></span> NovaFacts. All rights reserved.</p>
 
-  
-  <div class="wrap">
-    © <span id="year"></span> NovaFacts · Built for curious minds.
     <p>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="https://www.nasa.gov/news/" target="_blank" rel="noopener">NASA News</a>
-      <a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
     </p>
+
+    <p>
+      <a href="black-holes.html">My Explanation</a>
+      <a href="human-reality.html">My View</a>
+    </p>
+
+    <p>
+      <a href="https://www.nasa.gov/news/"
+         target="_blank" rel="noopener noreferrer">NASA News</a>
+
+      <a href="https://arxiv.org/"
+         target="_blank" rel="noopener noreferrer">arXiv</a>
+    </p>
+
+    <p>Built for curious minds. 🚀</p>
+
   </div>
 </footer>
+
 
 <script>
 const grid = document.getElementById("newsGrid");
