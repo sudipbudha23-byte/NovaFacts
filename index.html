@@ -918,230 +918,208 @@ body.dark .news-read {
    No Cloudflare API required
 ======================================== */
 
+
+/* =========================================
+   NOVAFACTS BILINGUAL NEWS SYSTEM
+   Nepali + English in the SAME news card
+========================================= */
+
+"use strict";
+
 const newsGrid = document.getElementById("news-grid");
 const newsStatus = document.getElementById("news-status");
 const newsUpdated = document.getElementById("news-updated");
+const newsCategory = document.getElementById("news-category");
+const newsLanguage = document.getElementById("news-language");
+const newsRefresh = document.getElementById("news-refresh");
 
-const categorySelect = document.getElementById("news-category");
-const languageSelect = document.getElementById("news-language");
-const refreshButton = document.getElementById("news-refresh");
-const updatedText = document.getElementById("updatedText");
+let allNewsArticles = [];
 
-let allNews = [];
-
-const categoryEmoji = {
-  Nepal: "🇳🇵",
-  World: "🌍",
-  Science: "🔬",
-  Space: "🌌",
-  AI: "🤖",
-  Environment: "🌱",
-  Earth: "🌍",
-  Biology: "🧬",
-  Physics: "⚛️"
-};
-
-function safeDate(value) {
-  if (!value) return "Date unavailable";
-
-  const date = new Date(value);
-
-  if (Number.isNaN(date.getTime())) {
-    return "Date unavailable";
-  }
-
-  return date.toLocaleString();
+function escapeNewsHTML(value) {
+    return String(value || "").replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    })[character]);
 }
 
-// Display news cards
-function renderNews() {
-  if (!newsGrid) return;
-
-  const category = categorySelect?.value || "All";
-  const language = languageSelect?.value || "both";
-
-  const filtered = allNews.filter(item => {
-    const categoryMatch =
-      category === "All" ||
-      item.category?.toLowerCase() === category.toLowerCase();
-
-    // Older news.json articles may not have a language field.
-    const articleLanguage = item.language || "en";
-
-    const languageMatch =
-      language === "both" ||
-      articleLanguage === language;
-
-    return categoryMatch && languageMatch;
-  });
-
-  newsGrid.replaceChildren();
-
-  if (filtered.length === 0) {
-    newsGrid.innerHTML =
-      '<div class="empty">No news available in this category.</div>';
-
-    newsStatus.textContent = "No news found.";
-    return;
-  }
-
-  newsStatus.textContent =
-    `${filtered.length} news articles available`;
-
-  filtered.forEach(item => {
-    const card = document.createElement("article");
-    card.className = "news-card";
-
-    const top = document.createElement("div");
-    top.className = "news-card-top";
-
-    const categoryLabel = document.createElement("span");
-    categoryLabel.className = "news-category";
-
-    categoryLabel.textContent =
-      `${categoryEmoji[item.category] || "📰"} ${item.category || "News"}`;
-
-    const langLabel = document.createElement("span");
-    langLabel.className = "news-language";
-
-    langLabel.textContent =
-      item.language === "ne" ? "नेपाली" : "English";
-
-    top.append(categoryLabel, langLabel);
-
-    const title = document.createElement("h3");
-    title.textContent = item.title || "News headline";
-
-    const summary = document.createElement("p");
-    summary.textContent = item.summary || "";
-
-    const meta = document.createElement("div");
-    meta.className = "news-meta";
-
-    meta.textContent =
-      `${item.source || "News Source"} • ${safeDate(
-        item.published || item.publishedAt
-      )}`;
-
-    const link = document.createElement("a");
-    link.className = "news-read";
-    link.textContent = "Read Full News →";
+async function loadNovaNews() {
+    newsStatus.textContent = "Loading latest news...";
+    newsGrid.innerHTML = "";
 
     try {
-      const articleURL = new URL(
-        item.url || item.link,
-        window.location.origin
-      );
+        const response = await fetch(
+            "/news.json?updated=" + Date.now(),
+            { cache: "no-store" }
+        );
 
-      if (
-        articleURL.protocol === "https:" ||
-        articleURL.protocol === "http:"
-      ) {
-        link.href = articleURL.href;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-      } else {
-        link.textContent = "Link unavailable";
-      }
-    } catch {
-      link.textContent = "Link unavailable";
+        if (!response.ok) {
+            throw new Error("News file could not be loaded.");
+        }
+
+        const data = await response.json();
+
+        allNewsArticles = Array.isArray(data.articles)
+            ? data.articles
+            : [];
+
+        if (!allNewsArticles.length) {
+            newsStatus.textContent = "No news available right now.";
+            return;
+        }
+
+        newsStatus.textContent = "";
+        
+        if (data.updated_at) {
+            const date = new Date(data.updated_at);
+
+            newsUpdated.textContent =
+                "Last updated: " + date.toLocaleString();
+        }
+
+        renderNovaNews();
+
+    } catch (error) {
+        console.error("NovaFacts News Error:", error);
+        newsStatus.textContent =
+            "Unable to load news. Please try again.";
     }
-
-    card.append(top, title, summary, meta, link);
-    newsGrid.appendChild(card);
-  });
 }
 
-// Load news from root news.json
-async function loadNews() {
-  if (!newsGrid) return;
+function renderNovaNews() {
+    const selectedCategory = newsCategory?.value || "All";
+    const selectedLanguage = newsLanguage?.value || "both";
 
-  newsStatus.textContent = "Loading latest news...";
+    const filtered = allNewsArticles.filter(article => {
+        if (
+            selectedCategory !== "All" &&
+            String(article.category || "").toLowerCase() !==
+            selectedCategory.toLowerCase()
+        ) {
+            return false;
+        }
 
-  refreshButton.disabled = true;
-  refreshButton.textContent = "Loading...";
-
-  try {
-    const response = await fetch("/news.json", {
-      cache: "no-store"
+        return true;
     });
 
-    if (!response.ok) {
-      throw new Error("News file error: " + response.status);
+    if (!filtered.length) {
+        newsGrid.innerHTML = "";
+        newsStatus.textContent = "No news found in this category.";
+        return;
     }
 
-    const data = await response.json();
+    newsStatus.textContent = "";
 
-    // Support both JSON formats
-    allNews = Array.isArray(data.articles)
-      ? data.articles
-      : Array.isArray(data.items)
-        ? data.items
-        : [];
+    newsGrid.innerHTML = filtered.map(article => {
+        const englishTitle = article.title || "Untitled";
+        const englishSummary = article.summary || "";
 
-    if (!allNews.length) {
-      throw new Error("No articles found in news.json");
-    }
+        const nepaliTitle = article.title_ne || "";
+        const nepaliSummary = article.summary_ne || "";
 
-    renderNews();
+        let titleHTML = "";
+        let summaryHTML = "";
 
-    const lastUpdated =
-      data.updated_at || data.updatedAt;
+        if (selectedLanguage === "ne") {
+            titleHTML = nepaliTitle
+                ? escapeNewsHTML(nepaliTitle)
+                : "नेपाली अनुवाद उपलब्ध छैन";
 
-    const updated = safeDate(lastUpdated);
+            summaryHTML = nepaliSummary
+                ? escapeNewsHTML(nepaliSummary)
+                : "यस समाचारको नेपाली अनुवाद उपलब्ध छैन।";
 
-    newsUpdated.textContent =
-      "Last updated: " + updated;
+        } else if (selectedLanguage === "en") {
+            titleHTML = escapeNewsHTML(englishTitle);
+            summaryHTML = escapeNewsHTML(englishSummary);
 
-    updatedText.textContent =
-      "Latest news updated: " + updated;
+        } else {
+            titleHTML = `
+                <span class="news-language">नेपाली</span>
+                ${escapeNewsHTML(
+                    nepaliTitle || "नेपाली अनुवाद उपलब्ध छैन"
+                )}
+                <br><br>
+                <span class="news-language">English</span>
+                ${escapeNewsHTML(englishTitle)}
+            `;
 
-  } catch (error) {
-    console.error("NovaFacts News Error:", error);
+            summaryHTML = `
+                <div class="news-nepali">
+                    <span class="news-language">नेपाली विवरण</span>
+                    <p>${escapeNewsHTML(
+                        nepaliSummary || "नेपाली अनुवाद उपलब्ध छैन।"
+                    )}</p>
+                </div>
 
-    newsStatus.textContent =
-      "Unable to load news. Please check news.json.";
+                <div class="news-english">
+                    <span class="news-language">English Summary</span>
+                    <p>${escapeNewsHTML(englishSummary)}</p>
+                </div>
+            `;
+        }
 
-    newsGrid.innerHTML =
-      '<div class="empty">News is temporarily unavailable.</div>';
+        const category = escapeNewsHTML(article.category || "Science");
+        const source = escapeNewsHTML(article.source || "NovaFacts");
+        const date = article.published
+            ? new Date(article.published).toLocaleDateString()
+            : "";
 
-    newsUpdated.textContent =
-      "News file unavailable.";
+        const url = validNewsLink(article.url)
+            ? escapeNewsHTML(article.url)
+            : "#";
 
-    updatedText.textContent =
-      "Science feed unavailable.";
+        return `
+            <article class="news-card">
+                <div class="news-card-top">
+                    <span class="news-category">${category}</span>
+                    <span class="news-meta">${source}</span>
+                </div>
 
-  } finally {
-    refreshButton.disabled = false;
-    refreshButton.textContent = "↻ Refresh";
-  }
+                <h3>${titleHTML}</h3>
+
+                <div class="news-summary">
+                    ${summaryHTML}
+                </div>
+
+                <div class="news-meta">
+                    ${escapeNewsHTML(date)}
+                </div>
+
+                <a
+                    class="news-read"
+                    href="${url}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Read More →
+                </a>
+            </article>
+        `;
+    }).join("");
 }
 
-// Category filter
-categorySelect?.addEventListener("change", renderNews);
-
-// Language filter
-languageSelect?.addEventListener("change", renderNews);
-
-// Manual refresh
-refreshButton?.addEventListener("click", loadNews);
-
-// Topic shortcuts
-document.querySelectorAll("[data-topic]").forEach(link => {
-  link.addEventListener("click", () => {
-    const topic = link.dataset.topic;
-
-    if (categorySelect) {
-      categorySelect.value = topic;
-      renderNews();
+function validNewsLink(url) {
+    try {
+        const parsed = new URL(url);
+        return parsed.protocol === "https:" ||
+               parsed.protocol === "http:";
+    } catch {
+        return false;
     }
-  });
+}
+
+newsCategory?.addEventListener("change", renderNovaNews);
+newsLanguage?.addEventListener("change", renderNovaNews);
+
+newsRefresh?.addEventListener("click", () => {
+    loadNovaNews();
 });
 
-// First load
-loadNews();
+loadNovaNews();
 
-// No automatic refresh for now
 
 
 /* ========================================
