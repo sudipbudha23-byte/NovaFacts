@@ -906,6 +906,12 @@ body.dark .news-read {
    Auto Refresh: 60 Minutes
 ======================================== */
 
+/**************************************************
+ * NOVAFACTS NEWS SYSTEM
+ * Cloudflare Pages API ONLY
+ * API: /api/news
+ **************************************************/
+
 const newsGrid = document.getElementById("news-grid");
 const newsStatus = document.getElementById("news-status");
 const newsUpdated = document.getElementById("news-updated");
@@ -945,6 +951,7 @@ function safeDate(value) {
   });
 }
 
+// Render News Cards
 function renderNews() {
   if (!newsGrid) return;
 
@@ -956,13 +963,9 @@ function renderNews() {
       category === "All" ||
       item.category?.toLowerCase() === category.toLowerCase();
 
-    // Your current API does not provide language.
-    // Therefore, articles without language are treated as English.
-    const articleLanguage = item.language || "en";
-
     const languageMatch =
       language === "both" ||
-      articleLanguage === language;
+      item.language === language;
 
     return categoryMatch && languageMatch;
   });
@@ -993,6 +996,7 @@ function renderNews() {
 
     const langLabel = document.createElement("span");
     langLabel.className = "news-language";
+
     langLabel.textContent =
       item.language === "ne" ? "नेपाली" : "English";
 
@@ -1008,24 +1012,16 @@ function renderNews() {
     meta.className = "news-meta";
 
     meta.textContent =
-      `${item.source || "News Source"} • ${safeDate(
-        item.published || item.publishedAt
-      )}`;
+      `${item.source || "News Source"} • ${safeDate(item.publishedAt)}`;
 
     const link = document.createElement("a");
     link.className = "news-read";
     link.textContent = "Read Full News →";
 
     try {
-      const url = new URL(
-        item.url || item.link,
-        window.location.origin
-      );
+      const url = new URL(item.link);
 
-      if (
-        url.protocol === "https:" ||
-        url.protocol === "http:"
-      ) {
+      if (url.protocol === "https:") {
         link.href = url.href;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
@@ -1041,12 +1037,15 @@ function renderNews() {
   });
 }
 
+// Load News from Cloudflare API
 async function loadNews(force = false) {
   if (newsRequestRunning) return;
 
   newsRequestRunning = true;
 
-  newsStatus.textContent = "Loading latest news...";
+  if (newsStatus) {
+    newsStatus.textContent = "Loading latest news...";
+  }
 
   if (refreshButton) {
     refreshButton.disabled = true;
@@ -1059,33 +1058,29 @@ async function loadNews(force = false) {
       : "/api/news";
 
     const response = await fetch(endpoint, {
-      cache: "no-store"
+      method: "GET",
+      cache: "no-store",
+      headers: {
+        Accept: "application/json"
+      }
     });
-
-    if (!response.ok) {
-      throw new Error("API error: " + response.status);
-    }
 
     const data = await response.json();
 
-    // Accept both API formats.
-    const articles = Array.isArray(data.articles)
-      ? data.articles
-      : Array.isArray(data.items)
-        ? data.items
-        : [];
-
-    if (!articles.length) {
-      throw new Error("No articles received from API");
+    if (!response.ok) {
+      throw new Error(data.error || "API error: " + response.status);
     }
 
-    allNews = articles;
+    // Cloudflare API uses items
+    if (!Array.isArray(data.items)) {
+      throw new Error("Invalid Cloudflare API response");
+    }
+
+    allNews = data.items;
 
     renderNews();
 
-    const updated = safeDate(
-      data.updated_at || data.updatedAt
-    );
+    const updated = safeDate(data.updatedAt);
 
     if (newsUpdated) {
       newsUpdated.textContent = "Last updated: " + updated;
@@ -1099,10 +1094,14 @@ async function loadNews(force = false) {
   } catch (error) {
     console.error("NovaFacts News Error:", error);
 
-    newsStatus.textContent =
-      "Unable to load news. Please try again later.";
+    if (newsStatus) {
+      newsStatus.textContent =
+        "Unable to load news. Please try again later.";
+    }
 
-    newsGrid.replaceChildren();
+    if (newsGrid) {
+      newsGrid.replaceChildren();
+    }
 
     if (newsUpdated) {
       newsUpdated.textContent =
@@ -1154,12 +1153,6 @@ setInterval(() => {
   loadNews(false);
 }, 60 * 60 * 1000);
 
-
-/* AUTOMATIC REFRESH EVERY 60 MINUTES */
-
-setInterval(() => {
-  loadNews(false);
-}, 60 * 60 * 1000);
 
 /* ========================================
    FIVE QUESTION SCIENCE QUIZ
