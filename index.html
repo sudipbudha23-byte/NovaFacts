@@ -912,6 +912,12 @@ body.dark .news-read {
  * API: /api/news
  **************************************************/
 
+/* ========================================
+   NOVAFACTS NEWS
+   Simple news.json system
+   No Cloudflare API required
+======================================== */
+
 const newsGrid = document.getElementById("news-grid");
 const newsStatus = document.getElementById("news-status");
 const newsUpdated = document.getElementById("news-updated");
@@ -922,7 +928,6 @@ const refreshButton = document.getElementById("news-refresh");
 const updatedText = document.getElementById("updatedText");
 
 let allNews = [];
-let newsRequestRunning = false;
 
 const categoryEmoji = {
   Nepal: "🇳🇵",
@@ -945,13 +950,10 @@ function safeDate(value) {
     return "Date unavailable";
   }
 
-  return date.toLocaleString(undefined, {
-    dateStyle: "medium",
-    timeStyle: "short"
-  });
+  return date.toLocaleString();
 }
 
-// Render News Cards
+// Display news cards
 function renderNews() {
   if (!newsGrid) return;
 
@@ -963,18 +965,23 @@ function renderNews() {
       category === "All" ||
       item.category?.toLowerCase() === category.toLowerCase();
 
+    // Older news.json articles may not have a language field.
+    const articleLanguage = item.language || "en";
+
     const languageMatch =
       language === "both" ||
-      item.language === language;
+      articleLanguage === language;
 
     return categoryMatch && languageMatch;
   });
 
   newsGrid.replaceChildren();
 
-  if (!filtered.length) {
-    newsStatus.textContent =
-      "No news available in this category or language.";
+  if (filtered.length === 0) {
+    newsGrid.innerHTML =
+      '<div class="empty">No news available in this category.</div>';
+
+    newsStatus.textContent = "No news found.";
     return;
   }
 
@@ -1012,17 +1019,25 @@ function renderNews() {
     meta.className = "news-meta";
 
     meta.textContent =
-      `${item.source || "News Source"} • ${safeDate(item.publishedAt)}`;
+      `${item.source || "News Source"} • ${safeDate(
+        item.published || item.publishedAt
+      )}`;
 
     const link = document.createElement("a");
     link.className = "news-read";
     link.textContent = "Read Full News →";
 
     try {
-      const url = new URL(item.link);
+      const articleURL = new URL(
+        item.url || item.link,
+        window.location.origin
+      );
 
-      if (url.protocol === "https:") {
-        link.href = url.href;
+      if (
+        articleURL.protocol === "https:" ||
+        articleURL.protocol === "http:"
+      ) {
+        link.href = articleURL.href;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
       } else {
@@ -1037,88 +1052,68 @@ function renderNews() {
   });
 }
 
-// Load News from Cloudflare API
-async function loadNews(force = false) {
-  if (newsRequestRunning) return;
+// Load news from root news.json
+async function loadNews() {
+  if (!newsGrid) return;
 
-  newsRequestRunning = true;
+  newsStatus.textContent = "Loading latest news...";
 
-  if (newsStatus) {
-    newsStatus.textContent = "Loading latest news...";
-  }
-
-  if (refreshButton) {
-    refreshButton.disabled = true;
-    refreshButton.textContent = "Loading...";
-  }
+  refreshButton.disabled = true;
+  refreshButton.textContent = "Loading...";
 
   try {
-    const endpoint = force
-      ? "/api/news?refresh=1"
-      : "/api/news";
-
-    const response = await fetch(endpoint, {
-      method: "GET",
-      cache: "no-store",
-      headers: {
-        Accept: "application/json"
-      }
+    const response = await fetch("/news.json", {
+      cache: "no-store"
     });
+
+    if (!response.ok) {
+      throw new Error("News file error: " + response.status);
+    }
 
     const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error(data.error || "API error: " + response.status);
-    }
+    // Support both JSON formats
+    allNews = Array.isArray(data.articles)
+      ? data.articles
+      : Array.isArray(data.items)
+        ? data.items
+        : [];
 
-    // Cloudflare API uses items
-    if (!Array.isArray(data.items)) {
-      throw new Error("Invalid Cloudflare API response");
+    if (!allNews.length) {
+      throw new Error("No articles found in news.json");
     }
-
-    allNews = data.items;
 
     renderNews();
 
-    const updated = safeDate(data.updatedAt);
+    const lastUpdated =
+      data.updated_at || data.updatedAt;
 
-    if (newsUpdated) {
-      newsUpdated.textContent = "Last updated: " + updated;
-    }
+    const updated = safeDate(lastUpdated);
 
-    if (updatedText) {
-      updatedText.textContent =
-        "Latest news updated: " + updated;
-    }
+    newsUpdated.textContent =
+      "Last updated: " + updated;
+
+    updatedText.textContent =
+      "Latest news updated: " + updated;
 
   } catch (error) {
     console.error("NovaFacts News Error:", error);
 
-    if (newsStatus) {
-      newsStatus.textContent =
-        "Unable to load news. Please try again later.";
-    }
+    newsStatus.textContent =
+      "Unable to load news. Please check news.json.";
 
-    if (newsGrid) {
-      newsGrid.replaceChildren();
-    }
+    newsGrid.innerHTML =
+      '<div class="empty">News is temporarily unavailable.</div>';
 
-    if (newsUpdated) {
-      newsUpdated.textContent =
-        "News service is temporarily unavailable.";
-    }
+    newsUpdated.textContent =
+      "News file unavailable.";
 
-    if (updatedText) {
-      updatedText.textContent = "Science feed unavailable.";
-    }
+    updatedText.textContent =
+      "Science feed unavailable.";
 
   } finally {
-    newsRequestRunning = false;
-
-    if (refreshButton) {
-      refreshButton.disabled = false;
-      refreshButton.textContent = "↻ Refresh";
-    }
+    refreshButton.disabled = false;
+    refreshButton.textContent = "↻ Refresh";
   }
 }
 
@@ -1129,9 +1124,7 @@ categorySelect?.addEventListener("change", renderNews);
 languageSelect?.addEventListener("change", renderNews);
 
 // Manual refresh
-refreshButton?.addEventListener("click", () => {
-  loadNews(true);
-});
+refreshButton?.addEventListener("click", loadNews);
 
 // Topic shortcuts
 document.querySelectorAll("[data-topic]").forEach(link => {
@@ -1148,10 +1141,7 @@ document.querySelectorAll("[data-topic]").forEach(link => {
 // First load
 loadNews();
 
-// Automatic refresh every 60 minutes
-setInterval(() => {
-  loadNews(false);
-}, 60 * 60 * 1000);
+// No automatic refresh for now
 
 
 /* ========================================
