@@ -1,46 +1,390 @@
 {
-  "updated_at": "2026-10-29T09:51:49.918950+00:00",
+  "updated_at": "2026-10-30T05:09:55.772615+00:00",
   "article_count": 60,
   "articles": [
     {
-      "title": "Philippine island fights rising seas with nature, not concrete",
-      "summary": "For years, residents of a flood-prone Philippine island north of Manila have elevated their homes atop layer upon layer of concrete, only to see floodwaters threaten them again.",
-      "url": "https://phys.org/news/2026-10-philippine-island-seas-nature-concrete.html",
+      "title": "Small molecular twists may strengthen nature's magnetic compass",
+      "summary": "A collaborative research team led by Yasuhiro Kobori at Kobe University, together with researchers from Toho University, Saitama University, Nagoya Institute of Technology and the University of Freiburg, has identified a potential molecular mechanism that could enhance magnetic compass responses in cryptochrome, a blue-light-sensitive protein implicated in magnetoreception.",
+      "url": "https://phys.org/news/2026-10-small-molecular-nature-magnetic-compass.html",
       "source": "Phys.org",
       "category": "Science",
-      "published": "2026-10-29T09:23:55+00:00"
+      "published": "2026-10-30T05:00:01+00:00"
     },
     {
-      "title": "Why the WHO must declare climate change a public health emergency",
-      "summary": "Across the world, people have felt the impacts of climate change firsthand. The Northern Hemisphere has had another record-breaking summer season of heat and extreme weather events. The Southern Hemisphere now faces a summer of heat waves, flooding, wildfires and droughts. This is driven by decades of climate change, now supercharged by an unprecedented El Niño—the warm phase of the El Niño Southern Oscillation, w...",
-      "url": "https://phys.org/news/2026-10-declare-climate-health-emergency.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-10-29T08:55:47+00:00"
-    },
-    {
-      "title": "End of COVID-era SNAP emergency food assistance linked to increased child maltreatment rates",
-      "summary": "A new study has found that in U.S. counties that ended COVID-19 pandemic-era Supplemental Nutrition Assistance Program (SNAP) Emergency Allotments, child maltreatment rates went up. The findings from the study in the American Journal of Preventive Medicine suggest that changes to food assistance programs have consequences that extend beyond food security and also affect child and family well-being.",
-      "url": "https://phys.org/news/2026-10-covid-era-snap-emergency-food.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-29T04:10:01+00:00"
-    },
-    {
-      "title": "APOD: 29 October 2026 – The Horns of Venus",
-      "summary": "APOD Science APOD APOD: 29 October 2026 – The… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss   APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. The Horns [&#8230;]",
-      "url": "https://science.nasa.gov/image-article/apod-29-october-2026-the-horns-of-venus/",
+      "title": "APOD: 2026 October 30 – Haunting the Cepheus Flare",
+      "summary": "APOD Science APOD APOD: 2026 October 30 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss   APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Haunting the Cepheus [&#8230;]",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-30-haunting-the-cepheus-flare/",
       "source": "NASA",
       "category": "Space",
-      "published": "2026-10-29T04:05:00+00:00"
+      "published": "2026-10-30T04:05:00+00:00"
     },
     {
-      "title": "Arnab Strikes India",
-      "summary": "The first named storm of the North Indian Ocean’s cyclone season made landfall along the coast of Andhra Pradesh.",
-      "url": "https://science.nasa.gov/earth/earth-observatory/arnab-strikes-india/",
+      "title": "Vega Island Frozen in Fright",
+      "summary": "The sight of an icy skull-like visage on the Antarctic island could make one’s blood run cold.",
+      "url": "https://science.nasa.gov/earth/earth-observatory/vega-island-frozen-in-fright/",
+      "source": "NASA",
+      "category": "Space",
+      "published": "2026-10-30T04:01:00+00:00"
+    },
+    {
+      "title": "Space station experiment to probe plant disease risks for future moon and Mars missions",
+      "summary": "As NASA and its partners prepare for longer human missions beyond Earth, University of Florida researchers are investigating a challenge that could affect astronauts' ability to grow fresh food in space: plant disease.",
+      "url": "https://phys.org/news/2026-10-space-station-probe-disease-future.html",
+      "source": "Phys.org",
+      "category": "Earth",
+      "published": "2026-10-30T03:00:01+00:00"
+    },
+    {
+      "title": "Restoration efforts are working, but we need to move faster to meet targets, says U.N. report",
+      "summary": "A U.N. report finds that 252 million hectares (ha) (623 million acres) across 149 countries are being restored, creating more than 1 million green jobs—the largest documented global restoration effort to date.",
+      "url": "https://phys.org/news/2026-10-efforts-faster.html",
+      "source": "Phys.org",
+      "category": "Science",
+      "published": "2026-10-30T02:40:01+00:00"
+    },
+    {
+      "title": "Lab-aged microplastics enable tests of interactions with contaminants",
+      "summary": "A newly published study advances our knowledge of how microplastics may age in the environment and whether they stick to other contaminants as they do so. Microplastics (MPs) are tiny plastic pieces that measure less than 5 millimeters (about 0.2 inches) in length. The study looked at the aging of MPs made of three common polymer chemicals—polyethylene, polyethylene terephthalate and polypropylene—to see if they c...",
+      "url": "https://phys.org/news/2026-10-lab-aged-microplastics-enable-interactions.html",
+      "source": "Phys.org",
+      "category": "Earth",
+      "published": "2026-10-30T02:20:01+00:00"
+    },
+    {
+      "title": "New AI tool helps scientists identify bacteria hidden in soil",
+      "summary": "A handful of soil holds a crowded world of bacteria, fungi and other organisms. Scientists can collect their DNA, but much of it remains difficult to identify. Now, researchers at the Hebrew University of Jerusalem and partner institutions have developed an artificial intelligence tool that helps make sense of this genetic puzzle.",
+      "url": "https://phys.org/news/2026-10-ai-tool-scientists-bacteria-hidden.html",
+      "source": "Phys.org",
+      "category": "AI",
+      "published": "2026-10-30T02:00:02+00:00"
+    },
+    {
+      "title": "Television gains ground in streaming platform era, study shows",
+      "summary": "A University of Alicante (UA) study of 325 fiction series released in Spain between 2020 and 2024 has concluded that video-on-demand (VOD) platforms have not replaced traditional television. Instead, the two distribution models are developing new ways of collaborating and sharing content.",
+      "url": "https://phys.org/news/2026-10-television-gains-ground-streaming-platform.html",
+      "source": "Phys.org",
+      "category": "Science",
+      "published": "2026-10-30T01:40:01+00:00"
+    },
+    {
+      "title": "New X-ray method isolates faint signals from water at material surfaces",
+      "summary": "A research team from Toyohashi University of Technology, the Institute for Molecular Science and the Institute of Science Tokyo, led by Yu Kinjo and professor Ryugo Tero of Toyohashi University of Technology, has developed a new method to investigate the state of water near material surfaces using X-rays. By combining X-ray absorption spectroscopy with data analysis, the researchers separated the weak signals of i...",
+      "url": "https://phys.org/news/2026-10-ray-method-isolates-faint-material.html",
+      "source": "Phys.org",
+      "category": "Science",
+      "published": "2026-10-30T01:20:01+00:00"
+    },
+    {
+      "title": "New travel tool combines three algorithms to tailor destination recommendations",
+      "summary": "Researchers have developed a tourist recommendation system combining three algorithms to help travelers find destinations suited to their preferences, budgets and travel routes. Details appear in the International Journal of Work Innovation and address a limitation of digital platforms that often prioritize popularity over practical considerations.",
+      "url": "https://phys.org/news/2026-10-tool-combines-algorithms-tailor-destination.html",
+      "source": "Phys.org",
+      "category": "Science",
+      "published": "2026-10-30T01:00:04+00:00"
+    },
+    {
+      "title": "NASA's new UV space telescope will launch in 2031",
+      "summary": "Most of us could spend our entire lives looking at the night sky and see very few changes. The moon becomes more or less illuminated, the planets drift placidly through the sky, satellites and the ISS intrude for a few moments at a time, and the bright, momentary streak of a meteor punctuates the occasional evening of stargazing.",
+      "url": "https://phys.org/news/2026-10-nasa-uv-space-telescope.html",
+      "source": "Phys.org",
+      "category": "Space",
+      "published": "2026-10-30T00:40:01+00:00"
+    },
+    {
+      "title": "Study: Partisan ties shape how voters view campaign AI",
+      "summary": "As political campaigns increasingly use artificial intelligence to communicate with voters, questions arise about how the technology influences perceptions of election fairness and trust.",
+      "url": "https://phys.org/news/2026-10-partisan-voters-view-campaign-ai.html",
+      "source": "Phys.org",
+      "category": "AI",
+      "published": "2026-10-30T00:20:01+00:00"
+    },
+    {
+      "title": "Map Showing Potential Origins of Martian Meteorite Teghaza 001",
+      "summary": "Description This global map of Mars shows 13 locations that match the mineralogy and chemistry of Teghaza 001, one of the most ancient Martian meteorites ever found on Earth. While scientists can never know for sure where a Martian meteorite originated, Teghaza 001 includes clues that link it to highlands in the southern hemisphere of […]",
+      "url": "https://science.nasa.gov/photojournal/map-showing-potential-origins-of-martian-meteorite-teghaza-001/",
       "source": "NASA",
       "category": "Earth",
-      "published": "2026-10-29T04:01:00+00:00"
+      "published": "2026-10-30T00:07:39+00:00"
+    },
+    {
+      "title": "Keeping one eye open: Veterinarian applies unique treatment to preserve dog's eyesight",
+      "summary": "Aparna Shah teaches Virginia Tech students how the human eye turns light into sight. In May, she saw her dog lose his.",
+      "url": "https://phys.org/news/2026-10-eye-veterinarian-unique-treatment-dog.html",
+      "source": "Phys.org",
+      "category": "Science",
+      "published": "2026-10-30T00:00:01+00:00"
+    },
+    {
+      "title": "Evolutionary changes in key enzyme may help bacteria make proteins faster",
+      "summary": "Evolutionary changes in a key protein synthesis enzyme, isoleucyl-tRNA synthetase (IleRS), may help bacteria fine-tune how quickly proteins are made, report researchers from Institute of Science Tokyo, Japan; the University of Zagreb Faculty of Science, Croatia; and ETH Zürich, Switzerland.",
+      "url": "https://phys.org/news/2026-10-evolutionary-key-enzyme-bacteria-proteins.html",
+      "source": "Phys.org",
+      "category": "Science",
+      "published": "2026-10-29T23:40:05+00:00"
+    },
+    {
+      "title": "Using machine learning to build safer cities",
+      "summary": "In eThekwini, researchers have harnessed machine learning and satellite data to spot the city's most landslide-prone zones. A new study published in Scientific Reports has found that urban development activities, including road construction, property development and vegetation loss, are significantly increasing landslide susceptibility across parts of eThekwini.",
+      "url": "https://phys.org/news/2026-10-machine-safer-cities.html",
+      "source": "Phys.org",
+      "category": "AI",
+      "published": "2026-10-29T23:40:01+00:00"
+    },
+    {
+      "title": "Slice of Martian Meteorite Teghaza 001",
+      "summary": "Description This slice of Teghaza 001, one of the most ancient Martian meteorites ever found on Earth, was used to determine the age of the rock. Reflected light images like these serve as a scientist’s road map, helping them find minerals of interest to analyze by different instruments. Figure A is the same image with […]",
+      "url": "https://science.nasa.gov/photojournal/slice-of-martian-meteorite-teghaza-001/",
+      "source": "NASA",
+      "category": "Earth",
+      "published": "2026-10-29T23:32:35+00:00"
+    },
+    {
+      "title": "How ancient insect-eating diets could inspire more sustainable food systems",
+      "summary": "New research from Durham University highlights how insects have been part of human diets for thousands of years despite seeming unusual to many people.",
+      "url": "https://phys.org/news/2026-10-ancient-insect-diets-sustainable-food.html",
+      "source": "Phys.org",
+      "category": "Science",
+      "published": "2026-10-29T23:30:08+00:00"
+    },
+    {
+      "title": "Rare 4.1-billion-year-old Martian meteorite reveals clues to planet's ancient past",
+      "summary": "Scientists at the University of New Mexico have played a key role in identifying a rare, 4.1-billion-year-old Martian meteorite that provides new evidence that the red planet may have once had a wetter, Earth-like environment.",
+      "url": "https://phys.org/news/2026-10-rare-billion-year-martian-meteorite.html",
+      "source": "Phys.org",
+      "category": "Earth",
+      "published": "2026-10-29T23:30:05+00:00"
+    },
+    {
+      "title": "Electrical guardrails for charge carriers: A new approach to harness graphene for solar cells",
+      "summary": "Graphene is a single layer of carbon atoms in which electrons can move with high mobility, making it promising for high-speed electronic components. Yet it is not very efficient at converting light into electricity. While light absorbed by graphene does excite electrons, leaving behind positively charged carriers called 'holes,' the absorbed light energy cannot be harnessed effectively unless electrons and holes a...",
+      "url": "https://phys.org/news/2026-10-electrical-guardrails-carriers-approach-harness.html",
+      "source": "Phys.org",
+      "category": "Biology",
+      "published": "2026-10-29T23:20:01+00:00"
+    },
+    {
+      "title": "Faraway tectonic forces may have accelerated the Gulf of California rifting",
+      "summary": "When the Baja California peninsula broke from mainland Mexico nearly 12 million years ago, it gave rise to the Gulf of California. New research suggests that this process of continental rifting was greatly accelerated due to tectonic forces on the opposite side of the Pacific Ocean.",
+      "url": "https://phys.org/news/2026-10-faraway-tectonic-gulf-california-rifting.html",
+      "source": "Phys.org",
+      "category": "Earth",
+      "published": "2026-10-29T23:10:02+00:00"
+    },
+    {
+      "title": "Simplified ancestral enzyme makes ATP without amino acid needed for its usual reaction",
+      "summary": "Proteins perform essential functions in living organisms, from catalyzing biochemical reactions to supporting cellular energy metabolism. Their functions depend on their amino acid composition and three-dimensional structures. However, early proteins may have evolved when fewer amino acid types were available than those used by most modern proteins.",
+      "url": "https://phys.org/news/2026-10-ancestral-enzyme-atp-amino-acid.html",
+      "source": "Phys.org",
+      "category": "Biology",
+      "published": "2026-10-29T23:00:06+00:00"
+    },
+    {
+      "title": "New calculations reveal hidden pathways that let chemical reactions produce different products",
+      "summary": "Chemical reactions are often understood as molecules crossing a high-energy saddle point, known as a transition state, before following a downhill pathway toward a product. Conventional quantum chemical calculations typically trace this single pathway to determine how a reaction proceeds.",
+      "url": "https://phys.org/news/2026-10-reveal-hidden-pathways-chemical-reactions.html",
+      "source": "Phys.org",
+      "category": "Physics",
+      "published": "2026-10-29T23:00:01+00:00"
+    },
+    {
+      "title": "Asteroids venturing near white dwarfs don't break directly into dust, study reveals",
+      "summary": "When asteroids travel too close to white dwarfs, the dense remnants of stars that have exhausted their nuclear fuel, powerful gravitational forces can tear them apart. However, new research from Planetary Science Institute (PSI) suggests that these asteroids don't immediately break into dust. Instead, most of the mass initially remains in larger fragments, revealing a previously overlooked step in how debris forms...",
+      "url": "https://phys.org/news/2026-10-asteroids-venturing-white-dwarfs-dont.html",
+      "source": "Phys.org",
+      "category": "Space",
+      "published": "2026-10-29T22:50:01+00:00"
+    },
+    {
+      "title": "Sex after baby: How childhood trauma can get in the way",
+      "summary": "Why do some parents have more sexual difficulties than others after having a baby? Childhood trauma plays a significant role, amplifying the other factors at play.",
+      "url": "https://phys.org/news/2026-10-sex-baby-childhood-trauma.html",
+      "source": "Phys.org",
+      "category": "Science",
+      "published": "2026-10-29T22:40:05+00:00"
+    },
+    {
+      "title": "Measuring multiple reactions on a single electrode with extraordinary sensitivity",
+      "summary": "A reaction on a single electrode can tell scientists a remarkable amount about the chemical nature and number of analytes involved. The challenge comes when they want to distinguish many reactions on the same electrode. After more than a decade of trying to overcome that limitation, Ravi Saraf and his Nebraska Engineering graduate students have demonstrated a way to quantify many reactions on the same electrode wi...",
+      "url": "https://phys.org/news/2026-10-multiple-reactions-electrode-extraordinary-sensitivity.html",
+      "source": "Phys.org",
+      "category": "Science",
+      "published": "2026-10-29T22:40:01+00:00"
+    },
+    {
+      "title": "A protein that regulates mRNA decoding can itself be regulated with implications for understanding cancer",
+      "summary": "Decoding of messenger RNA (mRNA) occurs during translation, the vital cellular process that builds proteins. Errors in this process are known to lead to cancer growth. Scientists at St. Jude Children's Research Hospital identified how one factor involved in mRNA decoding can be altered, identifying potential cancer origins and new targets for KRAS-related treatment resistance. The results are published in Nature C...",
+      "url": "https://phys.org/news/2026-10-protein-mrna-decoding-implications-cancer.html",
+      "source": "Phys.org",
+      "category": "Biology",
+      "published": "2026-10-29T22:30:06+00:00"
+    },
+    {
+      "title": "Researchers observe the arrival of El Niño in Monterey Bay",
+      "summary": "For more than 30 years, MBARI technology has recorded real-time data about Monterey Bay, from oceanographic conditions at the surface to biological surveys in the depths of Monterey Canyon. These data are integral to understanding our changing ocean and underpin the institute's efforts to monitor the impacts of the incoming El Niño, which has been predicted to be among the strongest since the beginning of modern o...",
+      "url": "https://phys.org/news/2026-10-el-nio-monterey-bay.html",
+      "source": "Phys.org",
+      "category": "Earth",
+      "published": "2026-10-29T22:30:01+00:00"
+    },
+    {
+      "title": "Waves alter Antarctic polynyas by breaking up surrounding sea ice",
+      "summary": "Polynyas are one of Antarctica's great counterintuitive features: recurring areas of open water surrounded by vast expanses of sea ice. These unusual environments are hot spots for sea-ice production, ocean–atmosphere exchange and biological productivity. They are commonly maintained by powerful winds that push newly formed ice away from the coast, repeatedly exposing the ocean to the freezing Antarctic atmosphere.",
+      "url": "https://phys.org/news/2026-10-antarctic-polynyas-sea-ice.html",
+      "source": "Phys.org",
+      "category": "Earth",
+      "published": "2026-10-29T22:20:02+00:00"
+    },
+    {
+      "title": "Chemical recycling turns silicone waste into reusable building blocks with up to 99% yield",
+      "summary": "Silicones are widely used in industry, medicine and everyday products due to their exceptional thermal and chemical stability. However, it is precisely these properties that have made recycling silicones extremely problematic in the past. Researchers at the Institute of Chemistry at TU Berlin have now succeeded in breaking down the polymer chains of silicone molecules into their basic building blocks. The resultin...",
+      "url": "https://phys.org/news/2026-10-chemical-recycling-silicone-reusable-blocks.html",
+      "source": "Phys.org",
+      "category": "Science",
+      "published": "2026-10-29T22:10:01+00:00"
+    },
+    {
+      "title": "Borneo's wildfires could have a lasting impact on orangutans",
+      "summary": "Indonesia is battling one of its most severe wildfire seasons in over a decade, as intense El Niño conditions fuel widespread drought. Some of the most severely affected areas are on the island of Borneo. Peatlands across West, Central and South Kalimantan are smoldering underground, releasing smoke haze that threatens human health and the environment.",
+      "url": "https://phys.org/news/2026-10-borneo-wildfires-impact-orangutans.html",
+      "source": "Phys.org",
+      "category": "Earth",
+      "published": "2026-10-29T22:00:14+00:00"
+    },
+    {
+      "title": "Qinghai–Tibet Plateau study traces evolution of terrestrial animals across three distinct regions",
+      "summary": "A new study has pieced together the evolutionary history of terrestrial animals on the Qinghai–Tibet Plateau (QTP), offering a comprehensive picture of how the distinctive fauna of the \"Third Pole\" took shape over millions of years.",
+      "url": "https://phys.org/news/2026-10-qinghaitibet-plateau-evolution-terrestrial-animals.html",
+      "source": "Phys.org",
+      "category": "Science",
+      "published": "2026-10-29T22:00:01+00:00"
+    },
+    {
+      "title": "The human surfaceome: AI flags potential cell surface drug targets overlooked by major databases",
+      "summary": "More than 65% of approved medicines work by binding to proteins on the surface of human cells. Yet scientists developing new treatments face a fundamental problem: Major biological databases disagree about which proteins are actually found on cell surfaces.",
+      "url": "https://phys.org/news/2026-10-human-surfaceome-ai-flags-potential.html",
+      "source": "Phys.org",
+      "category": "Biology",
+      "published": "2026-10-29T21:50:01+00:00"
+    },
+    {
+      "title": "Halloween Aboard the International Space Station",
+      "summary": "Although no ghouls, goblins, or trick-or-treaters come knocking at the International Space Station’s front hatch, crew members aboard the orbiting laboratory still like to get in the Halloween spirit. Whether individually or as an entire crew, they dress up in sometimes spooky, sometimes scary, but always creative costumes, often designed from materials available aboard the [&#8230;]",
+      "url": "https://www.nasa.gov/centers-and-facilities/johnson/halloween-aboard-the-international-space-station/",
+      "source": "NASA",
+      "category": "Space",
+      "published": "2026-10-29T21:44:23+00:00"
+    },
+    {
+      "title": "The 'shape' of gene expression: Identifying genes that may share roles across species",
+      "summary": "Much of what we know about biology comes from animal models, particularly mice. Applying these insights to humans, however, is not always straightforward. For example, some of the genes important for the formation of germ cells, which eventually give rise to eggs or sperm, differ between mice and humans.",
+      "url": "https://phys.org/news/2026-10-gene-genes-roles-species.html",
+      "source": "Phys.org",
+      "category": "Biology",
+      "published": "2026-10-29T21:40:16+00:00"
+    },
+    {
+      "title": "NASA-funded Study Details One of Oldest Mars Meteorites Ever Found",
+      "summary": "When a rose-colored meteorite was found in the Sahara Desert in 2022, no one knew how old it was or where it came from. Not until NASA-funded scientists age-dated its minerals did they realize the nearly 2-pound (800-gram) rock was a piece of Mars that formed more than 4.1 billion years ago, making it one [&#8230;]",
+      "url": "https://www.nasa.gov/solar-system/planets/mars/nasa-funded-study-details-one-of-oldest-mars-meteorites-ever-found/",
+      "source": "NASA",
+      "category": "Space",
+      "published": "2026-10-29T18:18:09+00:00"
+    },
+    {
+      "title": "NASA Names Troy Asher Armstrong Flight Research Center Director",
+      "summary": "NASA Administrator Jared Isaacman has named Troy Asher director of the agency’s Armstrong Flight Research Center in Edwards, California. Asher, a veteran test pilot and aerospace engineer with decades of experience in flight research and operations, has served as the center’s acting director since March. “Troy has spent his career pushing the boundaries of flight, [&#8230;]",
+      "url": "https://www.nasa.gov/news-release/nasa-names-troy-asher-armstrong-flight-research-center-director/",
+      "source": "NASA",
+      "category": "Space",
+      "published": "2026-10-29T18:00:35+00:00"
+    },
+    {
+      "title": "NIH–NASA QuSAFE Challenge",
+      "summary": "The Quantum-Enabled Predictive Preclinical NAMs for Toxicity and Safety (QuSAFE) Challenge, a collaboration between the National Institutes of Health (NIH) and NASA, advances quantum-enabled sensing for in vitro NAMs, such as organoids and microphysiological systems (MPS), to improve drug safety while reducing animal use. In vitro NAMs, such as organoids and microphysiological systems (MPS), can [&#8230;]",
+      "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/nih-nasa-qusafe-challenge/",
+      "source": "NASA",
+      "category": "Biology",
+      "published": "2026-10-29T17:44:37+00:00"
+    },
+    {
+      "title": "Envía tu nombre a Titán a bordo de la misión Dragonfly de la NASA",
+      "summary": "Read this release in English here. Puede que nunca llegues a surcar los cielos bajo las nubes o sobre las arenas orgánicas de la luna Titán de Saturno, ¡pero tu nombre sí puede hacerlo! La NASA invita al público a enviar su nombre a bordo de la aeronave de ala giratoria Dragonfly de la agencia [&#8230;]",
+      "url": "https://www.nasa.gov/news-release/envia-tu-nombre-a-titan-a-bordo-de-la-mision-dragonfly-de-la-nasa/",
+      "source": "NASA",
+      "category": "Space",
+      "published": "2026-10-29T15:21:23+00:00"
+    },
+    {
+      "title": "Send Your Name to Titan Aboard NASA’s Dragonfly Mission",
+      "summary": "You may never soar under the clouds or over the organic sands of Saturn’s moon Titan, but your name can. NASA is inviting the public to send their names aboard the agency’s Dragonfly rotorcraft and be part of the first science mission to fly and explore the surface of another world. &#160; To have your [&#8230;]",
+      "url": "https://www.nasa.gov/news-release/send-your-name-to-titan-aboard-nasas-dragonfly-mission/",
+      "source": "NASA",
+      "category": "Space",
+      "published": "2026-10-29T15:10:18+00:00"
+    },
+    {
+      "title": "A single brain signal may explain schizophrenia's most puzzling symptoms",
+      "summary": "Scientists have identified a weakened brain signal that may connect several seemingly unrelated symptoms of schizophrenia, including sensory processing difficulties, disorganized speech, and greater symptom severity. The surprising discovery could help explain the disorder's underlying mechanisms and potentially lead to earlier detection and new treatments.",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261028232659.htm",
+      "source": "ScienceDaily",
+      "category": "Biology",
+      "published": "2026-10-29T13:14:52+00:00"
+    },
+    {
+      "title": "Six popular sugar substitutes linked to faster brain aging",
+      "summary": "A study of nearly 13,000 adults found that people consuming the most artificial sweeteners experienced a 62% faster decline in memory and thinking skills, equivalent to approximately 1.6 additional years of brain aging. Six popular sweeteners were linked to faster cognitive decline, raising concerns about the long-term brain health effects of common sugar substitutes, although causation was not established.",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261028234238.htm",
+      "source": "ScienceDaily",
+      "category": "Biology",
+      "published": "2026-10-29T13:04:04+00:00"
+    },
+    {
+      "title": "A 700,000-year-old elephant tooth reveals a lost world where early humans lived",
+      "summary": "A remarkably preserved elephant tooth dating back nearly 700,000 years has revealed a surprisingly lush prehistoric world where giant elephants and early humans lived side by side. Discovered in northern Israel alongside ancient stone tools, the tooth belonged to a straight-tusked elephant, one of the largest land mammals of the Ice Age.",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261028232709.htm",
+      "source": "ScienceDaily",
+      "category": "Science",
+      "published": "2026-10-29T12:38:53+00:00"
+    },
+    {
+      "title": "NASA discovers Jupiter’s invisible shield is more complex than Earth’s",
+      "summary": "NASA’s Juno spacecraft has discovered that Jupiter uses a surprisingly complex system of powerful plasma waves and multiple shock regions to defend against the solar wind. The findings reveal major differences between Jupiter and Earth and could help scientists understand the enormous shock waves produced by exploding stars.",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261028232715.htm",
+      "source": "ScienceDaily",
+      "category": "Earth",
+      "published": "2026-10-29T12:26:25+00:00"
+    },
+    {
+      "title": "Einstein's equations may explain the universe without dark energy",
+      "summary": "Mathematicians have uncovered what they argue is a fundamental flaw in the standard model of the universe, potentially challenging the need for dark energy. Their calculations suggest that the mathematical framework used to describe cosmic expansion is inherently unstable and that the universe could accelerate naturally under Einstein's original theory of gravity. The findings also raise surprising questions about...",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261028232719.htm",
+      "source": "ScienceDaily",
+      "category": "Physics",
+      "published": "2026-10-29T12:07:58+00:00"
+    },
+    {
+      "title": "Less than 42 minutes of bright daylight linked to higher dementia risk",
+      "summary": "Getting more daylight could be linked to a surprisingly powerful benefit for brain health. In a study of more than 87,000 adults, researchers found that higher daytime light exposure was associated with a 16% lower risk of dementia, with longer exposure to bright light linked to even greater reductions. Remarkably, getting less than 42 minutes of bright daylight daily was a stronger predictor of dementia than six ...",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261028232707.htm",
+      "source": "ScienceDaily",
+      "category": "Biology",
+      "published": "2026-10-29T11:30:32+00:00"
+    },
+    {
+      "title": "Scientists discover that cranberry juice may help fight tooth decay",
+      "summary": "Cranberry juice may offer an unexpected benefit beyond its reputation for helping prevent urinary tract infections: protecting teeth from decay. Researchers at the University of Illinois Chicago discovered that pure, unsweetened cranberry juice slowed the regrowth of dental plaque bacteria and reduced their production of acids that damage tooth enamel. The secret may lie in naturally occurring compounds called pro...",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261028232701.htm",
+      "source": "ScienceDaily",
+      "category": "Science",
+      "published": "2026-10-29T11:12:06+00:00"
+    },
+    {
+      "title": "128,000-year-old ice in Tibet could rewrite climate history",
+      "summary": "Ancient ice discovered high in Tibet may be more than 128,000 years old, preserving an extraordinary record of Earth's climate that scientists previously thought had been lost. The discovery reveals a rare glimpse into the last ice age and could reshape our understanding of how glaciers survive dramatic changes in global climate.",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261028232713.htm",
+      "source": "ScienceDaily",
+      "category": "Earth",
+      "published": "2026-10-29T08:10:47+00:00"
     },
     {
       "title": "Your blood pressure could be dangerous even when your numbers look normal",
@@ -67,276 +411,12 @@
       "published": "2026-10-29T03:06:41+00:00"
     },
     {
-      "title": "Caltech Names Artemis II Commander Reid Wiseman as NASA JPL Deputy",
-      "summary": "Artemis II Commander Reid Wiseman has been named Caltech associate vice president and deputy director of NASA’s Jet Propulsion Laboratory in Southern California. The emeritus astronaut and retired U.S. Navy captain begins his new role at NASA’s center of excellence for robotics and deep space exploration and at Caltech, which manages JPL for NASA, on [&#8230;]",
-      "url": "https://www.nasa.gov/centers-and-facilities/jpl/caltech-names-artemis-ii-commander-reid-wiseman-as-nasa-jpl-deputy/",
-      "source": "NASA",
-      "category": "AI",
-      "published": "2026-10-29T02:49:59+00:00"
-    },
-    {
-      "title": "Optimistic climate futures for local communities in the UK imagined in a new report",
-      "summary": "A new report co-authored by researchers from the University of York and WWF highlights how local communities across the U.K. imagine positive, sustainable, and resilient futures for the places where they live and work.",
-      "url": "https://phys.org/news/2026-10-optimistic-climate-futures-local-communities.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-10-29T02:00:02+00:00"
-    },
-    {
       "title": "Scientists discover a hidden oxygen reservoir deep inside Earth",
       "summary": "Scientists have discovered that magma deep inside Earth can store surprising amounts of extra oxygen, potentially revealing a hidden contributor to our planet's oxygen-rich atmosphere. The findings suggest that ancient volcanic eruptions may have helped transform Earth's atmosphere billions of years ago, with implications for understanding life on other planets.",
       "url": "https://www.sciencedaily.com/releases/2026/10/261027063702.htm",
       "source": "ScienceDaily",
       "category": "Earth",
       "published": "2026-10-29T01:13:05+00:00"
-    },
-    {
-      "title": "How the Indian Ocean is linked to Europe's early-winter rain and storms",
-      "summary": "When we think about Europe's winter weather, the Indian Ocean is probably not the first place we look. We might picture Atlantic storms, cold air arriving from the north or rain sweeping across the Mediterranean. In my research, however, I look at how these familiar weather systems fit into a much larger climate system. My colleagues and I asked whether an ocean thousands of kilometers away could leave a detectabl...",
-      "url": "https://phys.org/news/2026-10-indian-ocean-linked-europe-early.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-10-29T01:00:06+00:00"
-    },
-    {
-      "title": "The phantom lighthouse: New research explains one of Australia's strangest illusions",
-      "summary": "There are two lighthouses on Lady Elliot Island, at the southernmost tip of Australia's Great Barrier Reef. The first was built in 1873, but was decommissioned in 1995 when the second took over the job of warning ships off the reef. Visitors to the island, however, regularly report seeing signs of a third lighthouse. At night the beams of a nonexistent phantom lighthouse are seen far off, shining on the horizon.",
-      "url": "https://phys.org/news/2026-10-phantom-lighthouse-australia-strangest-illusions.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-28T23:40:01+00:00"
-    },
-    {
-      "title": "Ultrathin metal layer boosts spin-related signals, opening a door to ultralow-power electronics",
-      "summary": "Researchers at Kyushu University have found that an ultrathin layer of iridium manganese (IrMn) can improve two spin-related signals in a structure made of a magnetic insulator and a platinum film. By examining how spin currents are generated and absorbed, the team gained insights into how the intermediate layer improves spin transfer. The findings could inform the development of ultralow-power devices for computi...",
-      "url": "https://phys.org/news/2026-10-ultrathin-metal-layer-boosts-door.html",
-      "source": "Phys.org",
-      "category": "Biology",
-      "published": "2026-10-28T23:20:02+00:00"
-    },
-    {
-      "title": "Atomic magnetism reveals why iron, but not chromium, can produce ammonia using sunlight",
-      "summary": "Two nearly identical materials have completely different chemical behavior. Research teams at the University of Vienna and TU Wien studied catalysts that use the energy of sunlight to produce ammonia. Surprisingly, when the three iron atoms that form tiny triangles in these catalysts are replaced by chromium atoms, the chemical reaction no longer takes place.",
-      "url": "https://phys.org/news/2026-10-atomic-magnetism-reveals-iron-chromium.html",
-      "source": "Phys.org",
-      "category": "Physics",
-      "published": "2026-10-28T23:00:01+00:00"
-    },
-    {
-      "title": "Macromolecular crowding could help build artificial cell systems",
-      "summary": "Macromolecular crowding can serve as a design tool for controlling the formation and organization of synthetic DNA droplets, a study from Science Tokyo reveals. Researchers investigated this strategy using DNA nanostars and polymeric crowding agents to mimic the crowded cellular environment. They found that crowding promoted droplet formation and enabled control over droplet size, interactions and organization. Th...",
-      "url": "https://phys.org/news/2026-10-macromolecular-crowding-artificial-cell.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-10-28T22:40:01+00:00"
-    },
-    {
-      "title": "Molecular architecture determines tomato plant resistance to its main pest",
-      "summary": "An international study investigating why wild tomatoes are more resistant to the tomato leafminer (Phthorimaea absoluta) than cultivated varieties revealed that the secret lies in the spatial structure of a plant defense molecule. The researchers mapped the biochemical origin of this difference and demonstrated that altering four amino acids in a single enzyme is sufficient to alter the structure of the substance ...",
-      "url": "https://phys.org/news/2026-10-molecular-architecture-tomato-resistance-main.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-28T22:20:06+00:00"
-    },
-    {
-      "title": "Explaining the difference between brittle and ductile behavior in polymer glasses",
-      "summary": "Glasses are (mostly) brittle, metals can be ductile (plastic), and liquids flow easily. Polymers are interesting because they exhibit all three types of behavior, depending on their chemical nature, temperature, and deformation rate. If polymers are not able to crystallize, their low-temperature state is glassy, and they are hard and transparent. One example is poly(methylmethacrylate) [PMMA], which has been used ...",
-      "url": "https://phys.org/news/2026-10-difference-brittle-ductile-behavior-polymer.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-28T22:00:01+00:00"
-    },
-    {
-      "title": "NASA Welcomes Vietnam as Newest Artemis Accords Signatory",
-      "summary": "The Socialist Republic of Vietnam became the 78th nation to sign the Artemis Accords, joining a growing coalition of like-minded nations committed to the peaceful, transparent, and responsible exploration of space.&#160;&#160; “Vietnam is joining at an important point in the development of its own space program,” said NASA Deputy Administrator Matt Anderson in recorded remarks [&#8230;]",
-      "url": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-vietnam-as-newest-artemis-accords-signatory/",
-      "source": "NASA",
-      "category": "Space",
-      "published": "2026-10-28T21:50:01+00:00"
-    },
-    {
-      "title": "Q&A: Decoding the cell—a conversation with a computational biologist",
-      "summary": "Computational biologist Christina Leslie, Ph.D., has spent nearly two decades at Memorial Sloan Kettering Cancer Center (MSK) building computational tools that help make sense of some of the most complex data in biology.",
-      "url": "https://phys.org/news/2026-10-qa-decoding-cell-conversation-biologist.html",
-      "source": "Phys.org",
-      "category": "Biology",
-      "published": "2026-10-28T21:40:06+00:00"
-    },
-    {
-      "title": "Chornobyl dog population shows genetic signatures of directional selection",
-      "summary": "The latest research on the wild population of dogs in Chornobyl reveals that the genetic differences between these dogs and other similarly isolated dog populations are likely evidence of directional selection, not mutation. The work suggests a potential association between genetic selection and environmental variables and could advance understanding of local adaptation and genomic resilience in contaminated envir...",
-      "url": "https://phys.org/news/2026-10-chornobyl-dog-population-genetic-signatures.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-10-28T21:40:01+00:00"
-    },
-    {
-      "title": "Could next-gen artificial intelligence help map out future space outposts?",
-      "summary": "Planning a successful trip can be challenging, especially when your destination is in outer space. Even before liftoff, space missions require extraordinary amounts of scientific preparation and data analysis to succeed, which can take years to complete. However, as space agencies race to establish a permanent presence on the moon, using artificial intelligence to combine such information into a single system coul...",
-      "url": "https://phys.org/news/2026-10-gen-artificial-intelligence-future-space.html",
-      "source": "Phys.org",
-      "category": "AI",
-      "published": "2026-10-28T21:30:01+00:00"
-    },
-    {
-      "title": "Same radical, different paths: X-ray snapshots reveal how neighboring molecules shape its movement",
-      "summary": "Chemical reactions have their own \"impatient molecules.\" Unable to stay still even for a moment, they latch onto other molecules indiscriminately. Researchers have now found that even these molecules change where they \"sit\" and how far they roam depending on who their neighbors are. The findings are expected to help scientists make better medicines and materials by directing reactions only to the desired sites.",
-      "url": "https://phys.org/news/2026-10-radical-paths-ray-snapshots-reveal.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-28T21:20:13+00:00"
-    },
-    {
-      "title": "Schools increasingly affected by poor air quality as wildfire smoke becomes more common",
-      "summary": "American children are increasingly exposed to air pollution as wildfire smoke becomes more common, and some schools and child care centers struggle to keep indoor breathing conditions clean, a new national study shows.",
-      "url": "https://phys.org/news/2026-10-schools-affected-poor-air-quality.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-28T21:20:09+00:00"
-    },
-    {
-      "title": "Medieval ghost stories featured rotten flesh, the walking dead and spoon‑stealing spirits",
-      "summary": "Stories of wandering spirits and the restless dead were common in the Middle Ages. These ghostly encounters were recorded in a wide variety of medieval literature.",
-      "url": "https://phys.org/news/2026-10-medieval-ghost-stories-featured-rotten.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-28T21:00:08+00:00"
-    },
-    {
-      "title": "Rarely seen deep-sea barreleye fish filmed in 4K",
-      "summary": "During a recent expedition aboard the research vessel David Packard, MBARI scientists encountered a rarely seen barreleye fish (Macropinna microstoma). This sighting is MBARI's 11th observation of this unique deep-sea fish with a transparent head.",
-      "url": "https://phys.org/news/2026-10-rarely-deep-sea-barreleye-fish.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-28T21:00:06+00:00"
-    },
-    {
-      "title": "Drones could help weather forecasters more accurately predict winter storms",
-      "summary": "Weather drones are being tested to help update forecasts of extreme weather more quickly, and could help us prepare earlier for upcoming winter storms.",
-      "url": "https://phys.org/news/2026-10-drones-weather-accurately-winter-storms.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-10-28T20:40:12+00:00"
-    },
-    {
-      "title": "Controlling where gibberellin acts reveals how the plant hormone coordinates root growth",
-      "summary": "Plant hormones influence growth and development by acting on specific cells and tissues. However, determining precisely where and when a hormone needs to act has been challenging because conventional hormone treatment generally activates signaling throughout the plant.",
-      "url": "https://phys.org/news/2026-10-gibberellin-reveals-hormone-root-growth.html",
-      "source": "Phys.org",
-      "category": "Biology",
-      "published": "2026-10-28T20:40:08+00:00"
-    },
-    {
-      "title": "150-year-old mystery about the identity of an 'extinct' giant crane solved",
-      "summary": "Scientists at Bournemouth University (BU) have solved a 150-year-old mystery about the identity of an extinct giant crane that lived in Europe over 20,000 years ago. The work is published in the journal Royal Society Open Science.",
-      "url": "https://phys.org/news/2026-10-year-mystery-identity-extinct-giant.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-28T20:30:01+00:00"
-    },
-    {
-      "title": "New tissue atlas aims to help AI understand cancer",
-      "summary": "How cells are arranged within tissue can reveal as much about disease as the cells themselves. When doctors examine a cancer tumor, for example, they don't just look at which cells are present; they also want to know how those cells are arranged and how they interact with each other. That's because the way cancer cells interact with neighboring immune cells can offer important clues about how a disease develops or...",
-      "url": "https://phys.org/news/2026-10-tissue-atlas-aims-ai-cancer.html",
-      "source": "Phys.org",
-      "category": "Biology",
-      "published": "2026-10-28T20:20:08+00:00"
-    },
-    {
-      "title": "Relocating amphibians and reptiles to make way for human development rarely delivers long-term conservation success",
-      "summary": "Relocating amphibians and reptiles to protect them from development rarely leads to long-term conservation success, a new UBC-led global review has found. The findings highlight the importance of habitat protection rather than relying on moving animals out of harm's way.",
-      "url": "https://phys.org/news/2026-10-relocating-amphibians-reptiles-human-rarely.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-28T20:20:05+00:00"
-    },
-    {
-      "title": "Sun's outer magnetic field mapped in 3D for the first time",
-      "summary": "A team of researchers has produced the first global, three-dimensional estimates of the sun's magnetic field, including the area beyond the sun's visible edge. This marks a step toward more accurate models of solar activity—and ultimately, better predictions of solar magnetic eruptions, which are the root cause of extreme space weather that can impact critical infrastructure technologies on Earth.",
-      "url": "https://phys.org/news/2026-10-sun-outer-magnetic-field-3d.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-10-28T20:10:02+00:00"
-    },
-    {
-      "title": "A new physics-informed AI tool aims to predict wildfire spread in real time and assist wildfire response",
-      "summary": "A new AI system that NYU Fire Research Group describes as a digital twin of an active wildfire has, in early testing, shown the ability to forecast how a fire will spread in near real time.",
-      "url": "https://phys.org/news/2026-10-physics-ai-tool-aims-wildfire.html",
-      "source": "Phys.org",
-      "category": "Physics",
-      "published": "2026-10-28T20:00:10+00:00"
-    },
-    {
-      "title": "Customizable DNA labels can selectively guide drug carriers to cancer cells",
-      "summary": "Cells naturally send tiny packages to one another to share information. Researchers at Carnegie Mellon University have developed a simple, low-cost way to turn those packages into drug carriers that can deliver treatments directly to cancer cells, potentially improving effectiveness while reducing side effects.",
-      "url": "https://phys.org/news/2026-10-customizable-dna-drug-carriers-cancer.html",
-      "source": "Phys.org",
-      "category": "Biology",
-      "published": "2026-10-28T20:00:05+00:00"
-    },
-    {
-      "title": "Humidity can change how smoke pollutants transform after dark",
-      "summary": "What happens to smoke particles after sunset can depend strongly on something as familiar as the amount of water in the air. New research from Md. Sohel Rana and Marcelo I. Guzman at the University of Kentucky shows that relative humidity can redirect the chemical pathways involved in the nighttime oxidation of catechol, a phenolic compound associated with biomass burning.",
-      "url": "https://phys.org/news/2026-10-humidity-pollutants-dark.html",
-      "source": "Phys.org",
-      "category": "Physics",
-      "published": "2026-10-28T19:40:04+00:00"
-    },
-    {
-      "title": "'Let nothing be forgotten': Holocaust survivors' memorial books honored lives lost and vibrant hometowns",
-      "summary": "My grandmother was a Holocaust survivor from Kostopol, Ukraine. Years after she passed away, I was trying to learn more about her life before the war—something I knew very little about. When I found a book called \"Sefer Kostopol\"—Hebrew for \"Book of Kostopol\"—I hoped to find her among its pages.",
-      "url": "https://phys.org/news/2026-10-forgotten-holocaust-survivors-memorial-honored.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-28T19:40:01+00:00"
-    },
-    {
-      "title": "Scientists count more than 2 million eels on one underwater mountain",
-      "summary": "Patience Seamount is an underwater mountain in Australia's Huon Marine Park off the coast of Tasmania. Every year, it is the site of an enormous gathering of basketwork eels (Diastobranchus capensis) for reasons unknown, although most likely to spawn. The numbers are huge, but they have never been quantified.",
-      "url": "https://phys.org/news/2026-10-scientists-million-eels-underwater-mountain.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-28T19:20:09+00:00"
-    },
-    {
-      "title": "Study finds celebrity digital twins may boost trust in customer service",
-      "summary": "Imagine losing your credit card, logging into your bank's website for help and being greeted by a virtual customer service representative who looks and sounds exactly like actor Hugh Jackman. The person helping you isn't actually the Hollywood star—it's his AI-powered digital twin. And new research suggests that familiar face could significantly improve how you perceive your customer service experience.",
-      "url": "https://phys.org/news/2026-10-celebrity-digital-twins-boost-customer.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-10-28T19:20:01+00:00"
-    },
-    {
-      "title": "Artemis III SLS Core Stage Joins Boosters at Kennedy",
-      "summary": "NASA’s Artemis III SLS (Space Launch System) core stage is integrated alongside the twin solid rocket boosters on Oct. 28 inside the Vehicle Assembly Building’s High Bay 3 at NASA’s Kennedy Space Center in Florida. &#160; Technicians lifted the 212-foot rocket stage from the facility’s High Bay 2 using a one-of-a kind lifting beam designed [&#8230;]",
-      "url": "https://www.nasa.gov/image-article/artemis-iii-sls-core-stage-joins-boosters-at-kennedy/",
-      "source": "NASA",
-      "category": "Space",
-      "published": "2026-10-28T18:59:44+00:00"
-    },
-    {
-      "title": "NASA University Challenge Ignites Trajectory of Drone Entrepreneur",
-      "summary": "Five years ago, Gavin Gardner was a Michigan State University engineering student researching next-generation drone technology as part of a NASA grant. Garder expected the research to be demanding – but he was surprised that navigating the financial side of the work presented an even greater challenge. Although Gardner was used to leading fellow students [&#8230;]",
-      "url": "https://www.nasa.gov/aeronautics/nasa-challenge-drone-entrepreneur/",
-      "source": "NASA",
-      "category": "Biology",
-      "published": "2026-10-28T18:00:28+00:00"
-    },
-    {
-      "title": "NASA Selects 19 New Citizen Science Proposals in 2026",
-      "summary": "So far, 2026 has seen a flood of successes for volunteers who do NASA science, exemplifying NASA’s commitment to gold-standard science—transparent, reproducible and intrinsically collaborative. The Backyard Worlds: Planet 9 project announced that their project volunteers have now discovered most of the known brown dwarfs, celestial objects that are similar to planets. The Zooniverse platform, […]",
-      "url": "https://science.nasa.gov/get-involved/citizen-science/nasa-selects-19-new-citizen-science-proposals-in-2026/",
-      "source": "NASA",
-      "category": "Space",
-      "published": "2026-10-28T16:25:29+00:00"
-    },
-    {
-      "title": "Webb Sees Turbulent Star Nursery",
-      "summary": "In this Webb image released on Oct. 22, 2026, we see a turbulent cauldron of star formation filled with dense clumps of gas. This region is named N159 and is located 161,000 light-years away in the Large Magellanic Cloud, one of the satellite galaxies orbiting the Milky Way galaxy. This region has a lower metallicity [&#8230;]",
-      "url": "https://www.nasa.gov/image-article/webb-sees-turbulent-star-nursery/",
-      "source": "NASA",
-      "category": "Space",
-      "published": "2026-10-28T15:33:10+00:00"
     },
     {
       "title": "Scientists discover a hidden reason why muscles weaken with age",
@@ -401,87 +481,7 @@
       "source": "ScienceDaily",
       "category": "Earth",
       "published": "2026-10-28T09:22:09+00:00"
-    },
-    {
-      "title": "Curiosity Blog, Sols 5043-5049: Preparing to Drill at ‘Nazca’",
-      "summary": "Written by Lucy Lim, Planetary Scientist at NASA’s Goddard Space Flight Center Earth planning date: Friday, Oct. 16, 2026 Following the Basque Lakes drill campaign, Curiosity has returned to a spot just a few meters away from the “Chiu Chiu” block to conduct our next drill campaign. “Chiu Chiu” itself wasn’t a good candidate for […]",
-      "url": "https://science.nasa.gov/blog/curiosity-blog-sols-5043-5049-preparing-to-drill-at-nazca/",
-      "source": "NASA",
-      "category": "Earth",
-      "published": "2026-10-28T05:39:46+00:00"
-    },
-    {
-      "title": "APOD: 2026 October 28 – The Mutual Occultation of Ganymede and Io",
-      "summary": "APODScienceAPODAPOD: 2026 October 28 – The…Today’s APODArchiveSubmissionsIndexSearchCalendarRSSEducationAboutDiscuss  APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. To view this video please enable JavaScript, and consider upgrading to a web browser that sup...",
-      "url": "https://science.nasa.gov/image-article/apod-2026-october-28-the-mutual-occultation-of-ganymede-and-io/",
-      "source": "NASA",
-      "category": "Space",
-      "published": "2026-10-28T04:05:00+00:00"
-    },
-    {
-      "title": "A simple daily fiber supplement reduced arthritis pain and improved strength",
-      "summary": "A new clinical trial suggests that a simple daily fiber supplement could significantly reduce knee osteoarthritis pain, improve muscle strength, and make the body less sensitive to pain. Researchers discovered that the benefits may be linked to changes in gut bacteria and the hormone GLP-1, revealing a promising new approach to arthritis relief.",
-      "url": "https://www.sciencedaily.com/releases/2026/10/261027230715.htm",
-      "source": "ScienceDaily",
-      "category": "Science",
-      "published": "2026-10-28T03:56:09+00:00"
-    },
-    {
-      "title": "The autistic brain processes faces differently than scientists thought",
-      "summary": "A major new study reveals that autistic children’s brains process faces differently, and those differences may begin earlier than scientists previously thought. Researchers found that brain signals associated with recognizing faces become more specialized as neurotypical children grow older, but show much less change in autistic children. The discovery could help explain why some autistic people have difficulty re...",
-      "url": "https://www.sciencedaily.com/releases/2026/10/261027063824.htm",
-      "source": "ScienceDaily",
-      "category": "Biology",
-      "published": "2026-10-28T03:02:38+00:00"
-    },
-    {
-      "title": "The asteroid that killed the dinosaurs may have helped ants conquer the world",
-      "summary": "The asteroid that killed the dinosaurs may have set the stage for ants to conquer the planet, with a surprising boost from “jumping genes” hidden in their DNA. Scientists discovered that bursts of activity from these mobile genetic elements coincided with the rise of major ant groups and may have helped sharpen their extraordinary ability to communicate through smell.",
-      "url": "https://www.sciencedaily.com/releases/2026/10/261026225608.htm",
-      "source": "ScienceDaily",
-      "category": "Biology",
-      "published": "2026-10-28T01:40:35+00:00"
-    },
-    {
-      "title": "Scientists discover the immune system’s hidden sense of touch",
-      "summary": "Scientists at McGill University have discovered a surprising new ability of immune cells that could change how we understand long-term immunity. Researchers found that T cells can actually sense how stiff their surrounding tissues are, using these physical signals to help determine whether they develop into long-lasting memory cells that protect against future infections.",
-      "url": "https://www.sciencedaily.com/releases/2026/10/261026225617.htm",
-      "source": "ScienceDaily",
-      "category": "Biology",
-      "published": "2026-10-28T00:54:54+00:00"
-    },
-    {
-      "title": "The secret to slower aging may be hiding in your gut",
-      "summary": "The secret to aging more slowly may be hiding in your gut. Scientists discovered that certain gut bacteria are strongly linked to how quickly the body ages, with microbial differences accounting for about 15% of the variation in biological aging rates. Some bacterial species were associated with slower aging, while others were linked to accelerated aging.",
-      "url": "https://www.sciencedaily.com/releases/2026/10/261026225620.htm",
-      "source": "ScienceDaily",
-      "category": "Biology",
-      "published": "2026-10-27T11:53:24+00:00"
-    },
-    {
-      "title": "Low testosterone may make sugar far more harmful to your liver",
-      "summary": "Scientists have discovered that low testosterone and a high-fructose diet can work together to worsen fatty liver disease in mice. Unexpectedly, changes in gut bacteria appear to drive this harmful interaction, revealing a potential new target for preventing liver damage.",
-      "url": "https://www.sciencedaily.com/releases/2026/10/261026225622.htm",
-      "source": "ScienceDaily",
-      "category": "Science",
-      "published": "2026-10-27T11:18:37+00:00"
-    },
-    {
-      "title": "Common drugs may help dangerous viruses spread through the body",
-      "summary": "A surprising discovery reveals that widely used anti-inflammatory drugs may unintentionally help dangerous viruses spread through the body. Scientists found that JAK inhibitors, prescribed for rheumatoid arthritis and other inflammatory diseases, can weaken a crucial immune defense against influenza, COVID-19, and other infections. By suppressing genes that normally fight viruses, these medications may leave patie...",
-      "url": "https://www.sciencedaily.com/releases/2026/10/261026225606.htm",
-      "source": "ScienceDaily",
-      "category": "Biology",
-      "published": "2026-10-27T10:46:21+00:00"
-    },
-    {
-      "title": "James Webb discovers a scorching lava planet with a “giant sunscreen”",
-      "summary": "A scorching lava planet 280 light-years away has surprised astronomers by apparently maintaining a thick atmosphere despite conditions that should have stripped it away billions of years ago. James Webb Space Telescope observations suggest that TOI-561 b reflects about 75% of incoming starlight, possibly because of mineral clouds that act like a giant sunscreen. The planet may also be continually replenishing its ...",
-      "url": "https://www.sciencedaily.com/releases/2026/10/261026225603.htm",
-      "source": "ScienceDaily",
-      "category": "Space",
-      "published": "2026-10-27T10:20:52+00:00"
     }
   ],
   "note": "Read and verify each story at its original source."
-}
+}\n
