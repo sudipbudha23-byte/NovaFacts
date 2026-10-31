@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d1b">
+<title>समाचार विवरण | NovaFacts</title>
+<style>
+:root{color-scheme:dark;--bg:#080d1b;--panel:#111a2d;--text:#edf3ff;--muted:#aab7ce;--gold:#f5a623;--line:#26344d}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#172c50 0,transparent 38%),var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.8}
+header{border-bottom:1px solid var(--line);padding:18px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{font-weight:900;font-size:23px;color:var(--gold);text-decoration:none;letter-spacing:.5px}.back{color:var(--text);text-decoration:none;border:1px solid var(--line);padding:8px 13px;border-radius:10px}
+main{width:min(850px,90%);margin:48px auto 80px}.eyebrow{color:var(--gold);font-weight:800;letter-spacing:1.5px;font-size:13px}.meta{color:var(--muted);font-size:14px;margin:12px 0 28px;display:flex;flex-wrap:wrap;gap:12px}
+h1{font-size:clamp(29px,5vw,48px);line-height:1.35;margin:15px 0 20px}.summary{font-size:19px;color:#d9e4f7;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:25px;margin:25px 0;white-space:pre-wrap}
+.body{font-size:17px;white-space:pre-wrap}.note{margin-top:35px;padding:18px;border-left:4px solid var(--gold);background:var(--panel);color:var(--muted);border-radius:8px}.source{display:inline-block;margin-top:24px;padding:12px 18px;border-radius:11px;background:var(--gold);color:#111;text-decoration:none;font-weight:800}.status{color:var(--muted);font-size:14px;margin-top:12px}
+@media(max-width:600px){header{padding:14px 5%}main{margin-top:30px}.summary{padding:18px;font-size:17px}}
+</style>
+</head>
+<body>
+<header><a class="brand" href="/">NovaFacts</a><a class="back" href="/">← मुख्य पृष्ठ</a></header>
+<main>
+<div class="eyebrow" id="category">विज्ञान समाचार</div>
+<h1 id="title">समाचार लोड हुँदैछ...</h1>
+<div class="meta"><span id="source"></span><span id="date"></span></div>
+<section class="summary" id="summary">समाचारको विवरण अनुवाद हुँदैछ...</section>
+<div class="body" id="body"></div>
+<div class="note">यो समाचारको उपलब्ध RSS शीर्षक र सारांशलाई नेपालीमा अनुवाद गरिएको हो। पूर्ण तथा विस्तृत रिपोर्टका लागि तलको मूल प्रकाशकको समाचार खोल्नुहोस्।</div>
+<a class="source" id="original" href="#" target="_blank" rel="noopener noreferrer" hidden>मूल समाचार पूरा पढ्नुहोस् ↗</a>
+<div class="status" id="status" aria-live="polite"></div>
+</main>
+<script>
+const params=new URLSearchParams(location.search);
+const get=k=>params.get(k)||"";
+const safeURL=value=>{try{const u=new URL(value);return ["https:","http:"].includes(u.protocol)?u.href:""}catch{return ""}};
+async function translateToNepali(text){
+ if(!text.trim())return text;
+ try{const endpoint="https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ne&dt=t&q="+encodeURIComponent(text);const response=await fetch(endpoint);if(!response.ok)throw Error("translation failed");const data=await response.json();return Array.isArray(data[0])?data[0].map(part=>part[0]||"").join(""):text;}catch{return text;}
+}
+(async()=>{
+ const title=get("title")||"शीर्षक उपलब्ध छैन",summary=get("summary")||"समाचारको सारांश उपलब्ध छैन";
+ document.getElementById("source").textContent=get("source");
+ document.getElementById("category").textContent=get("category")||"समाचार";
+ const date=get("published");document.getElementById("date").textContent=date&&!Number.isNaN(new Date(date).getTime())?new Date(date).toLocaleDateString("ne-NP"):"";
+ const [neTitle,neSummary]=await Promise.all([translateToNepali(title),translateToNepali(summary)]);
+ document.getElementById("title").textContent=neTitle;
+ document.getElementById("summary").textContent=neSummary;
+ document.title=neTitle+" | NovaFacts";
+ const original=safeURL(get("url"));if(original){const link=document.getElementById("original");link.href=original;link.hidden=false;}
+ document.getElementById("status").textContent="नेपाली अनुवाद तयार भयो।";
+})();
+</script>
+</body>
+</html>
