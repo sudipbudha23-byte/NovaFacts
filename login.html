@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#101827">
+
+<title>NovaFacts | Google Login</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #0b1220,
+    #172554
+  );
+}
+
+.card {
+  width: 100%;
+  max-width: 390px;
+  padding: 32px;
+  text-align: center;
+  border: 1px solid #334155;
+  border-radius: 22px;
+  background: #111c2f;
+  box-shadow: 0 20px 60px #0006;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 800;
+  color: #60a5fa;
+}
+
+p {
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: white;
+  color: #172033;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+}
+
+#status {
+  margin-top: 20px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="logo">NovaFacts</div>
+
+  <h1>Sign in</h1>
+
+  <p>
+    Continue securely using your Google Account.
+  </p>
+
+  <button id="googleBtn">
+    Continue with Google
+  </button>
+
+  <div id="status"></div>
+
+</div>
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+
+
+// Firebase Configuration
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyAhIvLbAsi7M-TOTBix5q8ihoJ64M_1QU0",
+
+  authDomain: "lcci-6c2a3.firebaseapp.com",
+
+  projectId: "lcci-6c2a3",
+
+  storageBucket: "lcci-6c2a3.firebasestorage.app",
+
+  messagingSenderId: "486309279972",
+
+  appId: "1:486309279972:web:bac73946ce8993a41194f1",
+
+  measurementId: "G-7N85D4CBHY"
+
+};
+
+
+// Paste your deployed Apps Script URL here
+
+const SHEET_WEB_APP_URL =
+"https://script.google.com/macros/s/AKfycbwq11mTE0AQxWpbJzPyFXSmuzFZ0C7BxDD79rYutxoYtw1igc8tFEuyzOXKi9UIl_afRw/exec";
+
+
+// Initialize Firebase
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const provider = new GoogleAuthProvider();
+
+
+// Elements
+
+const button = document.getElementById("googleBtn");
+
+const status = document.getElementById("status");
+
+
+// Google Login
+
+button.addEventListener("click", async () => {
+
+  try {
+
+    button.disabled = true;
+
+    status.textContent = "Connecting to Google...";
+
+    // Sign in with Google
+    const result = await signInWithPopup(
+      auth,
+      provider
+    );
+
+    // Get Firebase ID token
+    const idToken = await result.user.getIdToken();
+
+    // Check Apps Script URL
+    if (
+      SHEET_WEB_APP_URL.includes("PASTE_YOUR")
+    ) {
+
+      status.textContent =
+        "Google login successful. Apps Script URL is missing.";
+
+      button.disabled = false;
+
+      return;
+    }
+
+    // Send verified login request to Apps Script
+    await fetch(SHEET_WEB_APP_URL, {
+
+      method: "POST",
+
+      mode: "no-cors",
+
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+
+      body: JSON.stringify({
+
+        action: "logLogin",
+
+        idToken: idToken
+
+      })
+
+    });
+
+    status.textContent =
+      "Login completed. Check your Google Sheet.";
+
+    // Redirect to homepage
+    window.location.href = "index.html";
+
+  } catch (error) {
+
+    console.error(error);
+
+    status.textContent =
+      "Login Error: " + error.code;
+
+    button.disabled = false;
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>

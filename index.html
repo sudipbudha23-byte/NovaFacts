@@ -1192,6 +1192,34 @@ body.dark .news-read {
   .hero { padding:40px 0; }
 
 }
+.google-login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 22px;
+  background: #ffffff;
+  color: #202124;
+  border: 1px solid #dadce0;
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.google-login-btn img {
+  width: 22px;
+  height: 22px;
+}
+
+.google-login-btn:hover {
+  background: #e8f0fe;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px #0002;
+}
 
 </style>
 
@@ -1202,8 +1230,14 @@ body.dark .news-read {
 <body>
 
 
-
 <header>
+<a href="login.html" class="google-login-btn">
+  <img
+    src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+    alt="Google"
+  >
+  Continue with Google
+</a>
 
   <div class="wrap nav">
 
