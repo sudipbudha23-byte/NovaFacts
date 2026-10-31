@@ -159,76 +159,50 @@ const button = document.getElementById("googleBtn");
 const status = document.getElementById("status");
 
 
-// Google Login
 
 button.addEventListener("click", async () => {
+  button.disabled = true;
+  status.textContent = "Google Login हुँदैछ...";
 
   try {
-
-    button.disabled = true;
-
-    status.textContent = "Connecting to Google...";
-
-    // Sign in with Google
-    const result = await signInWithPopup(
-      auth,
-      provider
-    );
-
-    // Get Firebase ID token
+    const result = await signInWithPopup(auth, provider);
     const idToken = await result.user.getIdToken();
 
-    // Check Apps Script URL
-    if (
-      SHEET_WEB_APP_URL.includes("PASTE_YOUR")
-    ) {
-
-      status.textContent =
-        "Google login successful. Apps Script URL is missing.";
-
-      button.disabled = false;
-
-      return;
+    if (SHEET_WEB_APP_URL.includes("PASTE_YOUR")) {
+      throw new Error("Apps Script URL राखिएको छैन।");
     }
 
-    // Send verified login request to Apps Script
-    await fetch(SHEET_WEB_APP_URL, {
+    status.textContent = "Google Sheet मा विवरण पठाउँदैछ...";
 
+    const response = await fetch(SHEET_WEB_APP_URL, {
       method: "POST",
-
-      mode: "no-cors",
-
       headers: {
         "Content-Type": "text/plain;charset=utf-8"
       },
-
       body: JSON.stringify({
-
         action: "logLogin",
-
         idToken: idToken
-
-      })
-
+      }),
+      redirect: "follow"
     });
 
-    status.textContent =
-      "Login completed. Check your Google Sheet.";
+    const resultData = await response.json();
 
-    // Redirect to homepage
-    window.location.href = "index.html";
+    if (!resultData.success) {
+      throw new Error(resultData.error || "Sheet मा Data लेख्न सकिएन।");
+    }
+
+    status.textContent = "Login सफल! Google Sheet मा Data सुरक्षित भयो।";
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1500);
 
   } catch (error) {
-
     console.error(error);
-
-    status.textContent =
-      "Login Error: " + error.code;
-
+    status.textContent = "Error: " + error.message;
     button.disabled = false;
-
   }
-
 });
 
 </script>
