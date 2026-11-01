@@ -1,53 +1,308 @@
+
 <!DOCTYPE html>
-<html lang="ne">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080d1b">
-<title>समाचार विवरण | NovaFacts</title>
-<style>
-:root{color-scheme:dark;--bg:#080d1b;--panel:#111a2d;--text:#edf3ff;--muted:#aab7ce;--gold:#f5a623;--line:#26344d}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#172c50 0,transparent 38%),var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.8}
-header{border-bottom:1px solid var(--line);padding:18px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.brand{font-weight:900;font-size:23px;color:var(--gold);text-decoration:none;letter-spacing:.5px}.back{color:var(--text);text-decoration:none;border:1px solid var(--line);padding:8px 13px;border-radius:10px}
-main{width:min(850px,90%);margin:48px auto 80px}.eyebrow{color:var(--gold);font-weight:800;letter-spacing:1.5px;font-size:13px}.meta{color:var(--muted);font-size:14px;margin:12px 0 28px;display:flex;flex-wrap:wrap;gap:12px}
-h1{font-size:clamp(29px,5vw,48px);line-height:1.35;margin:15px 0 20px}.summary{font-size:19px;color:#d9e4f7;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:25px;margin:25px 0;white-space:pre-wrap}
-.body{font-size:17px;white-space:pre-wrap}.note{margin-top:35px;padding:18px;border-left:4px solid var(--gold);background:var(--panel);color:var(--muted);border-radius:8px}.source{display:inline-block;margin-top:24px;padding:12px 18px;border-radius:11px;background:var(--gold);color:#111;text-decoration:none;font-weight:800}.status{color:var(--muted);font-size:14px;margin-top:12px}
-@media(max-width:600px){header{padding:14px 5%}main{margin-top:30px}.summary{padding:18px;font-size:17px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>News Details | NovaFacts</title>
+  <meta name="description" content="Read available science news details on NovaFacts.">
+  <link rel="canonical" href="https://novafacts.pages.dev/news-details.html">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080d18;
+      --panel: #111b2d;
+      --text: #edf3ff;
+      --muted: #9aaac2;
+      --accent: #64b5ff;
+      --border: #263650;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    header {
+      padding: 18px 6%;
+      border-bottom: 1px solid var(--border);
+      background: #0c1423;
+    }
+
+    .brand {
+      color: var(--text);
+      font-size: 23px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .brand span { color: var(--accent); }
+
+    main {
+      width: min(850px, 92%);
+      margin: 45px auto;
+    }
+
+    .back {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 22px;
+    }
+
+    article {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: clamp(20px, 5vw, 38px);
+    }
+
+    .category {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(27px, 5vw, 40px);
+      line-height: 1.25;
+      margin: 12px 0;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .news-image {
+      width: 100%;
+      max-height: 430px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 10px 0 22px;
+    }
+
+    .summary {
+      font-size: 18px;
+      color: #d5e3f7;
+      margin-bottom: 22px;
+    }
+
+    .details {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .original {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 11px 18px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #07111f;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #loading, #error {
+      color: var(--muted);
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 25px;
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
+    }
+
+    [hidden] { display: none !important; }
+  </style>
 </head>
+
 <body>
-<header><a class="brand" href="/">NovaFacts</a><a class="back" href="/">← मुख्य पृष्ठ</a></header>
+
+<header>
+  <a class="brand" href="index.html">Nova<span>Facts</span></a>
+</header>
+
 <main>
-<div class="eyebrow" id="category">विज्ञान समाचार</div>
-<h1 id="title">समाचार लोड हुँदैछ...</h1>
-<div class="meta"><span id="source"></span><span id="date"></span></div>
-<section class="summary" id="summary">समाचारको विवरण अनुवाद हुँदैछ...</section>
-<div class="body" id="body"></div>
-<div class="note">यो समाचारको उपलब्ध RSS शीर्षक र सारांशलाई नेपालीमा अनुवाद गरिएको हो। पूर्ण तथा विस्तृत रिपोर्टका लागि तलको मूल प्रकाशकको समाचार खोल्नुहोस्।</div>
-<a class="source" id="original" href="#" target="_blank" rel="noopener noreferrer" hidden>मूल समाचार पूरा पढ्नुहोस् ↗</a>
-<div class="status" id="status" aria-live="polite"></div>
+  <a class="back" href="index.html">← Back to NovaFacts</a>
+
+  <p id="loading">Loading news details...</p>
+  <p id="error" hidden></p>
+
+  <article id="newsArticle" hidden>
+    <div class="category" id="category"></div>
+
+    <h1 id="title"></h1>
+
+    <div class="meta" id="meta"></div>
+
+    <img class="news-image" id="image" alt="" hidden>
+
+    <p class="summary" id="summary"></p>
+
+    <!-- खाली विवरण भाग: विवरण नभए केही देखाइँदैन -->
+    <div class="details" id="details"></div>
+
+    <a class="original" id="originalLink"
+       target="_blank"
+       rel="noopener noreferrer"
+       hidden>
+      Read Original Source ↗
+    </a>
+  </article>
 </main>
+
+<footer>
+  © <span id="year"></span> NovaFacts. All rights reserved.
+</footer>
+
 <script>
-const params=new URLSearchParams(location.search);
-const get=k=>params.get(k)||"";
-const safeURL=value=>{try{const u=new URL(value);return ["https:","http:"].includes(u.protocol)?u.href:""}catch{return ""}};
-async function translateToNepali(text){
- if(!text.trim())return text;
- try{const endpoint="https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ne&dt=t&q="+encodeURIComponent(text);const response=await fetch(endpoint);if(!response.ok)throw Error("translation failed");const data=await response.json();return Array.isArray(data[0])?data[0].map(part=>part[0]||"").join(""):text;}catch{return text;}
+"use strict";
+
+const params = new URLSearchParams(window.location.search);
+
+const requestedURL = params.get("url") || "";
+const requestedTitle = params.get("title") || "";
+const requestedCategory = params.get("category") || "Science";
+
+const loading = document.getElementById("loading");
+const errorBox = document.getElementById("error");
+const articleBox = document.getElementById("newsArticle");
+
+const titleElement = document.getElementById("title");
+const categoryElement = document.getElementById("category");
+const metaElement = document.getElementById("meta");
+const imageElement = document.getElementById("image");
+const summaryElement = document.getElementById("summary");
+const detailsElement = document.getElementById("details");
+const originalLink = document.getElementById("originalLink");
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+function safeHttpURL(value) {
+  try {
+    const parsed = new URL(value);
+    return ["http:", "https:"].includes(parsed.protocol)
+      ? parsed.href
+      : "";
+  } catch {
+    return "";
+  }
 }
-(async()=>{
- const title=get("title")||"शीर्षक उपलब्ध छैन",summary=get("summary")||"समाचारको सारांश उपलब्ध छैन";
- document.getElementById("source").textContent=get("source");
- document.getElementById("category").textContent=get("category")||"समाचार";
- const date=get("published");document.getElementById("date").textContent=date&&!Number.isNaN(new Date(date).getTime())?new Date(date).toLocaleDateString("ne-NP"):"";
- const [neTitle,neSummary]=await Promise.all([translateToNepali(title),translateToNepali(summary)]);
- document.getElementById("title").textContent=neTitle;
- document.getElementById("summary").textContent=neSummary;
- document.title=neTitle+" | NovaFacts";
- const original=safeURL(get("url"));if(original){const link=document.getElementById("original");link.href=original;link.hidden=false;}
- document.getElementById("status").textContent="नेपाली अनुवाद तयार भयो।";
-})();
+
+function showError(message) {
+  loading.hidden = true;
+  errorBox.textContent = message;
+  errorBox.hidden = false;
+}
+
+function displayNews(news) {
+  titleElement.textContent = news.title || "";
+  categoryElement.textContent =
+    news.category || requestedCategory;
+
+  const date = news.published || news.date || "";
+  const source = news.source || "";
+
+  metaElement.textContent = [source, date]
+    .filter(Boolean)
+    .join(" • ");
+
+  const imageURL = safeHttpURL(news.image || news.image_url || "");
+
+  if (imageURL) {
+    imageElement.src = imageURL;
+    imageElement.alt = news.title || "News image";
+    imageElement.hidden = false;
+  }
+
+  summaryElement.textContent = news.summary || "";
+
+  // उपलब्ध विवरण मात्र देखाउने; नभए भाग खाली रहनेछ।
+  const fullDetails =
+    news.content ||
+    news.body ||
+    news.fullText ||
+    news.full_text ||
+    "";
+
+  detailsElement.textContent =
+    typeof fullDetails === "string" ? fullDetails : "";
+
+  const publisherURL = safeHttpURL(news.url || requestedURL);
+
+  if (publisherURL) {
+    originalLink.href = publisherURL;
+    originalLink.hidden = false;
+  }
+
+  document.title =
+    (news.title || "News Details") + " | NovaFacts";
+
+  loading.hidden = true;
+  articleBox.hidden = false;
+}
+
+async function loadNewsDetails() {
+  if (!requestedURL && !requestedTitle) {
+    showError("No news article was selected.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      "./news.json?updated=" + Date.now(),
+      { cache: "no-store" }
+    );
+
+    if (!response.ok) {
+      throw new Error("Could not load news.json.");
+    }
+
+    const data = await response.json();
+
+    const articles = Array.isArray(data.articles)
+      ? data.articles
+      : [];
+
+    const selected = articles.find(item =>
+      requestedURL &&
+      item.url === requestedURL
+    ) || articles.find(item =>
+      requestedTitle &&
+      item.title === requestedTitle
+    );
+
+    if (!selected) {
+      showError("This news article is no longer available.");
+      return;
+    }
+
+    displayNews(selected);
+
+  } catch (error) {
+    console.error("NovaFacts detail error:", error);
+    showError("Unable to load this news article. Please try again later.");
+  }
+}
+
+loadNewsDetails();
 </script>
+
 </body>
 </html>

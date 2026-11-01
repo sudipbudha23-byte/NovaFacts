@@ -813,7 +813,7 @@
       "language": "en",
       "title_ne": "",
       "summary_ne": ""
-    },
+    }, 
     {
       "title": "Masked Erosion: How Acceptance Gates Lose Redundant Safeguards in Self-Improving Agents",
       "summary": "arXiv:2610.38392v1 Announce Type: new Abstract: Self-improving LLM agents edit their own harness, the prompts and rules around a fixed model, and keep an edit only if an acceptance gate scores it higher on a batch of tasks. Such a gate sees what the harness does under the current model, not what it would still prevent if one safeguard failed. When safeguards overlap, deleting one is masked: the others still block the harm, so the gate decides on task success alone and redundancy erodes unseen. We measure harm for every subset of four written safeguards in two agent environments and run 411 improvement loops under ten gate rules, mostly as controlled deletion experiments, plus three runs of the GEPA optimizer. A deletion behind another working safeguard adds almost no observable harm. A paired significance test blocks deletions that pass by chance but not deletions that genuinely raise task success, and a larger evaluation batch lets it delete cheaper safeguards: at the same cost, 20-task batches kept every harness protected while 40-task batches lost all six. Large harm audits prevent exposure but not the loss of depth, which turns into harm when the harness is reused with a weaker model. GEPA kept every safety rule verbatim, yet two of its three final harnesses misused credentials under a weaker model. A statistical model frozen before the runs predicts where each gate's protection breaks as safeguard cost and batch size change, and freezing safety text or auditing one-layer ablations preserves depth.",

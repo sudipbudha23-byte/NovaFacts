@@ -480,266 +480,391 @@
   </footer>
 
   <script>
-    "use strict";
+   "use strict";
 
-    // ---------- Theme ----------
-    const themeButton = document.getElementById("themeBtn");
-    const savedTheme = localStorage.getItem("novafacts-theme");
-    if (savedTheme === "dark") document.body.classList.add("dark");
+// ---------- Theme ----------
+const themeButton = document.getElementById("themeBtn");
+const savedTheme = localStorage.getItem("novafacts-theme");
 
-    function updateThemeButton() {
-      const isDark = document.body.classList.contains("dark");
-      themeButton.textContent = isDark ? "☀ Light" : "☾ Dark";
-      document.querySelector('meta[name="theme-color"]')
-        .setAttribute("content", isDark ? "#0b1020" : "#ffffff");
-    }
-    themeButton.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      localStorage.setItem(
-        "novafacts-theme",
-        document.body.classList.contains("dark") ? "dark" : "light"
-      );
-      updateThemeButton();
-    });
-    updateThemeButton();
+if (savedTheme === "dark") {
+  document.body.classList.add("dark");
+}
 
-    // ---------- Footer year ----------
-    document.getElementById("year").textContent = new Date().getFullYear();
+function updateThemeButton() {
+  const isDark = document.body.classList.contains("dark");
 
-    // ---------- News feed ----------
-    const newsGrid = document.getElementById("news-grid");
-    const newsStatus = document.getElementById("news-status");
-    const newsUpdated = document.getElementById("news-updated");
-    const newsCategory = document.getElementById("news-category");
-    const newsRefresh = document.getElementById("news-refresh");
-    let allNewsArticles = [];
+  themeButton.textContent = isDark ? "☀ Light" : "☾ Dark";
 
-    function escapeHTML(value = "") {
-      return String(value).replace(/[&<>"']/g, character => ({
-        "&": "&amp;", "<": "&lt;", ">": "&gt;",
-        '"': "&quot;", "'": "&#39;"
-      })[character]);
-    }
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
 
-    function validNewsLink(url) {
-      try {
-        const parsed = new URL(url, window.location.href);
-        return parsed.protocol === "https:" || parsed.protocol === "http:";
-      } catch {
-        return false;
-      }
-    }
+  if (themeMeta) {
+    themeMeta.setAttribute(
+      "content",
+      isDark ? "#0b1020" : "#ffffff"
+    );
+  }
+}
 
-    function renderNovaNews() {
-      const selectedCategory = newsCategory.value || "All";
-      const filtered = allNewsArticles.filter(article => {
-        return selectedCategory === "All" ||
-          String(article.category || "").toLowerCase() === selectedCategory.toLowerCase();
-      });
+themeButton.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
 
-      newsGrid.replaceChildren();
-      if (!filtered.length) {
-        newsStatus.textContent = allNewsArticles.length
-          ? "No news found in this category."
-          : "No news available right now.";
-        return;
-      }
+  localStorage.setItem(
+    "novafacts-theme",
+    document.body.classList.contains("dark") ? "dark" : "light"
+  );
 
-      newsStatus.textContent = "";
-      const fragment = document.createDocumentFragment();
+  updateThemeButton();
+});
 
-      filtered.forEach(article => {
-        const card = document.createElement("article");
-        card.className = "news-card";
+updateThemeButton();
 
-        const top = document.createElement("div");
-        top.className = "news-card-top";
-        const category = document.createElement("span");
-        category.className = "news-category";
-        category.textContent = article.category || "Science";
-        const source = document.createElement("span");
-        source.className = "news-meta";
-        source.textContent = article.source || "NovaFacts";
-        top.append(category, source);
 
-        const title = document.createElement("h3");
-        title.textContent = article.title || "Untitled";
-        const summary = document.createElement("div");
-        summary.className = "news-summary";
-        summary.textContent = article.summary || "";
+// ---------- Footer year ----------
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
-        const date = document.createElement("div");
-        date.className = "news-meta";
-        if (article.published) {
-          const parsedDate = new Date(article.published);
-          date.textContent = Number.isNaN(parsedDate.getTime())
-            ? "" : parsedDate.toLocaleDateString();
-        }
 
-        card.append(top, title, summary, date);
+// ---------- News Feed ----------
+const newsGrid = document.getElementById("news-grid");
+const newsStatus = document.getElementById("news-status");
+const newsUpdated = document.getElementById("news-updated");
+const newsCategory = document.getElementById("news-category");
+const newsRefresh = document.getElementById("news-refresh");
 
-        if (validNewsLink(article.url)) {
-          const link = document.createElement("a");
-          link.className = "news-read";
-          link.href = article.url;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          link.textContent = "Read original article →";
-          card.append(link);
-        }
+let allNewsArticles = [];
 
-        fragment.append(card);
-      });
 
-      newsGrid.append(fragment);
-    }
+// ---------- Escape HTML ----------
+function escapeHTML(value = "") {
+  return String(value).replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[character]);
+}
 
-    async function loadNovaNews() {
-      newsRefresh.disabled = true;
-      newsStatus.textContent = "Loading latest news...";
-      newsGrid.replaceChildren();
 
-      try {
-        const response = await fetch("news.json?updated=" + Date.now(), {
-          cache: "no-store",
-          headers: { "Accept": "application/json" }
-        });
-        if (!response.ok) throw new Error("News file could not be loaded.");
+// ---------- Validate News Link ----------
+function validNewsLink(url) {
+  try {
+    const parsed = new URL(url, window.location.href);
 
-        const data = await response.json();
-        allNewsArticles = Array.isArray(data.articles) ? data.articles : [];
+    return (
+      parsed.protocol === "https:" ||
+      parsed.protocol === "http:"
+    );
+  } catch {
+    return false;
+  }
+}
 
-        if (data.updated_at) {
-          const updatedDate = new Date(data.updated_at);
-          newsUpdated.textContent = Number.isNaN(updatedDate.getTime())
-            ? "" : "Last updated: " + updatedDate.toLocaleString();
-        } else {
-          newsUpdated.textContent = "";
-        }
 
-        renderNovaNews();
-      } catch (error) {
-        console.error("NovaFacts news error:", error);
-        newsStatus.textContent =
-          "Unable to load news. Check that news.json exists and contains valid JSON.";
-      } finally {
-        newsRefresh.disabled = false;
-      }
-    }
+// ---------- Render News ----------
+function renderNovaNews() {
+  const selectedCategory = newsCategory.value || "All";
 
-    newsCategory.addEventListener("change", renderNovaNews);
-    newsRefresh.addEventListener("click", loadNovaNews);
+  const filtered = allNewsArticles.filter(article => {
+    return (
+      selectedCategory === "All" ||
+      String(article.category || "").toLowerCase() ===
+      selectedCategory.toLowerCase()
+    );
+  });
 
-    document.querySelectorAll("[data-topic]").forEach(topic => {
-      topic.addEventListener("click", () => {
-        newsCategory.value = topic.dataset.topic;
-        renderNovaNews();
-      });
-    });
+  newsGrid.replaceChildren();
 
-    loadNovaNews();
+  if (!filtered.length) {
+    newsStatus.textContent = allNewsArticles.length
+      ? "No news found in this category."
+      : "No news available right now.";
 
-    // ---------- Five-question science quiz ----------
-    const quiz = [
-      {
-        q: "Which planet is famous for its prominent rings?",
-        a: ["Mars", "Saturn", "Venus", "Mercury"],
-        c: 1,
-        why: "Saturn's rings contain ice and rocky particles."
-      },
-      {
-        q: "What is the center of an atom called?",
-        a: ["Electron", "Molecule", "Nucleus", "Photon"],
-        c: 2,
-        why: "The nucleus contains protons and usually neutrons."
-      },
-      {
-        q: "Which star is closest to Earth?",
-        a: ["Sirius", "The Sun", "Polaris", "Vega"],
-        c: 1,
-        why: "The Sun is our nearest star."
-      },
-      {
-        q: "What does DNA store?",
-        a: ["Genetic information", "Sound waves", "Cloud patterns", "Magnetic fields"],
-        c: 0,
-        why: "DNA carries genetic instructions."
-      },
-      {
-        q: "Which gas do plants use in photosynthesis?",
-        a: ["Oxygen", "Helium", "Carbon dioxide", "Hydrogen"],
-        c: 2,
-        why: "Plants use carbon dioxide, water and light to make sugars."
-      }
-    ];
+    return;
+  }
 
-    let questionIndex = 0;
-    let score = 0;
-    let answered = false;
+  newsStatus.textContent = "";
 
-    const questionElement = document.getElementById("question");
-    const answersElement = document.getElementById("answers");
-    const feedbackElement = document.getElementById("feedback");
-    const nextButton = document.getElementById("next");
-    const questionNumber = document.getElementById("qNumber");
-    const scoreElement = document.getElementById("score");
+  const fragment = document.createDocumentFragment();
 
-    function showQuestion() {
-      answered = false;
-      const current = quiz[questionIndex];
-      questionNumber.textContent = String(questionIndex + 1);
-      scoreElement.textContent = String(score);
-      questionElement.textContent = current.q;
-      feedbackElement.textContent = "";
-      nextButton.hidden = true;
-      answersElement.replaceChildren();
+  filtered.forEach(article => {
+    const card = document.createElement("article");
+    card.className = "news-card";
 
-      current.a.forEach((answer, index) => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "answer";
-        button.textContent = answer;
-        button.addEventListener("click", () => chooseAnswer(index));
-        answersElement.append(button);
-      });
+    // Category and source
+    const top = document.createElement("div");
+    top.className = "news-card-top";
+
+    const category = document.createElement("span");
+    category.className = "news-category";
+    category.textContent = article.category || "Science";
+
+    const source = document.createElement("span");
+    source.className = "news-meta";
+    source.textContent = article.source || "NovaFacts";
+
+    top.append(category, source);
+
+    // Title
+    const title = document.createElement("h3");
+    title.textContent = article.title || "Untitled";
+
+    // Summary
+    const summary = document.createElement("div");
+    summary.className = "news-summary";
+    summary.textContent = article.summary || "";
+
+    // Date
+    const date = document.createElement("div");
+    date.className = "news-meta";
+
+    if (article.published) {
+      const parsedDate = new Date(article.published);
+
+      date.textContent = Number.isNaN(parsedDate.getTime())
+        ? ""
+        : parsedDate.toLocaleDateString();
     }
 
-    function chooseAnswer(chosenIndex) {
-      if (answered) return;
-      answered = true;
+    card.append(top, title, summary, date);
 
-      const current = quiz[questionIndex];
-      const answerButtons = answersElement.querySelectorAll("button");
 
-      answerButtons.forEach((button, index) => {
-        button.disabled = true;
-        if (index === current.c) button.classList.add("correct");
-        if (index === chosenIndex && chosenIndex !== current.c) {
-          button.classList.add("wrong");
-        }
-      });
+    // ---------- Read Full News Link ----------
+    const link = document.createElement("a");
 
-      if (chosenIndex === current.c) score++;
-      scoreElement.textContent = String(score);
-      feedbackElement.textContent =
-        (chosenIndex === current.c ? "Correct! " : "Not quite. ") + current.why;
+    link.className = "news-read";
+    link.textContent = "Read Full News →";
 
-      nextButton.hidden = false;
-      nextButton.textContent =
-        questionIndex === quiz.length - 1 ? "Try again ↻" : "Next question →";
-    }
-
-    nextButton.addEventListener("click", () => {
-      if (questionIndex === quiz.length - 1) {
-        questionIndex = 0;
-        score = 0;
-      } else {
-        questionIndex++;
-      }
-      showQuestion();
+    const detailParams = new URLSearchParams({
+      url: validNewsLink(article.url || "") ? article.url : "",
+      title: article.title || "Untitled",
+      category: article.category || "Science"
     });
 
-    showQuestion();
+    link.href = "news-detail.html?" + detailParams.toString();
+
+    card.append(link);
+
+    fragment.append(card);
+  });
+
+  newsGrid.append(fragment);
+}
+
+
+// ---------- Load News ----------
+async function loadNovaNews() {
+  newsRefresh.disabled = true;
+
+  newsStatus.textContent = "Loading latest news...";
+  newsGrid.replaceChildren();
+
+  try {
+    const response = await fetch(
+      "news.json?updated=" + Date.now(),
+      {
+        cache: "no-store",
+        headers: {
+          "Accept": "application/json"
+        }
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("News file could not be loaded.");
+    }
+
+    const data = await response.json();
+
+    allNewsArticles = Array.isArray(data.articles)
+      ? data.articles
+      : [];
+
+    if (data.updated_at) {
+      const updatedDate = new Date(data.updated_at);
+
+      newsUpdated.textContent =
+        Number.isNaN(updatedDate.getTime())
+          ? ""
+          : "Last updated: " + updatedDate.toLocaleString();
+    } else {
+      newsUpdated.textContent = "";
+    }
+
+    renderNovaNews();
+
+  } catch (error) {
+    console.error("NovaFacts news error:", error);
+
+    newsStatus.textContent =
+      "Unable to load news. Check that news.json exists and contains valid JSON.";
+
+  } finally {
+    newsRefresh.disabled = false;
+  }
+}
+
+
+// ---------- News Events ----------
+newsCategory.addEventListener("change", renderNovaNews);
+
+newsRefresh.addEventListener("click", loadNovaNews);
+
+document.querySelectorAll("[data-topic]").forEach(topic => {
+  topic.addEventListener("click", () => {
+    newsCategory.value = topic.dataset.topic;
+    renderNovaNews();
+  });
+});
+
+loadNovaNews();
+
+
+// ---------- Five-question Science Quiz ----------
+const quiz = [
+  {
+    q: "Which planet is famous for its prominent rings?",
+    a: ["Mars", "Saturn", "Venus", "Mercury"],
+    c: 1,
+    why: "Saturn's rings contain ice and rocky particles."
+  },
+  {
+    q: "What is the center of an atom called?",
+    a: ["Electron", "Molecule", "Nucleus", "Photon"],
+    c: 2,
+    why: "The nucleus contains protons and usually neutrons."
+  },
+  {
+    q: "Which star is closest to Earth?",
+    a: ["Sirius", "The Sun", "Polaris", "Vega"],
+    c: 1,
+    why: "The Sun is our nearest star."
+  },
+  {
+    q: "What does DNA store?",
+    a: [
+      "Genetic information",
+      "Sound waves",
+      "Cloud patterns",
+      "Magnetic fields"
+    ],
+    c: 0,
+    why: "DNA carries genetic instructions."
+  },
+  {
+    q: "Which gas do plants use in photosynthesis?",
+    a: [
+      "Oxygen",
+      "Helium",
+      "Carbon dioxide",
+      "Hydrogen"
+    ],
+    c: 2,
+    why: "Plants use carbon dioxide, water and light to make sugars."
+  }
+];
+
+let questionIndex = 0;
+let score = 0;
+let answered = false;
+
+const questionElement = document.getElementById("question");
+const answersElement = document.getElementById("answers");
+const feedbackElement = document.getElementById("feedback");
+const nextButton = document.getElementById("next");
+const questionNumber = document.getElementById("qNumber");
+const scoreElement = document.getElementById("score");
+
+
+// ---------- Show Question ----------
+function showQuestion() {
+  answered = false;
+
+  const current = quiz[questionIndex];
+
+  questionNumber.textContent = String(questionIndex + 1);
+  scoreElement.textContent = String(score);
+  questionElement.textContent = current.q;
+
+  feedbackElement.textContent = "";
+  nextButton.hidden = true;
+
+  answersElement.replaceChildren();
+
+  current.a.forEach((answer, index) => {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = "answer";
+    button.textContent = answer;
+
+    button.addEventListener("click", () => {
+      chooseAnswer(index);
+    });
+
+    answersElement.append(button);
+  });
+}
+
+
+// ---------- Choose Answer ----------
+function chooseAnswer(chosenIndex) {
+  if (answered) return;
+
+  answered = true;
+
+  const current = quiz[questionIndex];
+
+  const answerButtons =
+    answersElement.querySelectorAll("button");
+
+  answerButtons.forEach((button, index) => {
+    button.disabled = true;
+
+    if (index === current.c) {
+      button.classList.add("correct");
+    }
+
+    if (
+      index === chosenIndex &&
+      chosenIndex !== current.c
+    ) {
+      button.classList.add("wrong");
+    }
+  });
+
+  if (chosenIndex === current.c) {
+    score++;
+  }
+
+  scoreElement.textContent = String(score);
+
+  feedbackElement.textContent =
+    (chosenIndex === current.c ? "Correct! " : "Not quite. ") +
+    current.why;
+
+  nextButton.hidden = false;
+
+  nextButton.textContent =
+    questionIndex === quiz.length - 1
+      ? "Try again ↻"
+      : "Next question →";
+}
+
+
+// ---------- Next Question ----------
+nextButton.addEventListener("click", () => {
+  if (questionIndex === quiz.length - 1) {
+    questionIndex = 0;
+    score = 0;
+  } else {
+    questionIndex++;
+  }
+
+  showQuestion();
+});
+
+showQuestion();
   </script>
   <!-- Adsterra Social Bar -->
   <script data-cfasync="false" src="https://bauval.org/14/308410aca83ab286c49c31038e3c77e7"></script>
