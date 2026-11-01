@@ -1,2585 +1,744 @@
-
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta name="theme-color" content="#ffffff">
-
-
-
-<title>NovaFacts — Explore Science, Space and Physics</title>
-
-<meta name="d9ed83b0e18850d3865c4d43997030552cfce0fe" content="d9ed83b0e18850d3865c4d43997030552cfce0fe" />
-
-<meta name="description" content="Explore science, space, physics, artificial intelligence, biology and the latest discoveries through educational articles and quizzes on NovaFacts.">
-
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://novafacts.pages.dev/">
-
-<meta name="google-site-verification" content="kw_LZmJVMz_6cTzYAYEI3S8fpvcNAgPXlO54PUzWBfc">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>NovaFacts — Explore Science, Space and Physics</title>
+  <meta name="description" content="Explore science, space, physics, artificial intelligence, biology and discoveries through educational articles and quizzes on NovaFacts.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://novafacts.pages.dev/">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <meta name="google-site-verification" content="kw_LZmJVMz_6cTzYAYEI3S8fpvcNAgPXlO54PUzWBfc">
 <meta name="referrer" content="no-referrer-when-downgrade" />
-
-
-<link rel="icon" type="image/png" href="/favicon.png">
-
-<link rel="apple-touch-icon" href="/favicon.png">
-
-
-
-<script type="application/ld+json">
-
-{
-
-  "@context": "https://schema.org",
-
-  "@type": "WebSite",
-
-  "name": "NovaFacts",
-
-  "alternateName": "Nova Facts",
-
-  "url": "https://novafacts.pages.dev/",
-
-  "publisher": {
-
-    "@type": "Organization",
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
     "name": "NovaFacts",
+    "alternateName": "Nova Facts",
+    "url": "https://novafacts.pages.dev/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "NovaFacts",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://novafacts.pages.dev/logo.png",
+        "width": 512,
+        "height": 512
+      }
+    }
+  }
+  </script>
 
-    "logo": {
-
-      "@type": "ImageObject",
-
-      "url": "https://novafacts.pages.dev/logo.png",
-
-      "width": 512,
-
-      "height": 512
-
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --text: #111827;
+      --muted: #64748b;
+      --line: #e5e7eb;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --card: #ffffff;
+      --soft: #eff6ff;
+      --header: rgba(255,255,255,.94);
+      --shadow: 0 12px 30px rgba(100,116,139,.12);
     }
 
-  }
-
-}
-
-
-
-
-
-</script>
-
-
-
-<style>
-
-
-
-
-
-:root {
-
-  --bg:#fff;
-
-  --text:#111827;
-
-  --muted:#64748b;
-
-  --line:#e5e7eb;
-
-  --blue:#2563eb;
-
-  --card:#fff;
-
-}
-
-
-
-* { box-sizing:border-box; }
-
-
-
-html { scroll-behavior:smooth; }
-
-
-
-body {
-
-  margin:0;
-
-  background:var(--bg);
-
-  color:var(--text);
-
-  font-family:Arial,Helvetica,sans-serif;
-
-  line-height:1.6;
-
-  transition:background-color .25s,color .25s;
-
-}
-
-
-
-a { color:inherit; }
-
-button,input,select { font:inherit; }
-
-button { cursor:pointer; }
-
-
-
-.wrap {
-
-  width:min(1100px,92%);
-
-  margin:auto;
-
-}
-
-
-
-header {
-
-  position:sticky;
-
-  top:0;
-
-  z-index:5;
-
-  background:var(--bg);
-
-  border-bottom:1px solid var(--line);
-
-}
-
-
-
-.nav {
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  padding:15px 0;
-
-  gap:12px;
-
-  flex-wrap:wrap;
-
-}
-
-
-
-.brand {
-
-  display:inline-flex;
-
-  align-items:center;
-
-  text-decoration:none;
-
-  flex-shrink:0;
-
-}
-
-
-
-.brand img {
-
-  display:block;
-
-  width:190px;
-
-  max-width:100%;
-
-  height:58px;
-
-  object-fit:contain;
-
-  object-position:left center;
-
-}
-
-
-
-nav {
-
-  display:flex;
-
-  gap:18px;
-
-  flex-wrap:wrap;
-
-}
-
-
-
-nav a {
-
-  text-decoration:none;
-
-  font-weight:700;
-
-  font-size:14px;
-
-}
-
-
-
-.theme,.secondary {
-
-  border:1px solid var(--line);
-
-  border-radius:11px;
-
-  background:var(--card);
-
-  color:var(--text);
-
-  padding:10px 13px;
-
-}
-
-
-
-.hero {
-
-  padding:65px 0;
-
-  background:
-
-    radial-gradient(circle at 85% 20%,#dbeafe,transparent 38%),
-
-    linear-gradient(180deg,#f8fbff,#fff);
-
-}
-
-
-
-.hero-grid {
-
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  align-items:center;
-
-  gap:35px;
-
-}
-
-
-
-.eyebrow {
-
-  color:var(--blue);
-
-  font-size:13px;
-
-  font-weight:900;
-
-  letter-spacing:2px;
-
-}
-
-
-
-h1 {
-
-  font-size:clamp(42px,6vw,72px);
-
-  line-height:1.02;
-
-  margin:18px 0;
-
-}
-
-
-
-.lead {
-
-  color:var(--muted);
-
-  font-size:18px;
-
-  max-width:570px;
-
-}
-
-
-
-.blue { color:var(--blue); }
-
-
-
-.actions {
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:10px;
-
-  margin-top:22px;
-
-}
-
-
-
-.btn {
-
-  display:inline-block;
-
-  text-decoration:none;
-
-  border:0;
-
-  border-radius:11px;
-
-  padding:12px 16px;
-
-  font-weight:800;
-
-}
-
-
-
-.primary {
-
-  background:var(--blue);
-
-  color:white;
-
-}
-
-
-
-.space {
-
-  min-height:290px;
-
-  border-radius:25px;
-
-  position:relative;
-
-  overflow:hidden;
-
-  display:grid;
-
-  place-items:center;
-
-  background:radial-gradient(circle at center,#183a76,#071225 75%);
-
-}
-
-
-
-.planet {
-
-  width:125px;
-
-  height:125px;
-
-  border-radius:50%;
-
-  background:radial-gradient(circle at 30% 25%,#dbeafe,#6096f5 40%,#16366e 75%);
-
-  box-shadow:0 0 60px #5796ff99;
-
-  z-index:1;
-
-}
-
-
-
-.orbit {
-
-  position:absolute;
-
-  width:280px;
-
-  height:110px;
-
-  border:1px solid #ffffff55;
-
-  border-radius:50%;
-
-  transform:rotate(-30deg);
-
-}
-
-
-
-.orbit.two {
-
-  width:330px;
-
-  height:150px;
-
-  transform:rotate(30deg);
-
-}
-
-
-
-.star {
-
-  position:absolute;
-
-  color:white;
-
-  animation:twinkle 2s infinite alternate;
-
-}
-
-
-
-.s1 {top:18%;left:20%;}
-
-.s2 {right:20%;top:25%;}
-
-.s3 {left:25%;bottom:18%;}
-
-.s4 {right:25%;bottom:22%;}
-
-
-
-@keyframes twinkle {
-
-  to {opacity:.25;transform:scale(.7);}
-
-}
-
-
-
-.section { padding:45px 0; }
-
-
-
-.heading { margin-bottom:22px; }
-
-
-
-.heading h2 {
-
-  font-size:32px;
-
-  margin:5px 0;
-
-}
-
-
-
-.heading p,.muted { color:var(--muted); }
-
-
-
-.ad {
-
-  min-height:85px;
-
-  border:1px dashed #cbd5e1;
-
-  border-radius:13px;
-
-  margin:25px auto;
-
-  padding:15px;
-
-  display:grid;
-
-  place-items:center;
-
-  text-align:center;
-
-  color:#94a3b8;
-
-  font-size:13px;
-
-}
-
-
-
-.grid {
-
-  display:grid;
-
-  grid-template-columns:repeat(3,1fr);
-
-  gap:17px;
-
-}
-
-
-
-.card {
-
-  border:1px solid var(--line);
-
-  border-radius:16px;
-
-  overflow:hidden;
-
-  background:var(--card);
-
-  display:flex;
-
-  flex-direction:column;
-
-  transition:transform .2s,box-shadow .2s;
-
-}
-
-
-
-.card:hover {
-
-  transform:translateY(-4px);
-
-  box-shadow:0 12px 30px #64748b20;
-
-}
-
-
-
-.card-art {
-
-  height:105px;
-
-  display:grid;
-
-  place-items:center;
-
-  font-size:38px;
-
-  background:#eff6ff;
-
-}
-
-
-
-.card-content {
-
-  padding:17px;
-
-  display:flex;
-
-  flex-direction:column;
-
-  flex:1;
-
-}
-
-
-
-.tag {
-
-  font-size:11px;
-
-  font-weight:900;
-
-  color:var(--blue);
-
-  text-transform:uppercase;
-
-}
-
-
-
-.card h3 {
-
-  font-size:18px;
-
-  line-height:1.35;
-
-  margin:10px 0;
-
-}
-
-
-
-.card p {
-
-  font-size:14px;
-
-  color:var(--muted);
-
-}
-
-
-
-.source {
-
-  font-size:12px;
-
-  color:var(--muted);
-
-  margin-bottom:14px;
-
-}
-
-
-
-.read {
-
-  color:var(--blue);
-
-  text-decoration:none;
-
-  font-weight:800;
-
-  margin-top:auto;
-
-}
-
-
-
-.empty {
-
-  grid-column:1/-1;
-
-  text-align:center;
-
-  padding:30px;
-
-  border:1px dashed var(--line);
-
-  border-radius:12px;
-
-  color:var(--muted);
-
-}
-
-
-
-.topics {
-
-  display:grid;
-
-  grid-template-columns:repeat(5,1fr);
-
-  gap:12px;
-
-}
-
-
-
-.topic {
-
-  border:1px solid var(--line);
-
-  border-radius:14px;
-
-  padding:17px;
-
-  text-decoration:none;
-
-}
-
-
-
-.topic:hover { border-color:var(--blue); }
-
-
-
-.topic b { display:block; }
-
-
-
-.quiz {
-
-  background:#111827;
-
-  color:#fff;
-
-  border-radius:20px;
-
-  padding:25px;
-
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:25px;
-
-}
-
-
-
-.quiz p { color:#cbd5e1; }
-
-
-
-.quiz-box {
-
-  background:#1f2937;
-
-  border:1px solid #374151;
-
-  padding:18px;
-
-  border-radius:14px;
-
-}
-
-
-
-.answers {
-
-  display:grid;
-
-  gap:9px;
-
-}
-
-
-
-.answer {
-
-  background:#111827;
-
-  color:#fff;
-
-  text-align:left;
-
-  padding:11px;
-
-  border:1px solid #4b5563;
-
-  border-radius:9px;
-
-}
-
-
-
-.answer.correct { background:#065f46; }
-
-.answer.wrong { background:#991b1b; }
-
-.answer:disabled { cursor:default; }
-
-
-
-.about {
-
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:15px;
-
-}
-
-
-
-.info {
-
-  border:1px solid var(--line);
-
-  border-radius:15px;
-
-  padding:20px;
-
-}
-
-
-
-footer {
-
-  border-top:1px solid var(--line);
-
-  padding:25px 0;
-
-  color:var(--muted);
-
-  font-size:13px;
-
-}
-
-
-
-footer a { margin-right:12px; }
-
-
-
-/* DARK THEME */
-
-
-
-body.dark {
-
-  --bg:#0b1020;
-
-  --text:#e5e7eb;
-
-  --muted:#a7b2c4;
-
-  --line:#30394b;
-
-  --card:#111827;
-
-}
-
-
-
-body.dark .hero {
-
-  background:
-
-    radial-gradient(circle at 85% 20%,#17294b,transparent 40%),
-
-    #0b1020;
-
-}
-
-
-
-body.dark .card-art { background:#172033; }
-
-body.dark .ad { background:#111827; }
-
-
-
-/* NOVAFACTS AUTOMATIC NEWS */
-
-
-
-#nova-news {
-
-  width:min(1200px,94%);
-
-  margin:50px auto;
-
-  color:inherit;
-
-}
-
-
-
-.news-heading {
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  gap:20px;
-
-  margin-bottom:24px;
-
-}
-
-
-
-.news-label {
-
-  color:#f5a623;
-
-  font-size:12px;
-
-  font-weight:800;
-
-  letter-spacing:2px;
-
-}
-
-
-
-.news-heading h2 {
-
-  font-size:clamp(26px,4vw,38px);
-
-  margin:8px 0;
-
-}
-
-
-
-.news-heading p {
-
-  opacity:.65;
-
-  margin:0;
-
-}
-
-
-
-#news-refresh {
-
-  border:1px solid #f5a623;
-
-  background:#f5a623;
-
-  color:#151515;
-
-  padding:12px 20px;
-
-  border-radius:12px;
-
-  cursor:pointer;
-
-  font-weight:800;
-
-}
-
-
-
-#news-refresh:disabled {
-
-  opacity:.6;
-
-  cursor:wait;
-
-}
-
-
-
-.news-toolbar {
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:12px;
-
-  margin:20px 0;
-
-}
-
-
-
-.news-toolbar select {
-
-  background:var(--card);
-
-  color:var(--text);
-
-  border:1px solid var(--line);
-
-  padding:12px 15px;
-
-  border-radius:10px;
-
-  max-width:100%;
-
-}
-
-
-
-#news-status {
-
-  margin:15px 0;
-
-  opacity:.75;
-
-}
-
-
-
-.news-grid {
-
-  display:grid;
-
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));
-
-  gap:18px;
-
-}
-
-
-
-.news-card {
-
-  border:1px solid rgba(150,160,180,.22);
-
-  background:var(--card);
-
-  border-radius:17px;
-
-  padding:20px;
-
-  display:flex;
-
-  flex-direction:column;
-
-  min-height:190px;
-
-  transition:transform .2s,border-color .2s;
-
-}
-
-
-
-.news-card:hover {
-
-  transform:translateY(-4px);
-
-  border-color:#f5a623;
-
-}
-
-
-
-.news-card { cursor:pointer; }
-.news-card:focus-visible { outline:3px solid #f5a623; outline-offset:3px; }
-
-.news-card-top {
-
-  display:flex;
-
-  justify-content:space-between;
-
-  gap:8px;
-
-  margin-bottom:15px;
-
-  font-size:12px;
-
-}
-
-
-
-.news-category {
-
-  color:#d99012;
-
-  font-weight:800;
-
-}
-
-
-
-
-
-.news-card h3 {
-
-  font-size:17px;
-
-  line-height:1.55;
-
-  margin:0 0 16px;
-
-}
-
-
-
-.news-meta {
-
-  font-size:12px;
-
-  opacity:.65;
-
-  margin-top:auto;
-
-  margin-bottom:14px;
-
-}
-
-
-
-.news-read {
-
-  color:#d99012;
-
-  font-weight:800;
-
-  text-decoration:none;
-
-}
-
-
-
-.news-read:hover { text-decoration:underline; }
-
-
-
-#news-updated {
-
-  text-align:center;
-
-  opacity:.6;
-
-  font-size:12px;
-
-  margin-top:24px;
-
-}
-
-
-
-body.dark .news-category,
-
-body.dark .news-read {
-
-  color:#f5b942;
-
-}
-
-
-
-@media(max-width:760px) {
-
-  .hero-grid,.quiz { grid-template-columns:1fr; }
-
-  .grid { grid-template-columns:repeat(2,1fr); }
-
-  .topics { grid-template-columns:repeat(3,1fr); }
-
-  nav { gap:10px; }
-
-  nav a { font-size:12px; }
-
-}
-
-
-
-@media(max-width:600px) {
-
-  .brand img {
-
-    width:145px;
-
-    height:46px;
-
-  }
-
-
-
-  .news-heading {
-
-    align-items:flex-start;
-
-    flex-direction:column;
-
-  }
-
-
-
-  .news-toolbar select { flex:1; }
-
-
-
-  nav a:nth-child(2),
-
-  nav a:nth-child(3) {
-
-    display:none;
-
-  }
-
-}
-
-
-
-@media(max-width:500px) {
-
-  .grid,.about { grid-template-columns:1fr; }
-
-  .topics { grid-template-columns:repeat(2,1fr); }
-
-  .hero { padding:40px 0; }
-
-}
-.google-login-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 12px 22px;
-  background: #ffffff;
-  color: #202124;
-  border: 1px solid #dadce0;
-  border-radius: 12px;
-  text-decoration: none;
-  font-family: Arial, sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  transition: 0.3s ease;
-  cursor: pointer;
-}
-
-.google-login-btn img {
-  width: 22px;
-  height: 22px;
-}
-
-.google-login-btn:hover {
-  background: #e8f0fe;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 18px #0002;
-}
-.ad-box {
-  width: 92%;
-  max-width: 1100px;
-  min-height: 85px;
-  margin: 25px auto;
-  padding: 15px;
-  border: 1px dashed #94a3b8;
-  border-radius: 13px;
-  background: #f8fafc;
-  color: #111827;
-  text-align: center;
-}
-
-.ad-box p {
-  margin: 0 0 8px;
-  font-weight: bold;
-}
-
-.ad-box a {
-  display: inline-block;
-  color: #2563eb;
-  font-weight: bold;
-}
-</style>
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      transition: background-color .25s, color .25s;
+    }
+    body.dark {
+      color-scheme: dark;
+      --bg: #0b1020;
+      --text: #e5e7eb;
+      --muted: #a7b2c4;
+      --line: #30394b;
+      --blue: #60a5fa;
+      --blue-dark: #3b82f6;
+      --card: #111827;
+      --soft: #172033;
+      --header: rgba(11,16,32,.94);
+      --shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    img { max-width: 100%; }
+    .wrap { width: min(1100px, 92%); margin: auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--header);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+    }
+    .brand { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .brand img { display: block; width: 175px; height: 55px; object-fit: contain; object-position: left center; }
+    .nav-links { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; font-weight: 700; font-size: 13px; }
+    .nav-links a:hover, footer a:hover { color: var(--blue); }
+    .header-actions { display: flex; align-items: center; gap: 8px; }
+    .theme, .secondary {
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--card);
+      color: var(--text);
+      padding: 9px 12px;
+    }
+    .menu-toggle { display: none; }
+
+    .hero {
+      padding: 68px 0;
+      background:
+        radial-gradient(circle at 85% 20%, #dbeafe, transparent 38%),
+        linear-gradient(180deg, #f8fbff, #fff);
+    }
+    body.dark .hero {
+      background: radial-gradient(circle at 85% 20%, #17294b, transparent 40%), #0b1020;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 35px;
+    }
+    .eyebrow { color: var(--blue); font-size: 13px; font-weight: 900; letter-spacing: 2px; }
+    h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1.02; margin: 18px 0; }
+    .lead { color: var(--muted); font-size: 18px; max-width: 570px; }
+    .blue { color: var(--blue); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border: 0;
+      border-radius: 11px;
+      padding: 12px 16px;
+      font-weight: 800;
+    }
+    .primary { background: var(--blue-dark); color: #fff; }
+    .primary:hover { filter: brightness(1.08); }
+    .space {
+      min-height: 300px;
+      border-radius: 25px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at center, #183a76, #071225 75%);
+    }
+    .planet {
+      width: 125px; height: 125px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 25%, #dbeafe, #6096f5 40%, #16366e 75%);
+      box-shadow: 0 0 60px #5796ff99; z-index: 1;
+    }
+    .orbit {
+      position: absolute; width: 280px; height: 110px;
+      border: 1px solid #ffffff55; border-radius: 50%; transform: rotate(-30deg);
+    }
+    .orbit.two { width: 330px; height: 150px; transform: rotate(30deg); }
+    .star { position: absolute; color: white; animation: twinkle 2s infinite alternate; }
+    .s1 { top: 18%; left: 20%; } .s2 { right: 20%; top: 25%; }
+    .s3 { left: 25%; bottom: 18%; } .s4 { right: 25%; bottom: 22%; }
+    @keyframes twinkle { to { opacity: .25; transform: scale(.7); } }
+
+    .section { padding: 48px 0; }
+    .heading { margin-bottom: 22px; }
+    .heading h2 { font-size: 32px; margin: 5px 0; }
+    .heading p, .muted { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .card {
+      border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+      background: var(--card); display: flex; flex-direction: column;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .card-art { height: 110px; display: grid; place-items: center; font-size: 40px; background: var(--soft); }
+    .card-content { padding: 17px; display: flex; flex-direction: column; flex: 1; }
+    .tag { font-size: 11px; font-weight: 900; color: var(--blue); text-transform: uppercase; letter-spacing: .5px; }
+    .card h3 { font-size: 18px; line-height: 1.35; margin: 10px 0; }
+    .card p { font-size: 14px; color: var(--muted); }
+    .read { color: var(--blue); text-decoration: none; font-weight: 800; margin-top: auto; }
+    .topics { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .topic { border: 1px solid var(--line); border-radius: 14px; padding: 17px; text-decoration: none; background: var(--card); }
+    .topic:hover { border-color: var(--blue); }
+    .topic b { display: block; }
+    .topic small { color: var(--muted); }
+
+    .ad-box, .hilltop-ad {
+      width: 92%; max-width: 1100px; min-height: 85px;
+      margin: 25px auto; padding: 14px; text-align: center;
+      border: 1px dashed var(--line); border-radius: 13px;
+      background: var(--card); color: var(--muted);
+    }
+    .ad-box p { margin: 0 0 8px; font-weight: bold; }
+    .ad-box a { color: var(--blue); font-weight: bold; }
+    .hilltop-ad { border-style: solid; }
+    .ad-label { display: block; font-size: 10px; letter-spacing: 1.5px; margin-bottom: 8px; }
+    .hilltop-ad img { display: block; width: 100%; max-width: 728px; height: auto; margin: auto; }
+    .hilltopads-btn {
+      display: inline-block; padding: 9px 13px; border-radius: 10px;
+      background: linear-gradient(135deg, #ff9800, #ff5722);
+      color: white; text-decoration: none; font-size: 13px; font-weight: bold;
+    }
+
+    #nova-news { width: min(1200px, 94%); margin: 48px auto; }
+    .news-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 20px; }
+    .news-label { color: #d99012; font-size: 12px; font-weight: 800; letter-spacing: 2px; }
+    .news-heading h2 { font-size: clamp(26px, 4vw, 38px); margin: 8px 0; }
+    .news-heading p { color: var(--muted); margin: 0; }
+    #news-refresh {
+      border: 1px solid #f5a623; background: #f5a623; color: #151515;
+      padding: 11px 18px; border-radius: 12px; font-weight: 800;
+    }
+    #news-refresh:disabled { opacity: .6; cursor: wait; }
+    .news-toolbar { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+    .news-toolbar select {
+      background: var(--card); color: var(--text); border: 1px solid var(--line);
+      padding: 11px 14px; border-radius: 10px; max-width: 100%;
+    }
+    #news-status { margin: 15px 0; color: var(--muted); }
+    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 18px; }
+    .news-card {
+      border: 1px solid var(--line); background: var(--card); border-radius: 17px;
+      padding: 20px; display: flex; flex-direction: column; min-height: 200px;
+      transition: transform .2s, border-color .2s;
+    }
+    .news-card:hover { transform: translateY(-4px); border-color: #f5a623; }
+    .news-card-top { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 15px; font-size: 12px; }
+    .news-category { color: #d99012; font-weight: 800; }
+    .news-card h3 { font-size: 17px; line-height: 1.5; margin: 0 0 12px; }
+    .news-summary { font-size: 14px; color: var(--muted); }
+    .news-meta { font-size: 12px; color: var(--muted); margin-top: auto; margin-bottom: 12px; }
+    .news-read { color: #d99012; font-weight: 800; text-decoration: none; }
+    .news-read:hover { text-decoration: underline; }
+    #news-updated { text-align: center; color: var(--muted); font-size: 12px; margin-top: 24px; }
+    body.dark .news-category, body.dark .news-read { color: #f5b942; }
+
+    .quiz {
+      background: #111827; color: #fff; border-radius: 20px; padding: 25px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 25px;
+    }
+    .quiz p { color: #cbd5e1; }
+    .quiz-box { background: #1f2937; border: 1px solid #374151; padding: 18px; border-radius: 14px; }
+    .answers { display: grid; gap: 9px; }
+    .answer {
+      background: #111827; color: #fff; text-align: left; padding: 11px;
+      border: 1px solid #4b5563; border-radius: 9px;
+    }
+    .answer.correct { background: #065f46; border-color: #10b981; }
+    .answer.wrong { background: #991b1b; border-color: #ef4444; }
+    .answer:disabled { cursor: default; opacity: 1; }
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .info { border: 1px solid var(--line); border-radius: 15px; padding: 20px; background: var(--card); }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); font-size: 13px; text-align: center; }
+    footer a { margin: 0 7px; text-decoration: none; }
+
+    @media (max-width: 850px) {
+      .nav-links { order: 3; width: 100%; justify-content: center; }
+      .hero-grid, .quiz { grid-template-columns: 1fr; }
+      .topics { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .brand img { width: 140px; height: 45px; }
+      .grid, .about { grid-template-columns: 1fr; }
+      .topics { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding: 42px 0; }
+      .news-heading { align-items: flex-start; flex-direction: column; }
+      .news-toolbar select { flex: 1; }
+      .nav-links { gap: 10px; }
+      .nav-links a { font-size: 12px; }
+      .nav-links a:nth-child(n+5) { display: none; }
+      .space { min-height: 250px; }
+    }
+  </style>
 </head>
 
-
-
 <body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="NovaFacts home">
+        <img src="logo.png" alt="NovaFacts Logo" onerror="this.style.display='none'">
+        <strong class="brand-fallback">NovaFacts</strong>
+      </a>
 
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#discoveries">Discoveries</a>
+        <a href="#topics">Topics</a>
+        <a href="#nova-news">Latest News</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#about">About</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy</a>
+      </nav>
 
-<header>
+      <div class="header-actions">
+        <a class="hilltopads-btn" href="https://hilltopads.com/?ref=411460" target="_blank" rel="nofollow sponsored noopener">Visit HilltopAds</a>
+        <a class="secondary" href="login.html">Google Login</a>
+        <button class="theme" id="themeBtn" type="button" aria-label="Toggle color theme">☾ Theme</button>
+      </div>
+    </div>
+  </header>
 
-<a href="login.html" class="google-login-btn">
-  <img
-    src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-    alt="Google"
-  >
-  Continue with Google
-</a>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">SCIENCE · DISCOVERY · KNOWLEDGE</div>
+          <h1>Discover what's <span class="blue">next.</span></h1>
+          <p class="lead">Explore discoveries in space, physics, artificial intelligence, biology and our changing planet.</p>
+          <div class="actions">
+            <a class="btn primary" href="#discoveries">Explore discoveries ↗</a>
+            <a class="btn secondary" href="#quiz">Try the science quiz</a>
+          </div>
+          <p class="muted" id="updatedText">Explore the latest science and technology.</p>
+        </div>
+        <div class="space" role="img" aria-label="Decorative illustration of a planet and its orbit">
+          <span class="star s1">✦</span><span class="star s2">✧</span>
+          <span class="star s3">✦</span><span class="star s4">✧</span>
+          <div class="orbit"></div><div class="orbit two"></div><div class="planet"></div>
+        </div>
+      </div>
+    </section>
 
-  <div class="wrap nav">
+    <div class="hilltop-ad">
+      <span class="ad-label">ADVERTISEMENT</span>
+      <a href="https://hilltopads.com/?ref=411460" target="_blank" rel="nofollow sponsored noopener">
+        <img src="https://static.hilltopads.com/other/banners/pub/huge_income/728x90.gif" alt="HilltopAds advertisement" width="728" height="90" loading="lazy">
+      </a>
+    </div>
 
-
-
-    <a href="index.html" class="brand">
-
-      <img src="logo.png" alt="NovaFacts Logo">
-
-    </a>
-
-
-
-    <nav>
-
-      <a href="#discoveries">Discoveries</a>
-
-      <a href="#topics">Topics</a>
-
-      <a href="#quiz">Quiz</a>
-
-      <a href="#about">About</a>
-
-      <a href="about.html">About Us</a>
-
-      <a href="contact.html">Contact Us</a>
-
-      <a href="privacy-policy.html">Privacy Policy</a>
-
-      <a href="black-holes.html">My View</a>
-
-      <a href="my-information.html">ME</a>
-
-    </nav>
-
-
-
-    <button class="theme" id="themeBtn" type="button">☾ Theme</button>
-
-
-
-  </div>
-
-</header>
-
-
-
-
-
-<main>
-
-
-
-<!-- HERO -->
-
-
-
-<section class="hero">
-
-  <div class="wrap hero-grid">
-
-
-
-    <div>
-
-      <div class="eyebrow">SCIENCE · DISCOVERY · KNOWLEDGE</div>
-
-
-
-      <h1>Discover what's <span class="blue">next.</span></h1>
-
-
-
-      <p class="lead">
-
-        Explore discoveries in space, physics, artificial intelligence,
-
-        biology and our changing planet.
-
-      </p>
-
-
-
-      <div class="actions">
-
-        <a class="btn primary" href="#discoveries">Explore discoveries ↗</a>
-
-        <a class="btn secondary" href="#quiz">Try the science quiz</a>
-
+    <section id="nova-news" aria-labelledby="news-title">
+      <div class="news-heading">
+        <div>
+          <span class="news-label">NEWS UPDATES</span>
+          <h2 id="news-title">Latest News</h2>
+          <p>Science • Space • AI • Nepal • World</p>
+        </div>
+        <button id="news-refresh" type="button">↻ Refresh</button>
       </div>
 
-
-
-      <p class="muted" id="updatedText">Loading science feed…</p>
-
-    </div>
-
-
-
-    <div class="space" aria-label="Planet illustration">
-
-      <span class="star s1">✦</span>
-
-      <span class="star s2">✧</span>
-
-      <span class="star s3">✦</span>
-
-      <span class="star s4">✧</span>
-
-      <div class="orbit"></div>
-
-      <div class="orbit two"></div>
-
-      <div class="planet"></div>
-
-    </div>
-
-
-
-  </div>
-
-</section>
-
-
-
-<!-- ADVERTISEMENT 1 -->
-
-
-
-<div class="ad-box">
-  <p>Advertisement</p>
-  <a href="https://plump-plastic.com/bX3MVo0.PG3MpHvabDmBVQJrZ/Du0l3MNGTigRzTM/zHMGz-LvTBcx1/OtDJMMzCMiz/cD"
-     target="_blank"
-     rel="nofollow sponsored noopener">
-    Visit Advertisement
-  </a>
-</div>
-
-
-
-<!-- AUTOMATIC RSS NEWS -->
-
-
-
-<section id="nova-news">
-
-
-
-  <div class="news-heading">
-
-    <div>
-
-      <span class="news-label">LIVE RSS NEWS</span>
-
-      <h2>Latest News</h2>
-
-      <p>Science • Space • AI • Nepal • World</p>
-
-    </div>
-
-
-
-    <button id="news-refresh" type="button">
-
-      ↻ Refresh
-
-    </button>
-
-  </div>
-
-
-
-  <div class="news-toolbar">
-
-
-
-    <select id="news-category" aria-label="Select news category">
-
-      <option value="All">All Categories</option>
-
-      <option value="Nepal">🇳🇵 Nepal</option>
-
-      <option value="World">🌍 World</option>
-
-      <option value="Science">🔬 Science</option>
-
-      <option value="Space">🌌 Space</option>
-
-      <option value="AI">🤖 AI & Technology</option>
-
-      <option value="Environment">🌱 Environment</option>
-
-    </select>
-
-
-
-    <select id="news-language" aria-label="Select news language">
-      <option value="en" selected>English Only</option>
-    </select>
-
-  </div>
-
-
-
-  <div id="news-status" aria-live="polite">
-
-    Loading latest news...
-
-  </div>
-
-
-
-  <div id="news-grid" class="news-grid"></div>
-
-
-
-  <div id="news-updated"></div>
-
-
-
-</section>
-
-
-
-<!-- DISCOVERIES -->
-
-
-
-<section class="section" id="discoveries">
-
-  <div class="wrap">
-
-
-
-    <div class="heading">
-
-      <h2>Explore Discoveries</h2>
-
-      <p>Explore the fascinating world of science and technology.</p>
-
-    </div>
-
-
-
-    <div class="grid">
-
-
-
-      <article class="card">
-
-        <div class="card-art">🌌</div>
-
-        <div class="card-content">
-
-          <span class="tag">ASTRONOMY</span>
-
-          <h3>Exploring the Universe</h3>
-
-          <p>Discover galaxies, stars, planets and the mysteries of our universe.</p>
-
-          <a class="read" href="black-holes.html">Explore more ↗</a>
-
+      <div class="news-toolbar">
+        <label>
+          <span class="muted">Category</span><br>
+          <select id="news-category" aria-label="Select news category">
+            <option value="All">All Categories</option>
+            <option value="Nepal">🇳🇵 Nepal</option>
+            <option value="World">🌍 World</option>
+            <option value="Science">🔬 Science</option>
+            <option value="Space">🌌 Space</option>
+            <option value="AI">🤖 AI &amp; Technology</option>
+            <option value="Environment">🌱 Environment</option>
+          </select>
+        </label>
+      </div>
+      <p id="news-status" role="status" aria-live="polite">Loading latest news...</p>
+      <div id="news-grid" class="news-grid"></div>
+      <div id="news-updated"></div>
+    </section>
+
+    <section class="section" id="discoveries">
+      <div class="wrap">
+        <div class="heading">
+          <h2>Explore Discoveries</h2>
+          <p>Explore the fascinating world of science and technology.</p>
         </div>
-
-      </article>
-
-
-
-      <article class="card">
-
-        <div class="card-art">⚛️</div>
-
-        <div class="card-content">
-
-          <span class="tag">PHYSICS</span>
-
-          <h3>The Laws of Physics</h3>
-
-          <p>Learn how gravity, energy and matter shape the natural world.</p>
-
-          <a class="read" href="#topics">Explore topics ↗</a>
-
+        <div class="grid">
+          <article class="card">
+            <div class="card-art" aria-hidden="true">🌌</div>
+            <div class="card-content">
+              <span class="tag">Astronomy</span>
+              <h3>Exploring the Universe</h3>
+              <p>Discover galaxies, stars, planets and the mysteries of our universe.</p>
+              <a class="read" href="black-holes.html">Explore more ↗</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-art" aria-hidden="true">⚛️</div>
+            <div class="card-content">
+              <span class="tag">Physics</span>
+              <h3>The Laws of Physics</h3>
+              <p>Learn how gravity, energy and matter shape the natural world.</p>
+              <a class="read" href="#topics">Explore topics ↗</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-art" aria-hidden="true">🤖</div>
+            <div class="card-content">
+              <span class="tag">Technology</span>
+              <h3>Artificial Intelligence</h3>
+              <p>Explore machine learning, robotics and modern AI discoveries.</p>
+              <a class="read" href="#nova-news">Latest technology news ↗</a>
+            </div>
+          </article>
         </div>
+      </div>
+    </section>
 
-      </article>
-
-
-
-      <article class="card">
-
-        <div class="card-art">🤖</div>
-
-        <div class="card-content">
-
-          <span class="tag">TECHNOLOGY</span>
-
-          <h3>Artificial Intelligence</h3>
-
-          <p>Explore machine learning, robotics and modern AI discoveries.</p>
-
-          <a class="read" href="#nova-news">Latest technology news ↗</a>
-
+    <section class="section" id="topics">
+      <div class="wrap">
+        <div class="heading">
+          <h2>Explore by topic</h2>
+          <p>Choose a subject to explore the latest related news.</p>
         </div>
+        <div class="topics">
+          <a class="topic" href="#nova-news" data-topic="Space">🪐 <b>Space</b><small>Planets and cosmos</small></a>
+          <a class="topic" href="#nova-news" data-topic="Science">⚛️ <b>Physics</b><small>How nature works</small></a>
+          <a class="topic" href="#nova-news" data-topic="AI">🤖 <b>AI &amp; Tech</b><small>New technology</small></a>
+          <a class="topic" href="#nova-news" data-topic="Science">🧬 <b>Biology</b><small>Life and living things</small></a>
+          <a class="topic" href="#nova-news" data-topic="Environment">🌍 <b>Earth</b><small>Our planet</small></a>
+        </div>
+      </div>
+    </section>
 
-      </article>
-
-
-
+    <div class="hilltop-ad">
+      <span class="ad-label">ADVERTISEMENT</span>
+      <a href="https://hilltopads.com/?ref=411460" target="_blank" rel="nofollow sponsored noopener">
+        <img src="https://static.hilltopads.com/other/banners/pub/get_high_ecpm/728x90.gif" alt="HilltopAds advertisement" width="728" height="90" loading="lazy">
+      </a>
     </div>
 
-  </div>
+    <section class="section" id="quiz">
+      <div class="wrap quiz">
+        <div>
+          <span class="tag">Quick Challenge</span>
+          <h2>Test your curiosity.</h2>
+          <p>Answer five science questions and learn something new.</p>
+        </div>
+        <div class="quiz-box">
+          <p>QUESTION <span id="qNumber">1</span>/5 · SCORE <span id="score">0</span></p>
+          <h3 id="question">Loading question…</h3>
+          <div class="answers" id="answers"></div>
+          <p id="feedback" role="status" aria-live="polite"></p>
+          <button class="btn primary" id="next" type="button" hidden>Next question →</button>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <section class="section" id="about">
+      <div class="wrap about">
+        <div class="info">
+          <h2>About NovaFacts</h2>
+          <p class="muted">NovaFacts is an educational science project that helps curious readers explore discoveries. News headlines should link to their original publishers.</p>
+        </div>
+        <div class="info">
+          <h2>Read science carefully</h2>
+          <p class="muted">Check original research, publication dates, methods and whether a result is peer-reviewed or preliminary.</p>
+        </div>
+      </div>
+    </section>
 
-
-
-<!-- TOPICS -->
-
-
-
-<section class="section" id="topics">
-
-  <div class="wrap">
-
-
-
-    <div class="heading">
-
-      <h2>Explore by topic</h2>
-
-      <p>Choose a subject to explore.</p>
-
+    <div class="hilltop-ad">
+      <span class="ad-label">ADVERTISEMENT</span>
+      <a href="https://hilltopads.com/?ref=411460" target="_blank" rel="nofollow sponsored noopener">
+        <img src="https://static.hilltopads.com/other/banners/pub/make_big_money/728x90.gif" alt="HilltopAds advertisement" width="728" height="90" loading="lazy">
+      </a>
     </div>
+  </main>
 
-
-
-    <div class="topics">
-
-
-
-      <a class="topic" href="#nova-news" data-topic="Space">
-
-        🪐 <b>Space</b>
-
-        <small>Planets and cosmos</small>
-
-      </a>
-
-
-
-      <a class="topic" href="#nova-news" data-topic="Science">
-
-        ⚛️ <b>Physics</b>
-
-        <small>How nature works</small>
-
-      </a>
-
-
-
-      <a class="topic" href="#nova-news" data-topic="AI">
-
-        🤖 <b>AI & Tech</b>
-
-        <small>New technology</small>
-
-      </a>
-
-
-
-      <a class="topic" href="#nova-news" data-topic="Science">
-
-        🧬 <b>Biology</b>
-
-        <small>Life and health</small>
-
-      </a>
-
-
-
-      <a class="topic" href="#nova-news" data-topic="Environment">
-
-        🌍 <b>Earth</b>
-
-        <small>Our planet</small>
-
-      </a>
-
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- SCIENCE QUIZ -->
-
-
-
-<section class="section" id="quiz">
-
-  <div class="wrap quiz">
-
-
-
-    <div>
-
-      <span class="tag">QUICK CHALLENGE</span>
-
-      <h2>Test your curiosity.</h2>
-
-      <p>Answer five science questions and learn something new.</p>
-
-    </div>
-
-
-
-    <div class="quiz-box">
-
-
-
+  <footer>
+    <div class="wrap">
+      <p>© <span id="year"></span> NovaFacts. All rights reserved.</p>
       <p>
-
-        QUESTION <span id="qNumber">1</span>/5
-
-        · SCORE <span id="score">0</span>
-
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="my-information.html">My Information</a>
       </p>
-
-
-
-      <h3 id="question">Loading question…</h3>
-
-
-
-      <div class="answers" id="answers"></div>
-
-
-
-      <p id="feedback" aria-live="polite"></p>
-
-
-
-      <button class="btn primary" id="next" type="button" hidden>
-
-        Next question →
-
-      </button>
-
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ABOUT -->
-
-
-
-<section class="section" id="about">
-
-  <div class="wrap about">
-
-
-
-    <div class="info">
-
-      <h2>About NovaFacts</h2>
-
-      <p class="muted">
-
-        NovaFacts is an educational science project that helps curious
-
-        readers explore discoveries. Headlines link to their original publishers.
-
+      <p>
+        <a href="black-holes.html">My Explanation</a>
+        <a href="human-reality.html">My View</a>
       </p>
-
-    </div>
-
-
-
-    <div class="info">
-
-      <h2>Read science carefully</h2>
-
-      <p class="muted">
-
-        Check original research, publication dates, methods and whether
-
-        a result is peer-reviewed or preliminary.
-
+      <p>
+        <a href="https://www.nasa.gov/news/" target="_blank" rel="noopener noreferrer">NASA News</a>
+        <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">arXiv</a>
       </p>
-
+      <p>Built for curious minds. 🚀</p>
     </div>
-
-
-
-  </div>
-
-</section>
-
-
-
-<!-- ADVERTISEMENT 2 -->
-
-
-
-
-<div class="ad-box">
-  <p>Advertisement</p>
-  <a href="https://plump-plastic.com/bX3MVo0.PG3MpHvabDmBVQJrZ/Du0l3MNGTigRzTM/zHMGz-LvTBcx1/OtDJMMzCMiz/cD"
-     target="_blank"
-     rel="nofollow sponsored noopener">
-    Visit Advertisement
-  </a>
-</div>
-
-</main>
-
-
-
-<!-- FOOTER -->
-
-
-
-<footer>
-
-  <div class="wrap" style="text-align:center">
-
-
-
-    <p>© <span id="year"></span> NovaFacts. All rights reserved.</p>
-
-
-
-    <p>
-
-      <a href="about.html">About Us</a>
-
-      <a href="contact.html">Contact Us</a>
-
-      <a href="privacy-policy.html">Privacy Policy</a>
-
-      <a href="my-information.html">My Information</a>
-
-    </p>
-
-
-
-    <p>
-
-      <a href="black-holes.html">My Explanation</a>
-
-      <a href="human-reality.html">My View</a>
-
-    </p>
-
-
-
-    <p>
-
-      <a href="https://www.nasa.gov/news/" target="_blank" rel="noopener noreferrer">NASA News</a>
-
-      <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">arXiv</a>
-
-    </p>
-
-
-
-    <p>Built for curious minds. 🚀</p>
-
-
-
-  </div>
-
-</footer>
-
-
-
-<script>
-
-"use strict";
-
-
-
-
-
-/* ========================================
-
-   NOVAFACTS RSS NEWS - FIXED
-
-   Supports: articles / items
-
-   Auto Refresh: 60 Minutes
-
-======================================== */
-
-
-
-/**************************************************
-
- * NOVAFACTS NEWS SYSTEM
-
- * Cloudflare Pages API ONLY
-
- * API: /api/news
-
- **************************************************/
-
-
-
-/* ========================================
-
-   NOVAFACTS NEWS
-
-   Simple news.json system
-
-   No Cloudflare API required
-
-======================================== */
-
-
-
-
-
-/* =========================================
-
-   NOVAFACTS ENGLISH-ONLY NEWS SYSTEM
-
-   English titles and summaries only
-
-========================================= */
-
-
-
-"use strict";
-
-
-
-const newsGrid = document.getElementById("news-grid");
-
-const newsStatus = document.getElementById("news-status");
-
-const newsUpdated = document.getElementById("news-updated");
-
-const newsCategory = document.getElementById("news-category");
-
-const newsLanguage = document.getElementById("news-language");
-
-const newsRefresh = document.getElementById("news-refresh");
-
-
-
-let allNewsArticles = [];
-
-
-
-function escapeNewsHTML(value) {
-
-    return String(value || "").replace(/[&<>"']/g, character => ({
-
-        "&": "&amp;",
-
-        "<": "&lt;",
-
-        ">": "&gt;",
-
-        '"': "&quot;",
-
-        "'": "&#039;"
-
-    })[character]);
-
-}
-
-
-
-async function loadNovaNews() {
-
-    newsStatus.textContent = "Loading latest news...";
-
-    newsGrid.innerHTML = "";
-
-
-
-    try {
-
-        const response = await fetch(
-
-            "/news.json?updated=" + Date.now(),
-
-            { cache: "no-store" }
-
-        );
-
-
-
-        if (!response.ok) {
-
-            throw new Error("News file could not be loaded.");
-
+  </footer>
+
+  <script>
+    "use strict";
+
+    // ---------- Theme ----------
+    const themeButton = document.getElementById("themeBtn");
+    const savedTheme = localStorage.getItem("novafacts-theme");
+    if (savedTheme === "dark") document.body.classList.add("dark");
+
+    function updateThemeButton() {
+      const isDark = document.body.classList.contains("dark");
+      themeButton.textContent = isDark ? "☀ Light" : "☾ Dark";
+      document.querySelector('meta[name="theme-color"]')
+        .setAttribute("content", isDark ? "#0b1020" : "#ffffff");
+    }
+    themeButton.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem(
+        "novafacts-theme",
+        document.body.classList.contains("dark") ? "dark" : "light"
+      );
+      updateThemeButton();
+    });
+    updateThemeButton();
+
+    // ---------- Footer year ----------
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ---------- News feed ----------
+    const newsGrid = document.getElementById("news-grid");
+    const newsStatus = document.getElementById("news-status");
+    const newsUpdated = document.getElementById("news-updated");
+    const newsCategory = document.getElementById("news-category");
+    const newsRefresh = document.getElementById("news-refresh");
+    let allNewsArticles = [];
+
+    function escapeHTML(value = "") {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;",
+        '"': "&quot;", "'": "&#39;"
+      })[character]);
+    }
+
+    function validNewsLink(url) {
+      try {
+        const parsed = new URL(url, window.location.href);
+        return parsed.protocol === "https:" || parsed.protocol === "http:";
+      } catch {
+        return false;
+      }
+    }
+
+    function renderNovaNews() {
+      const selectedCategory = newsCategory.value || "All";
+      const filtered = allNewsArticles.filter(article => {
+        return selectedCategory === "All" ||
+          String(article.category || "").toLowerCase() === selectedCategory.toLowerCase();
+      });
+
+      newsGrid.replaceChildren();
+      if (!filtered.length) {
+        newsStatus.textContent = allNewsArticles.length
+          ? "No news found in this category."
+          : "No news available right now.";
+        return;
+      }
+
+      newsStatus.textContent = "";
+      const fragment = document.createDocumentFragment();
+
+      filtered.forEach(article => {
+        const card = document.createElement("article");
+        card.className = "news-card";
+
+        const top = document.createElement("div");
+        top.className = "news-card-top";
+        const category = document.createElement("span");
+        category.className = "news-category";
+        category.textContent = article.category || "Science";
+        const source = document.createElement("span");
+        source.className = "news-meta";
+        source.textContent = article.source || "NovaFacts";
+        top.append(category, source);
+
+        const title = document.createElement("h3");
+        title.textContent = article.title || "Untitled";
+        const summary = document.createElement("div");
+        summary.className = "news-summary";
+        summary.textContent = article.summary || "";
+
+        const date = document.createElement("div");
+        date.className = "news-meta";
+        if (article.published) {
+          const parsedDate = new Date(article.published);
+          date.textContent = Number.isNaN(parsedDate.getTime())
+            ? "" : parsedDate.toLocaleDateString();
         }
 
+        card.append(top, title, summary, date);
 
+        if (validNewsLink(article.url)) {
+          const link = document.createElement("a");
+          link.className = "news-read";
+          link.href = article.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "Read original article →";
+          card.append(link);
+        }
+
+        fragment.append(card);
+      });
+
+      newsGrid.append(fragment);
+    }
+
+    async function loadNovaNews() {
+      newsRefresh.disabled = true;
+      newsStatus.textContent = "Loading latest news...";
+      newsGrid.replaceChildren();
+
+      try {
+        const response = await fetch("news.json?updated=" + Date.now(), {
+          cache: "no-store",
+          headers: { "Accept": "application/json" }
+        });
+        if (!response.ok) throw new Error("News file could not be loaded.");
 
         const data = await response.json();
-
-
-
-        allNewsArticles = Array.isArray(data.articles)
-
-            ? data.articles
-
-            : [];
-
-
-
-        if (!allNewsArticles.length) {
-
-            newsStatus.textContent = "No news available right now.";
-
-            return;
-
-        }
-
-
-
-        newsStatus.textContent = "";
-
-
+        allNewsArticles = Array.isArray(data.articles) ? data.articles : [];
 
         if (data.updated_at) {
-
-            const date = new Date(data.updated_at);
-
-
-
-            newsUpdated.textContent =
-
-                "Last updated: " + date.toLocaleString();
-
+          const updatedDate = new Date(data.updated_at);
+          newsUpdated.textContent = Number.isNaN(updatedDate.getTime())
+            ? "" : "Last updated: " + updatedDate.toLocaleString();
+        } else {
+          newsUpdated.textContent = "";
         }
-
-
 
         renderNovaNews();
-
-
-
-    } catch (error) {
-
-        console.error("NovaFacts News Error:", error);
-
+      } catch (error) {
+        console.error("NovaFacts news error:", error);
         newsStatus.textContent =
-
-            "Unable to load news. Please try again.";
-
+          "Unable to load news. Check that news.json exists and contains valid JSON.";
+      } finally {
+        newsRefresh.disabled = false;
+      }
     }
 
-}
+    newsCategory.addEventListener("change", renderNovaNews);
+    newsRefresh.addEventListener("click", loadNovaNews);
 
-
-
-function renderNovaNews() {
-
-    const selectedCategory = newsCategory?.value || "All";
-
-    const selectedLanguage = "en";
-
-
-
-    const filtered = allNewsArticles.filter(article => {
-
-        if (
-
-            selectedCategory !== "All" &&
-
-            String(article.category || "").toLowerCase() !==
-
-            selectedCategory.toLowerCase()
-
-        ) {
-
-            return false;
-
-        }
-
-
-
-        return true;
-
+    document.querySelectorAll("[data-topic]").forEach(topic => {
+      topic.addEventListener("click", () => {
+        newsCategory.value = topic.dataset.topic;
+        renderNovaNews();
+      });
     });
-
-
-
-    if (!filtered.length) {
-
-        newsGrid.innerHTML = "";
-
-        newsStatus.textContent = "No news found in this category.";
-
-        return;
-
-    }
-
-
-
-    newsStatus.textContent = "";
-
-
-
-    newsGrid.innerHTML = filtered.map(article => {
-
-        const englishTitle = article.title || "Untitled";
-        const englishSummary = article.summary || "";
-        const titleHTML = escapeNewsHTML(englishTitle);
-        const summaryHTML = escapeNewsHTML(englishSummary);
-
-        const category = escapeNewsHTML(article.category || "Science");
-
-        const source = escapeNewsHTML(article.source || "NovaFacts");
-
-        const date = article.published
-
-            ? new Date(article.published).toLocaleDateString()
-
-            : "";
-
-
-
-        const url = validNewsLink(article.url)
-
-            ? escapeNewsHTML(article.url)
-
-            : "#";
-
-
-
-        const detailUrl = "news-detail.html?title=" + encodeURIComponent(englishTitle)
-            + "&summary=" + encodeURIComponent(englishSummary)
-            + "&category=" + encodeURIComponent(article.category || "Science")
-            + "&source=" + encodeURIComponent(article.source || "NovaFacts")
-            + "&published=" + encodeURIComponent(article.published || "")
-            + "&url=" + encodeURIComponent(validNewsLink(article.url) ? article.url : "");
-
-        return `
-
-            <article class="news-card" role="link" tabindex="0" data-detail-url="${escapeNewsHTML(detailUrl)}">
-
-                <div class="news-card-top">
-
-                    <span class="news-category">${category}</span>
-
-                    <span class="news-meta">${source}</span>
-
-                </div>
-
-
-
-                <h3>${titleHTML}</h3>
-
-
-
-                <div class="news-summary">
-
-                    ${summaryHTML}
-
-                </div>
-
-
-
-                <div class="news-meta">
-
-                    ${escapeNewsHTML(date)}
-
-                </div>
-
-
-
-                <a
-
-                    class="news-read"
-
-                    href="${url}"
-
-                    target="_blank"
-
-                    rel="noopener noreferrer"
-
-                >
-
-                    Read More →
-
-                </a>
-
-            </article>
-
-        `;
-
-    }).join("");
-
-}
-
-
-
-function validNewsLink(url) {
-
-    try {
-
-        const parsed = new URL(url);
-
-        return parsed.protocol === "https:" ||
-
-               parsed.protocol === "http:";
-
-    } catch {
-
-        return false;
-
-    }
-
-}
-
-
-
-// Open the full Nepali news view in a separate browser tab.
-newsGrid?.addEventListener("click", event => {
-    if (event.target.closest("a")) return;
-    const card = event.target.closest(".news-card");
-    if (card?.dataset.detailUrl) window.open(card.dataset.detailUrl, "_blank", "noopener");
-});
-
-newsGrid?.addEventListener("keydown", event => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-    const card = event.target.closest(".news-card");
-    if (!card || event.target.closest("a")) return;
-    event.preventDefault();
-    window.open(card.dataset.detailUrl, "_blank", "noopener");
-});
-
-newsCategory?.addEventListener("change", renderNovaNews);
-
-newsLanguage?.addEventListener("change", renderNovaNews);
-
-
-
-newsRefresh?.addEventListener("click", () => {
 
     loadNovaNews();
 
-});
-
-
-
-loadNovaNews();
-
-
-
-
-
-
-
-/* ========================================
-
-   FIVE QUESTION SCIENCE QUIZ
-
-======================================== */
-
-
-
-const quiz = [
-
-
-
-  {
-
-    q:"Which planet is famous for its prominent rings?",
-
-    a:["Mars","Saturn","Venus","Mercury"],
-
-    c:1,
-
-    why:"Saturn's rings contain ice and rocky particles."
-
-  },
-
-
-
-  {
-
-    q:"What is the center of an atom called?",
-
-    a:["Electron","Molecule","Nucleus","Photon"],
-
-    c:2,
-
-    why:"The nucleus contains protons and usually neutrons."
-
-  },
-
-
-
-  {
-
-    q:"Which star is closest to Earth?",
-
-    a:["Sirius","The Sun","Polaris","Vega"],
-
-    c:1,
-
-    why:"The Sun is our nearest star."
-
-  },
-
-
-
-  {
-
-    q:"What does DNA store?",
-
-    a:[
-
-      "Genetic information",
-
-      "Sound waves",
-
-      "Cloud patterns",
-
-      "Magnetic fields"
-
-    ],
-
-    c:0,
-
-    why:"DNA carries genetic instructions."
-
-  },
-
-
-
-  {
-
-    q:"Which gas do plants use in photosynthesis?",
-
-    a:[
-
-      "Oxygen",
-
-      "Helium",
-
-      "Carbon dioxide",
-
-      "Hydrogen"
-
-    ],
-
-    c:2,
-
-    why:"Plants use carbon dioxide, water and light to make sugars."
-
-  }
-
-
-
-];
-
-
-
-let qi = 0;
-
-let points = 0;
-
-let answered = false;
-
-
-
-const questionEl =
-
-  document.getElementById("question");
-
-
-
-const answersEl =
-
-  document.getElementById("answers");
-
-
-
-const feedbackEl =
-
-  document.getElementById("feedback");
-
-
-
-const nextBtn =
-
-  document.getElementById("next");
-
-
-
-function escapeHTML(value = "") {
-
-
-
-  return String(value).replace(/[&<>"']/g, ch => ({
-
-    "&":"&amp;",
-
-    "<":"&lt;",
-
-    ">":"&gt;",
-
-    '"':"&quot;",
-
-    "'":"&#39;"
-
-  })[ch]);
-
-
-
-}
-
-
-
-function showQuestion() {
-
-
-
-  answered = false;
-
-
-
-  const q = quiz[qi];
-
-
-
-  document.getElementById("qNumber").textContent =
-
-    qi + 1;
-
-
-
-  document.getElementById("score").textContent =
-
-    points;
-
-
-
-  questionEl.textContent = q.q;
-
-
-
-  feedbackEl.textContent = "";
-
-
-
-  nextBtn.hidden = true;
-
-
-
-  answersEl.innerHTML = q.a.map((a, i) =>
-
-    `<button class="answer" data-index="${i}" type="button">${escapeHTML(a)}</button>`
-
-  ).join("");
-
-
-
-  answersEl.querySelectorAll("button").forEach(button => {
-
-
-
-    button.addEventListener("click", () => {
-
-
-
+    // ---------- Five-question science quiz ----------
+    const quiz = [
+      {
+        q: "Which planet is famous for its prominent rings?",
+        a: ["Mars", "Saturn", "Venus", "Mercury"],
+        c: 1,
+        why: "Saturn's rings contain ice and rocky particles."
+      },
+      {
+        q: "What is the center of an atom called?",
+        a: ["Electron", "Molecule", "Nucleus", "Photon"],
+        c: 2,
+        why: "The nucleus contains protons and usually neutrons."
+      },
+      {
+        q: "Which star is closest to Earth?",
+        a: ["Sirius", "The Sun", "Polaris", "Vega"],
+        c: 1,
+        why: "The Sun is our nearest star."
+      },
+      {
+        q: "What does DNA store?",
+        a: ["Genetic information", "Sound waves", "Cloud patterns", "Magnetic fields"],
+        c: 0,
+        why: "DNA carries genetic instructions."
+      },
+      {
+        q: "Which gas do plants use in photosynthesis?",
+        a: ["Oxygen", "Helium", "Carbon dioxide", "Hydrogen"],
+        c: 2,
+        why: "Plants use carbon dioxide, water and light to make sugars."
+      }
+    ];
+
+    let questionIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    const questionElement = document.getElementById("question");
+    const answersElement = document.getElementById("answers");
+    const feedbackElement = document.getElementById("feedback");
+    const nextButton = document.getElementById("next");
+    const questionNumber = document.getElementById("qNumber");
+    const scoreElement = document.getElementById("score");
+
+    function showQuestion() {
+      answered = false;
+      const current = quiz[questionIndex];
+      questionNumber.textContent = String(questionIndex + 1);
+      scoreElement.textContent = String(score);
+      questionElement.textContent = current.q;
+      feedbackElement.textContent = "";
+      nextButton.hidden = true;
+      answersElement.replaceChildren();
+
+      current.a.forEach((answer, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "answer";
+        button.textContent = answer;
+        button.addEventListener("click", () => chooseAnswer(index));
+        answersElement.append(button);
+      });
+    }
+
+    function chooseAnswer(chosenIndex) {
       if (answered) return;
-
-
-
       answered = true;
 
+      const current = quiz[questionIndex];
+      const answerButtons = answersElement.querySelectorAll("button");
 
-
-      const chosen = Number(button.dataset.index);
-
-
-
-      answersEl.querySelectorAll("button").forEach((b, i) => {
-
-
-
-        b.disabled = true;
-
-
-
-        if (i === q.c) {
-
-          b.classList.add("correct");
-
+      answerButtons.forEach((button, index) => {
+        button.disabled = true;
+        if (index === current.c) button.classList.add("correct");
+        if (index === chosenIndex && chosenIndex !== current.c) {
+          button.classList.add("wrong");
         }
-
-
-
-        if (i === chosen && chosen !== q.c) {
-
-          b.classList.add("wrong");
-
-        }
-
-
-
       });
 
+      if (chosenIndex === current.c) score++;
+      scoreElement.textContent = String(score);
+      feedbackElement.textContent =
+        (chosenIndex === current.c ? "Correct! " : "Not quite. ") + current.why;
 
+      nextButton.hidden = false;
+      nextButton.textContent =
+        questionIndex === quiz.length - 1 ? "Try again ↻" : "Next question →";
+    }
 
-      if (chosen === q.c) {
-
-        points++;
-
+    nextButton.addEventListener("click", () => {
+      if (questionIndex === quiz.length - 1) {
+        questionIndex = 0;
+        score = 0;
+      } else {
+        questionIndex++;
       }
-
-
-
-      document.getElementById("score").textContent =
-
-        points;
-
-
-
-      feedbackEl.textContent =
-
-        (chosen === q.c ? "Correct! " : "Not quite. ") + q.why;
-
-
-
-      nextBtn.hidden = false;
-
-
-
-      nextBtn.textContent =
-
-        qi === quiz.length - 1
-
-          ? "Try again ↻"
-
-          : "Next question →";
-
-
-
+      showQuestion();
     });
 
-
-
-  });
-
-
-
-}
-
-
-
-/* NEXT QUESTION */
-
-
-
-nextBtn.addEventListener("click", () => {
-
-
-
-  if (qi === quiz.length - 1) {
-
-
-
-    qi = 0;
-
-    points = 0;
-
-
-
-  } else {
-
-
-
-    qi++;
-
-
-
-  }
-
-
-
-  showQuestion();
-
-
-
-});
-
-
-
-/* START QUIZ */
-
-
-
-showQuestion();
-
-
-
-</script>
-
-
-
+    showQuestion();
+  </script>
 </body>
-
 </html>
