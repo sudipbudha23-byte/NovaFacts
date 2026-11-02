@@ -500,6 +500,154 @@ footer a { margin: 0 8px; }
   <a href="privacy-policy.html">Privacy</a>
 </footer>
 
+<style>
+#nova-chat-button {
+  position:fixed;bottom:22px;right:22px;z-index:9999;
+  width:62px;height:62px;border:0;border-radius:50%;
+  background:linear-gradient(135deg,#4ce7ff,#9275ff);
+  color:#00101a;font-size:27px;font-weight:bold;
+  cursor:pointer;box-shadow:0 0 25px #4ce7ff77;
+}
+#nova-chat {
+  display:none;position:fixed;bottom:95px;right:20px;
+  width:min(360px,calc(100vw - 30px));height:480px;
+  max-height:70vh;background:#07152b;
+  border:1px solid #4ce7ff66;border-radius:18px;
+  z-index:9998;overflow:hidden;
+  box-shadow:0 0 35px #0009;
+  color:#edf6ff;font-family:Arial,sans-serif;
+}
+#nova-chat.open {display:flex;flex-direction:column}
+.nova-head {
+  padding:16px;background:#102b4b;
+  display:flex;justify-content:space-between;
+  align-items:center;color:#4ce7ff;font-weight:bold;
+}
+.nova-head button {
+  background:none;border:0;color:white;
+  font-size:22px;cursor:pointer;
+}
+#nova-messages {
+  flex:1;overflow-y:auto;padding:13px;
+}
+.nova-msg {
+  padding:10px 13px;margin:9px 0;
+  border-radius:12px;max-width:88%;
+  font-size:14px;line-height:1.5;
+  overflow-wrap:anywhere;
+}
+.nova-bot {background:#142d4c}
+.nova-user {background:#075b75;margin-left:auto}
+.nova-input {
+  display:flex;padding:10px;gap:7px;
+  border-top:1px solid #24415c;
+}
+.nova-input input {
+  flex:1;min-width:0;padding:12px;
+  border-radius:10px;border:1px solid #35516d;
+  background:#102442;color:white;outline:none;
+}
+.nova-input button {
+  border:0;border-radius:10px;
+  background:#4ce7ff;color:#00101a;
+  padding:0 15px;font-weight:bold;cursor:pointer;
+}
+</style>
+
+<button id="nova-chat-button" aria-label="Open NovaFacts Chatbot">✦</button>
+
+<div id="nova-chat">
+  <div class="nova-head">
+    <span>✦ NovaFacts AI Assistant</span>
+    <button id="nova-close" aria-label="Close">×</button>
+  </div>
+
+  <div id="nova-messages">
+    <div class="nova-msg nova-bot">
+      Hello! Welcome to NovaFacts! 🚀<br>
+      Ask me about Science, Space, AI, Physics or Human Life.
+      <br><br>नमस्कार! म तपाईंलाई नेपालीमा पनि सहयोग गर्न सक्छु।
+    </div>
+  </div>
+
+  <div class="nova-input">
+    <input id="nova-question" placeholder="Ask something..." />
+    <button id="nova-send">Send</button>
+  </div>
+</div>
+
+<script>
+const chat = document.getElementById("nova-chat");
+const messages = document.getElementById("nova-messages");
+const question = document.getElementById("nova-question");
+
+document.getElementById("nova-chat-button").onclick = () =>
+  chat.classList.toggle("open");
+
+document.getElementById("nova-close").onclick = () =>
+  chat.classList.remove("open");
+
+function addMessage(text, type) {
+  const div = document.createElement("div");
+  div.className = "nova-msg " + type;
+  div.textContent = text;
+  messages.appendChild(div);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function getAnswer(q) {
+  q = q.toLowerCase();
+
+  if (/hello|hi|namaste|नमस्कार|नमस्ते/.test(q))
+    return "Hello! Welcome to NovaFacts. What would you like to explore?";
+
+  if (/black hole|ब्ल्याक होल/.test(q))
+    return "A black hole is a region of spacetime where gravity is so strong that nothing, not even light, can escape beyond its event horizon.";
+
+  if (/space|universe|ब्रह्माण्ड|अन्तरिक्ष/.test(q))
+    return "The universe contains galaxies, stars, planets, gas and dark matter. Scientists continue to explore its origin and evolution.";
+
+  if (/artificial intelligence| ai |एआई|कृत्रिम बुद्धिमत्ता/.test(" "+q+" "))
+    return "Artificial Intelligence (AI) is a field of computer science focused on creating systems that perform tasks such as learning, language processing and pattern recognition.";
+
+  if (/physics|भौतिक विज्ञान/.test(q))
+    return "Physics studies matter, energy, motion, forces and the fundamental laws of nature.";
+
+  if (/human|life|मानव|जीवन/.test(q))
+    return "Human life involves biological development, the brain, relationships, learning and personal experiences. Explore our Human Life article for more.";
+
+  if (/science|विज्ञान/.test(q))
+    return "Science is a systematic way of understanding the natural world through observation, experiments and evidence.";
+
+  if (/nova ?facts|website|वेबसाइट/.test(q))
+    return "NovaFacts is a science and knowledge website exploring Space, Physics, AI, Biology and Earth.";
+
+  if (/नेपाली|nepali|नेपाल/.test(q))
+    return "अवश्य! तपाईं नेपालीमा प्रश्न सोध्न सक्नुहुन्छ। विज्ञान, अन्तरिक्ष, AI र मानव जीवनबारे सोध्नुहोस्।";
+
+  return "Thanks for your question! I am currently a basic NovaFacts assistant. I can answer selected questions about Science, Space, Physics, AI and Human Life.";
+}
+
+function sendMessage() {
+  const q = question.value.trim();
+  if (!q) return;
+
+  addMessage(q, "nova-user");
+  question.value = "";
+
+  setTimeout(() => {
+    addMessage(getAnswer(q), "nova-bot");
+  }, 400);
+}
+
+document.getElementById("nova-send").onclick = sendMessage;
+
+question.addEventListener("keydown", e => {
+  if (e.key === "Enter") sendMessage();
+});
+</script>
+
+
 <script>
 let currentLanguage = "en";
 
