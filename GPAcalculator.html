@@ -260,6 +260,39 @@ footer {
     h2, .result-box p, th {
         color: black;
     }
+}.apply-all-box {
+    background: #091426;
+    border: 1px solid #38bdf8;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.apply-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.apply-row input {
+    flex: 1;
+    min-width: 0;
+}
+
+.apply-row button {
+    white-space: nowrap;
+}
+
+@media(max-width:450px) {
+    .apply-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .apply-row button {
+        width: 100%;
+        margin: 0;
+    }
 }
 </style>
 </head>
@@ -337,7 +370,25 @@ footer {
 <div class="card input-section">
 
 <h2>📚 Subject & Marks</h2>
+<!-- APPLY FULL MARKS TO ALL -->
+<div class="apply-all-box">
 
+    <label>Full Marks for All Subjects</label>
+
+    <div class="apply-row">
+        <input
+            type="number"
+            id="allFullMarks"
+            placeholder="Enter Full Marks (Example: 100)"
+            min="1"
+        >
+
+        <button class="add" onclick="applyToAll()">
+            Apply to All
+        </button>
+    </div>
+
+</div>
 <div id="subjects"></div>
 
 <button class="add" onclick="addSubject()">
@@ -854,7 +905,37 @@ function resetAll() {
     document.getElementById("results").style.display = "none";
 
 }
+function applyToAll() {
 
+    const value = Number(
+        document.getElementById("allFullMarks").value
+    );
+
+    if (
+        document.getElementById("allFullMarks").value === "" ||
+        !Number.isFinite(value) ||
+        value <= 0
+    ) {
+        alert("Please enter valid Full Marks!");
+        return;
+    }
+
+    const subjects = document.querySelectorAll(".subject-row");
+
+    if (subjects.length === 0) {
+        alert("Please select a class or add subjects first!");
+        return;
+    }
+
+    subjects.forEach(row => {
+
+        row.querySelector(".full").value = value;
+
+    });
+
+    alert("Full Marks successfully applied to all subjects!");
+
+}
 </script>
 
 </body>
