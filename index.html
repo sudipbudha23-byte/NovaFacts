@@ -945,9 +945,9 @@
 
     <div class="header-actions">
       <button class="icon-button theme-button" id="themeToggle" title="Change theme">☼</button>
-      <a class="signin" id="googleSignIn" href="#" title="Sign in with Google">
-        <span>◉</span> Sign in
-      </a>
+      <a class="signin" id="googleSignIn" href="login.html" title="Sign in">
+  ◉ Sign in
+</a>
     </div>
   </header>
 
@@ -1222,12 +1222,7 @@
       themeToggle.textContent = lightMode ? "☾" : "☼";
     });
 
-    // GOOGLE SIGN-IN
-    // Firebase Authentication configuration is required to activate real Google login.
-    document.getElementById("googleSignIn").addEventListener("click", (event) => {
-      event.preventDefault();
-      alert("Google Sign-In needs Firebase Authentication setup. The button is ready for integration.");
-    });
+    
 
     // NEWS DATA
     const newsGrid = document.getElementById("newsGrid");
