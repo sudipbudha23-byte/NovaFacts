@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Learning Studio | NovaFacts</title>
+<style>
+:root {
+  --bg:#090b12;
+  --panel:#121622;
+  --gold:#e9bd62;
+  --text:#f5f5f5;
+  --muted:#a4a9b8;
+  --border:#282e3d;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,sans-serif;min-height:100vh;
+}
+header{
+  padding:18px 7%;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+}
+.logo{font-size:21px;font-weight:bold;color:var(--gold)}
+header a{color:var(--muted);text-decoration:none}
+.container{max-width:1100px;margin:auto;padding:35px 18px}
+.hero{text-align:center;padding:35px 0}
+.hero small{color:var(--gold);letter-spacing:3px}
+h1{font-size:clamp(30px,5vw,48px);margin:15px 0}
+.hero p{color:var(--muted);line-height:1.7}
+.grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+ gap:13px;margin:28px 0;
+}
+.subject{
+ background:var(--panel);border:1px solid var(--border);
+ padding:20px 10px;border-radius:13px;color:white;
+ cursor:pointer;text-align:center;font-size:15px;
+}
+.subject.active{border-color:var(--gold);background:#272316}
+.subject span{display:block;font-size:27px;margin-bottom:9px}
+.card{
+ background:var(--panel);border:1px solid var(--border);
+ border-radius:17px;padding:24px;margin:20px 0;
+}
+label{display:block;margin:15px 0 8px;color:var(--gold)}
+input,select,textarea{
+ width:100%;padding:14px;background:#090d17;
+ border:1px solid var(--border);border-radius:10px;
+ color:white;font-size:15px;outline:none;
+}
+textarea{min-height:130px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+button{
+ border:0;border-radius:10px;padding:13px 20px;
+ cursor:pointer;font-weight:bold;
+}
+.primary{background:var(--gold);color:#15120b;width:100%;margin-top:17px}
+.secondary{background:#242b3b;color:white}
+button:disabled{opacity:.5;cursor:not-allowed}
+#answer{
+ display:none;white-space:pre-wrap;line-height:1.8;
+ color:#e3e5ec;margin-top:20px;
+ overflow-wrap:anywhere;
+}
+#status{color:var(--gold);margin-top:15px}
+.quick{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+.quick button{font-size:12px}
+footer{text-align:center;color:var(--muted);padding:30px}
+@media(max-width:600px){
+ .row{grid-template-columns:1fr}
+ header{padding:15px}
+ .card{padding:17px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">✦ NovaFacts AI</div>
+ <a href="../index.html">← Back to NovaFacts</a>
+</header>
+
+<main class="container">
+ <section class="hero">
+  <small>INTELLIGENT LEARNING EXPERIENCE</small>
+  <h1>Learn Anything with <span style="color:#e9bd62">AI.</span></h1>
+  <p>Explore science, understand difficult concepts and improve your knowledge with your personal AI study assistant.</p>
+ </section>
+
+ <h2>Choose Your Subject</h2>
+ <div class="grid">
+  <button class="subject active" data-subject="General Science">
+   <span>🔬</span>General
+  </button>
+  <button class="subject" data-subject="Physics">
+   <span>⚛️</span>Physics
+  </button>
+  <button class="subject" data-subject="Chemistry">
+   <span>🧪</span>Chemistry
+  </button>
+  <button class="subject" data-subject="Biology">
+   <span>🧬</span>Biology
+  </button>
+  <button class="subject" data-subject="Mathematics">
+   <span>📐</span>Mathematics
+  </button>
+  <button class="subject" data-subject="Computer Science">
+   <span>💻</span>Computer
+  </button>
+ </div>
+
+ <section class="card">
+  <h2>🎓 AI Study Assistant</h2>
+  <p style="color:#a4a9b8">Ask a question and learn step by step.</p>
+
+  <div class="row">
+   <div>
+    <label for="language">Learning Language</label>
+    <select id="language">
+     <option value="English">English</option>
+     <option value="Nepali">नेपाली</option>
+     <option value="Both Nepali and English">Nepali + English</option>
+    </select>
+   </div>
+   <div>
+    <label for="level">Education Level</label>
+    <select id="level">
+     <option>Class 10</option>
+     <option selected>Class 11</option>
+     <option>Class 12</option>
+     <option>Beginner</option>
+     <option>Advanced</option>
+    </select>
+   </div>
+  </div>
+
+  <label for="mode">Learning Mode</label>
+  <select id="mode">
+   <option value="Explain step by step">Step-by-step explanation</option>
+   <option value="Explain the concept with simple examples">Concept learning</option>
+   <option value="Give me a practice quiz with answers at the end">Practice quiz</option>
+   <option value="Solve the problem and show the formula and calculation">Problem solver</option>
+   <option value="Give me short revision notes">Revision notes</option>
+  </select>
+
+  <label for="question">Your Question</label>
+  <textarea id="question" maxlength="3000"
+   placeholder="Example: Explain Newton's laws of motion with examples..."></textarea>
+
+  <div class="quick">
+   <button class="secondary" onclick="example('Explain gravity with simple examples')">Gravity</button>
+   <button class="secondary" onclick="example('Explain photosynthesis')">Photosynthesis</button>
+   <button class="secondary" onclick="example('Explain quadratic equations')">Mathematics</button>
+  </div>
+
+  <button class="primary" id="askBtn" onclick="askAI()">✦ Ask NovaFacts AI</button>
+  <div id="status" role="status" aria-live="polite"></div>
+  <div id="answer" aria-live="polite"></div>
+ </section>
+
+ <section class="card">
+  <h2>🚀 Learning Tips</h2>
+  <p>• Ask one question at a time.</p>
+  <p>• Request examples when a topic is difficult.</p>
+  <p>• Try solving problems before viewing the solution.</p>
+  <p>• Verify important answers using your textbook.</p>
+ </section>
+</main>
+
+<footer>
+ © 2026 NovaFacts AI Learning Studio
+</footer>
+
+<script>
+let selectedSubject = "General Science";
+
+document.querySelectorAll(".subject").forEach(button=>{
+ button.addEventListener("click",()=>{
+  document.querySelectorAll(".subject").forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+  selectedSubject=button.dataset.subject;
+ });
+});
+
+function example(value){
+ document.getElementById("question").value=value;
+ document.getElementById("question").focus();
+}
+
+async function askAI(){
+ const question=document.getElementById("question").value.trim();
+ const language=document.getElementById("language").value;
+ const level=document.getElementById("level").value;
+ const mode=document.getElementById("mode").value;
+ const btn=document.getElementById("askBtn");
+ const answer=document.getElementById("answer");
+ const status=document.getElementById("status");
+
+ if(!question){
+  status.textContent="Please enter your question first.";
+  return;
+ }
+
+ btn.disabled=true;
+ btn.textContent="Thinking...";
+ status.textContent="✦ NovaFacts AI is preparing your lesson...";
+ answer.style.display="none";
+ answer.textContent="";
+
+ try{
+  const response=await fetch("/api/learn",{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({
+    question,language,level,mode,subject:selectedSubject
+   })
+  });
+
+  const data=await response.json();
+
+  if(!response.ok) throw new Error(data.error||"AI request failed.");
+
+  answer.textContent=data.answer;
+  answer.style.display="block";
+  status.textContent="✓ Your lesson is ready.";
+ }catch(error){
+  status.textContent="⚠ "+error.message;
+ }finally{
+  btn.disabled=false;
+  btn.textContent="✦ Ask NovaFacts AI";
+ }
+}
+</script>
+</body>
+</html>

@@ -1,1038 +1,1345 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <title>NovaFacts — Explore Science, Space and Physics</title>
-  <meta name="description" content="Explore science, space, physics, artificial intelligence, biology and discoveries through educational articles and quizzes on NovaFacts.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://novafacts.pages.dev/">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <meta name="google-site-verification" content="kw_LZmJVMz_6cTzYAYEI3S8fpvcNAgPXlO54PUzWBfc">
-<meta name="referrer" content="no-referrer-when-downgrade" />
-<meta name="google-adsense-account" content="ca-pub-3412463966256762">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "NovaFacts",
-    "alternateName": "Nova Facts",
-    "url": "https://novafacts.pages.dev/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "NovaFacts",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://novafacts.pages.dev/logo.png",
-        "width": 512,
-        "height": 512
-      }
-    }
-  }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="NovaFacts — Explore science, space, AI, physics and knowledge.">
+  <title>NovaFacts — Explore Knowledge</title>
+
+  <!-- Google AdSense -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3412463966256762"
+    crossorigin="anonymous"></script>
+
+  <!-- Adsterra script -->
+  <script src="https://bauval.org/14/308410aca83ab286c49c31038e3c77e7"></script>
 
   <style>
     :root {
-      color-scheme: light;
-      --bg: #ffffff;
-      --text: #111827;
-      --muted: #64748b;
-      --line: #e5e7eb;
-      --blue: #2563eb;
-      --blue-dark: #1d4ed8;
-      --card: #ffffff;
-      --soft: #eff6ff;
+      --bg: #101114;
+      --surface: #191a1f;
+      --surface-2: #22242a;
+      --surface-hover: #2b2d34;
+      --text: #f5f5f5;
+      --muted: #a6a8b0;
+      --border: #30323a;
+      --accent: #e6b84c;
+      --accent-soft: rgba(230,184,76,.13);
+      --header: rgba(16,17,20,.94);
+      --shadow: 0 8px 28px rgba(0,0,0,.22);
+    }
+
+    body.light {
+      --bg: #f7f7f8;
+      --surface: #ffffff;
+      --surface-2: #f0f1f3;
+      --surface-hover: #e8e9ec;
+      --text: #17181b;
+      --muted: #656873;
+      --border: #e0e1e5;
+      --accent: #ad7914;
+      --accent-soft: rgba(173,121,20,.11);
       --header: rgba(255,255,255,.94);
-      --shadow: 0 12px 30px rgba(100,116,139,.12);
+      --shadow: 0 8px 28px rgba(0,0,0,.07);
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      transition: background-color .25s, color .25s;
-    }
-    body.dark {
-      color-scheme: dark;
-      --bg: #0b1020;
-      --text: #e5e7eb;
-      --muted: #a7b2c4;
-      --line: #30394b;
-      --blue: #60a5fa;
-      --blue-dark: #3b82f6;
-      --card: #111827;
-      --soft: #172033;
-      --header: rgba(11,16,32,.94);
-      --shadow: 0 12px 30px rgba(0,0,0,.25);
+      transition: background .2s, color .2s;
     }
 
-    a { color: inherit; }
-    button, input, select { font: inherit; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input { font: inherit; }
+
     button { cursor: pointer; }
-    img { max-width: 100%; }
-    .wrap { width: min(1100px, 92%); margin: auto; }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
+    /* TOP HEADER */
+
+    .topbar {
+      height: 64px;
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 0 26px;
       background: var(--header);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
     }
-    .nav {
+
+    .brand-area {
+      width: 225px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .menu-button, .icon-button {
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      font-size: 21px;
+    }
+
+    .menu-button:hover, .icon-button:hover {
+      background: var(--surface-hover);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -.7px;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: linear-gradient(145deg, #f1cb69, #a87517);
+      color: #17130a;
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .brand span:last-child { color: var(--accent); }
+
+    .search-area {
+      max-width: 650px;
+      flex: 1;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .search-area input {
+      height: 42px;
+      width: 100%;
+      min-width: 0;
+      padding: 0 18px;
+      border: 1px solid var(--border);
+      border-radius: 24px 0 0 24px;
+      outline: none;
+      color: var(--text);
+      background: var(--surface);
+    }
+
+    .search-area input:focus { border-color: var(--accent); }
+
+    .search-button {
+      height: 42px;
+      width: 62px;
+      border: 1px solid var(--border);
+      border-left: 0;
+      border-radius: 0 24px 24px 0;
+      color: var(--text);
+      background: var(--surface-2);
+      font-size: 18px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .signin {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 22px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .signin:hover { background: var(--accent); color: #17130a; }
+
+    /* LEFT SIDEBAR */
+
+    .sidebar {
+      position: fixed;
+      z-index: 900;
+      top: 64px;
+      bottom: 0;
+      left: 0;
+      width: 245px;
+      padding: 18px 13px 28px;
+      overflow-y: auto;
+      background: var(--bg);
+      border-right: 1px solid var(--border);
+      transition: width .2s, transform .2s;
+    }
+
+    .side-group {
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .side-heading {
+      padding: 8px 13px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .side-link {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      min-height: 45px;
+      padding: 0 13px;
+      border-radius: 11px;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      transition: background .15s;
+    }
+
+    .side-link:hover, .side-link.active {
+      background: var(--surface-hover);
+    }
+
+    .side-link.active { color: var(--accent); }
+
+    .side-icon {
+      width: 22px;
+      text-align: center;
+      font-size: 19px;
+    }
+
+    .side-note {
+      padding: 10px 13px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .sidebar-footer {
+      padding: 12px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    /* MAIN LAYOUT */
+
+    .main-layout {
+      margin-left: 245px;
+      padding: 84px 25px 45px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 290px;
+      gap: 25px;
+      max-width: 1800px;
+    }
+
+    .main-content { min-width: 0; }
+
+    .right-sidebar {
+      min-width: 0;
+      position: sticky;
+      top: 84px;
+      align-self: start;
+    }
+
+    /* CATEGORY TOP BAR */
+
+    .category-bar {
+      position: sticky;
+      top: 64px;
+      z-index: 500;
+      display: flex;
+      gap: 10px;
+      padding: 12px 0 17px;
+      margin: -4px 0 12px;
+      overflow-x: auto;
+      background: var(--bg);
+      scrollbar-width: none;
+    }
+
+    .category-bar::-webkit-scrollbar { display: none; }
+
+    .category-chip {
+      flex-shrink: 0;
+      padding: 9px 16px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      color: var(--text);
+      background: var(--surface-2);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .category-chip:hover,
+    .category-chip.active {
+      background: var(--accent);
+      color: #17130a;
+      border-color: var(--accent);
+    }
+
+    /* WELCOME */
+
+    .welcome {
+      position: relative;
+      overflow: hidden;
+      padding: 27px;
+      margin-bottom: 25px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background:
+        radial-gradient(circle at 90% 20%, rgba(230,184,76,.18), transparent 35%),
+        var(--surface);
+    }
+
+    .welcome-label {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .welcome h1 {
+      max-width: 600px;
+      margin: 12px 0 9px;
+      font-size: clamp(25px, 3vw, 36px);
+      line-height: 1.15;
+    }
+
+    .welcome p {
+      max-width: 570px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .welcome-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .primary-button, .secondary-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 17px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .primary-button {
+      background: var(--accent);
+      color: #17130a;
+    }
+
+    .secondary-button {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    /* SECTION HEADINGS */
+
+    .section-heading {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 12px 0;
-      flex-wrap: wrap;
+      gap: 12px;
+      margin: 27px 0 15px;
     }
-    .brand { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-    .brand img { display: block; width: 175px; height: 55px; object-fit: contain; object-position: left center; }
-    .nav-links { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .nav-links a { text-decoration: none; font-weight: 700; font-size: 13px; }
-    .nav-links a:hover, footer a:hover { color: var(--blue); }
-    .header-actions { display: flex; align-items: center; gap: 8px; }
-    .theme, .secondary {
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      background: var(--card);
-      color: var(--text);
-      padding: 9px 12px;
-    }
-    .menu-toggle { display: none; }
 
-    .hero {
-      padding: 68px 0;
-      background:
-        radial-gradient(circle at 85% 20%, #dbeafe, transparent 38%),
-        linear-gradient(180deg, #f8fbff, #fff);
+    .section-heading h2 {
+      margin: 0;
+      font-size: 19px;
     }
-    body.dark .hero {
-      background: radial-gradient(circle at 85% 20%, #17294b, transparent 40%), #0b1020;
+
+    .section-heading small {
+      color: var(--muted);
+      font-size: 12px;
     }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+
+    /* AD AREA */
+
+    .ad-box {
+      min-height: 90px;
+      display: flex;
       align-items: center;
-      gap: 35px;
+      justify-content: center;
+      margin: 18px 0 24px;
+      padding: 12px;
+      overflow: hidden;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      color: var(--muted);
+      text-align: center;
+      font-size: 11px;
     }
-    .eyebrow { color: var(--blue); font-size: 13px; font-weight: 900; letter-spacing: 2px; }
-    h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1.02; margin: 18px 0; }
-    .lead { color: var(--muted); font-size: 18px; max-width: 570px; }
-    .blue { color: var(--blue); }
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-    .btn {
+
+    .ad-box img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* NEWS GRID */
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 19px;
+    }
+
+    .news-card {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+
+    .news-image {
+      width: 100%;
+      height: 175px;
+      display: block;
+      object-fit: cover;
+      background: var(--surface-2);
+    }
+
+    .news-card-body { padding: 15px; }
+
+    .news-category {
       display: inline-block;
-      text-decoration: none;
-      border: 0;
-      border-radius: 11px;
-      padding: 12px 16px;
+      margin-bottom: 9px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .news-card h3 {
+      margin: 0 0 9px;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .news-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .news-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 13px;
+      color: var(--accent);
+      font-size: 12px;
       font-weight: 800;
     }
-    .primary { background: var(--blue-dark); color: #fff; }
-    .primary:hover { filter: brightness(1.08); }
-    .space {
-      min-height: 300px;
-      border-radius: 25px;
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      background: radial-gradient(circle at center, #183a76, #071225 75%);
-    }
-    .planet {
-      width: 125px; height: 125px; border-radius: 50%;
-      background: radial-gradient(circle at 30% 25%, #dbeafe, #6096f5 40%, #16366e 75%);
-      box-shadow: 0 0 60px #5796ff99; z-index: 1;
-    }
-    .orbit {
-      position: absolute; width: 280px; height: 110px;
-      border: 1px solid #ffffff55; border-radius: 50%; transform: rotate(-30deg);
-    }
-    .orbit.two { width: 330px; height: 150px; transform: rotate(30deg); }
-    .star { position: absolute; color: white; animation: twinkle 2s infinite alternate; }
-    .s1 { top: 18%; left: 20%; } .s2 { right: 20%; top: 25%; }
-    .s3 { left: 25%; bottom: 18%; } .s4 { right: 25%; bottom: 22%; }
-    @keyframes twinkle { to { opacity: .25; transform: scale(.7); } }
 
-    .section { padding: 48px 0; }
-    .heading { margin-bottom: 22px; }
-    .heading h2 { font-size: 32px; margin: 5px 0; }
-    .heading p, .muted { color: var(--muted); }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
-    .card {
-      border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
-      background: var(--card); display: flex; flex-direction: column;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .card-art { height: 110px; display: grid; place-items: center; font-size: 40px; background: var(--soft); }
-    .card-content { padding: 17px; display: flex; flex-direction: column; flex: 1; }
-    .tag { font-size: 11px; font-weight: 900; color: var(--blue); text-transform: uppercase; letter-spacing: .5px; }
-    .card h3 { font-size: 18px; line-height: 1.35; margin: 10px 0; }
-    .card p { font-size: 14px; color: var(--muted); }
-    .read { color: var(--blue); text-decoration: none; font-weight: 800; margin-top: auto; }
-    .topics { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-    .topic { border: 1px solid var(--line); border-radius: 14px; padding: 17px; text-decoration: none; background: var(--card); }
-    .topic:hover { border-color: var(--blue); }
-    .topic b { display: block; }
-    .topic small { color: var(--muted); }
-
-    .ad-box, .hilltop-ad {
-      width: 92%; max-width: 1100px; min-height: 85px;
-      margin: 25px auto; padding: 14px; text-align: center;
-      border: 1px dashed var(--line); border-radius: 13px;
-      background: var(--card); color: var(--muted);
-    }
-    .ad-box p { margin: 0 0 8px; font-weight: bold; }
-    .ad-box a { color: var(--blue); font-weight: bold; }
-    .hilltop-ad { border-style: solid; }
-    .ad-label { display: block; font-size: 10px; letter-spacing: 1.5px; margin-bottom: 8px; }
-    .hilltop-ad img { display: block; width: 100%; max-width: 728px; height: auto; margin: auto; }
-    .hilltopads-btn {
-      display: inline-block; padding: 9px 13px; border-radius: 10px;
-      background: linear-gradient(135deg, #ff9800, #ff5722);
-      color: white; text-decoration: none; font-size: 13px; font-weight: bold;
+    .empty-message {
+      grid-column: 1 / -1;
+      padding: 35px 15px;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      color: var(--muted);
+      text-align: center;
     }
 
-    #nova-news { width: min(1200px, 94%); margin: 48px auto; }
-    .news-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 20px; }
-    .news-label { color: #d99012; font-size: 12px; font-weight: 800; letter-spacing: 2px; }
-    .news-heading h2 { font-size: clamp(26px, 4vw, 38px); margin: 8px 0; }
-    .news-heading p { color: var(--muted); margin: 0; }
-    #news-refresh {
-      border: 1px solid #f5a623; background: #f5a623; color: #151515;
-      padding: 11px 18px; border-radius: 12px; font-weight: 800;
-    }
-    #news-refresh:disabled { opacity: .6; cursor: wait; }
-    .news-toolbar { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
-    .news-toolbar select {
-      background: var(--card); color: var(--text); border: 1px solid var(--line);
-      padding: 11px 14px; border-radius: 10px; max-width: 100%;
-    }
-    #news-status { margin: 15px 0; color: var(--muted); }
-    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 18px; }
-    .news-card {
-      border: 1px solid var(--line); background: var(--card); border-radius: 17px;
-      padding: 20px; display: flex; flex-direction: column; min-height: 200px;
-      transition: transform .2s, border-color .2s;
-    }
-    .news-card:hover { transform: translateY(-4px); border-color: #f5a623; }
-    .news-card-top { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 15px; font-size: 12px; }
-    .news-category { color: #d99012; font-weight: 800; }
-    .news-card h3 { font-size: 17px; line-height: 1.5; margin: 0 0 12px; }
-    .news-summary { font-size: 14px; color: var(--muted); }
-    .news-meta { font-size: 12px; color: var(--muted); margin-top: auto; margin-bottom: 12px; }
-    .news-read { color: #d99012; font-weight: 800; text-decoration: none; }
-    .news-read:hover { text-decoration: underline; }
-    #news-updated { text-align: center; color: var(--muted); font-size: 12px; margin-top: 24px; }
-    body.dark .news-category, body.dark .news-read { color: #f5b942; }
+    /* RIGHT COLUMN */
 
-    .quiz {
-      background: #111827; color: #fff; border-radius: 20px; padding: 25px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 25px;
+    .right-panel {
+      padding: 17px;
+      margin-bottom: 17px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
     }
-    .quiz p { color: #cbd5e1; }
-    .quiz-box { background: #1f2937; border: 1px solid #374151; padding: 18px; border-radius: 14px; }
-    .answers { display: grid; gap: 9px; }
-    .answer {
-      background: #111827; color: #fff; text-align: left; padding: 11px;
-      border: 1px solid #4b5563; border-radius: 9px;
-    }
-    .answer.correct { background: #065f46; border-color: #10b981; }
-    .answer.wrong { background: #991b1b; border-color: #ef4444; }
-    .answer:disabled { cursor: default; opacity: 1; }
-    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-    .info { border: 1px solid var(--line); border-radius: 15px; padding: 20px; background: var(--card); }
-    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); font-size: 13px; text-align: center; }
-    footer a { margin: 0 7px; text-decoration: none; }
 
-    @media (max-width: 850px) {
-      .nav-links { order: 3; width: 100%; justify-content: center; }
-      .hero-grid, .quiz { grid-template-columns: 1fr; }
-      .topics { grid-template-columns: repeat(3, 1fr); }
+    .right-panel h3 {
+      margin: 0 0 14px;
+      font-size: 15px;
     }
-    @media (max-width: 600px) {
-      .brand img { width: 140px; height: 45px; }
-      .grid, .about { grid-template-columns: 1fr; }
-      .topics { grid-template-columns: repeat(2, 1fr); }
-      .hero { padding: 42px 0; }
-      .news-heading { align-items: flex-start; flex-direction: column; }
-      .news-toolbar select { flex: 1; }
-      .nav-links { gap: 10px; }
-      .nav-links a { font-size: 12px; }
-      .nav-links a:nth-child(n+5) { display: none; }
-      .space { min-height: 250px; }
+
+    .trending-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trending-item:last-child { border-bottom: 0; }
+
+    .trend-number {
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .trending-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .trending-item small {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .tool-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .tool-link:last-child { border-bottom: 0; }
+
+    .tool-link span:first-child { font-size: 20px; }
+
+    .tool-link:hover { color: var(--accent); }
+
+    .right-ad {
+      min-height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      border: 1px dashed var(--border);
+      border-radius: 13px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    /* QUIZ */
+
+    .quiz-panel {
+      padding: 20px;
+      margin-top: 30px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--surface);
+    }
+
+    .quiz-panel h2 { margin: 0 0 8px; font-size: 19px; }
+    .quiz-panel p { color: var(--muted); font-size: 13px; }
+
+    .quiz-question {
+      margin: 17px 0 12px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .quiz-option {
+      display: block;
+      width: 100%;
+      padding: 11px 13px;
+      margin: 8px 0;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--surface-2);
+      color: var(--text);
+      text-align: left;
+    }
+
+    .quiz-option:hover { border-color: var(--accent); }
+
+    #quiz-result {
+      margin-top: 12px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      margin: 35px 0 0;
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .footer a:hover { color: var(--accent); }
+
+    /* MOBILE BOTTOM NAV */
+
+    .mobile-bottom {
+      display: none;
+    }
+
+    /* COLLAPSED SIDEBAR */
+
+    body.sidebar-collapsed .sidebar { width: 78px; }
+
+    body.sidebar-collapsed .main-layout { margin-left: 78px; }
+
+    body.sidebar-collapsed .side-link {
+      justify-content: center;
+      padding: 0;
+    }
+
+    body.sidebar-collapsed .side-link .side-label,
+    body.sidebar-collapsed .side-heading,
+    body.sidebar-collapsed .side-note,
+    body.sidebar-collapsed .sidebar-footer {
+      display: none;
+    }
+
+    body.sidebar-collapsed .side-icon { font-size: 21px; }
+
+    /* RESPONSIVE TABLET */
+
+    @media (max-width: 1150px) {
+      .main-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .right-sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+      }
+
+      .right-panel { margin: 0; }
+      .right-ad { min-height: 180px; }
+    }
+
+    @media (max-width: 760px) {
+      .topbar {
+        height: 56px;
+        padding: 0 12px;
+        gap: 8px;
+      }
+
+      .brand-area {
+        width: auto;
+        gap: 5px;
+      }
+
+      .menu-button { display: none; }
+
+      .brand {
+        gap: 0;
+        font-size: 19px;
+      }
+
+      .brand-mark { display: none; }
+
+      .search-area {
+        justify-content: flex-end;
+        margin-left: auto;
+      }
+
+      .search-area input {
+        display: none;
+      }
+
+      .search-button {
+        width: 39px;
+        height: 39px;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        font-size: 20px;
+      }
+
+      .header-actions { gap: 4px; }
+
+      .header-actions .theme-button { display: none; }
+
+      .signin {
+        padding: 7px 11px;
+        font-size: 12px;
+      }
+
+      .sidebar { display: none; }
+
+      .main-layout {
+        display: block;
+        margin: 0;
+        padding: 56px 12px 90px;
+      }
+
+      .category-bar {
+        top: 56px;
+        padding: 10px 0 12px;
+        margin: 0 0 12px;
+      }
+
+      .category-chip {
+        padding: 8px 13px;
+        font-size: 12px;
+      }
+
+      .welcome {
+        padding: 21px 17px;
+        border-radius: 13px;
+      }
+
+      .welcome h1 { font-size: 25px; }
+
+      .welcome p { font-size: 13px; }
+
+      .section-heading { margin-top: 22px; }
+
+      .section-heading h2 { font-size: 17px; }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .news-card {
+        display: grid;
+        grid-template-columns: 116px minmax(0, 1fr);
+        min-height: 126px;
+      }
+
+      .news-image {
+        height: 100%;
+        min-height: 126px;
+      }
+
+      .news-card-body { padding: 11px; }
+
+      .news-card h3 {
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+
+      .news-card p {
+        font-size: 12px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .news-meta {
+        margin-top: 8px;
+        font-size: 10px;
+      }
+
+      .read-more { margin-top: 7px; }
+
+      .right-sidebar { display: block; }
+
+      .right-panel, .right-ad { margin-top: 15px; }
+
+      .ad-box {
+        min-height: 70px;
+        margin: 14px 0 20px;
+      }
+
+      .mobile-bottom {
+        position: fixed;
+        z-index: 1200;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 65px;
+        padding: 5px 4px calc(5px + env(safe-area-inset-bottom));
+        background: var(--header);
+        border-top: 1px solid var(--border);
+        backdrop-filter: blur(14px);
+      }
+
+      .mobile-nav-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .mobile-nav-link span:first-child { font-size: 20px; }
+
+      .mobile-nav-link.active { color: var(--accent); }
+
+      .footer { padding-bottom: 20px; }
+    }
+
+    @media (max-width: 380px) {
+      .brand { font-size: 17px; }
+      .signin { padding: 7px 9px; }
+      .news-card { grid-template-columns: 100px minmax(0, 1fr); }
+      .news-card h3 { font-size: 13px; }
     }
   </style>
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="wrap nav">
+  <!-- TOP HEADER -->
+  <header class="topbar">
+    <div class="brand-area">
+      <button class="menu-button" id="menuToggle" aria-label="Toggle sidebar">☰</button>
       <a class="brand" href="index.html" aria-label="NovaFacts home">
-        <img src="logo.png" alt="NovaFacts Logo" onerror="this.style.display='none'">
-        <strong class="brand-fallback">NovaFacts</strong>
+        <span class="brand-mark">N</span>
+        <span>Nova<span>Facts</span></span>
       </a>
+    </div>
 
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#discoveries">Discoveries</a>
-        <a href="#topics">Topics</a>
-        <a href="#nova-news">Latest News</a>
-        <a href="#quiz">Quiz</a>
-        <a href="#about">About</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy-policy.html">Privacy</a>
-      </nav>
+    <form class="search-area" id="searchForm">
+      <input id="searchInput" type="search" placeholder="Search science, space, AI..." aria-label="Search">
+      <button class="search-button" type="submit" aria-label="Search">⌕</button>
+    </form>
 
-      <div class="header-actions">
-        <a class="hilltopads-btn" href="https://plump-plastic.com/EWPh64" target="_blank" rel="nofollow sponsored noopener">Visit HilltopAds</a>
-        <a class="secondary" href="login.html">Google Login</a>
-        <button class="theme" id="themeBtn" type="button" aria-label="Toggle color theme">☾ Theme</button>
-      </div>
+    <div class="header-actions">
+      <button class="icon-button theme-button" id="themeToggle" title="Change theme">☼</button>
+      <a class="signin" id="googleSignIn" href="#" title="Sign in with Google">
+        <span>◉</span> Sign in
+      </a>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow">SCIENCE · DISCOVERY · KNOWLEDGE</div>
-          <h1>Discover what's <span class="blue">next.</span></h1>
-          <p class="lead">Explore discoveries in space, physics, artificial intelligence, biology and our changing planet.</p>
-          <div class="actions">
-            <a class="btn primary" href="human-reality.html">Explore reality ↗</a>
-            <a class="btn secondary" href="#quiz">Try the science quiz</a>
-          </div>
-          <p class="muted" id="updatedText">Explore the latest science and technology.</p>
-        </div>
-        <div class="space" role="img" aria-label="Decorative illustration of a planet and its orbit">
-          <span class="star s1">✦</span><span class="star s2">✧</span>
-          <span class="star s3">✦</span><span class="star s4">✧</span>
-          <div class="orbit"></div><div class="orbit two"></div><div class="planet"></div>
-        </div>
-      </div>
-    </section>
-
-
-<!-- GPA CALCULATOR BUTTON -->
-<style>
-.gpa-card {
-    max-width: 450px;
-    margin: 25px auto;
-    padding: 25px;
-    text-align: center;
-    background: linear-gradient(135deg, #111827, #1e3a5f);
-    border: 1px solid #38bdf8;
-    border-radius: 18px;
-    color: white;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-}
-
-.gpa-card .gpa-icon {
-    font-size: 45px;
-    margin-bottom: 12px;
-}
-
-.gpa-card h2 {
-    font-size: 25px;
-    color: #38bdf8;
-    margin: 10px 0;
-}
-
-.gpa-card p {
-    color: #cbd5e1;
-    line-height: 1.6;
-    font-size: 14px;
-}
-
-.gpa-btn {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 13px 28px;
-    background: linear-gradient(90deg, #0284c7, #2563eb);
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.gpa-btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 20px rgba(56,189,248,0.4);
-}
-</style>
-
-<div class="gpa-card">
-
-    <div class="gpa-icon">🎓</div>
-
-    <h2>GPA Calculator</h2>
-
-    <p>
-        Calculate your GPA, Total Marks, Percentage
-        and Subject Grades easily.
-    </p>
-
-    <a href="./GPAcalculator.html" class="gpa-btn">
-        🚀 Calculate GPA Now
-    </a>
-
-</div>
-
-    <div class="hilltop-ad">
-      <span class="ad-label">ADVERTISEMENT</span>
-      <a href="https://plump-plastic.com/EWPh64" target="_blank" rel="nofollow sponsored noopener">
-        <img src="https://static.hilltopads.com/other/banners/pub/huge_income/728x90.gif" alt="HilltopAds advertisement" width="728" height="90" loading="lazy">
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="side-group">
+      <a class="side-link active" href="index.html">
+        <span class="side-icon">⌂</span><span class="side-label">Home</span>
+      </a>
+      <a class="side-link" href="#latest">
+        <span class="side-icon">▤</span><span class="side-label">Latest News</span>
+      </a>
+      <a class="side-link" href="#trending">
+        <span class="side-icon">↗</span><span class="side-label">Trending</span>
+      </a>
+      <a class="side-link" href="#quiz">
+        <span class="side-icon">✎</span><span class="side-label">Quiz</span>
       </a>
     </div>
-          <!-- Adsterra Left Top Fixed Banner -->
-<!-- Adsterra Left Side Banner -->
 
-<!-- Adsterra Horizontal Banner -->
-<div id="adsterra-horizontal">
-  <a href="https://beta.publishers.adsterra.com/referral/7ENfXbisH3" rel="nofollow" target="_blank" rel="nofollow sponsored">
-    <img
-      src="https://landings-cdn.adsterratech.com/referralBanners/gif/720x90_adsterra_reff.gif"
-      alt="Adsterra Referral Banner">
-  </a>
-</div>
-
-<style>
-#adsterra-horizontal {
-  width: 100%;
-  max-width: 720px;
-  margin: 15px auto;
-  text-align: center;
-}
-
-#adsterra-horizontal img {
-  width: 100%;
-  max-width: 720px;
-  height: auto;
-  display: block;
-  margin: auto;
-}
-</style>
-
-
-
-    <section id="nova-news" aria-labelledby="news-title">
-      <div class="news-heading">
-        <div>
-          <span class="news-label">NEWS UPDATES</span>
-          <h2 id="news-title">Today's News</h2>
-          <p>Science • Space • AI • Nepal • World</p>
-        </div>
-        <button id="news-refresh" type="button">↻ Refresh</button>
-      </div>
-
-
-
-      <div class="news-toolbar">
-        <label>
-          <span class="muted">Category</span><br>
-          <select id="news-category" aria-label="Select news category">
-            <option value="All">All Categories</option>
-            <option value="Nepal">🇳🇵 Nepal</option>
-            <option value="World">🌍 World</option>
-            <option value="Science">🔬 Science</option>
-            <option value="Space">🌌 Space</option>
-            <option value="AI">🤖 AI &amp; Technology</option>
-            <option value="Environment">🌱 Environment</option>
-          </select>
-        </label>
-      </div>
-      <p id="news-status" role="status" aria-live="polite">Loading latest news...</p>
-      <div id="news-grid" class="news-grid"></div>
-      <div id="news-updated"></div>
-    </section>
-
-    <section class="section" id="discoveries">
-      <div class="wrap">
-        <div class="heading">
-          <h2>Explore Discoveries</h2>
-          <p>Explore the fascinating world of science and technology.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <div class="card-art" aria-hidden="true">🌌</div>
-            <div class="card-content">
-              <span class="tag">Astronomy</span>
-              <h3>Exploring the Universe</h3>
-              <p>Discover galaxies, stars, planets and the mysteries of our universe.</p>
-              <a class="read" href="black-holes.html">Explore more ↗</a>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-art" aria-hidden="true">⚛️</div>
-            <div class="card-content">
-              <span class="tag">Physics</span>
-              <h3>The Laws of Physics</h3>
-              <p>Learn how gravity, energy and matter shape the natural world.</p>
-              <a class="read" href="#topics">Explore topics ↗</a>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-art" aria-hidden="true">🤖</div>
-            <div class="card-content">
-              <span class="tag">Technology</span>
-              <h3>Artificial Intelligence</h3>
-              <p>Explore machine learning, robotics and modern AI discoveries.</p>
-              <a class="read" href="#nova-news">Latest technology news ↗</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="topics">
-      <div class="wrap">
-        <div class="heading">
-          <h2>Explore by topic</h2>
-          <p>Choose a subject to explore the latest related news.</p>
-        </div>
-        <div class="topics">
-          <a class="topic" href="#nova-news" data-topic="Space">🪐 <b>Space</b><small>Planets and cosmos</small></a>
-          <a class="topic" href="#nova-news" data-topic="Science">⚛️ <b>Physics</b><small>How nature works</small></a>
-          <a class="topic" href="#nova-news" data-topic="AI">🤖 <b>AI &amp; Tech</b><small>New technology</small></a>
-          <a class="topic" href="#nova-news" data-topic="Science">🧬 <b>Biology</b><small>Life and living things</small></a>
-          <a class="topic" href="#nova-news" data-topic="Environment">🌍 <b>Earth</b><small>Our planet</small></a>
-        </div>
-      </div>
-    </section>
-
-    <div class="hilltop-ad">
-      <span class="ad-label">ADVERTISEMENT</span>
-      <a href="https://plump-plastic.com/EWPh64" target="_blank" rel="nofollow sponsored noopener">
-        <img src="https://static.hilltopads.com/other/banners/pub/get_high_ecpm/728x90.gif" alt="HilltopAds advertisement" width="728" height="90" loading="lazy">
+    <div class="side-group">
+      <div class="side-heading">Explore</div>
+      <a class="side-link" href="#topics">
+        <span class="side-icon">◈</span><span class="side-label">All Topics</span>
+      </a>
+      <a class="side-link" href="black-holes.html">
+        <span class="side-icon">◉</span><span class="side-label">Space & Universe</span>
+      </a>
+      <a class="side-link" href="human-reality.html">
+        <span class="side-icon">♧</span><span class="side-label">Human Reality</span>
+      </a>
+      <a class="side-link" href="#ai">
+        <span class="side-icon">⌘</span><span class="side-label">Artificial Intelligence</span>
+      </a>
+      <a class="side-link" href="#physics">
+        <span class="side-icon">⚛</span><span class="side-label">Physics</span>
       </a>
     </div>
-       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3412463966256762"
-     crossorigin="anonymous"></script>   <!-- Adsterra Left Top Fixed Banner -->
-<!-- Adsterra Left Side Banner -->
 
-<!-- Adsterra Horizontal Banner -->
-<div id="adsterra-horizontal">
-  <a href="https://beta.publishers.adsterra.com/referral/7ENfXbisH3" rel="nofollow" target="_blank" rel="nofollow sponsored">
-    <img
-      src="https://landings-cdn.adsterratech.com/referralBanners/gif/720x90_adsterra_reff.gif"
-      alt="Adsterra Referral Banner">
-  </a>
-</div>
-
-<style>
-#adsterra-horizontal {
-  width: 100%;
-  max-width: 720px;
-  margin: 15px auto;
-  text-align: center;
-}
-
-#adsterra-horizontal img {
-  width: 100%;
-  max-width: 720px;
-  height: auto;
-  display: block;
-  margin: auto;
-}
-</style>
-
-    <section class="section" id="quiz">
-      <div class="wrap quiz">
-        <div>
-          <span class="tag">Quick Challenge</span>
-          <h2>Test your curiosity.</h2>
-          <p>Answer five science questions and learn something new.</p>
-        </div>
-        <div class="quiz-box">
-          <p>QUESTION <span id="qNumber">1</span>/5 · SCORE <span id="score">0</span></p>
-          <h3 id="question"> question</h3>
-          <div class="answers" id="answers"></div>
-          <p id="feedback" role="status" aria-live="polite"></p>
-          <button class="btn primary" id="next" type="button" hidden>Next question →</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="wrap about">
-        <div class="info">
-          <h2>About NovaFacts</h2>
-          <p class="muted">NovaFacts is an educational science project that helps curious readers explore discoveries. News headlines should link to their original publishers.</p>
-        </div>
-        <div class="info">
-          <h2>Read science carefully</h2>
-          <p class="muted">Check original research, publication dates, methods and whether a result is peer-reviewed or preliminary.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="hilltop-ad">
-      <span class="ad-label">ADVERTISEMENT</span>
-      <a href="https://plump-plastic.com/EWPh64" target="_blank" rel="nofollow sponsored noopener">
-        <img src="//static.hilltopads.com/other/banners/pub/huge_income/1100x90.gif?v=1793361179" alt="HilltopAds advertisement" width="1100" height="100" loading="lazy">
+    <div class="side-group">
+      <div class="side-heading">Tools</div>
+      <a class="side-link" href="GPAcalculator.html">
+        <span class="side-icon">▦</span><span class="side-label">GPA Calculator</span>
+      </a>
+      <a class="side-link" href="#quiz">
+        <span class="side-icon">☑</span><span class="side-label">Knowledge Quiz</span>
       </a>
     </div>
-          <!-- Adsterra Left Top Fixed Banner -->
-<!-- Adsterra Left Side Banner -->
 
-<!-- Adsterra Horizontal Banner -->
-<div id="adsterra-horizontal">
-  <a href="https://beta.publishers.adsterra.com/referral/7ENfXbisH3" rel="nofollow" target="_blank" rel="nofollow sponsored">
-    <img
-      src="https://landings-cdn.adsterratech.com/referralBanners/gif/720x90_adsterra_reff.gif"
-      alt="Adsterra Referral Banner">
-  </a>
-</div>
+    <div class="side-group">
+      <div class="side-heading">About</div>
+      <a class="side-link" href="about.html">
+        <span class="side-icon">ⓘ</span><span class="side-label">About Us</span>
+      </a>
+      <a class="side-link" href="contact.html">
+        <span class="side-icon">✉</span><span class="side-label">Contact</span>
+      </a>
+      <a class="side-link" href="privacy-policy.html">
+        <span class="side-icon">▣</span><span class="side-label">Privacy Policy</span>
+      </a>
+    </div>
 
-<style>
-#adsterra-horizontal {
-  width: 100%;
-  max-width: 720px;
-  margin: 15px auto;
-  text-align: center;
-}
+    <div class="sidebar-footer">
+      © 2026 NovaFacts<br>
+      Science • Space • AI • Knowledge
+    </div>
+  </aside>
 
-#adsterra-horizontal img {
-  width: 100%;
-  max-width: 720px;
-  height: auto;
-  display: block;
-  margin: auto;
-}
-</style>
+  <!-- MAIN PAGE -->
+  <main class="main-layout">
+    <section class="main-content">
+
+      <!-- TOPIC CHIPS -->
+      <nav class="category-bar" id="topics" aria-label="Topics">
+        <button class="category-chip active" data-category="all">All</button>
+        <button class="category-chip" data-category="Science">Science</button>
+        <button class="category-chip" data-category="Space">Space</button>
+        <button class="category-chip" data-category="AI">AI</button>
+        <button class="category-chip" data-category="Physics">Physics</button>
+        <button class="category-chip" data-category="Technology">Technology</button>
+        <button class="category-chip" data-category="Discovery">Discoveries</button>
+      </nav>
+
+      <!-- WELCOME -->
+      <section class="welcome">
+        <div class="welcome-label">Welcome to NovaFacts</div>
+        <h1>Explore the Universe.<br>Understand the Future.</h1>
+        <p>
+          Discover science, space, artificial intelligence, physics and
+          fascinating knowledge — all in one place.
+        </p>
+        <div class="welcome-actions">
+          <a href="#latest" class="primary-button">Explore Latest News →</a>
+          <a href="#quiz" class="secondary-button">Try Knowledge Quiz</a>
+        </div>
+      </section>
+
+      <!-- AD SLOT -->
+      <div class="ad-box" aria-label="Advertisement">
+        <span>Advertisement</span>
+      </div>
+
+      <!-- NEWS -->
+      <div class="section-heading" id="latest">
+        <h2>Latest Discoveries</h2>
+        <small id="newsCount">Loading articles...</small>
+      </div>
+
+      <div class="news-grid" id="newsGrid">
+        <div class="empty-message">Loading NovaFacts articles...</div>
+      </div>
+
+      <!-- QUIZ -->
+      <section class="quiz-panel" id="quiz">
+        <h2>🧠 Test Your Knowledge</h2>
+        <p>Try a quick science question.</p>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div id="quizOptions"></div>
+        <div id="quiz-result" aria-live="polite"></div>
+        <button class="primary-button" id="nextQuestion" style="margin-top:12px">
+          Next Question →
+        </button>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="GPAcalculator.html">GPA Calculator</a>
+        </div>
+        <div>© 2026 NovaFacts. All rights reserved.</div>
+        <div>Science • Space • AI • Physics • Knowledge</div>
+      </footer>
+    </section>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="right-sidebar">
+
+      <section class="right-panel" id="trending">
+        <h3>🔥 Trending Topics</h3>
+
+        <a class="trending-item" href="black-holes.html">
+          <span class="trend-number">01</span>
+          <span>
+            <strong>Black Holes & The Universe</strong>
+            <small>Space and Astronomy</small>
+          </span>
+        </a>
+
+        <a class="trending-item" href="#ai">
+          <span class="trend-number">02</span>
+          <span>
+            <strong>The Future of Artificial Intelligence</strong>
+            <small>Technology and AI</small>
+          </span>
+        </a>
+
+        <a class="trending-item" href="human-reality.html">
+          <span class="trend-number">03</span>
+          <span>
+            <strong>Understanding Human Reality</strong>
+            <small>Science and Mind</small>
+          </span>
+        </a>
+
+        <a class="trending-item" href="#physics">
+          <span class="trend-number">04</span>
+          <span>
+            <strong>Mysteries of Physics</strong>
+            <small>Physics and Discovery</small>
+          </span>
+        </a>
+      </section>
+
+      <section class="right-panel">
+        <h3>🛠 Explore Tools</h3>
+        <a class="tool-link" href="GPAcalculator.html">
+          <span>🎓</span><span>GPA Calculator</span>
+        </a>
+        <a class="tool-link" href="#quiz">
+          <span>🧠</span><span>Knowledge Quiz</span>
+        </a>
+        <a class="tool-link" href="about.html">
+          <span>🌐</span><span>About NovaFacts</span>
+        </a>
+      </section>
+
+      <div class="right-ad">
+        <span>Advertisement Space</span>
+      </div>
+
+      <section class="right-panel">
+        <h3>✨ About NovaFacts</h3>
+        <p style="color:var(--muted);font-size:13px;line-height:1.7;margin:0">
+          NovaFacts brings curious minds closer to science, space,
+          technology and the discoveries shaping our world.
+        </p>
+      </section>
+    </aside>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <p>© <span id="year"></span> NovaFacts. All rights reserved.</p>
-      <p>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="my-information.html">My Information</a>
-      </p>
-      <p>
-        <a href="black-holes.html">My Explanation</a>
-        <a href="human-reality.html">My View</a>
-      </p>
-      <p>
-        <a href="https://www.nasa.gov/news/" target="_blank" rel="noopener noreferrer">NASA News</a>
-        <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">arXiv</a>
-      </p>
-      <p>Built for curious minds. 🚀</p>
-
-
-
-</style>
-
-</style>
-    </div>
-  </footer>
-  
+  <!-- MOBILE BOTTOM NAVIGATION -->
+  <nav class="mobile-bottom" aria-label="Mobile navigation">
+    <a class="mobile-nav-link active" href="index.html">
+      <span>⌂</span><span>Home</span>
+    </a>
+    <a class="mobile-nav-link" href="#latest">
+      <span>▤</span><span>News</span>
+    </a>
+    <a class="mobile-nav-link" href="#topics">
+      <span>◈</span><span>Topics</span>
+    </a>
+    <a class="mobile-nav-link" href="#quiz">
+      <span>✎</span><span>Quiz</span>
+    </a>
+    <a class="mobile-nav-link" href="GPAcalculator.html">
+      <span>▦</span><span>GPA</span>
+    </a>
+  </nav>
 
   <script>
-   "use strict";
+    // SIDEBAR COLLAPSE
+    const menuToggle = document.getElementById("menuToggle");
 
-// ---------- Theme ----------
-const themeButton = document.getElementById("themeBtn");
-const savedTheme = localStorage.getItem("novafacts-theme");
-
-if (savedTheme === "dark") {
-  document.body.classList.add("dark");
-}
-
-function updateThemeButton() {
-  const isDark = document.body.classList.contains("dark");
-
-  themeButton.textContent = isDark ? "☀ Light" : "☾ Dark";
-
-  const themeMeta = document.querySelector('meta[name="theme-color"]');
-
-  if (themeMeta) {
-    themeMeta.setAttribute(
-      "content",
-      isDark ? "#0b1020" : "#ffffff"
-    );
-  }
-}
-
-themeButton.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-
-  localStorage.setItem(
-    "novafacts-theme",
-    document.body.classList.contains("dark") ? "dark" : "light"
-  );
-
-  updateThemeButton();
-});
-
-updateThemeButton();
-
-
-// ---------- Footer year ----------
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-
-
-// ---------- News Feed ----------
-const newsGrid = document.getElementById("news-grid");
-const newsStatus = document.getElementById("news-status");
-const newsUpdated = document.getElementById("news-updated");
-const newsCategory = document.getElementById("news-category");
-const newsRefresh = document.getElementById("news-refresh");
-
-let allNewsArticles = [];
-
-
-// ---------- Escape HTML ----------
-function escapeHTML(value = "") {
-  return String(value).replace(/[&<>"']/g, character => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[character]);
-}
-
-
-// ---------- Validate News Link ----------
-function validNewsLink(url) {
-  try {
-    const parsed = new URL(url, window.location.href);
-
-    return (
-      parsed.protocol === "https:" ||
-      parsed.protocol === "http:"
-    );
-  } catch {
-    return false;
-  }
-}
-
-
-// ---------- Render News ----------
-function renderNovaNews() {
-  const selectedCategory = newsCategory.value || "All";
-
-  const filtered = allNewsArticles.filter(article => {
-    return (
-      selectedCategory === "All" ||
-      String(article.category || "").toLowerCase() ===
-      selectedCategory.toLowerCase()
-    );
-  });
-
-  newsGrid.replaceChildren();
-
-  if (!filtered.length) {
-    newsStatus.textContent = allNewsArticles.length
-      ? "No news found in this category."
-      : "No news available right now.";
-
-    return;
-  }
-
-  newsStatus.textContent = "";
-
-  const fragment = document.createDocumentFragment();
-
-  filtered.forEach(article => {
-    const card = document.createElement("article");
-    card.className = "news-card";
-
-    // Category and source
-    const top = document.createElement("div");
-    top.className = "news-card-top";
-
-    const category = document.createElement("span");
-    category.className = "news-category";
-    category.textContent = article.category || "Science";
-
-    const source = document.createElement("span");
-    source.className = "news-meta";
-    source.textContent = article.source || "NovaFacts";
-
-    top.append(category, source);
-
-    // Title
-    const title = document.createElement("h3");
-    title.textContent = article.title || "Untitled";
-
-    // Summary
-    const summary = document.createElement("div");
-    summary.className = "news-summary";
-    summary.textContent = article.summary || "";
-
-    // Date
-    const date = document.createElement("div");
-    date.className = "news-meta";
-
-    if (article.published) {
-      const parsedDate = new Date(article.published);
-
-      date.textContent = Number.isNaN(parsedDate.getTime())
-        ? ""
-        : parsedDate.toLocaleDateString();
-    }
-
-    card.append(top, title, summary, date);
-
-
-    // ---------- Read Full News Link ----------
-    const link = document.createElement("a");
-
-    link.className = "news-read";
-    link.textContent = "Read Full News →";
-
-    const detailParams = new URLSearchParams({
-      url: validNewsLink(article.url || "") ? article.url : "",
-      title: article.title || "Untitled",
-      category: article.category || "Science"
+    menuToggle.addEventListener("click", () => {
+      document.body.classList.toggle("sidebar-collapsed");
     });
 
-    link.href = "news-detail.html?" + detailParams.toString();
+    // DARK / LIGHT THEME
+    const themeToggle = document.getElementById("themeToggle");
 
-    card.append(link);
+    if (localStorage.getItem("novafacts-theme") === "light") {
+      document.body.classList.add("light");
+      themeToggle.textContent = "☾";
+    }
 
-    fragment.append(card);
-  });
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      const lightMode = document.body.classList.contains("light");
+      localStorage.setItem("novafacts-theme", lightMode ? "light" : "dark");
+      themeToggle.textContent = lightMode ? "☾" : "☼";
+    });
 
-  newsGrid.append(fragment);
-}
+    // GOOGLE SIGN-IN
+    // Firebase Authentication configuration is required to activate real Google login.
+    document.getElementById("googleSignIn").addEventListener("click", (event) => {
+      event.preventDefault();
+      alert("Google Sign-In needs Firebase Authentication setup. The button is ready for integration.");
+    });
 
+    // NEWS DATA
+    const newsGrid = document.getElementById("newsGrid");
+    const newsCount = document.getElementById("newsCount");
+    let allArticles = [];
 
+    function safeText(value) {
+      return String(value ?? "");
+    }
 
+    function renderArticles(articles) {
+      newsGrid.innerHTML = "";
 
-// ---------- Load News ----------
-async function loadNovaNews() {
-  newsRefresh.disabled = true;
-
-  newsStatus.textContent = "Loading latest news...";
-  newsGrid.replaceChildren();
-
-  try {
-    const response = await fetch(
-      "news.json?updated=" + Date.now(),
-      {
-        cache: "no-store",
-        headers: {
-          "Accept": "application/json"
-        }
+      if (!articles.length) {
+        newsGrid.innerHTML =
+          '<div class="empty-message">No articles found in this category.</div>';
+        newsCount.textContent = "0 articles";
+        return;
       }
-    );
 
-    if (!response.ok) {
-      throw new Error("News file could not be loaded.");
+      newsCount.textContent = articles.length + " articles";
+
+      articles.forEach(article => {
+        const card = document.createElement("article");
+        card.className = "news-card";
+
+        const image = document.createElement("img");
+        image.className = "news-image";
+        image.loading = "lazy";
+        image.alt = safeText(article.title);
+        image.src = article.image || "https://placehold.co/600x400/191a1f/e6b84c?text=NovaFacts";
+
+        const body = document.createElement("div");
+        body.className = "news-card-body";
+
+        const category = document.createElement("div");
+        category.className = "news-category";
+        category.textContent = safeText(article.category || "Knowledge");
+
+        const title = document.createElement("h3");
+        title.textContent = safeText(article.title || "Untitled article");
+
+        const summary = document.createElement("p");
+        summary.textContent = safeText(article.summary || article.description || "");
+
+        const meta = document.createElement("div");
+        meta.className = "news-meta";
+
+        const source = document.createElement("span");
+        source.textContent = safeText(article.source || "NovaFacts");
+
+        const date = document.createElement("span");
+        date.textContent = safeText(article.published || article.date || "");
+
+        meta.append(source, date);
+
+        const link = document.createElement("a");
+        link.className = "read-more";
+        link.textContent = "Read more →";
+        link.href = article.url || article.link || "#";
+        link.target = link.href.startsWith("http") ? "_blank" : "_self";
+        link.rel = "noopener noreferrer";
+
+        body.append(category, title, summary, meta, link);
+        card.append(image, body);
+        newsGrid.appendChild(card);
+      });
     }
 
-    const data = await response.json();
+    // Load articles from news.json
+    fetch("news.json")
+      .then(response => {
+        if (!response.ok) throw new Error("Could not load news.json");
+        return response.json();
+      })
+      .then(data => {
+        // Supports either { articles: [...] } or a direct array.
+        allArticles = Array.isArray(data) ? data :
+          (Array.isArray(data.articles) ? data.articles : []);
 
-    allNewsArticles = Array.isArray(data.articles)
-      ? data.articles
-      : [];
+        renderArticles(allArticles);
+      })
+      .catch(error => {
+        console.error(error);
+        newsGrid.innerHTML =
+          '<div class="empty-message">News could not be loaded. Please check your news.json file.</div>';
+        newsCount.textContent = "News unavailable";
+      });
 
-    if (data.updated_at) {
-      const updatedDate = new Date(data.updated_at);
+    // CATEGORY FILTER
+    document.querySelectorAll(".category-chip").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".category-chip").forEach(item =>
+          item.classList.remove("active")
+        );
 
-      newsUpdated.textContent =
-        Number.isNaN(updatedDate.getTime())
-          ? ""
-          : "Last updated: " + updatedDate.toLocaleString();
-    } else {
-      newsUpdated.textContent = "";
-    }
+        button.classList.add("active");
+        const category = button.dataset.category;
 
-    renderNovaNews();
+        const filtered = category === "all"
+          ? allArticles
+          : allArticles.filter(article =>
+              safeText(article.category).toLowerCase() === category.toLowerCase()
+            );
 
-  } catch (error) {
-    console.error("NovaFacts news error:", error);
-
-    newsStatus.textContent =
-      "Unable to load news. Check that news.json exists and contains valid JSON.";
-
-  } finally {
-    newsRefresh.disabled = false;
-  }
-}
-
-
-// ---------- News Events ----------
-newsCategory.addEventListener("change", renderNovaNews);
-
-newsRefresh.addEventListener("click", loadNovaNews);
-
-document.querySelectorAll("[data-topic]").forEach(topic => {
-  topic.addEventListener("click", () => {
-    newsCategory.value = topic.dataset.topic;
-    renderNovaNews();
-  });
-});
-
-loadNovaNews();
-
-
-// ---------- Five-question Science Quiz ----------
-const quiz = [
-  {
-    q: "Which planet is famous for its prominent rings?",
-    a: ["Mars", "Saturn", "Venus", "Mercury"],
-    c: 1,
-    why: "Saturn's rings contain ice and rocky particles."
-  },
-  {
-    q: "What is the center of an atom called?",
-    a: ["Electron", "Molecule", "Nucleus", "Photon"],
-    c: 2,
-    why: "The nucleus contains protons and usually neutrons."
-  },
-  {
-    q: "Which star is closest to Earth?",
-    a: ["Sirius", "The Sun", "Polaris", "Vega"],
-    c: 1,
-    why: "The Sun is our nearest star."
-  },
-  {
-    q: "What does DNA store?",
-    a: [
-      "Genetic information",
-      "Sound waves",
-      "Cloud patterns",
-      "Magnetic fields"
-    ],
-    c: 0,
-    why: "DNA carries genetic instructions."
-  },
-  {
-    q: "Which gas do plants use in photosynthesis?",
-    a: [
-      "Oxygen",
-      "Helium",
-      "Carbon dioxide",
-      "Hydrogen"
-    ],
-    c: 2,
-    why: "Plants use carbon dioxide, water and light to make sugars."
-  }
-];
-
-let questionIndex = 0;
-let score = 0;
-let answered = false;
-
-const questionElement = document.getElementById("question");
-const answersElement = document.getElementById("answers");
-const feedbackElement = document.getElementById("feedback");
-const nextButton = document.getElementById("next");
-const questionNumber = document.getElementById("qNumber");
-const scoreElement = document.getElementById("score");
-
-
-// ---------- Show Question ----------
-function showQuestion() {
-  answered = false;
-
-  const current = quiz[questionIndex];
-
-  questionNumber.textContent = String(questionIndex + 1);
-  scoreElement.textContent = String(score);
-  questionElement.textContent = current.q;
-
-  feedbackElement.textContent = "";
-  nextButton.hidden = true;
-
-  answersElement.replaceChildren();
-
-  current.a.forEach((answer, index) => {
-    const button = document.createElement("button");
-
-    button.type = "button";
-    button.className = "answer";
-    button.textContent = answer;
-
-    button.addEventListener("click", () => {
-      chooseAnswer(index);
+        renderArticles(filtered);
+      });
     });
 
-    answersElement.append(button);
-  });
-}
+    // SEARCH
+    document.getElementById("searchForm").addEventListener("submit", event => {
+      event.preventDefault();
 
+      const query = document.getElementById("searchInput").value
+        .trim().toLowerCase();
 
-// ---------- Choose Answer ----------
-function chooseAnswer(chosenIndex) {
-  if (answered) return;
+      if (!query) {
+        renderArticles(allArticles);
+        return;
+      }
 
-  answered = true;
+      const results = allArticles.filter(article => {
+        const text = [
+          article.title,
+          article.summary,
+          article.description,
+          article.category,
+          article.source
+        ].join(" ").toLowerCase();
 
-  const current = quiz[questionIndex];
+        return text.includes(query);
+      });
 
-  const answerButtons =
-    answersElement.querySelectorAll("button");
+      renderArticles(results);
+      document.getElementById("latest").scrollIntoView({ behavior: "smooth" });
+    });
 
-  answerButtons.forEach((button, index) => {
-    button.disabled = true;
+    // QUIZ
+    const questions = [
+      {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Earth", "Mars", "Jupiter", "Venus"],
+        answer: 1
+      },
+      {
+        question: "Which star is closest to Earth?",
+        options: ["Sirius", "Polaris", "The Sun", "Vega"],
+        answer: 2
+      },
+      {
+        question: "What does AI stand for?",
+        options: [
+          "Automatic Internet",
+          "Artificial Intelligence",
+          "Advanced Information",
+          "Applied Innovation"
+        ],
+        answer: 1
+      },
+      {
+        question: "Which particle has a negative electric charge?",
+        options: ["Proton", "Neutron", "Electron", "Photon"],
+        answer: 2
+      },
+      {
+        question: "What is the center of our Solar System?",
+        options: ["Earth", "The Moon", "The Sun", "Mars"],
+        answer: 2
+      }
+    ];
 
-    if (index === current.c) {
-      button.classList.add("correct");
+    let questionIndex = 0;
+    let answered = false;
+
+    function showQuestion() {
+      const item = questions[questionIndex];
+      answered = false;
+
+      document.getElementById("quizQuestion").textContent =
+        (questionIndex + 1) + ". " + item.question;
+
+      document.getElementById("quiz-result").textContent = "";
+
+      const optionsBox = document.getElementById("quizOptions");
+      optionsBox.innerHTML = "";
+
+      item.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.className = "quiz-option";
+        button.textContent = option;
+
+        button.addEventListener("click", () => {
+          if (answered) return;
+          answered = true;
+
+          document.getElementById("quiz-result").textContent =
+            index === item.answer
+              ? "Correct! Great work. ✓"
+              : "Not quite. Correct answer: " + item.options[item.answer];
+        });
+
+        optionsBox.appendChild(button);
+      });
     }
 
-    if (
-      index === chosenIndex &&
-      chosenIndex !== current.c
-    ) {
-      button.classList.add("wrong");
-    }
-  });
+    document.getElementById("nextQuestion").addEventListener("click", () => {
+      questionIndex = (questionIndex + 1) % questions.length;
+      showQuestion();
+    });
 
-  if (chosenIndex === current.c) {
-    score++;
-  }
+    showQuestion();
 
-  scoreElement.textContent = String(score);
-
-  feedbackElement.textContent =
-    (chosenIndex === current.c ? "Correct! " : "Not quite. ") +
-    current.why;
-
-  nextButton.hidden = false;
-
-  nextButton.textContent =
-    questionIndex === quiz.length - 1
-      ? "Try again ↻"
-      : "Next question →";
-}
-
-
-// ---------- Next Question ----------
-nextButton.addEventListener("click", () => {
-  if (questionIndex === quiz.length - 1) {
-    questionIndex = 0;
-    score = 0;
-  } else {
-    questionIndex++;
-  }
-
-  showQuestion();
-});
-
-showQuestion();
+    // MOBILE ACTIVE NAVIGATION
+    document.querySelectorAll(".mobile-nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        document.querySelectorAll(".mobile-nav-link").forEach(item =>
+          item.classList.remove("active")
+        );
+        link.classList.add("active");
+      });
+    });
   </script>
-  <!-- Adsterra Social Bar -->
-  <script data-cfasync="false" src="https://bauval.org/14/308410aca83ab286c49c31038e3c77e7"></script>
 </body>
 </html>

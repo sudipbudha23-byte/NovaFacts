@@ -1,953 +1,1043 @@
 
 <!DOCTYPE html>
-<html lang="ne">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>School Hacks | GPA Calculator</title>
 
-<title>School Hacks | Smart GPA Calculator</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
 <style>
+:root {
+  --primary:#2563eb;
+  --primary-dark:#1d4ed8;
+  --bg:#f5f7fb;
+  --white:#fff;
+  --text:#202938;
+  --muted:#687386;
+  --border:#e1e7ef;
+  --green:#15803d;
+  --red:#dc2626;
+  --shadow:0 4px 18px rgba(20,40,80,.055);
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #080e1c;
-    color: white;
-    padding: 15px;
+  font-family:Inter,"Segoe UI",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
 }
 
-.container {
-    max-width: 1050px;
-    margin: auto;
-}
+button,input,select {font:inherit}
+button {cursor:pointer}
 
 header {
-    text-align: center;
-    padding: 30px 10px;
+  background:white;
+  border-bottom:1px solid var(--border);
+  padding:14px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-header h1 {
-    font-size: 34px;
-    color: #38bdf8;
+.brand {
+  display:flex;
+  align-items:center;
+  gap:11px;
 }
 
-header p {
-    color: #94a3b8;
-    margin-top: 10px;
+.logo {
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  background:#eaf1ff;
+  color:var(--primary);
+  border-radius:11px;
+  font-weight:900;
+  font-size:22px;
+}
+
+.brand h2 {font-size:18px}
+.brand p {font-size:12px;color:var(--muted)}
+
+.container {
+  width:92%;
+  max-width:1050px;
+  margin:28px auto;
+}
+
+.hero,.card {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:var(--shadow);
+}
+
+.hero {
+  padding:27px;
+  margin-bottom:19px;
+}
+
+.tag {
+  display:inline-block;
+  background:#eff6ff;
+  color:var(--primary);
+  padding:5px 12px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.hero h1 {
+  font-size:clamp(25px,4vw,34px);
+  margin-bottom:6px;
+}
+
+.hero p,.muted {
+  color:var(--muted);
+  font-size:13px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:17px;
 }
 
 .card {
-    background: #121d32;
-    border: 1px solid #263b58;
-    border-radius: 15px;
-    padding: 22px;
-    margin-bottom: 20px;
+  padding:21px;
+  margin-bottom:19px;
+  min-width:0;
 }
 
-h2 {
-    color: #38bdf8;
-    margin-bottom: 18px;
+.card h2 {
+  font-size:18px;
+  margin-bottom:15px;
 }
+
+.form-group {margin-bottom:14px}
 
 label {
-    display: block;
-    color: #cbd5e1;
-    margin: 12px 0 6px;
-    font-size: 14px;
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:6px;
 }
 
-input, select {
-    width: 100%;
-    padding: 13px;
-    background: #091426;
-    border: 1px solid #334968;
-    border-radius: 8px;
-    color: white;
-    outline: none;
-    font-size: 15px;
+input,select {
+  width:100%;
+  min-height:44px;
+  padding:10px 12px;
+  border:1px solid #d8e0eb;
+  border-radius:9px;
+  background:white;
+  color:var(--text);
+  outline:none;
 }
 
-input:focus, select:focus {
-    border-color: #38bdf8;
+input:focus,select:focus {
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(37,99,235,.09);
 }
 
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+.btn {
+  border:0;
+  border-radius:9px;
+  padding:11px 15px;
+  font-size:13px;
+  font-weight:700;
 }
 
-.subject-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 45px;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 10px;
+.primary {
+  background:var(--primary);
+  color:white;
 }
 
-.subject-row input {
-    min-width: 0;
+.primary:hover {background:var(--primary-dark)}
+
+.light {
+  background:#eff3f8;
+  color:#344054;
+  border:1px solid var(--border);
 }
 
-button {
-    border: none;
-    padding: 12px 18px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 5px 2px;
+.danger {
+  background:#fff0f0;
+  color:var(--red);
 }
 
-button:hover {
-    opacity: .85;
+.actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:15px;
 }
 
-.add {
-    background: #2563eb;
-    color: white;
+.subject-list {
+  display:flex;
+  flex-direction:column;
+  gap:13px;
 }
 
-.remove {
-    background: #dc2626;
-    color: white;
-    margin: 0;
+.subject-card {
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:12px;
+  padding:15px;
 }
 
-.calculate {
-    width: 100%;
-    background: linear-gradient(90deg,#0284c7,#2563eb);
-    color: white;
-    font-size: 18px;
-    padding: 16px;
-    margin-top: 20px;
+.subject-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-bottom:1px solid #edf0f4;
+  padding-bottom:10px;
+  margin-bottom:12px;
 }
 
-.reset {
-    background: #dc2626;
-    color: white;
+.subject-title {
+  font-size:14px;
+  font-weight:800;
+  color:var(--primary);
 }
 
-.results {
-    display: none;
+.subject-type {
+  font-size:10px;
+  color:#64748b;
+  background:#f1f5f9;
+  padding:4px 8px;
+  border-radius:20px;
+  margin-left:5px;
+}
+
+.subject-fields {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.subject-fields label {
+  font-size:11px;
+}
+
+.subject-fields input {
+  min-height:43px;
+  background:#f9fbfd;
+  font-size:14px;
+}
+
+.subject-fields .name-field {
+  grid-column:1/-1;
+}
+
+.subject-fields select {
+  background:#f9fbfd;
+  min-height:43px;
+  font-size:13px;
+}
+
+.subject-result {
+  margin-top:12px;
+  padding:10px;
+  border-radius:8px;
+  background:#f0f6ff;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:12px;
+}
+
+.subject-result strong {color:var(--primary)}
+
+.grade-scale {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.grade-item {
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:9px 4px;
+  text-align:center;
+  font-size:11px;
+}
+
+.grade-item strong {
+  display:block;
+  color:var(--primary);
+  font-size:16px;
 }
 
 .result-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-top: 20px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:11px;
 }
 
 .result-box {
-    background: #091426;
-    border: 1px solid #334968;
-    border-radius: 12px;
-    text-align: center;
-    padding: 20px 10px;
-}
-
-.result-box h3 {
-    font-size: 14px;
-    color: #94a3b8;
+  background:#f7f9fc;
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:16px 8px;
+  text-align:center;
 }
 
 .result-box p {
-    font-size: 27px;
-    font-weight: bold;
-    color: #38bdf8;
-    margin-top: 10px;
+  font-size:12px;
+  color:var(--muted);
 }
+
+.result-box h3 {
+  font-size:25px;
+  color:var(--primary);
+  margin-top:4px;
+}
+
+.status {
+  margin-top:14px;
+  padding:12px;
+  background:#eff6ff;
+  color:#1e40af;
+  border-radius:9px;
+  text-align:center;
+  font-size:13px;
+}
+
+.table-wrap {overflow-x:auto}
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-    min-width: 550px;
+  width:100%;
+  min-width:570px;
+  border-collapse:collapse;
+  font-size:13px;
 }
 
-th, td {
-    padding: 12px 8px;
-    border: 1px solid #334968;
-    text-align: center;
+th,td {
+  padding:11px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
 }
 
-th {
-    background: #1e3a5f;
-    color: #7dd3fc;
-}
-
-.table-wrap {
-    overflow-x: auto;
-}
-
-.grade-status {
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-    background: #091426;
-    border-radius: 10px;
-    color: #4ade80;
-    font-size: 20px;
-    font-weight: bold;
-}
+th {background:#f3f6fa}
 
 .note {
-    color: #94a3b8;
-    font-size: 13px;
-    line-height: 1.6;
-    margin-top: 12px;
+  font-size:12px;
+  color:var(--muted);
+  margin-top:10px;
 }
 
 footer {
-    text-align: center;
-    padding: 25px;
-    color: #64748b;
+  background:white;
+  border-top:1px solid var(--border);
+  text-align:center;
+  padding:23px;
+  font-size:12px;
+  color:var(--muted);
 }
 
-@media(max-width:600px) {
-    header h1 {
-        font-size: 26px;
-    }
+@media(max-width:750px) {
+  .grid {grid-template-columns:1fr}
+  .container {width:94%;margin:19px auto}
+  .card {padding:16px}
+  .hero {padding:21px}
+}
 
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .subject-row {
-        grid-template-columns: 1fr 1fr;
-        border-bottom: 1px solid #334968;
-        padding-bottom: 12px;
-    }
-
-    .subject-row input:first-child {
-        grid-column: span 2;
-    }
-
-    .result-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .card {
-        padding: 15px;
-    }
+@media(max-width:500px) {
+  header {padding:11px 4%}
+  .brand h2 {font-size:15px}
+  .subject-card {padding:12px}
+  .subject-fields {grid-template-columns:1fr 1fr}
+  .subject-fields .name-field {grid-column:1/-1}
+  .subject-fields input,.subject-fields select {
+    min-height:47px;
+    font-size:15px;
+  }
+  .grade-scale {grid-template-columns:repeat(2,1fr)}
+  .result-grid {grid-template-columns:1fr}
+  .actions button {flex:1 1 100%}
 }
 
 @media print {
-    body {
-        background: white;
-        color: black;
-    }
-
-    header, .input-section, footer, .print-btn {
-        display: none !important;
-    }
-
-    .results {
-        display: block !important;
-    }
-
-    .card, .result-box, .grade-status {
-        background: white;
-        color: black;
-        border: 1px solid #aaa;
-    }
-
-    h2, .result-box p, th {
-        color: black;
-    }
-}.apply-all-box {
-    background: #091426;
-    border: 1px solid #38bdf8;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
-
-.apply-row {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.apply-row input {
-    flex: 1;
-    min-width: 0;
-}
-
-.apply-row button {
-    white-space: nowrap;
-}
-
-@media(max-width:450px) {
-    .apply-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .apply-row button {
-        width: 100%;
-        margin: 0;
-    }
+  header,.hero,.no-print,footer {display:none!important}
+  body {background:white}
+  .container {width:100%;margin:0}
+  .card {box-shadow:none;break-inside:avoid}
 }
 </style>
 </head>
 
 <body>
-<script>
-(function(xcn){
-var d = document,
-    s = d.createElement('script'),
-    l = d.currentScript || d.scripts[d.scripts.length - 1];
-s.settings = xcn || {};
-s.src = "\/\/massivesalad.com\/b.X-VLsCdUGJlC0\/Y\/WFcM\/weMmO9bu\/Z\/UTlQkvP\/TrcN2aM\/D_g\/w\/MMD\/UxtsNkzbYVw\/OlDAAzwXONQQ";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})
-</script>
-<div class="container">
 
 <header>
-    <h1>🎓 Smart GPA Calculator</h1>
-    <p>School Hacks | NEB Grade Calculator</p>
+  <div class="brand">
+    <div class="logo">S</div>
+    <div>
+      <h2>School Hacks</h2>
+      <p>Smart Student Tools</p>
+    </div>
+  </div>
+  <span class="muted">GPA Calculator</span>
 </header>
 
-<!-- STUDENT INFORMATION -->
+<main class="container">
 
-<div class="card input-section">
+<section class="hero">
+  <span class="tag">STUDENT ACADEMIC TOOL</span>
+  <h1>Smart GPA Calculator</h1>
+  <p>Choose your class and faculty. Your subjects will appear automatically.</p>
+</section>
 
-<h2>👨‍🎓 Student Information</h2>
+<div class="grid">
 
-<div class="info-grid">
+<section class="card">
+  <h2>👤 Student Information</h2>
 
-<div>
-<label>Student Name</label>
-<input id="studentName" placeholder="Enter your name">
+  <div class="form-group">
+    <label>Student Name / विद्यार्थीको नाम</label>
+    <input id="studentName" placeholder="Enter your name">
+  </div>
+
+  <div class="form-group">
+    <label>Select Class / कक्षा छान्नुहोस्</label>
+    <select id="classLevel">
+      <option value="10">Class 10</option>
+      <option value="11">Class 11</option>
+      <option value="12">Class 12</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Select Faculty / संकाय छान्नुहोस्</label>
+    <select id="stream">
+      <option value="science">Science</option>
+      <option value="management">Management</option>
+      <option value="humanities">Humanities</option>
+      <option value="education">Education</option>
+      <option value="law">Law</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Academic Year / शैक्षिक वर्ष</label>
+    <input id="academicYear" placeholder="Example: 2083">
+  </div>
+
+  <p class="note">
+    कक्षा वा संकाय परिवर्तन गर्दा सम्बन्धित विषय सूची स्वतः खुल्नेछ।
+  </p>
+</section>
+
+<section class="card">
+  <h2>📊 Grade Scale</h2>
+
+  <div class="grade-scale">
+    <div class="grade-item"><strong>A+</strong>90–100%<br>4.0</div>
+    <div class="grade-item"><strong>A</strong>80–89%<br>3.6</div>
+    <div class="grade-item"><strong>B+</strong>70–79%<br>3.2</div>
+    <div class="grade-item"><strong>B</strong>60–69%<br>2.8</div>
+    <div class="grade-item"><strong>C+</strong>50–59%<br>2.4</div>
+    <div class="grade-item"><strong>C</strong>40–49%<br>2.0</div>
+    <div class="grade-item"><strong>D</strong>35–39%<br>1.6</div>
+    <div class="grade-item"><strong>NG</strong>Below 35%<br>0.0</div>
+  </div>
+
+  <p class="note">
+    Sample grading scale. Official grade boundaries may differ.
+  </p>
+</section>
+
 </div>
 
-<div>
-<label>Select Class</label>
-<select id="studentClass" onchange="changeClass()">
-    <option value="">-- Select Class --</option>
-    <option value="10">Class 10</option>
-    <option value="11">Class 11</option>
-    <option value="12">Class 12</option>
-    <option value="other">Other</option>
-</select>
-</div>
+<section class="card">
+  <h2>📚 Your Subjects / तपाईंका विषयहरू</h2>
 
-<div>
-<label>School Name</label>
-<input id="schoolName" placeholder="Enter school name">
-</div>
+  <p class="note" style="margin-bottom:15px">
+    विषयहरू आफैँ देखिन्छन्। प्रत्येक विषयको पूर्णाङ्क, प्राप्ताङ्क र Credit Hour भर्नुहोस्।
+  </p>
 
-<div>
-<label>Academic Year</label>
-<input id="academicYear" placeholder="Example: 2083">
-</div>
+  <div id="subjectList" class="subject-list"></div>
 
-</div>
+  <div class="actions no-print">
+    <button class="btn primary" onclick="addOptionalSubject()">
+      + Add Optional Subject
+    </button>
+    <button class="btn light" onclick="loadSubjects()">
+      Reset Subject List
+    </button>
+  </div>
 
-<!-- STREAM SELECTION -->
+  <div class="actions no-print">
+    <button class="btn primary" onclick="calculateGPA()">
+      Calculate GPA
+    </button>
+    <button class="btn light" onclick="resetAll()">
+      Reset All
+    </button>
+  </div>
+</section>
 
-<div id="streamBox" style="display:none">
+<section class="card" id="resultSection">
+  <h2>📈 Your Result / तपाईंको नतिजा</h2>
 
-<label>Select Faculty / Stream</label>
-
-<select id="stream" onchange="changeStream()">
-    <option value="science">Science</option>
-    <option value="management">Management</option>
-    <option value="humanities">Humanities</option>
-    <option value="education">Education</option>
-    <option value="law">Law</option>
-</select>
-
-<p class="note">
-विषयहरू सम्बन्धित Faculty का सामान्य नमुना हुन्।
-आफ्नो पाठ्यक्रमअनुसार विषय परिवर्तन गर्न सक्नुहुन्छ।
-</p>
-
-</div>
-
-</div>
-
-<!-- SUBJECT SECTION -->
-
-<div class="card input-section">
-
-<h2>📚 Subject & Marks</h2>
-<!-- APPLY FULL MARKS TO ALL -->
-<div class="apply-all-box">
-
-    <label>Full Marks for All Subjects</label>
-
-    <div class="apply-row">
-        <input
-            type="number"
-            id="allFullMarks"
-            placeholder="Enter Full Marks (Example: 100)"
-            min="1"
-        >
-
-        <button class="add" onclick="applyToAll()">
-            Apply to All
-        </button>
+  <div class="result-grid">
+    <div class="result-box">
+      <p>Estimated GPA</p>
+      <h3 id="gpaResult">—</h3>
     </div>
+    <div class="result-box">
+      <p>Percentage</p>
+      <h3 id="percentageResult">—</h3>
+    </div>
+    <div class="result-box">
+      <p>Total Subjects</p>
+      <h3 id="subjectCount">0</h3>
+    </div>
+  </div>
 
-</div>
-<div id="subjects"></div>
+  <div class="status" id="resultMessage">
+    Select your class and enter your marks.
+  </div>
 
-<button class="add" onclick="addSubject()">
-    + Add Subject
-</button>
+  <div class="actions no-print">
+    <button class="btn primary" onclick="window.print()">
+      Print / Save PDF
+    </button>
+  </div>
+</section>
 
-<p class="note">
-कक्षा Select गरेपछि विषयहरू स्वतः आउनेछन्।
-आफ्नो आवश्यकताअनुसार विषय थप्न, हटाउन र नाम परिवर्तन गर्न सक्नुहुन्छ।
-</p>
+<section class="card">
+  <h2>📋 Subject-wise Result</h2>
 
-<button class="calculate" onclick="calculateGPA()">
-    🚀 CALCULATE GPA
-</button>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Marks</th>
+          <th>Percentage</th>
+          <th>Grade</th>
+          <th>GP</th>
+          <th>Credit</th>
+        </tr>
+      </thead>
+      <tbody id="resultTable">
+        <tr>
+          <td colspan="6" style="text-align:center">
+            No result calculated yet.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-<button class="reset" onclick="resetAll()">
-    Reset All
-</button>
-
-</div>
-
-<!-- RESULT SECTION -->
-
-<div class="card results" id="results">
-
-<h2>🏆 Student Result Card</h2>
-
-<div id="studentDetails"></div>
-
-<div class="result-grid">
-
-<div class="result-box">
-    <h3>Total Obtained Marks</h3>
-    <p id="obtained">0</p>
-</div>
-
-<div class="result-box">
-    <h3>Total Full Marks</h3>
-    <p id="fullMarks">0</p>
-</div>
-
-<div class="result-box">
-    <h3>Percentage</h3>
-    <p id="percentage">0%</p>
-</div>
-
-<div class="result-box">
-    <h3>GPA</h3>
-    <p id="gpa">0.00</p>
-</div>
-
-</div>
-
-<h2 style="margin-top:30px">
-    📊 Subject Grade Report
-</h2>
-
-<div class="table-wrap">
-
-<table>
-<thead>
-<tr>
-    <th>Subject</th>
-    <th>Obtained</th>
-    <th>Full Marks</th>
-    <th>Percentage</th>
-    <th>Grade</th>
-    <th>Grade Point</th>
-</tr>
-</thead>
-
-<tbody id="gradeTable"></tbody>
-
-</table>
-
-</div>
-
-<div class="grade-status" id="finalGrade"></div>
-
-<button class="add print-btn" onclick="window.print()">
-    🖨 Print / Save PDF
-</button>
-
-</div>
+</main>
 
 <footer>
-    © 2026 School Hacks | Smart GPA Calculator
+  © <span id="year"></span> School Hacks | Made for Students
 </footer>
 
-</div>
-
 <script>
+/*
+  Editable subject presets.
+  These are sample subject combinations, not an official NEB subject list.
+*/
 
-// SUBJECT LISTS
-
-const subjectLists = {
-
-    10: [
-        "English",
-        "Nepali",
-        "Mathematics",
-        "Science and Technology",
-        "Social Studies",
-        "Health and Physical Education",
-        "Optional Mathematics",
-        "Computer Science"
+const subjectPresets = {
+  "10": {
+    common: [
+      "English",
+      "Nepali",
+      "Mathematics",
+      "Science and Technology"
     ],
+    optional: [
+      "Social Studies",
+      "Optional Mathematics",
+      "Computer Science",
+      "Accountancy",
+      "Economics",
+      "Health and Physical Education",
+      "Population Studies"
+    ]
+  },
 
-    11: {
-
-        science: [
-            "English",
-            "Nepali",
-            "Social Studies and Life Skills",
-            "Physics",
-            "Chemistry",
-            "Biology",
-            "Mathematics",
-            "Computer Science"
-        ],
-
-        management: [
-            "English",
-            "Nepali",
-            "Social Studies and Life Skills",
-            "Accountancy",
-            "Economics",
-            "Business Studies",
-            "Business Mathematics",
-            "Computer Science"
-        ],
-
-        humanities: [
-            "English",
-            "Nepali",
-            "Social Studies and Life Skills",
-            "Sociology",
-            "Psychology",
-            "Rural Development",
-            "Population Studies",
-            "Mass Communication"
-        ],
-
-        education: [
-            "English",
-            "Nepali",
-            "Social Studies and Life Skills",
-            "Education and Development",
-            "Child Development",
-            "Learning Psychology",
-            "General Pedagogy"
-        ],
-
-        law: [
-            "English",
-            "Nepali",
-            "Social Studies and Life Skills",
-            "Legal Studies",
-            "Constitutional Law",
-            "Jurisprudence",
-            "Sociology"
-        ]
-
+  "11": {
+    science: {
+      common: ["English", "Nepali", "Social Studies and Life Skills"],
+      optional: [
+        "Physics",
+        "Chemistry",
+        "Biology",
+        "Mathematics",
+        "Computer Science",
+        "Environmental Science"
+      ]
     },
 
-    12: {
+    management: {
+      common: ["English", "Nepali", "Social Studies and Life Skills"],
+      optional: [
+        "Accountancy",
+        "Economics",
+        "Business Studies",
+        "Business Mathematics",
+        "Computer Science",
+        "Hotel Management",
+        "Marketing"
+      ]
+    },
 
-        science: [
-            "English",
-            "Nepali",
-            "Social Studies and Life Skills",
-            "Physics",
-            "Chemistry",
-            "Biology",
-            "Mathematics",
-            "Computer Science"
-        ],
+    humanities: {
+      common: ["English", "Nepali", "Social Studies and Life Skills"],
+      optional: [
+        "Sociology",
+        "Psychology",
+        "Rural Development",
+        "Mass Communication",
+        "Geography",
+        "Population Studies",
+        "Economics"
+      ]
+    },
 
-        management: [
-            "English",
-            "Nepali",
-            "Social Studies and Life Skills",
-            "Accountancy",
-            "Economics",
-            "Business Studies",
-            "Business Mathematics",
-            "Computer Science"
-        ],
+    education: {
+      common: ["English", "Nepali", "Social Studies and Life Skills"],
+      optional: [
+        "Education and Development",
+        "Child Development and Learning",
+        "Pedagogy",
+        "Psychology",
+        "Population Studies",
+        "Computer Science"
+      ]
+    },
 
-        humanities: [
-            "English",
-            "Nepali",
-            "Social Studies and Life Skills",
-            "Sociology",
-            "Psychology",
-            "Rural Development",
-            "Population Studies",
-            "Mass Communication"
-        ],
-
-        education: [
-            "English",
-            "Nepali",
-            "Social Studies and Life Skills",
-            "Education and Development",
-            "Child Development",
-            "Learning Psychology",
-            "General Pedagogy"
-        ],
-
-        law: [
-            "English",
-            "Nepali",
-            "Social Studies and Life Skills",
-            "Legal Studies",
-            "Constitutional Law",
-            "Jurisprudence",
-            "Sociology"
-        ]
-
+    law: {
+      common: ["English", "Nepali", "Social Studies and Life Skills"],
+      optional: [
+        "Legal Studies",
+        "Jurisprudence",
+        "Constitutional Law",
+        "Procedural Law",
+        "Economics",
+        "Sociology"
+      ]
     }
+  },
 
+  "12": {
+    science: {
+      common: ["English", "Nepali", "Social Studies and Life Skills"],
+      optional: [
+        "Physics",
+        "Chemistry",
+        "Biology",
+        "Mathematics",
+        "Computer Science",
+        "Environmental Science"
+      ]
+    },
+
+    management: {
+      common: ["English", "Nepali", "Social Studies and Life Skills"],
+      optional: [
+        "Accountancy",
+        "Economics",
+        "Business Studies",
+        "Business Mathematics",
+        "Computer Science",
+        "Hotel Management",
+        "Marketing"
+      ]
+    },
+
+    humanities: {
+      common: ["English", "Nepali", "Social Studies and Life Skills"],
+      optional: [
+        "Sociology",
+        "Psychology",
+        "Rural Development",
+        "Mass Communication",
+        "Geography",
+        "Population Studies",
+        "Economics"
+      ]
+    },
+
+    education: {
+      common: ["English", "Nepali", "Social Studies and Life Skills"],
+      optional: [
+        "Education and Development",
+        "Child Development and Learning",
+        "Pedagogy",
+        "Psychology",
+        "Population Studies",
+        "Computer Science"
+      ]
+    },
+
+    law: {
+      common: ["English", "Nepali", "Social Studies and Life Skills"],
+      optional: [
+        "Legal Studies",
+        "Jurisprudence",
+        "Constitutional Law",
+        "Procedural Law",
+        "Economics",
+        "Sociology"
+      ]
+    }
+  }
 };
 
-// CHANGE CLASS
+const gradeScale = [
+  {min:90, grade:"A+", point:4.0},
+  {min:80, grade:"A", point:3.6},
+  {min:70, grade:"B+", point:3.2},
+  {min:60, grade:"B", point:2.8},
+  {min:50, grade:"C+", point:2.4},
+  {min:40, grade:"C", point:2.0},
+  {min:35, grade:"D", point:1.6},
+  {min:0, grade:"NG", point:0}
+];
 
-function changeClass() {
+let subjects = [];
 
-    const cls = document.getElementById("studentClass").value;
+const classSelect = document.getElementById("classLevel");
+const streamSelect = document.getElementById("stream");
+const subjectList = document.getElementById("subjectList");
 
-    const streamBox = document.getElementById("streamBox");
-
-    document.getElementById("results").style.display = "none";
-
-    if (cls === "11" || cls === "12") {
-
-        streamBox.style.display = "block";
-        changeStream();
-
-    }
-
-    else {
-
-        streamBox.style.display = "none";
-
-        if (cls === "10") {
-            loadSubjects(subjectLists[10]);
-        }
-
-        else if (cls === "other") {
-            document.getElementById("subjects").innerHTML = "";
-            addSubject();
-        }
-
-        else {
-            document.getElementById("subjects").innerHTML = "";
-        }
-
-    }
-
+function makeSubject(name, type="Optional") {
+  return {
+    id: crypto.randomUUID(),
+    name,
+    type,
+    full: 100,
+    obtained: "",
+    credit: 3
+  };
 }
 
-// CHANGE STREAM
+function getPreset() {
+  const level = classSelect.value;
+  const stream = streamSelect.value;
 
-function changeStream() {
+  if (level === "10") {
+    return subjectPresets["10"];
+  }
 
-    const cls = document.getElementById("studentClass").value;
-    const stream = document.getElementById("stream").value;
-
-    if (cls === "11" || cls === "12") {
-        loadSubjects(subjectLists[cls][stream]);
-    }
-
+  return subjectPresets[level][stream];
 }
 
-// LOAD SUBJECTS
+function loadSubjects() {
+  const preset = getPreset();
 
-function loadSubjects(list) {
+  subjects = [
+    ...preset.common.map(name => makeSubject(name, "Common")),
+    ...preset.optional.slice(0, levelDefaultOptional()).map(name =>
+      makeSubject(name, "Optional")
+    )
+  ];
 
-    const box = document.getElementById("subjects");
-
-    box.innerHTML = "";
-
-    list.forEach(subject => {
-        addSubject(subject);
-    });
-
+  renderSubjects();
+  clearResults();
 }
 
-// ADD SUBJECT
-
-function addSubject(name = "") {
-
-    const box = document.getElementById("subjects");
-
-    const div = document.createElement("div");
-
-    div.className = "subject-row";
-
-    const subjectInput = document.createElement("input");
-    subjectInput.type = "text";
-    subjectInput.className = "subjectName";
-    subjectInput.placeholder = "Subject Name";
-    subjectInput.value = name;
-
-    const fullInput = document.createElement("input");
-    fullInput.type = "number";
-    fullInput.className = "full";
-    fullInput.placeholder = "Full Marks";
-    fullInput.min = "1";
-    fullInput.step = "any";
-
-    const obtainedInput = document.createElement("input");
-    obtainedInput.type = "number";
-    obtainedInput.className = "marks";
-    obtainedInput.placeholder = "Obtained Marks";
-    obtainedInput.min = "0";
-    obtainedInput.step = "any";
-
-    const removeButton = document.createElement("button");
-    removeButton.className = "remove";
-    removeButton.textContent = "X";
-
-    removeButton.onclick = function() {
-        div.remove();
-    };
-
-    div.append(
-        subjectInput,
-        fullInput,
-        obtainedInput,
-        removeButton
-    );
-
-    box.appendChild(div);
-
+function levelDefaultOptional() {
+  return classSelect.value === "10" ? 3 : 4;
 }
 
-// NEB-STYLE GRADING
+function renderSubjects() {
+  subjectList.innerHTML = "";
 
-function getGrade(percent) {
+  subjects.forEach((subject, index) => {
+    const card = document.createElement("div");
+    card.className = "subject-card";
 
-    if (percent >= 90) return {grade:"A+", point:4.0};
-    if (percent >= 80) return {grade:"A", point:3.6};
-    if (percent >= 70) return {grade:"B+", point:3.2};
-    if (percent >= 60) return {grade:"B", point:2.8};
-    if (percent >= 50) return {grade:"C+", point:2.4};
-    if (percent >= 40) return {grade:"C", point:2.0};
-    if (percent >= 35) return {grade:"D", point:1.6};
+    const nameOptions = getAvailableNames()
+      .map(name => `
+        <option value="${escapeHTML(name)}"
+          ${name === subject.name ? "selected" : ""}>
+          ${escapeHTML(name)}
+        </option>
+      `).join("");
 
-    return {grade:"NG", point:0};
+    card.innerHTML = `
+      <div class="subject-header">
+        <div>
+          <span class="subject-title">
+            ${index + 1}. ${escapeHTML(subject.name)}
+          </span>
+          <span class="subject-type">${subject.type}</span>
+        </div>
 
-}
+        ${subject.type === "Optional" ? `
+          <button class="btn danger btn-small no-print"
+            data-remove="${subject.id}">
+            Remove
+          </button>
+        ` : ""}
+      </div>
 
-// CALCULATE GPA
+      <div class="subject-fields">
 
-function calculateGPA() {
+        <div class="name-field">
+          <label>📘 Select Subject / विषय छान्नुहोस्</label>
+          <select data-field="name" data-id="${subject.id}">
+            ${nameOptions}
+          </select>
+        </div>
 
-    const rows = document.querySelectorAll(".subject-row");
+        <div>
+          <label>🎯 Full Marks / पूर्णाङ्क</label>
+          <input type="number" min="0.01" step="any"
+            data-field="full" data-id="${subject.id}"
+            value="${subject.full}">
+        </div>
 
-    if (rows.length === 0) {
-        alert("Please add subjects first!");
-        return;
-    }
+        <div>
+          <label>✍️ Obtained / प्राप्ताङ्क</label>
+          <input type="number" min="0" step="any"
+            data-field="obtained" data-id="${subject.id}"
+            value="${subject.obtained}"
+            placeholder="Your marks">
+        </div>
 
-    let totalObtained = 0;
-    let totalFull = 0;
-    let totalPoints = 0;
-    let failed = false;
+        <div>
+          <label>⏱ Credit Hour</label>
+          <input type="number" min="0.01" step="any"
+            data-field="credit" data-id="${subject.id}"
+            value="${subject.credit}">
+        </div>
 
-    let table = "";
+      </div>
 
-    for (const row of rows) {
-
-        const name = row.querySelector(".subjectName").value.trim();
-
-        const fullValue = row.querySelector(".full").value;
-        const marksValue = row.querySelector(".marks").value;
-
-        const full = Number(fullValue);
-        const marks = Number(marksValue);
-
-        if (
-            !name ||
-            fullValue === "" ||
-            marksValue === "" ||
-            !Number.isFinite(full) ||
-            !Number.isFinite(marks) ||
-            full <= 0 ||
-            marks < 0 ||
-            marks > full
-        ) {
-
-            alert("सबै विषयको सही Full Marks र Obtained Marks भर्नुहोस्।");
-            return;
-
-        }
-
-        const percent = (marks / full) * 100;
-
-        const result = getGrade(percent);
-
-        totalObtained += marks;
-        totalFull += full;
-
-        totalPoints += result.point;
-
-        if (result.grade === "NG") {
-            failed = true;
-        }
-
-        table += `
-        <tr>
-            <td>${escapeHTML(name)}</td>
-            <td>${marks}</td>
-            <td>${full}</td>
-            <td>${percent.toFixed(2)}%</td>
-            <td>${result.grade}</td>
-            <td>${result.point.toFixed(1)}</td>
-        </tr>
-        `;
-
-    }
-
-    const percentage = (totalObtained / totalFull) * 100;
-
-    const gpa = totalPoints / rows.length;
-
-    document.getElementById("obtained").textContent =
-        totalObtained.toFixed(2);
-
-    document.getElementById("fullMarks").textContent =
-        totalFull.toFixed(2);
-
-    document.getElementById("percentage").textContent =
-        percentage.toFixed(2) + "%";
-
-    document.getElementById("gpa").textContent =
-        gpa.toFixed(2);
-
-    document.getElementById("gradeTable").innerHTML = table;
-
-    const name =
-        document.getElementById("studentName").value || "Not Provided";
-
-    const cls =
-        document.getElementById("studentClass").value || "Other";
-
-    const school =
-        document.getElementById("schoolName").value || "Not Provided";
-
-    const year =
-        document.getElementById("academicYear").value || "Not Provided";
-
-    document.getElementById("studentDetails").innerHTML = `
-        <p><b>Student:</b> ${escapeHTML(name)}</p>
-        <p><b>Class:</b> ${escapeHTML(cls === "other" ? "Other" : cls)}</p>
-        <p><b>School:</b> ${escapeHTML(school)}</p>
-        <p><b>Academic Year:</b> ${escapeHTML(year)}</p>
+      <div class="subject-result">
+        <span>Grade: <strong id="grade-${subject.id}">—</strong></span>
+        <span>GP: <strong id="point-${subject.id}">—</strong></span>
+      </div>
     `;
 
-    const finalGrade = getGrade(percentage);
+    subjectList.appendChild(card);
+  });
 
-    document.getElementById("finalGrade").textContent =
-        failed
-        ? "Result: NG - One or more subjects below 35%"
-        : "Overall Grade: " + finalGrade.grade;
+  subjectList.querySelectorAll("[data-field]").forEach(input => {
+    input.addEventListener("change", updateSubject);
+    input.addEventListener("input", updateSubject);
+  });
 
-    document.getElementById("results").style.display = "block";
-
-    document.getElementById("results").scrollIntoView({
-        behavior: "smooth"
+  subjectList.querySelectorAll("[data-remove]").forEach(button => {
+    button.addEventListener("click", () => {
+      subjects = subjects.filter(s => s.id !== button.dataset.remove);
+      renderSubjects();
+      clearResults();
     });
-
+  });
 }
 
-// HTML SECURITY
-
-function escapeHTML(value) {
-
-    return String(value).replace(/[&<>"']/g, function(char) {
-
-        return {
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#39;"
-        }[char];
-
-    });
-
+function getAvailableNames() {
+  const preset = getPreset();
+  return [...preset.common, ...preset.optional];
 }
 
-// RESET
+function updateSubject(event) {
+  const id = event.target.dataset.id;
+  const field = event.target.dataset.field;
+  const subject = subjects.find(s => s.id === id);
 
-function resetAll() {
+  if (!subject) return;
 
-    if (!confirm("के तपाईं सबै विवरण Reset गर्न चाहनुहुन्छ?")) {
-        return;
-    }
-
-    document.getElementById("studentName").value = "";
-    document.getElementById("schoolName").value = "";
-    document.getElementById("academicYear").value = "";
-    document.getElementById("studentClass").value = "";
-
-    document.getElementById("stream").value = "science";
-
-    document.getElementById("streamBox").style.display = "none";
-
-    document.getElementById("subjects").innerHTML = "";
-
-    document.getElementById("results").style.display = "none";
-
-}
-function applyToAll() {
-
-    const value = Number(
-        document.getElementById("allFullMarks").value
+  if (field === "name") {
+    const duplicate = subjects.some(s =>
+      s.id !== id &&
+      s.name.toLowerCase() === event.target.value.toLowerCase()
     );
 
+    if (duplicate) {
+      alert("This subject is already selected.");
+      event.target.value = subject.name;
+      return;
+    }
+
+    subject.name = event.target.value;
+  } else {
+    subject[field] = event.target.value;
+  }
+
+  clearResults();
+}
+
+function addOptionalSubject() {
+  const preset = getPreset();
+  const used = new Set(subjects.map(s => s.name));
+
+  const available = preset.optional.find(name => !used.has(name));
+
+  if (!available) {
+    alert("No more unused subjects in this sample list.");
+    return;
+  }
+
+  subjects.push(makeSubject(available, "Optional"));
+  renderSubjects();
+  clearResults();
+}
+
+function getGrade(percent) {
+  return gradeScale.find(g => percent >= g.min);
+}
+
+function calculateGPA() {
+  if (!subjects.length) {
+    alert("No subjects available.");
+    return;
+  }
+
+  let totalObtained = 0;
+  let totalFull = 0;
+  let weightedPoints = 0;
+  let totalCredits = 0;
+  let hasNG = false;
+
+  const results = [];
+
+  for (const subject of subjects) {
+    const full = Number(subject.full);
+    const obtained = Number(subject.obtained);
+    const credit = Number(subject.credit);
+
     if (
-        document.getElementById("allFullMarks").value === "" ||
-        !Number.isFinite(value) ||
-        value <= 0
+      !subject.name ||
+      subject.obtained === "" ||
+      !Number.isFinite(full) ||
+      !Number.isFinite(obtained) ||
+      !Number.isFinite(credit) ||
+      full <= 0 ||
+      obtained < 0 ||
+      obtained > full ||
+      credit <= 0
     ) {
-        alert("Please enter valid Full Marks!");
-        return;
+      alert("कृपया सबै विषयको Full Marks, Obtained Marks र Credit Hour सही भर्नुहोस्।");
+      return;
     }
 
-    const subjects = document.querySelectorAll(".subject-row");
+    const percentage = obtained / full * 100;
+    const grade = getGrade(percentage);
 
-    if (subjects.length === 0) {
-        alert("Please select a class or add subjects first!");
-        return;
-    }
+    if (grade.grade === "NG") hasNG = true;
 
-    subjects.forEach(row => {
+    totalObtained += obtained;
+    totalFull += full;
+    weightedPoints += grade.point * credit;
+    totalCredits += credit;
 
-        row.querySelector(".full").value = value;
-
+    results.push({
+      name: subject.name,
+      full,
+      obtained,
+      credit,
+      percentage,
+      grade: grade.grade,
+      point: grade.point
     });
 
-    alert("Full Marks successfully applied to all subjects!");
+    document.getElementById("grade-" + subject.id).textContent = grade.grade;
+    document.getElementById("point-" + subject.id).textContent =
+      grade.point.toFixed(1);
+  }
 
+  const gpa = weightedPoints / totalCredits;
+  const percentage = totalObtained / totalFull * 100;
+
+  document.getElementById("gpaResult").textContent = gpa.toFixed(2);
+  document.getElementById("percentageResult").textContent =
+    percentage.toFixed(2) + "%";
+  document.getElementById("subjectCount").textContent = subjects.length;
+
+  document.getElementById("resultMessage").textContent = hasNG
+    ? "One or more subjects are below the sample passing threshold."
+    : "Your estimated GPA has been calculated successfully.";
+
+  const table = document.getElementById("resultTable");
+  table.innerHTML = "";
+
+  results.forEach(result => {
+    const row = document.createElement("tr");
+
+    [
+      result.name,
+      `${result.obtained} / ${result.full}`,
+      result.percentage.toFixed(2) + "%",
+      result.grade,
+      result.point.toFixed(1),
+      result.credit
+    ].forEach(value => {
+      const cell = document.createElement("td");
+      cell.textContent = value;
+      row.appendChild(cell);
+    });
+
+    table.appendChild(row);
+  });
+
+  document.getElementById("resultSection").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
 }
+
+function clearResults() {
+  document.getElementById("gpaResult").textContent = "—";
+  document.getElementById("percentageResult").textContent = "—";
+  document.getElementById("subjectCount").textContent = "0";
+
+  document.getElementById("resultMessage").textContent =
+    "Enter all marks and calculate your GPA.";
+
+  document.getElementById("resultTable").innerHTML =
+    `<tr><td colspan="6" style="text-align:center">
+      No result calculated yet.
+    </td></tr>`;
+}
+
+function resetAll() {
+  if (!confirm("Reset all information and marks?")) return;
+
+  document.getElementById("studentName").value = "";
+  document.getElementById("academicYear").value = "";
+
+  loadSubjects();
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#039;"
+  })[char]);
+}
+
+classSelect.addEventListener("change", loadSubjects);
+streamSelect.addEventListener("change", loadSubjects);
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+loadSubjects();
 </script>
 
 </body>
