@@ -2,1451 +2,1612 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101114">
-  <meta name="description" content="NovaFacts — Explore science, space, AI, physics and knowledge.">
-  <title>NovaFacts — Explore Knowledge</title>
-
-  <!-- Google AdSense -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3412463966256762"
-    crossorigin="anonymous"></script>
-
-  <!-- Adsterra script -->
-  <script src="https://bauval.org/14/308410aca83ab286c49c31038e3c77e7"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <title>NovaFacts — Explore Science, Space and Physics</title>
-  <meta name="description" content="Explore science, space, physics, artificial intelligence, biology and discoveries through educational articles and quizzes on NovaFacts.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://novafacts.pages.dev/">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <meta name="google-site-verification" content="kw_LZmJVMz_6cTzYAYEI3S8fpvcNAgPXlO54PUzWBfc">
-<meta name="referrer" content="no-referrer-when-downgrade" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101114">
+<meta name="description" content="Explore science, space, physics, AI, biology and discoveries through NovaFacts.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://novafacts.pages.dev/">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="google-site-verification" content="kw_LZmJVMz_6cTzYAYEI3S8fpvcNAgPXlO54PUzWBfc">
+<meta name="referrer" content="no-referrer-when-downgrade">
 <meta name="google-adsense-account" content="ca-pub-3412463966256762">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "NovaFacts",
-    "alternateName": "Nova Facts",
-    "url": "https://novafacts.pages.dev/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "NovaFacts",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://novafacts.pages.dev/logo.png",
-        "width": 512,
-        "height": 512
-      }
-    }
-  }
-  </script>
-  <style>
-    :root {
-      --bg: #101114;
-      --surface: #191a1f;
-      --surface-2: #22242a;
-      --surface-hover: #2b2d34;
-      --text: #f5f5f5;
-      --muted: #a6a8b0;
-      --border: #30323a;
-      --accent: #e6b84c;
-      --accent-soft: rgba(230,184,76,.13);
-      --header: rgba(16,17,20,.94);
-      --shadow: 0 8px 28px rgba(0,0,0,.22);
-    }
-
-    body.light {
-      --bg: #f7f7f8;
-      --surface: #ffffff;
-      --surface-2: #f0f1f3;
-      --surface-hover: #e8e9ec;
-      --text: #17181b;
-      --muted: #656873;
-      --border: #e0e1e5;
-      --accent: #ad7914;
-      --accent-soft: rgba(173,121,20,.11);
-      --header: rgba(255,255,255,.94);
-      --shadow: 0 8px 28px rgba(0,0,0,.07);
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      transition: background .2s, color .2s;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button, input { font: inherit; }
-
-    button { cursor: pointer; }
-
-    /* TOP HEADER */
-
-    .topbar {
-      height: 64px;
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 0 26px;
-      background: var(--header);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(14px);
-    }
-
-    .brand-area {
-      width: 225px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      gap: 13px;
-    }
-
-    .menu-button, .icon-button {
-      width: 40px;
-      height: 40px;
-      border: 0;
-      border-radius: 50%;
-      background: transparent;
-      color: var(--text);
-      display: grid;
-      place-items: center;
-      font-size: 21px;
-    }
-
-    .menu-button:hover, .icon-button:hover {
-      background: var(--surface-hover);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      font-size: 21px;
-      font-weight: 800;
-      letter-spacing: -.7px;
-    }
-
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 11px;
-      background: linear-gradient(145deg, #f1cb69, #a87517);
-      color: #17130a;
-      font-size: 19px;
-      font-weight: 900;
-    }
-
-    .brand span:last-child { color: var(--accent); }
-
-    .search-area {
-      max-width: 650px;
-      flex: 1;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 0;
-    }
-
-    .search-area input {
-      height: 42px;
-      width: 100%;
-      min-width: 0;
-      padding: 0 18px;
-      border: 1px solid var(--border);
-      border-radius: 24px 0 0 24px;
-      outline: none;
-      color: var(--text);
-      background: var(--surface);
-    }
-
-    .search-area input:focus { border-color: var(--accent); }
-
-    .search-button {
-      height: 42px;
-      width: 62px;
-      border: 1px solid var(--border);
-      border-left: 0;
-      border-radius: 0 24px 24px 0;
-      color: var(--text);
-      background: var(--surface-2);
-      font-size: 18px;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
-    .signin {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 16px;
-      border: 1px solid var(--accent);
-      border-radius: 22px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .signin:hover { background: var(--accent); color: #17130a; }
-
-    /* LEFT SIDEBAR */
-
-    .sidebar {
-      position: fixed;
-      z-index: 900;
-      top: 64px;
-      bottom: 0;
-      left: 0;
-      width: 245px;
-      padding: 18px 13px 28px;
-      overflow-y: auto;
-      background: var(--bg);
-      border-right: 1px solid var(--border);
-      transition: width .2s, transform .2s;
-    }
-
-    .side-group {
-      padding-bottom: 14px;
-      margin-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .side-heading {
-      padding: 8px 13px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .side-link {
-      display: flex;
-      align-items: center;
-      gap: 17px;
-      min-height: 45px;
-      padding: 0 13px;
-      border-radius: 11px;
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 600;
-      transition: background .15s;
-    }
-
-    .side-link:hover, .side-link.active {
-      background: var(--surface-hover);
-    }
-
-    .side-link.active { color: var(--accent); }
-
-    .side-icon {
-      width: 22px;
-      text-align: center;
-      font-size: 19px;
-    }
-
-    .side-note {
-      padding: 10px 13px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    .sidebar-footer {
-      padding: 12px;
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.8;
-    }
-
-    /* MAIN LAYOUT */
-
-    .main-layout {
-      margin-left: 245px;
-      padding: 84px 25px 45px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 290px;
-      gap: 25px;
-      max-width: 1800px;
-    }
-
-    .main-content { min-width: 0; }
-
-    .right-sidebar {
-      min-width: 0;
-      position: sticky;
-      top: 84px;
-      align-self: start;
-    }
-
-    /* CATEGORY TOP BAR */
-
-    .category-bar {
-      position: sticky;
-      top: 64px;
-      z-index: 500;
-      display: flex;
-      gap: 10px;
-      padding: 12px 0 17px;
-      margin: -4px 0 12px;
-      overflow-x: auto;
-      background: var(--bg);
-      scrollbar-width: none;
-    }
-
-    .category-bar::-webkit-scrollbar { display: none; }
-
-    .category-chip {
-      flex-shrink: 0;
-      padding: 9px 16px;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      color: var(--text);
-      background: var(--surface-2);
-      font-size: 13px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .category-chip:hover,
-    .category-chip.active {
-      background: var(--accent);
-      color: #17130a;
-      border-color: var(--accent);
-    }
-
-    /* WELCOME */
-
-    .welcome {
-      position: relative;
-      overflow: hidden;
-      padding: 27px;
-      margin-bottom: 25px;
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      background:
-        radial-gradient(circle at 90% 20%, rgba(230,184,76,.18), transparent 35%),
-        var(--surface);
-    }
-
-    .welcome-label {
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .welcome h1 {
-      max-width: 600px;
-      margin: 12px 0 9px;
-      font-size: clamp(25px, 3vw, 36px);
-      line-height: 1.15;
-    }
-
-    .welcome p {
-      max-width: 570px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .welcome-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .primary-button, .secondary-button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 40px;
-      padding: 0 17px;
-      border-radius: 9px;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .primary-button {
-      background: var(--accent);
-      color: #17130a;
-    }
-
-    .secondary-button {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-
-    /* SECTION HEADINGS */
-
-    .section-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin: 27px 0 15px;
-    }
-
-    .section-heading h2 {
-      margin: 0;
-      font-size: 19px;
-    }
-
-    .section-heading small {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* AD AREA */
-
-    .ad-box {
-      min-height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 18px 0 24px;
-      padding: 12px;
-      overflow: hidden;
-      border: 1px dashed var(--border);
-      border-radius: 12px;
-      background: var(--surface);
-      color: var(--muted);
-      text-align: center;
-      font-size: 11px;
-    }
-
-    .ad-box img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* NEWS GRID */
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 19px;
-    }
-
-    .news-card {
-      min-width: 0;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--surface);
-      transition: transform .2s, border-color .2s, box-shadow .2s;
-    }
-
-    .news-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
-      box-shadow: var(--shadow);
-    }
-
-    .news-image {
-      width: 100%;
-      height: 175px;
-      display: block;
-      object-fit: cover;
-      background: var(--surface-2);
-    }
-
-    .news-card-body { padding: 15px; }
-
-    .news-category {
-      display: inline-block;
-      margin-bottom: 9px;
-      color: var(--accent);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .news-card h3 {
-      margin: 0 0 9px;
-      font-size: 16px;
-      line-height: 1.4;
-    }
-
-    .news-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .news-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .read-more {
-      display: inline-block;
-      margin-top: 13px;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .empty-message {
-      grid-column: 1 / -1;
-      padding: 35px 15px;
-      border: 1px dashed var(--border);
-      border-radius: 12px;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    /* RIGHT COLUMN */
-
-    .right-panel {
-      padding: 17px;
-      margin-bottom: 17px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--surface);
-    }
-
-    .right-panel h3 {
-      margin: 0 0 14px;
-      font-size: 15px;
-    }
-
-    .trending-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 11px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .trending-item:last-child { border-bottom: 0; }
-
-    .trend-number {
-      color: var(--accent);
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    .trending-item strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 13px;
-      line-height: 1.4;
-    }
-
-    .trending-item small {
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .tool-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .tool-link:last-child { border-bottom: 0; }
-
-    .tool-link span:first-child { font-size: 20px; }
-
-    .tool-link:hover { color: var(--accent); }
-
-    .right-ad {
-      min-height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px;
-      border: 1px dashed var(--border);
-      border-radius: 13px;
-      background: var(--surface);
-      color: var(--muted);
-      font-size: 11px;
-      text-align: center;
-    }
-
-    /* QUIZ */
-
-    .quiz-panel {
-      padding: 20px;
-      margin-top: 30px;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      background: var(--surface);
-    }
-
-    .quiz-panel h2 { margin: 0 0 8px; font-size: 19px; }
-    .quiz-panel p { color: var(--muted); font-size: 13px; }
-
-    .quiz-question {
-      margin: 17px 0 12px;
-      font-weight: 700;
-      line-height: 1.5;
-    }
-
-    .quiz-option {
-      display: block;
-      width: 100%;
-      padding: 11px 13px;
-      margin: 8px 0;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      background: var(--surface-2);
-      color: var(--text);
-      text-align: left;
-    }
-
-    .quiz-option:hover { border-color: var(--accent); }
-
-    #quiz-result {
-      margin-top: 12px;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    /* FOOTER */
-
-    .footer {
-      margin: 35px 0 0;
-      padding: 22px 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.8;
-    }
-    
-/* Responsive HilltopAds */
+
+<title>NovaFacts — Explore Science, Space and Physics</title>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3412463966256762" crossorigin="anonymous"></script>
+
+<!-- Adsterra -->
+<script src="https://bauval.org/14/308410aca83ab286c49c31038e3c77e7"></script>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebSite",
+ "name":"NovaFacts",
+ "alternateName":"Nova Facts",
+ "url":"https://novafacts.pages.dev/",
+ "publisher":{
+   "@type":"Organization",
+   "name":"NovaFacts",
+   "logo":{
+     "@type":"ImageObject",
+     "url":"https://novafacts.pages.dev/logo.png",
+     "width":512,
+     "height":512
+   }
+ }
+}
+</script>
+
+<style>
+:root {
+  --bg:#101114;
+  --surface:rgba(25,26,31,.94);
+  --surface2:rgba(34,36,42,.94);
+  --hover:#30313a;
+  --text:#f5f5f5;
+  --muted:#a6a8b0;
+  --border:rgba(255,255,255,.12);
+  --accent:#e6b84c;
+  --accent-soft:rgba(230,184,76,.14);
+  --header:rgba(16,17,20,.90);
+  --shadow:0 10px 35px rgba(0,0,0,.25);
+  --custom-bg:#101114;
+}
+
+body.light {
+  --bg:#f7f7f8;
+  --surface:rgba(255,255,255,.94);
+  --surface2:rgba(240,241,243,.95);
+  --hover:#e8e9ec;
+  --text:#17181b;
+  --muted:#656873;
+  --border:rgba(0,0,0,.12);
+  --accent:#ad7914;
+  --accent-soft:rgba(173,121,20,.12);
+  --header:rgba(255,255,255,.91);
+  --shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  transition:background .3s,color .3s;
+  overflow-x:hidden;
+}
+
+/* CUSTOM BACKGROUND */
+
+.page-background {
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background-color:var(--custom-bg);
+  background-image:var(--custom-image,none);
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+.page-background::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:var(--background-overlay,transparent);
+  pointer-events:none;
+}
+
+body.has-background-image {
+  --background-overlay:rgba(0,0,0,.48);
+}
+
+body.light.has-background-image {
+  --background-overlay:rgba(255,255,255,.55);
+}
+
+body.has-background-image .welcome,
+body.has-background-image .news-card,
+body.has-background-image .right-panel,
+body.has-background-image .quiz-panel,
+body.has-background-image .ad-box,
+body.has-background-image .right-ad {
+  backdrop-filter:blur(14px);
+}
+
+a {color:inherit;text-decoration:none}
+button,input {font:inherit}
+button {cursor:pointer}
+
+/* HEADER */
+
+.topbar {
+  height:64px;
+  position:fixed;
+  inset:0 0 auto;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:0 24px;
+  background:var(--header);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(18px);
+}
+
+.brand-area {
+  width:225px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.menu-button,.icon-button {
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  color:var(--text);
+  display:grid;
+  place-items:center;
+  font-size:21px;
+}
+
+.menu-button:hover,.icon-button:hover {
+  background:var(--hover);
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:-.7px;
+}
+
+.brand-mark {
+  width:35px;
+  height:35px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  background:linear-gradient(145deg,#f1cb69,#a87517);
+  color:#17130a;
+  font-size:19px;
+  font-weight:900;
+  overflow:hidden;
+}
+
+.brand-mark img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.brand span:last-child span {color:var(--accent)}
+
+body.hide-brand-logo .brand-mark {display:none}
+
+.search-area {
+  max-width:650px;
+  flex:1;
+  margin:auto;
+  display:flex;
+}
+
+.search-area input {
+  height:42px;
+  width:100%;
+  min-width:0;
+  padding:0 18px;
+  border:1px solid var(--border);
+  border-radius:24px 0 0 24px;
+  outline:none;
+  color:var(--text);
+  background:var(--surface);
+}
+
+.search-area input:focus {border-color:var(--accent)}
+
+.search-button {
+  width:62px;
+  height:42px;
+  border:1px solid var(--border);
+  border-left:0;
+  border-radius:0 24px 24px 0;
+  color:var(--text);
+  background:var(--surface2);
+  font-size:20px;
+}
+
+.header-actions {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  flex-shrink:0;
+}
+
+.signin {
+  display:flex;
+  align-items:center;
+  padding:9px 16px;
+  border:1px solid var(--accent);
+  border-radius:22px;
+  background:var(--accent-soft);
+  color:var(--accent);
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.signin:hover {background:var(--accent);color:#17130a}
+
+.customize-button {
+  padding:9px 13px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:var(--surface2);
+  color:var(--text);
+  font-size:13px;
+  font-weight:700;
+}
+
+/* CUSTOMIZER */
+
+.customizer {
+  position:fixed;
+  z-index:2000;
+  top:75px;
+  right:18px;
+  width:min(340px,calc(100% - 30px));
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:var(--surface);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(22px);
+  transform:translateX(calc(100% + 30px));
+  opacity:0;
+  visibility:hidden;
+  transition:.3s ease;
+}
+
+.customizer.open {
+  transform:translateX(0);
+  opacity:1;
+  visibility:visible;
+}
+
+.customizer-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:17px;
+}
+
+.customizer-header h3 {margin:0;font-size:17px}
+
+.close-customizer {
+  width:32px;
+  height:32px;
+  border:0;
+  border-radius:50%;
+  color:var(--text);
+  background:var(--surface2);
+  font-size:20px;
+}
+
+.setting-group {
+  padding:14px 0;
+  border-top:1px solid var(--border);
+}
+
+.setting-group label.title {
+  display:block;
+  margin-bottom:10px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.theme-options {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+
+.theme-option {
+  padding:11px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface2);
+  color:var(--text);
+  font-weight:700;
+}
+
+.theme-option.active {border-color:var(--accent);color:var(--accent)}
+
+.color-row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.color-row input[type=color] {
+  width:48px;
+  height:38px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:transparent;
+  cursor:pointer;
+}
+
+.upload-label {
+  display:block;
+  padding:12px;
+  border:1px dashed var(--accent);
+  border-radius:10px;
+  color:var(--accent);
+  text-align:center;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.upload-label input {display:none}
+
+.remove-background {
+  width:100%;
+  margin-top:9px;
+  padding:9px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:var(--surface2);
+  color:var(--text);
+  font-size:12px;
+}
+
+.setting-checkbox {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:13px;
+  cursor:pointer;
+}
+
+.setting-checkbox input {
+  width:17px;
+  height:17px;
+  accent-color:var(--accent);
+}
+
+.reset-button {
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:10px;
+  background:var(--accent);
+  color:#17130a;
+  font-weight:800;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  position:fixed;
+  z-index:900;
+  top:64px;
+  bottom:0;
+  left:0;
+  width:245px;
+  padding:18px 13px 28px;
+  overflow-y:auto;
+  background:var(--surface);
+  border-right:1px solid var(--border);
+  backdrop-filter:blur(16px);
+  transition:width .2s,transform .2s;
+}
+
+.side-group {
+  padding-bottom:14px;
+  margin-bottom:14px;
+  border-bottom:1px solid var(--border);
+}
+
+.side-heading {
+  padding:8px 13px;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.side-link {
+  display:flex;
+  align-items:center;
+  gap:17px;
+  min-height:45px;
+  padding:0 13px;
+  border-radius:11px;
+  color:var(--text);
+  font-size:14px;
+  font-weight:600;
+}
+
+.side-link:hover,.side-link.active {background:var(--hover)}
+.side-link.active {color:var(--accent)}
+.side-icon {width:22px;text-align:center;font-size:19px}
+
+.sidebar-footer {
+  padding:12px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.8;
+}
+
+/* MAIN */
+
+.main-layout {
+  margin-left:245px;
+  padding:84px 25px 45px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 290px;
+  gap:25px;
+  max-width:1800px;
+}
+
+.main-content {min-width:0}
+
+.right-sidebar {
+  min-width:0;
+  position:sticky;
+  top:84px;
+  align-self:start;
+}
+
+/* CATEGORIES */
+
+.category-bar {
+  position:sticky;
+  top:64px;
+  z-index:500;
+  display:flex;
+  gap:10px;
+  padding:12px 0 17px;
+  margin:-4px 0 12px;
+  overflow-x:auto;
+  background:transparent;
+  scrollbar-width:none;
+}
+
+.category-bar::-webkit-scrollbar {display:none}
+
+.category-chip {
+  flex-shrink:0;
+  padding:9px 16px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  color:var(--text);
+  background:var(--surface);
+  backdrop-filter:blur(15px);
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.category-chip:hover,.category-chip.active {
+  background:var(--accent);
+  color:#17130a;
+  border-color:var(--accent);
+}
+
+/* WELCOME */
+
+.welcome {
+  position:relative;
+  overflow:hidden;
+  padding:30px;
+  margin-bottom:25px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 90% 20%,rgba(230,184,76,.19),transparent 35%),
+    var(--surface);
+  box-shadow:var(--shadow);
+  animation:welcomeIn .8s ease both;
+}
+
+@keyframes welcomeIn {
+  from {opacity:0;transform:translateY(18px)}
+  to {opacity:1;transform:translateY(0)}
+}
+
+.welcome-label {
+  color:var(--accent);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.welcome h1 {
+  max-width:600px;
+  margin:12px 0 9px;
+  font-size:clamp(25px,3vw,36px);
+  line-height:1.15;
+}
+
+.welcome p {
+  max-width:570px;
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.7;
+}
+
+.welcome-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+
+.primary-button,.secondary-button {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  min-height:40px;
+  padding:0 17px;
+  border-radius:9px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.primary-button {background:var(--accent);color:#17130a;border:0}
+.secondary-button {background:var(--surface2);border:1px solid var(--border);color:var(--text)}
+
+/* SECTION */
+
+.section-heading {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin:27px 0 15px;
+}
+
+.section-heading h2 {margin:0;font-size:19px}
+.section-heading small {color:var(--muted);font-size:12px}
+
+/* ADS */
+
+.ad-box,.right-ad {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px;
+  border:1px dashed var(--border);
+  border-radius:12px;
+  background:var(--surface);
+  color:var(--muted);
+  text-align:center;
+  font-size:11px;
+}
+
+.ad-box {min-height:90px;margin:18px 0 24px}
+.ad-box img {max-width:100%;height:auto}
+
 .hilltop-ad {
-  width: 100%;
-  max-width: 728px;
-  margin: 20px auto;
-  padding: 0;
-  box-sizing: border-box;
-  overflow: hidden;
-  text-align: center;
+  width:100%;
+  max-width:728px;
+  margin:20px auto;
+  overflow:hidden;
+  text-align:center;
 }
 
 .hilltop-ad .ad-label {
-  display: block;
-  font-size: 10px;
-  color: #999;
-  letter-spacing: 1px;
-  margin-bottom: 5px;
+  display:block;
+  margin-bottom:5px;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:1px;
 }
 
-.hilltop-ad a {
-  display: block;
-  width: 100%;
-  line-height: 0;
+.hilltop-ad a {display:block;width:100%;line-height:0}
+.hilltop-ad img {display:block;width:100%;max-width:728px;height:auto;margin:auto}
+
+/* NEWS */
+
+.news-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:19px;
 }
 
-.hilltop-ad img {
-  display: block;
-  width: 100%;
-  max-width: 728px;
-  height: auto;
-  margin: 0 auto;
-  object-fit: contain;
+.news-card {
+  min-width:0;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--surface);
+  box-shadow:var(--shadow);
+  transition:transform .2s,border-color .2s;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .hilltop-ad {
-    width: 100%;
-    max-width: 100%;
-    margin: 14px auto;
-    padding: 0 10px;
+.news-card:hover {
+  transform:translateY(-4px);
+  border-color:var(--accent);
+}
+
+.news-image {
+  width:100%;
+  height:175px;
+  display:block;
+  object-fit:cover;
+  background:var(--surface2);
+}
+
+.news-card-body {padding:15px}
+
+.news-category {
+  display:inline-block;
+  margin-bottom:9px;
+  color:var(--accent);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.news-card h3 {margin:0 0 9px;font-size:16px;line-height:1.4}
+.news-card p {margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+
+.news-meta {
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:14px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.read-more {
+  display:inline-block;
+  margin-top:13px;
+  color:var(--accent);
+  font-size:12px;
+  font-weight:800;
+}
+
+.empty-message {
+  grid-column:1/-1;
+  padding:35px 15px;
+  border:1px dashed var(--border);
+  border-radius:12px;
+  color:var(--muted);
+  text-align:center;
+}
+
+/* RIGHT PANELS */
+
+.right-panel {
+  padding:17px;
+  margin-bottom:17px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--surface);
+  box-shadow:var(--shadow);
+}
+
+.right-panel h3 {margin:0 0 14px;font-size:15px}
+
+.trending-item {
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  padding:12px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.trending-item:last-child {border-bottom:0}
+.trend-number {color:var(--accent);font-size:18px;font-weight:900}
+.trending-item strong {display:block;margin-bottom:4px;font-size:13px;line-height:1.4}
+.trending-item small {color:var(--muted);font-size:11px}
+
+.tool-link {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+  font-weight:700;
+}
+
+.tool-link:last-child {border-bottom:0}
+.tool-link span:first-child {font-size:20px}
+.tool-link:hover {color:var(--accent)}
+.right-ad {min-height:250px}
+
+/* QUIZ */
+
+.quiz-panel {
+  padding:20px;
+  margin-top:30px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:var(--surface);
+  box-shadow:var(--shadow);
+}
+
+.quiz-panel h2 {margin:0 0 8px;font-size:19px}
+.quiz-panel p {color:var(--muted);font-size:13px}
+.quiz-question {margin:17px 0 12px;font-weight:700;line-height:1.5}
+
+.quiz-option {
+  display:block;
+  width:100%;
+  padding:11px 13px;
+  margin:8px 0;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:var(--surface2);
+  color:var(--text);
+  text-align:left;
+  transition:.2s;
+}
+
+.quiz-option:hover {border-color:var(--accent);transform:translateX(3px)}
+.quiz-option:disabled {cursor:default;opacity:1}
+#quiz-result {margin-top:12px;color:var(--accent);font-weight:700}
+
+/* FOOTER */
+
+.footer {
+  margin:35px 0 0;
+  padding:22px 0;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+.footer-links {display:flex;flex-wrap:wrap;gap:15px;margin-bottom:10px}
+.footer a:hover {color:var(--accent)}
+
+/* SIDEBAR COLLAPSE */
+
+body.sidebar-collapsed .sidebar {width:78px}
+body.sidebar-collapsed .main-layout {margin-left:78px}
+body.sidebar-collapsed .side-link {justify-content:center;padding:0}
+body.sidebar-collapsed .side-link .side-label,
+body.sidebar-collapsed .side-heading,
+body.sidebar-collapsed .sidebar-footer {display:none}
+body.sidebar-collapsed .side-icon {font-size:21px}
+
+/* MOBILE */
+
+.mobile-bottom {display:none}
+
+@media(max-width:1150px) {
+  .main-layout {grid-template-columns:minmax(0,1fr)}
+  .right-sidebar {
+    position:static;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:15px;
   }
-
-  .hilltop-ad img {
-    width: 100%;
-    height: auto;
-  }
+  .right-panel {margin:0}
+  .right-ad {min-height:180px}
 }
 
+@media(max-width:760px) {
+  .topbar {height:56px;padding:0 10px;gap:7px}
+  .brand-area {width:auto;gap:5px}
+  .menu-button {display:none}
+  .brand {gap:0;font-size:19px}
+  .brand-mark {display:none}
+  .search-area {justify-content:flex-end;margin-left:auto;flex:0}
+  .search-area input {display:none}
+  .search-button {width:38px;height:38px;border:0;border-radius:50%;background:transparent}
+  .header-actions {gap:3px}
+  .header-actions .theme-button {display:none}
+  .customize-button {padding:8px 9px;font-size:11px}
+  .signin {padding:7px 10px;font-size:11px}
+  .sidebar {display:none}
+  .main-layout {display:block;margin:0;padding:56px 12px 90px}
+  .category-bar {top:56px;padding:10px 0 12px;margin:0 0 12px}
+  .category-chip {padding:8px 13px;font-size:12px}
+  .welcome {padding:21px 17px;border-radius:13px}
+  .welcome h1 {font-size:25px}
+  .welcome p {font-size:13px}
+  .section-heading {margin-top:22px}
+  .section-heading h2 {font-size:17px}
+  .news-grid {grid-template-columns:1fr;gap:14px}
+  .news-card {display:grid;grid-template-columns:116px minmax(0,1fr);min-height:126px}
+  .news-image {height:100%;min-height:126px}
+  .news-card-body {padding:11px}
+  .news-card h3 {font-size:14px;margin-bottom:6px}
+  .news-card p {
+    font-size:12px;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .news-meta {margin-top:8px;font-size:10px}
+  .read-more {margin-top:7px}
+  .right-sidebar {display:block}
+  .right-panel,.right-ad {margin-top:15px}
+  .ad-box {min-height:70px;margin:14px 0 20px}
+  .hilltop-ad {width:100%;margin:14px auto;padding:0 3px}
+  .customizer {top:64px;right:10px}
+  .mobile-bottom {
+    position:fixed;
+    z-index:1200;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    left:0;right:0;bottom:0;
+    height:65px;
+    padding:5px 4px calc(5px + env(safe-area-inset-bottom));
+    background:var(--header);
+    border-top:1px solid var(--border);
+    backdrop-filter:blur(14px);
+  }
+  .mobile-nav-link {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:4px;
+    color:var(--muted);
+    font-size:10px;
+    font-weight:700;
+  }
+  .mobile-nav-link span:first-child {font-size:20px}
+  .mobile-nav-link.active {color:var(--accent)}
+  .footer {padding-bottom:20px}
+}
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 10px;
-    }
+@media(max-width:380px) {
+  .brand {font-size:17px}
+  .signin {padding:7px 8px}
+  .news-card {grid-template-columns:100px minmax(0,1fr)}
+  .news-card h3 {font-size:13px}
+}
+body {
+    position: relative;
+    isolation: isolate;
+    background: #080d18;
+}
 
-    .footer a:hover { color: var(--accent); }
-
-    /* MOBILE BOTTOM NAV */
-
-    .mobile-bottom {
-      display: none;
-    }
-
-    /* COLLAPSED SIDEBAR */
-
-    body.sidebar-collapsed .sidebar { width: 78px; }
-
-    body.sidebar-collapsed .main-layout { margin-left: 78px; }
-
-    body.sidebar-collapsed .side-link {
-      justify-content: center;
-      padding: 0;
-    }
-
-    body.sidebar-collapsed .side-link .side-label,
-    body.sidebar-collapsed .side-heading,
-    body.sidebar-collapsed .side-note,
-    body.sidebar-collapsed .sidebar-footer {
-      display: none;
-    }
-
-    body.sidebar-collapsed .side-icon { font-size: 21px; }
-
-    /* RESPONSIVE TABLET */
-
-    @media (max-width: 1150px) {
-      .main-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .right-sidebar {
-        position: static;
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 15px;
-      }
-
-      .right-panel { margin: 0; }
-      .right-ad { min-height: 180px; }
-    }
-
-    @media (max-width: 760px) {
-      .topbar {
-        height: 56px;
-        padding: 0 12px;
-        gap: 8px;
-      }
-
-      .brand-area {
-        width: auto;
-        gap: 5px;
-      }
-
-      .menu-button { display: none; }
-
-      .brand {
-        gap: 0;
-        font-size: 19px;
-      }
-
-      .brand-mark { display: none; }
-
-      .search-area {
-        justify-content: flex-end;
-        margin-left: auto;
-      }
-
-      .search-area input {
-        display: none;
-      }
-
-      .search-button {
-        width: 39px;
-        height: 39px;
-        border: 0;
-        border-radius: 50%;
-        background: transparent;
-        font-size: 20px;
-      }
-
-      .header-actions { gap: 4px; }
-
-      .header-actions .theme-button { display: none; }
-
-      .signin {
-        padding: 7px 11px;
-        font-size: 12px;
-      }
-
-      .sidebar { display: none; }
-
-      .main-layout {
-        display: block;
-        margin: 0;
-        padding: 56px 12px 90px;
-      }
-
-      .category-bar {
-        top: 56px;
-        padding: 10px 0 12px;
-        margin: 0 0 12px;
-      }
-
-      .category-chip {
-        padding: 8px 13px;
-        font-size: 12px;
-      }
-
-      .welcome {
-        padding: 21px 17px;
-        border-radius: 13px;
-      }
-
-      .welcome h1 { font-size: 25px; }
-
-      .welcome p { font-size: 13px; }
-
-      .section-heading { margin-top: 22px; }
-
-      .section-heading h2 { font-size: 17px; }
-
-      .news-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
-
-      .news-card {
-        display: grid;
-        grid-template-columns: 116px minmax(0, 1fr);
-        min-height: 126px;
-      }
-
-      .news-image {
-        height: 100%;
-        min-height: 126px;
-      }
-
-      .news-card-body { padding: 11px; }
-
-      .news-card h3 {
-        font-size: 14px;
-        margin-bottom: 6px;
-      }
-
-      .news-card p {
-        font-size: 12px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-
-      .news-meta {
-        margin-top: 8px;
-        font-size: 10px;
-      }
-
-      .read-more { margin-top: 7px; }
-
-      .right-sidebar { display: block; }
-
-      .right-panel, .right-ad { margin-top: 15px; }
-
-      .ad-box {
-        min-height: 70px;
-        margin: 14px 0 20px;
-      }
-
-      .mobile-bottom {
-        position: fixed;
-        z-index: 1200;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 65px;
-        padding: 5px 4px calc(5px + env(safe-area-inset-bottom));
-        background: var(--header);
-        border-top: 1px solid var(--border);
-        backdrop-filter: blur(14px);
-      }
-
-      .mobile-nav-link {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 4px;
-        color: var(--muted);
-        font-size: 10px;
-        font-weight: 700;
-      }
-
-      .mobile-nav-link span:first-child { font-size: 20px; }
-
-      .mobile-nav-link.active { color: var(--accent); }
-
-      .footer { padding-bottom: 20px; }
-    }
-
-    @media (max-width: 380px) {
-      .brand { font-size: 17px; }
-      .signin { padding: 7px 9px; }
-      .news-card { grid-template-columns: 100px minmax(0, 1fr); }
-      .news-card h3 { font-size: 13px; }
-    }
-  </style>
+.custom-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(5, 10, 20, 0.78), rgba(5, 10, 20, 0.85)),
+        url("logo2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    pointer-events: none;
+}
+</style>
 </head>
 
 <body>
-  <!-- TOP HEADER -->
-  <header class="topbar">
-    <div class="brand-area">
-      <button class="menu-button" id="menuToggle" aria-label="Toggle sidebar">☰</button>
-      <a class="brand" href="index.html" aria-label="NovaFacts home">
-        <span class="brand-mark">N</span>
-        <span>Nova<span>Facts</span></span>
-      </a>
-    </div>
-
-    <form class="search-area" id="searchForm">
-      <input id="searchInput" type="search" placeholder="Search science, space, AI..." aria-label="Search">
-      <button class="search-button" type="submit" aria-label="Search">⌕</button>
-    </form>
-
-    <div class="header-actions">
-      <button class="icon-button theme-button" id="themeToggle" title="Change theme">☼</button>
-      <a class="signin" id="googleSignIn" href="login.html" title="Sign in">
-  ◉ Sign in
-</a>
-    </div>
-  </header>
-
-  <!-- LEFT SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-    <div class="side-group">
-      <a class="side-link active" href="index.html">
-        <span class="side-icon">⌂</span><span class="side-label">Home</span>
-      </a>
-      <a class="side-link" href="#latest">
-        <span class="side-icon">▤</span><span class="side-label">Latest News</span>
-      </a>
-      <a class="side-link" href="#trending">
-        <span class="side-icon">↗</span><span class="side-label">Trending</span>
-      </a>
-      <a class="side-link" href="#quiz">
-        <span class="side-icon">✎</span><span class="side-label">Quiz</span>
-      </a>
-    </div>
-
-    <div class="side-group">
-      <div class="side-heading">Explore</div>
-      <a class="side-link" href="#topics">
-        <span class="side-icon">◈</span><span class="side-label">All Topics</span>
-      </a>
-      <a class="side-link" href="black-holes.html">
-        <span class="side-icon">◉</span><span class="side-label">Space & Universe</span>
-      </a>
-      <a class="side-link" href="human-reality.html">
-        <span class="side-icon">♧</span><span class="side-label">Human Reality</span>
-      </a>
-      <a class="side-link" href="#ai">
-        <span class="side-icon">⌘</span><span class="side-label">Artificial Intelligence</span>
-      </a>
-      <a class="side-link" href="#physics">
-        <span class="side-icon">⚛</span><span class="side-label">Physics</span>
-      </a>
-    </div>
-
-    <div class="side-group">
-      <div class="side-heading">Tools</div>
-      <a class="side-link" href="GPAcalculator.html">
-        <span class="side-icon">▦</span><span class="side-label">GPA Calculator</span>
-      </a>
-      <a class="side-link" href="#quiz">
-        <span class="side-icon">☑</span><span class="side-label">Knowledge Quiz</span>
-      </a>
-    </div>
-
-    <div class="side-group">
-      <div class="side-heading">About</div>
-      <a class="side-link" href="about.html">
-        <span class="side-icon">ⓘ</span><span class="side-label">About Us</span>
-      </a>
-      <a class="side-link" href="contact.html">
-        <span class="side-icon">✉</span><span class="side-label">Contact</span>
-      </a>
-      <a class="side-link" href="privacy-policy.html">
-        <span class="side-icon">▣</span><span class="side-label">Privacy Policy</span>
-      </a>
-    </div>
-
-    <div class="sidebar-footer">
-      © 2026 NovaFacts<br>
-      Science • Space • AI • Knowledge
-    </div>
-  </aside>
-
-  <!-- MAIN PAGE -->
-  <main class="main-layout">
-    <section class="main-content">
-
-      <!-- TOPIC CHIPS -->
-      <nav class="category-bar" id="topics" aria-label="Topics">
-        <button class="category-chip active" data-category="all">All</button>
-        <button class="category-chip" data-category="Science">Science</button>
-        <button class="category-chip" data-category="Space">Space</button>
-        <button class="category-chip" data-category="AI">AI</button>
-        <button class="category-chip" data-category="Physics">Physics</button>
-        <button class="category-chip" data-category="Technology">Technology</button>
-        <button class="category-chip" data-category="Discovery">Discoveries</button>
-      </nav>
-
-      <!-- WELCOME -->
-      <section class="welcome">
-        <div class="welcome-label">Welcome to NovaFacts</div>
-        <h1>Explore the Universe.<br>Understand the Future.</h1>
-        <p>
-          Discover science, space, artificial intelligence, physics and
-          fascinating knowledge — all in one place.
-        </p>
-        <div class="welcome-actions">
-          <a href="#latest" class="primary-button">Explore Latest News →</a>
-          <a href="#quiz" class="secondary-button">Try Knowledge Quiz</a>
-        </div>
-      </section>
-
-      <!-- AD SLOT -->
-      
-<div class="hilltop-ad">
-  <span class="ad-label">ADVERTISEMENT</span>
-  <a
-    href="https://plump-plastic.com/EWPh64"
-    target="_blank"
-    rel="nofollow sponsored noopener"
-  >
-    <img
-      src="https://static.hilltopads.com/other/banners/pub/get_high_ecpm/728x90.gif"
-      alt="Advertisement"
-      width="728"
-      height="90"
-      loading="lazy"
-    >
-  </a>
-</div>
-
-      <!-- NEWS -->
-      <div class="section-heading" id="latest">
-        <h2>Latest Discoveries</h2>
-        <small id="newsCount">Loading articles...</small>
-      </div>
-
-      <div class="news-grid" id="newsGrid">
-        <div class="empty-message">Loading NovaFacts articles...</div>
-      </div>
-
-      <!-- QUIZ -->
-      <section class="quiz-panel" id="quiz">
-        <h2>🧠 Test Your Knowledge</h2>
-        <p>Try a quick science question.</p>
-        <div class="quiz-question" id="quizQuestion"></div>
-        <div id="quizOptions"></div>
-        <div id="quiz-result" aria-live="polite"></div>
-        <button class="primary-button" id="nextQuestion" style="margin-top:12px">
-          Next Question →
-        </button>
-      </section>
-
-      <!-- FOOTER -->
-      <footer class="footer">
-        <div class="footer-links">
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="GPAcalculator.html">GPA Calculator</a>
-        </div>
-        <div>© 2026 NovaFacts. All rights reserved.</div>
-        <div>Science • Space • AI • Physics • Knowledge</div>
-      </footer>
-    </section>
-
-    <!-- RIGHT SIDEBAR -->
-    <aside class="right-sidebar">
-
-      <section class="right-panel" id="trending">
-        <h3>🔥 Trending Topics</h3>
-
-        <a class="trending-item" href="black-holes.html">
-          <span class="trend-number">01</span>
-          <span>
-            <strong>Black Holes & The Universe</strong>
-            <small>Space and Astronomy</small>
-          </span>
-        </a>
-
-        <a class="trending-item" href="#ai">
-          <span class="trend-number">02</span>
-          <span>
-            <strong>The Future of Artificial Intelligence</strong>
-            <small>Technology and AI</small>
-          </span>
-        </a>
-
-        <a class="trending-item" href="human-reality.html">
-          <span class="trend-number">03</span>
-          <span>
-            <strong>Understanding Human Reality</strong>
-            <small>Science and Mind</small>
-          </span>
-        </a>
-
-        <a class="trending-item" href="#physics">
-          <span class="trend-number">04</span>
-          <span>
-            <strong>Mysteries of Physics</strong>
-            <small>Physics and Discovery</small>
-          </span>
-        </a>
-      </section>
-
-      <section class="right-panel">
-        <h3>🛠 Explore Tools</h3>
-        <a class="tool-link" href="GPAcalculator.html">
-          <span>🎓</span><span>GPA Calculator</span>
-        </a>
-        <a class="tool-link" href="#quiz">
-          <span>🧠</span><span>Knowledge Quiz</span>
-        </a>
-        <a class="tool-link" href="about.html">
-          <span>🌐</span><span>About NovaFacts</span>
-        </a>
-         <a class="tool-link" href="my-information.html">
-          <span>🌐</span><span>our information</span>
-        </a>
-      </section>
-
-        
-<div class="hilltop-ad">
-  <span class="ad-label">ADVERTISEMENT</span>
-  <a
-    href="https://plump-plastic.com/EWPh64"
-    target="_blank"
-    rel="nofollow sponsored noopener"
-  >
-    <img
-      src="https://static.hilltopads.com/other/banners/pub/get_high_ecpm/728x90.gif"
-      alt="Advertisement"
-      width="728"
-      height="90"
-      loading="lazy"
-    >
-  </a>
-</div>
-
-
-      <section class="right-panel">
-        <h3>✨ About NovaFacts</h3>
-        <p style="color:var(--muted);font-size:13px;line-height:1.7;margin:0">
-          NovaFacts brings curious minds closer to science, space,
-          technology and the discoveries shaping our world.
-        </p>
-      </section>
-    </aside>
-  </main>
-
-  <!-- MOBILE BOTTOM NAVIGATION -->
-  <nav class="mobile-bottom" aria-label="Mobile navigation">
-    <a class="mobile-nav-link active" href="index.html">
-      <span>⌂</span><span>Home</span>
+<div class="page-background" id="pageBackground"></div>
+<div class="custom-background"></div>
+<!-- HEADER -->
+<header class="topbar">
+  <div class="brand-area">
+    <button class="menu-button" id="menuToggle" aria-label="Toggle sidebar">☰</button>
+    <a class="brand" href="index.html" aria-label="NovaFacts home">
+      <span class="brand-mark" id="brandMark">N</span>
+      <span>Nova<span>Facts</span></span>
     </a>
-    <a class="mobile-nav-link" href="#latest">
-      <span>▤</span><span>News</span>
-    </a>
-    <a class="mobile-nav-link" href="#topics">
-      <span>◈</span><span>Topics</span>
-    </a>
-    <a class="mobile-nav-link" href="#quiz">
-      <span>✎</span><span>Quiz</span>
-    </a>
-    <a class="mobile-nav-link" href="GPAcalculator.html">
-      <span>▦</span><span>GPA</span>
-    </a>
+  </div>
+
+  <form class="search-area" id="searchForm">
+    <input id="searchInput" type="search" placeholder="Search science, space, AI..." aria-label="Search">
+    <button class="search-button" type="submit" aria-label="Search">⌕</button>
+  </form>
+
+  <div class="header-actions">
+    <button class="icon-button theme-button" id="themeToggle" title="Change theme">☼</button>
+    <button class="customize-button" id="customizeToggle">⚙ Customize</button>
+    <a class="signin" id="googleSignIn" href="login.html" title="Sign in">◉ Sign in</a>
+  </div>
+</header>
+
+<!-- APPEARANCE SETTINGS -->
+<aside class="customizer" id="appearancePanel">
+  <div class="customizer-header">
+    <h3>🎨 Appearance Settings</h3>
+    <button class="close-customizer" id="closeCustomizer" aria-label="Close">×</button>
+  </div>
+
+  <div class="setting-group">
+    <label class="title">Website Theme</label>
+    <div class="theme-options">
+      <button class="theme-option" id="darkMode">🌙 Dark</button>
+      <button class="theme-option" id="lightMode">☀ White</button>
+    </div>
+  </div>
+
+  <div class="setting-group">
+    <label class="title" for="backgroundColor">Background Color</label>
+    <div class="color-row">
+      <span style="font-size:13px">Choose your color</span>
+      <input type="color" id="backgroundColor" value="#101114">
+    </div>
+  </div>
+
+  <div class="setting-group">
+    <label class="title">Background Image</label>
+    <label class="upload-label">
+      📷 Upload Your Background Image
+      <input type="file" id="backgroundUpload" accept="image/*">
+    </label>
+    <button class="remove-background" id="removeBackground">Remove Background Image</button>
+  </div>
+
+  <div class="setting-group">
+    <label class="setting-checkbox">
+      <input type="checkbox" id="hideLogo">
+      Hide NovaFacts Logo
+    </label>
+  </div>
+
+  <div class="setting-group">
+    <button class="reset-button" id="resetAppearance">↻ Reset Appearance</button>
+  </div>
+</aside>
+
+<!-- LEFT SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="side-group">
+    <a class="side-link active" href="index.html"><span class="side-icon">⌂</span><span class="side-label">Home</span></a>
+    <a class="side-link" href="#latest"><span class="side-icon">▤</span><span class="side-label">Latest News</span></a>
+    <a class="side-link" href="#trending"><span class="side-icon">↗</span><span class="side-label">Trending</span></a>
+    <a class="side-link" href="#quiz"><span class="side-icon">✎</span><span class="side-label">Quiz</span></a>
+  </div>
+
+  <div class="side-group">
+    <div class="side-heading">Explore</div>
+    <a class="side-link" href="#topics"><span class="side-icon">◈</span><span class="side-label">All Topics</span></a>
+    <a class="side-link" href="black-holes.html"><span class="side-icon">◉</span><span class="side-label">Space & Universe</span></a>
+    <a class="side-link" href="human-reality.html"><span class="side-icon">♧</span><span class="side-label">Human Reality</span></a>
+    <a class="side-link" href="#ai"><span class="side-icon">⌘</span><span class="side-label">Artificial Intelligence</span></a>
+    <a class="side-link" href="#physics"><span class="side-icon">⚛</span><span class="side-label">Physics</span></a>
+  </div>
+
+  <div class="side-group">
+    <div class="side-heading">Tools</div>
+    <a class="side-link" href="GPAcalculator.html"><span class="side-icon">▦</span><span class="side-label">GPA Calculator</span></a>
+    <a class="side-link" href="#quiz"><span class="side-icon">☑</span><span class="side-label">Knowledge Quiz</span></a>
+  </div>
+
+  <div class="side-group">
+    <div class="side-heading">About</div>
+    <a class="side-link" href="about.html"><span class="side-icon">ⓘ</span><span class="side-label">About Us</span></a>
+    <a class="side-link" href="contact.html"><span class="side-icon">✉</span><span class="side-label">Contact</span></a>
+    <a class="side-link" href="privacy-policy.html"><span class="side-icon">▣</span><span class="side-label">Privacy Policy</span></a>
+  </div>
+
+  <div class="sidebar-footer">
+    © 2026 NovaFacts<br>
+    Science • Space • AI • Knowledge
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main-layout">
+<section class="main-content">
+
+  <nav class="category-bar" id="topics" aria-label="Topics">
+    <button class="category-chip active" data-category="all">All</button>
+    <button class="category-chip" data-category="Science">Science</button>
+    <button class="category-chip" data-category="Space">Space</button>
+    <button class="category-chip" data-category="AI">AI</button>
+    <button class="category-chip" data-category="Physics">Physics</button>
+    <button class="category-chip" data-category="Technology">Technology</button>
+    <button class="category-chip" data-category="Discovery">Discoveries</button>
   </nav>
 
-  <script>
-    // SIDEBAR COLLAPSE
-    const menuToggle = document.getElementById("menuToggle");
+  <section class="welcome">
+    <div class="welcome-label">Welcome to NovaFacts</div>
+    <h1>Explore the Universe.<br>Understand the Future.</h1>
+    <p>
+      Discover science, space, artificial intelligence, physics and
+      fascinating knowledge — all in one place.
+    </p>
+    <div class="welcome-actions">
+      <a href="#latest" class="primary-button">Explore Latest News →</a>
+      <a href="#quiz" class="secondary-button">Try Knowledge Quiz</a>
+    </div>
+  </section>
 
-    menuToggle.addEventListener("click", () => {
-      document.body.classList.toggle("sidebar-collapsed");
+  <!-- HILLTOP ADS -->
+  <div class="hilltop-ad">
+    <span class="ad-label">ADVERTISEMENT</span>
+    <a href="https://plump-plastic.com/EWPh64" target="_blank" rel="nofollow sponsored noopener">
+      <img src="https://static.hilltopads.com/other/banners/pub/get_high_ecpm/728x90.gif"
+           alt="Advertisement" width="728" height="90" loading="lazy">
+    </a>
+  </div>
+
+  <!-- NEWS -->
+  <div class="section-heading" id="latest">
+    <h2>Latest Discoveries</h2>
+    <small id="newsCount">Loading articles...</small>
+  </div>
+
+  <div class="news-grid" id="newsGrid">
+    <div class="empty-message">Loading NovaFacts articles...</div>
+  </div>
+
+  <!-- QUIZ -->
+  <section class="quiz-panel" id="quiz">
+    <h2>🧠 Test Your Knowledge</h2>
+    <p>Try a quick science question.</p>
+    <div class="quiz-question" id="quizQuestion"></div>
+    <div id="quizOptions"></div>
+    <div id="quiz-result" aria-live="polite"></div>
+    <button class="primary-button" id="nextQuestion" style="margin-top:12px">
+      Next Question →
+    </button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="GPAcalculator.html">GPA Calculator</a>
+    </div>
+    <div>© 2026 NovaFacts. All rights reserved.</div>
+    <div>Science • Space • AI • Physics • Knowledge</div>
+  </footer>
+</section>
+
+<!-- RIGHT SIDEBAR -->
+<aside class="right-sidebar">
+
+  <section class="right-panel" id="trending">
+    <h3>🔥 Trending Topics</h3>
+
+    <a class="trending-item" href="black-holes.html">
+      <span class="trend-number">01</span>
+      <span><strong>Black Holes & The Universe</strong><small>Space and Astronomy</small></span>
+    </a>
+
+    <a class="trending-item" href="#ai">
+      <span class="trend-number">02</span>
+      <span><strong>The Future of Artificial Intelligence</strong><small>Technology and AI</small></span>
+    </a>
+
+    <a class="trending-item" href="human-reality.html">
+      <span class="trend-number">03</span>
+      <span><strong>Understanding Human Reality</strong><small>Science and Mind</small></span>
+    </a>
+
+    <a class="trending-item" href="#physics">
+      <span class="trend-number">04</span>
+      <span><strong>Mysteries of Physics</strong><small>Physics and Discovery</small></span>
+    </a>
+  </section>
+
+  <section class="right-panel">
+    <h3>🛠 Explore Tools</h3>
+    <a class="tool-link" href="GPAcalculator.html"><span>🎓</span><span>GPA Calculator</span></a>
+    <a class="tool-link" href="#quiz"><span>🧠</span><span>Knowledge Quiz</span></a>
+    <a class="tool-link" href="about.html"><span>🌐</span><span>About NovaFacts</span></a>
+    <a class="tool-link" href="my-information.html"><span>🌐</span><span>Our Information</span></a>
+  </section>
+
+  <div class="hilltop-ad">
+    <span class="ad-label">ADVERTISEMENT</span>
+    <a href="https://plump-plastic.com/EWPh64" target="_blank" rel="nofollow sponsored noopener">
+      <img src="https://static.hilltopads.com/other/banners/pub/get_high_ecpm/728x90.gif"
+           alt="Advertisement" width="728" height="90" loading="lazy">
+    </a>
+  </div>
+
+  <section class="right-panel">
+    <h3>✨ About NovaFacts</h3>
+    <p style="color:var(--muted);font-size:13px;line-height:1.7;margin:0">
+      NovaFacts brings curious minds closer to science, space,
+      technology and the discoveries shaping our world.
+    </p>
+  </section>
+
+</aside>
+</main>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-bottom" aria-label="Mobile navigation">
+  <a class="mobile-nav-link active" href="index.html"><span>⌂</span><span>Home</span></a>
+  <a class="mobile-nav-link" href="#latest"><span>▤</span><span>News</span></a>
+  <a class="mobile-nav-link" href="#topics"><span>◈</span><span>Topics</span></a>
+  <a class="mobile-nav-link" href="#quiz"><span>✎</span><span>Quiz</span></a>
+  <a class="mobile-nav-link" href="GPAcalculator.html"><span>▦</span><span>GPA</span></a>
+</nav>
+
+<script>
+/* =====================================
+   SIDEBAR
+===================================== */
+
+const menuToggle = document.getElementById("menuToggle");
+
+menuToggle.addEventListener("click", () => {
+  document.body.classList.toggle("sidebar-collapsed");
+});
+
+
+/* =====================================
+   DARK / WHITE THEME
+===================================== */
+
+const themeToggle = document.getElementById("themeToggle");
+const darkMode = document.getElementById("darkMode");
+const lightMode = document.getElementById("lightMode");
+
+function applyTheme(theme) {
+  document.body.classList.toggle("light", theme === "light");
+
+  themeToggle.textContent = theme === "light" ? "☾" : "☼";
+
+  darkMode.classList.toggle("active", theme === "dark");
+  lightMode.classList.toggle("active", theme === "light");
+
+  localStorage.setItem("novafacts-theme", theme);
+
+  document.querySelector('meta[name="theme-color"]')
+    .setAttribute("content", theme === "light" ? "#f7f7f8" : "#101114");
+}
+
+applyTheme(localStorage.getItem("novafacts-theme") || "dark");
+
+themeToggle.addEventListener("click", () => {
+  applyTheme(document.body.classList.contains("light") ? "dark" : "light");
+});
+
+darkMode.addEventListener("click", () => applyTheme("dark"));
+lightMode.addEventListener("click", () => applyTheme("light"));
+
+
+/* =====================================
+   APPEARANCE CUSTOMIZER
+===================================== */
+
+const appearancePanel = document.getElementById("appearancePanel");
+const customizeToggle = document.getElementById("customizeToggle");
+const closeCustomizer = document.getElementById("closeCustomizer");
+
+const backgroundColor = document.getElementById("backgroundColor");
+const backgroundUpload = document.getElementById("backgroundUpload");
+const removeBackground = document.getElementById("removeBackground");
+const hideLogo = document.getElementById("hideLogo");
+const resetAppearance = document.getElementById("resetAppearance");
+
+customizeToggle.addEventListener("click", () => {
+  appearancePanel.classList.toggle("open");
+});
+
+closeCustomizer.addEventListener("click", () => {
+  appearancePanel.classList.remove("open");
+});
+
+function applyBackgroundColor(color) {
+  document.documentElement.style.setProperty("--custom-bg", color);
+  backgroundColor.value = color;
+  localStorage.setItem("novafacts-background-color", color);
+}
+
+const savedColor = localStorage.getItem("novafacts-background-color");
+
+if (savedColor) {
+  applyBackgroundColor(savedColor);
+}
+
+backgroundColor.addEventListener("input", () => {
+  applyBackgroundColor(backgroundColor.value);
+});
+
+
+/* BACKGROUND IMAGE UPLOAD */
+
+function applyBackgroundImage(data) {
+  if (!data) return;
+
+  document.documentElement.style.setProperty(
+    "--custom-image",
+    `url("${data}")`
+  );
+
+  document.body.classList.add("has-background-image");
+}
+
+const savedImage = localStorage.getItem("novafacts-background-image");
+
+if (savedImage) {
+  applyBackgroundImage(savedImage);
+}
+
+backgroundUpload.addEventListener("change", event => {
+  const file = event.target.files[0];
+
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    alert("Please select a valid image.");
+    return;
+  }
+
+  if (file.size > 2 * 1024 * 1024) {
+    alert("Please select an image smaller than 2 MB.");
+    backgroundUpload.value = "";
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    try {
+      localStorage.setItem("novafacts-background-image", reader.result);
+      applyBackgroundImage(reader.result);
+    } catch (error) {
+      alert("Image storage is full. Please use a smaller image.");
+    }
+  };
+
+  reader.readAsDataURL(file);
+});
+
+
+/* REMOVE IMAGE */
+
+removeBackground.addEventListener("click", () => {
+  localStorage.removeItem("novafacts-background-image");
+
+  document.documentElement.style.removeProperty("--custom-image");
+  document.body.classList.remove("has-background-image");
+
+  backgroundUpload.value = "";
+});
+
+
+/* LOGO VISIBILITY */
+
+function applyLogoSetting(hidden) {
+  document.body.classList.toggle("hide-brand-logo", hidden);
+  hideLogo.checked = hidden;
+  localStorage.setItem("novafacts-hide-logo", String(hidden));
+}
+
+applyLogoSetting(localStorage.getItem("novafacts-hide-logo") === "true");
+
+hideLogo.addEventListener("change", () => {
+  applyLogoSetting(hideLogo.checked);
+});
+
+
+/* RESET ALL APPEARANCE */
+
+resetAppearance.addEventListener("click", () => {
+  if (!confirm("Reset all appearance settings?")) return;
+
+  localStorage.removeItem("novafacts-background-color");
+  localStorage.removeItem("novafacts-background-image");
+  localStorage.removeItem("novafacts-hide-logo");
+
+  document.documentElement.style.removeProperty("--custom-bg");
+  document.documentElement.style.removeProperty("--custom-image");
+
+  document.body.classList.remove("has-background-image");
+  document.body.classList.remove("hide-brand-logo");
+
+  backgroundColor.value = "#101114";
+  backgroundUpload.value = "";
+  hideLogo.checked = false;
+
+  applyTheme("dark");
+
+  appearancePanel.classList.remove("open");
+});
+
+
+/* =====================================
+   NEWS DATA
+===================================== */
+
+const newsGrid = document.getElementById("newsGrid");
+const newsCount = document.getElementById("newsCount");
+
+let allArticles = [];
+
+function safeText(value) {
+  return String(value ?? "");
+}
+
+function renderArticles(articles) {
+  newsGrid.innerHTML = "";
+
+  if (!articles.length) {
+    newsGrid.innerHTML =
+      '<div class="empty-message">No articles found in this category.</div>';
+
+    newsCount.textContent = "0 articles";
+    return;
+  }
+
+  newsCount.textContent = articles.length + " articles";
+
+  articles.forEach(article => {
+    const card = document.createElement("article");
+    card.className = "news-card";
+
+    const image = document.createElement("img");
+    image.className = "news-image";
+    image.loading = "lazy";
+    image.alt = safeText(article.title);
+    image.src = article.image ||
+      "https://placehold.co/600x400/191a1f/e6b84c?text=NovaFacts";
+
+    const body = document.createElement("div");
+    body.className = "news-card-body";
+
+    const category = document.createElement("div");
+    category.className = "news-category";
+    category.textContent = safeText(article.category || "Knowledge");
+
+    const title = document.createElement("h3");
+    title.textContent = safeText(article.title || "Untitled article");
+
+    const summary = document.createElement("p");
+    summary.textContent = safeText(
+      article.summary || article.description || ""
+    );
+
+    const meta = document.createElement("div");
+    meta.className = "news-meta";
+
+    const source = document.createElement("span");
+    source.textContent = safeText(article.source || "NovaFacts");
+
+    const date = document.createElement("span");
+    date.textContent = safeText(article.published || article.date || "");
+
+    meta.append(source, date);
+
+    const link = document.createElement("a");
+    link.className = "read-more";
+    link.textContent = "Read more →";
+    link.href = article.url || article.link || "#";
+    link.target = link.href.startsWith("http") ? "_blank" : "_self";
+    link.rel = "noopener noreferrer";
+
+    body.append(category, title, summary, meta, link);
+    card.append(image, body);
+
+    newsGrid.appendChild(card);
+  });
+}
+
+
+/* LOAD NEWS.JSON */
+
+fetch("news.json")
+  .then(response => {
+    if (!response.ok) throw new Error("Could not load news.json");
+    return response.json();
+  })
+  .then(data => {
+    allArticles = Array.isArray(data)
+      ? data
+      : (Array.isArray(data.articles) ? data.articles : []);
+
+    renderArticles(allArticles);
+  })
+  .catch(error => {
+    console.error(error);
+
+    newsGrid.innerHTML =
+      '<div class="empty-message">News could not be loaded. Please check your news.json file.</div>';
+
+    newsCount.textContent = "News unavailable";
+  });
+
+
+/* =====================================
+   CATEGORY FILTER
+===================================== */
+
+document.querySelectorAll(".category-chip").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".category-chip").forEach(item => {
+      item.classList.remove("active");
     });
 
-    // DARK / LIGHT THEME
-    const themeToggle = document.getElementById("themeToggle");
+    button.classList.add("active");
 
-    if (localStorage.getItem("novafacts-theme") === "light") {
-      document.body.classList.add("light");
-      themeToggle.textContent = "☾";
-    }
+    const category = button.dataset.category;
 
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light");
-      const lightMode = document.body.classList.contains("light");
-      localStorage.setItem("novafacts-theme", lightMode ? "light" : "dark");
-      themeToggle.textContent = lightMode ? "☾" : "☼";
-    });
-
-    
-
-    // NEWS DATA
-    const newsGrid = document.getElementById("newsGrid");
-    const newsCount = document.getElementById("newsCount");
-    let allArticles = [];
-
-    function safeText(value) {
-      return String(value ?? "");
-    }
-
-    function renderArticles(articles) {
-      newsGrid.innerHTML = "";
-
-      if (!articles.length) {
-        newsGrid.innerHTML =
-          '<div class="empty-message">No articles found in this category.</div>';
-        newsCount.textContent = "0 articles";
-        return;
-      }
-
-      newsCount.textContent = articles.length + " articles";
-
-      articles.forEach(article => {
-        const card = document.createElement("article");
-        card.className = "news-card";
-
-        const image = document.createElement("img");
-        image.className = "news-image";
-        image.loading = "lazy";
-        image.alt = safeText(article.title);
-        image.src = article.image || "https://placehold.co/600x400/191a1f/e6b84c?text=NovaFacts";
-
-        const body = document.createElement("div");
-        body.className = "news-card-body";
-
-        const category = document.createElement("div");
-        category.className = "news-category";
-        category.textContent = safeText(article.category || "Knowledge");
-
-        const title = document.createElement("h3");
-        title.textContent = safeText(article.title || "Untitled article");
-
-        const summary = document.createElement("p");
-        summary.textContent = safeText(article.summary || article.description || "");
-
-        const meta = document.createElement("div");
-        meta.className = "news-meta";
-
-        const source = document.createElement("span");
-        source.textContent = safeText(article.source || "NovaFacts");
-
-        const date = document.createElement("span");
-        date.textContent = safeText(article.published || article.date || "");
-
-        meta.append(source, date);
-
-        const link = document.createElement("a");
-        link.className = "read-more";
-        link.textContent = "Read more →";
-        link.href = article.url || article.link || "#";
-        link.target = link.href.startsWith("http") ? "_blank" : "_self";
-        link.rel = "noopener noreferrer";
-
-        body.append(category, title, summary, meta, link);
-        card.append(image, body);
-        newsGrid.appendChild(card);
-      });
-    }
-
-    // Load articles from news.json
-    fetch("news.json")
-      .then(response => {
-        if (!response.ok) throw new Error("Could not load news.json");
-        return response.json();
-      })
-      .then(data => {
-        // Supports either { articles: [...] } or a direct array.
-        allArticles = Array.isArray(data) ? data :
-          (Array.isArray(data.articles) ? data.articles : []);
-
-        renderArticles(allArticles);
-      })
-      .catch(error => {
-        console.error(error);
-        newsGrid.innerHTML =
-          '<div class="empty-message">News could not be loaded. Please check your news.json file.</div>';
-        newsCount.textContent = "News unavailable";
-      });
-
-    // CATEGORY FILTER
-    document.querySelectorAll(".category-chip").forEach(button => {
-      button.addEventListener("click", () => {
-        document.querySelectorAll(".category-chip").forEach(item =>
-          item.classList.remove("active")
+    const filtered = category === "all"
+      ? allArticles
+      : allArticles.filter(article =>
+          safeText(article.category).toLowerCase() === category.toLowerCase()
         );
 
-        button.classList.add("active");
-        const category = button.dataset.category;
+    renderArticles(filtered);
+  });
+});
 
-        const filtered = category === "all"
-          ? allArticles
-          : allArticles.filter(article =>
-              safeText(article.category).toLowerCase() === category.toLowerCase()
-            );
 
-        renderArticles(filtered);
+/* =====================================
+   SEARCH
+===================================== */
+
+document.getElementById("searchForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const query = document.getElementById("searchInput")
+    .value.trim().toLowerCase();
+
+  if (!query) {
+    renderArticles(allArticles);
+    return;
+  }
+
+  const results = allArticles.filter(article => {
+    const text = [
+      article.title,
+      article.summary,
+      article.description,
+      article.category,
+      article.source
+    ].join(" ").toLowerCase();
+
+    return text.includes(query);
+  });
+
+  renderArticles(results);
+
+  document.getElementById("latest").scrollIntoView({
+    behavior:"smooth"
+  });
+});
+
+
+/* =====================================
+   KNOWLEDGE QUIZ
+===================================== */
+
+const questions = [
+  {
+    question:"Which planet is known as the Red Planet?",
+    options:["Earth","Mars","Jupiter","Venus"],
+    answer:1
+  },
+  {
+    question:"Which star is closest to Earth?",
+    options:["Sirius","Polaris","The Sun","Vega"],
+    answer:2
+  },
+  {
+    question:"What does AI stand for?",
+    options:[
+      "Automatic Internet",
+      "Artificial Intelligence",
+      "Advanced Information",
+      "Applied Innovation"
+    ],
+    answer:1
+  },
+  {
+    question:"Which particle has a negative electric charge?",
+    options:["Proton","Neutron","Electron","Photon"],
+    answer:2
+  },
+  {
+    question:"What is the center of our Solar System?",
+    options:["Earth","The Moon","The Sun","Mars"],
+    answer:2
+  }
+];
+
+let questionIndex = 0;
+let answered = false;
+
+function showQuestion() {
+  const item = questions[questionIndex];
+
+  answered = false;
+
+  document.getElementById("quizQuestion").textContent =
+    (questionIndex + 1) + ". " + item.question;
+
+  document.getElementById("quiz-result").textContent = "";
+
+  const optionsBox = document.getElementById("quizOptions");
+  optionsBox.innerHTML = "";
+
+  item.options.forEach((option, index) => {
+    const button = document.createElement("button");
+
+    button.className = "quiz-option";
+    button.textContent = option;
+
+    button.addEventListener("click", () => {
+      if (answered) return;
+
+      answered = true;
+
+      document.getElementById("quiz-result").textContent =
+        index === item.answer
+          ? "Correct! Great work. ✓"
+          : "Not quite. Correct answer: " + item.options[item.answer];
+
+      optionsBox.querySelectorAll("button").forEach(optionButton => {
+        optionButton.disabled = true;
       });
     });
 
-    // SEARCH
-    document.getElementById("searchForm").addEventListener("submit", event => {
-      event.preventDefault();
+    optionsBox.appendChild(button);
+  });
+}
 
-      const query = document.getElementById("searchInput").value
-        .trim().toLowerCase();
+document.getElementById("nextQuestion").addEventListener("click", () => {
+  questionIndex = (questionIndex + 1) % questions.length;
+  showQuestion();
+});
 
-      if (!query) {
-        renderArticles(allArticles);
-        return;
-      }
+showQuestion();
 
-      const results = allArticles.filter(article => {
-        const text = [
-          article.title,
-          article.summary,
-          article.description,
-          article.category,
-          article.source
-        ].join(" ").toLowerCase();
 
-        return text.includes(query);
-      });
+/* =====================================
+   MOBILE NAVIGATION
+===================================== */
 
-      renderArticles(results);
-      document.getElementById("latest").scrollIntoView({ behavior: "smooth" });
+document.querySelectorAll(".mobile-nav-link").forEach(link => {
+  link.addEventListener("click", () => {
+    document.querySelectorAll(".mobile-nav-link").forEach(item => {
+      item.classList.remove("active");
     });
 
-    // QUIZ
-    const questions = [
-      {
-        question: "Which planet is known as the Red Planet?",
-        options: ["Earth", "Mars", "Jupiter", "Venus"],
-        answer: 1
-      },
-      {
-        question: "Which star is closest to Earth?",
-        options: ["Sirius", "Polaris", "The Sun", "Vega"],
-        answer: 2
-      },
-      {
-        question: "What does AI stand for?",
-        options: [
-          "Automatic Internet",
-          "Artificial Intelligence",
-          "Advanced Information",
-          "Applied Innovation"
-        ],
-        answer: 1
-      },
-      {
-        question: "Which particle has a negative electric charge?",
-        options: ["Proton", "Neutron", "Electron", "Photon"],
-        answer: 2
-      },
-      {
-        question: "What is the center of our Solar System?",
-        options: ["Earth", "The Moon", "The Sun", "Mars"],
-        answer: 2
-      }
-    ];
+    link.classList.add("active");
+  });
+});
 
-    let questionIndex = 0;
-    let answered = false;
 
-    function showQuestion() {
-      const item = questions[questionIndex];
-      answered = false;
+/* =====================================
+   CLOSE CUSTOMIZER WHEN CLICKING OUTSIDE
+===================================== */
 
-      document.getElementById("quizQuestion").textContent =
-        (questionIndex + 1) + ". " + item.question;
+document.addEventListener("click", event => {
+  if (
+    appearancePanel.classList.contains("open") &&
+    !appearancePanel.contains(event.target) &&
+    !customizeToggle.contains(event.target)
+  ) {
+    appearancePanel.classList.remove("open");
+  }
+});
 
-      document.getElementById("quiz-result").textContent = "";
-
-      const optionsBox = document.getElementById("quizOptions");
-      optionsBox.innerHTML = "";
-
-      item.options.forEach((option, index) => {
-        const button = document.createElement("button");
-        button.className = "quiz-option";
-        button.textContent = option;
-
-        button.addEventListener("click", () => {
-          if (answered) return;
-          answered = true;
-
-          document.getElementById("quiz-result").textContent =
-            index === item.answer
-              ? "Correct! Great work. ✓"
-              : "Not quite. Correct answer: " + item.options[item.answer];
-        });
-
-        optionsBox.appendChild(button);
-      });
-    }
-
-    document.getElementById("nextQuestion").addEventListener("click", () => {
-      questionIndex = (questionIndex + 1) % questions.length;
-      showQuestion();
-    });
-
-    showQuestion();
-
-    // MOBILE ACTIVE NAVIGATION
-    document.querySelectorAll(".mobile-nav-link").forEach(link => {
-      link.addEventListener("click", () => {
-        document.querySelectorAll(".mobile-nav-link").forEach(item =>
-          item.classList.remove("active")
-        );
-        link.classList.add("active");
-      });
-    });
-  </script>
+</script>
 </body>
 </html>

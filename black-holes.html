@@ -4,36 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#07111f">
+  <meta name="theme-color" content="#170b29">
 
   <title>Black Holes Explained: Science in English & Nepali | NovaFacts</title>
-<link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <meta name="description"
-    content="Explore the science of black holes in English and Nepali. Learn about event horizons, gravity, accretion disks, black hole images, and real scientific evidence.">
 
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <meta name="description" content="Explore the science of black holes in English and Nepali. Learn about event horizons, gravity, accretion disks, black hole images, and real scientific evidence.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical"
-    href="https://sudipbudha23-byte.github.io/NovaFacts/black-holes.html">
+  <link rel="canonical" href="https://sudipbudha23-byte.github.io/NovaFacts/black-holes.html">
 
   <meta property="og:title" content="Black Holes Explained | NovaFacts">
-  <meta property="og:description"
-    content="Discover how black holes work in English and Nepali with scientific explanations and trusted research links.">
+  <meta property="og:description" content="Discover how black holes work in English and Nepali with scientific explanations and trusted research links.">
   <meta property="og:type" content="article">
-  <meta property="og:url"
-    content="https://sudipbudha23-byte.github.io/NovaFacts/black-holes.html">
+  <meta property="og:url" content="https://sudipbudha23-byte.github.io/NovaFacts/black-holes.html">
 
   <style>
     :root {
       color-scheme: dark;
-      --bg: #07111f;
-      --panel: #101f32;
-      --panel2: #142840;
-      --text: #eaf1fc;
-      --muted: #b0bfd2;
-      --accent: #65dcff;
-      --border: #2a4059;
-      --success: #70e1a1;
+      --bg: #10071d;
+      --text: #ffffff;
+      --muted: #d6c6e9;
+      --accent: #d69aff;
+      --accent-light: #e8caff;
+      --pink: #ff9cda;
+      --gold: #ffd76a;
+      --border: rgba(255,255,255,.25);
+      --glass: rgba(112,40,177,.27);
+      --success: #a8ffc9;
+      --shadow: 0 15px 40px rgba(0,0,0,.28);
     }
 
     * {
@@ -42,91 +42,182 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 24px;
+      scroll-padding-top: 25px;
     }
 
     body {
       margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(ellipse at top, #102b49 0, transparent 48%),
-        var(--bg);
       color: var(--text);
       line-height: 1.8;
+      background:
+        linear-gradient(rgba(35,5,80,.36), rgba(35,5,80,.48)),
+        url("logo2.png") center center / cover fixed no-repeat;
+      animation: backgroundBreath 24s ease-in-out infinite alternate;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(18,5,35,.76),
+          rgba(45,12,75,.58),
+          rgba(12,5,25,.80)
+        );
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+        radial-gradient(2px 2px at 100px 80px,#f4dfff,transparent),
+        radial-gradient(1.5px 1.5px at 180px 150px,#fff,transparent),
+        radial-gradient(2px 2px at 250px 40px,#e6baff,transparent),
+        radial-gradient(1px 1px at 350px 200px,#fff,transparent),
+        radial-gradient(2px 2px at 450px 100px,#ffb9ec,transparent),
+        radial-gradient(1.5px 1.5px at 550px 250px,#fff,transparent);
+      background-size: 600px 300px,500px 350px,700px 400px;
+      opacity: .55;
+      animation: starsTwinkle 8s ease-in-out infinite alternate;
+    }
+
+    .sky-glow {
+      position: fixed;
+      width: 440px;
+      height: 440px;
+      top: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(
+        circle,
+        rgba(175,64,255,.12),
+        rgba(255,70,190,.035) 45%,
+        transparent 70%
+      );
+      filter: blur(35px);
+      animation: glowPulse 10s ease-in-out infinite alternate;
     }
 
     a {
-      color: var(--accent);
+      color: var(--accent-light);
       overflow-wrap: anywhere;
+      transition: color .25s ease, text-shadow .25s ease;
     }
 
     a:hover {
-      color: #b4efff;
+      color: #fff;
+      text-shadow: 0 0 8px rgba(214,154,255,.35);
     }
 
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    /* Header */
+
     .topbar {
-      background: rgba(7, 17, 31, 0.94);
-      border-bottom: 1px solid var(--border);
+      position: relative;
+      z-index: 10;
       padding: 16px 5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 14px;
+      background: rgba(39,12,65,.42);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 5px 20px rgba(0,0,0,.15);
     }
 
     .logo {
-      color: var(--accent);
-      font-size: 24px;
+      color: #fff;
+      font-size: 25px;
       font-weight: 900;
       text-decoration: none;
-      letter-spacing: 0.5px;
+      letter-spacing: .6px;
+      text-shadow: 0 0 9px rgba(204,128,255,.35);
+      transition: .3s ease;
+    }
+
+    .logo:hover {
+      color: var(--pink);
+      transform: translateY(-2px);
     }
 
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 10px;
+      align-items: center;
     }
 
     nav a {
       text-decoration: none;
-      color: var(--text);
+      color: #fff;
       font-size: 14px;
+      font-weight: 600;
+      padding: 7px 12px;
+      border-radius: 25px;
+      transition: all .25s ease;
     }
 
     nav a:hover {
-      color: var(--accent);
+      background: rgba(205,135,255,.16);
+      color: #fff;
     }
 
+    /* Hero */
+
     .hero {
-      width: min(1000px, 92%);
+      position: relative;
+      width: min(1000px,92%);
       margin: auto;
-      padding: 64px 0 36px;
+      padding: 70px 0 42px;
       text-align: center;
+      animation: pageAppear .8s ease both;
     }
 
     .eyebrow {
       display: inline-block;
-      border: 1px solid #315a76;
-      background: #102c43;
-      color: var(--accent);
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(112,40,177,.25);
+      color: #f3d5ff;
       border-radius: 30px;
-      padding: 5px 14px;
+      padding: 7px 17px;
       font-size: 12px;
       font-weight: bold;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.5px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     h1 {
-      font-size: clamp(34px, 6vw, 58px);
+      font-size: clamp(35px,6vw,60px);
       line-height: 1.2;
-      margin: 22px 0;
+      margin: 24px 0;
       letter-spacing: -1px;
+      color: #fff;
+      text-shadow: 0 5px 20px rgba(0,0,0,.3);
     }
 
     h1 span {
-      color: var(--accent);
+      color: #e3b6ff;
+      text-shadow: 0 0 12px rgba(197,110,255,.3);
     }
 
     .hero p {
@@ -139,106 +230,149 @@
     .hero-image {
       width: 100%;
       max-width: 850px;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16/9;
       object-fit: cover;
-      border: 1px solid var(--border);
-      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 15px;
       margin-top: 20px;
-      background: #000;
+      background: #160b22;
+      box-shadow: 0 12px 32px rgba(0,0,0,.3);
+      animation: cardFloat 8s ease-in-out infinite;
     }
 
     .image-caption {
       font-size: 12px;
-      color: var(--muted);
-      margin-top: 5px;
+      color: #d2bce8;
+      margin-top: 10px;
     }
+
+    /* Language buttons */
 
     .lang-controls {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 10px;
-      margin: 25px 0 0;
-    }
-
-    button {
-      font: inherit;
-      cursor: pointer;
+      gap: 12px;
+      margin: 28px 0 0;
     }
 
     .lang-btn {
-      padding: 10px 18px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text);
-      background: var(--panel);
+      padding: 10px 20px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 30px;
+      color: #fff;
+      background: rgba(112,40,177,.28);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all .25s ease;
+    }
+
+    .lang-btn:hover {
+      background: rgba(177,85,235,.4);
+      transform: translateY(-2px);
     }
 
     .lang-btn.active {
-      color: #06111e;
-      background: var(--accent);
-      border-color: var(--accent);
+      color: #2b1040;
+      background: linear-gradient(135deg,#e5bdff,#c57aff);
+      border-color: #e8caff;
       font-weight: bold;
     }
 
+    /* Main content */
+
     main {
-      width: min(900px, 92%);
-      margin: 0 auto 60px;
+      position: relative;
+      width: min(900px,92%);
+      margin: 0 auto 65px;
     }
 
     .article-card {
-      background: rgba(16, 31, 50, 0.94);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: clamp(20px, 4vw, 34px);
-      margin: 22px 0;
+      position: relative;
+      background: rgba(112,40,177,.27);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 14px;
+      padding: clamp(20px,4vw,34px);
+      margin: 25px 0;
+      backdrop-filter: blur(13px);
+      -webkit-backdrop-filter: blur(13px);
+      box-shadow:
+        0 15px 40px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.07);
+      animation: cardAppear .7s ease both;
+      transition: transform .3s ease,border-color .3s ease,box-shadow .3s ease;
+    }
+
+    .article-card:hover {
+      border-color: rgba(222,177,255,.45);
+      box-shadow: 0 17px 40px rgba(0,0,0,.3);
+      transform: translateY(-2px);
     }
 
     .article-card h2 {
-      font-size: clamp(23px, 4vw, 30px);
+      font-size: clamp(23px,4vw,30px);
       line-height: 1.35;
-      color: var(--accent);
-      margin: 0 0 16px;
+      color: #e5bdff;
+      margin: 0 0 18px;
+      text-shadow: 0 0 8px rgba(198,125,255,.18);
     }
 
     .article-card h3 {
       font-size: 19px;
-      color: var(--text);
-      margin-top: 25px;
-      margin-bottom: 8px;
+      color: #fff;
+      margin-top: 27px;
+      margin-bottom: 9px;
     }
 
     p {
       color: var(--muted);
-      margin: 0 0 15px;
+      margin: 0 0 16px;
     }
 
+    strong {
+      color: #fff;
+    }
+
+    /* Fact box */
+
     .fact {
-      background: var(--panel2);
-      border-left: 4px solid var(--accent);
-      padding: 16px 18px;
-      border-radius: 7px;
-      margin: 20px 0;
+      background: rgba(197,121,255,.11);
+      border: 1px solid rgba(225,184,255,.23);
+      border-left: 4px solid #d69aff;
+      padding: 17px 19px;
+      border-radius: 10px;
+      margin: 22px 0;
     }
 
     .fact p:last-child {
       margin-bottom: 0;
     }
 
+    /* Contents links */
+
     .contents {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 11px;
     }
 
     .contents a {
       display: inline-block;
       text-decoration: none;
-      background: var(--panel2);
-      border: 1px solid var(--border);
-      padding: 7px 12px;
-      border-radius: 8px;
+      color: #f2dcff;
+      background: rgba(112,40,177,.23);
+      border: 1px solid rgba(255,255,255,.22);
+      padding: 8px 14px;
+      border-radius: 25px;
       font-size: 14px;
+      transition: all .25s ease;
+    }
+
+    .contents a:hover {
+      color: #fff;
+      background: rgba(186,103,239,.35);
+      border-color: #e1baff;
+      transform: translateY(-2px);
     }
 
     .article-card ul,
@@ -248,45 +382,72 @@
     }
 
     .article-card li {
-      margin-bottom: 9px;
+      margin-bottom: 10px;
     }
 
+    .article-card li::marker {
+      color: #d59aff;
+    }
+
+    /* Quiz */
+
     .quiz-question {
-      background: var(--panel2);
-      border: 1px solid var(--border);
+      background: rgba(112,40,177,.20);
+      border: 1px solid rgba(255,255,255,.23);
       border-radius: 12px;
-      padding: 18px;
-      margin: 18px 0;
+      padding: 19px;
+      margin: 19px 0;
+      transition: background .25s ease,border-color .25s ease;
+    }
+
+    .quiz-question:hover {
+      background: rgba(163,83,218,.25);
+      border-color: rgba(220,172,255,.4);
     }
 
     .quiz-question p {
-      color: var(--text);
+      color: #fff;
       font-weight: bold;
     }
 
     .quiz-question label {
       display: block;
-      color: var(--muted);
-      padding: 7px 0;
+      color: #e3d4f0;
+      padding: 8px 0;
       cursor: pointer;
+      transition: color .2s ease;
+    }
+
+    .quiz-question label:hover {
+      color: #fff;
     }
 
     .quiz-question input {
-      margin-right: 8px;
-      accent-color: var(--accent);
+      margin-right: 9px;
+      accent-color: #d69aff;
     }
 
+    /* Primary button */
+
     .primary-btn {
-      border: 0;
-      border-radius: 10px;
-      background: var(--accent);
-      color: #06111e;
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 30px;
+      background: linear-gradient(135deg,#d69aff,#a94dff);
+      color: #251039;
       font-weight: bold;
-      padding: 12px 20px;
+      padding: 12px 24px;
+      box-shadow: 0 5px 18px rgba(177,79,255,.22);
+      transition: all .25s ease;
     }
 
     .primary-btn:hover {
-      background: #b1edff;
+      background: linear-gradient(135deg,#edceff,#c37cff);
+      transform: translateY(-2px);
+      box-shadow: 0 7px 20px rgba(191,106,255,.3);
+    }
+
+    .primary-btn:active {
+      transform: scale(.97);
     }
 
     #quiz-result {
@@ -295,85 +456,256 @@
       color: var(--success);
     }
 
+    /* Sources */
+
     .sources li {
-      margin-bottom: 13px;
+      margin-bottom: 15px;
+    }
+
+    .sources a {
+      color: #e1b3ff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(225,179,255,.35);
+    }
+
+    .sources a:hover {
+      color: #fff;
+      border-color: #fff;
     }
 
     .source-note {
       font-size: 13px;
+      color: #c7b2dc;
     }
 
     .hidden {
       display: none !important;
     }
 
+    /* Footer */
+
     footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 16px;
+      position: relative;
+      border-top: 1px solid rgba(255,255,255,.25);
+      padding: 32px 16px;
       text-align: center;
-      background: #081321;
+      background: rgba(35,10,59,.58);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
     }
 
     footer p {
       font-size: 13px;
+      color: #d2bce8;
     }
 
     footer nav {
       justify-content: center;
-      margin-top: 10px;
+      margin-top: 13px;
+      gap: 10px;
     }
 
     footer nav a {
-      color: var(--accent);
+      color: #e2b8ff;
     }
 
-    @media (max-width: 600px) {
+    /* Animations */
+
+    @keyframes backgroundBreath {
+      from { background-position: center center; }
+      to { background-position: 51% 49%; }
+    }
+
+    @keyframes starsTwinkle {
+      from { opacity: .35; }
+      to { opacity: .65; }
+    }
+
+    @keyframes glowPulse {
+      from { opacity: .55; transform: translateX(-50%) scale(.96); }
+      to { opacity: .85; transform: translateX(-50%) scale(1.04); }
+    }
+
+    @keyframes pageAppear {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes cardAppear {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes cardFloat {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    /* Tablet */
+
+    @media (max-width:900px) {
+      .topbar { padding: 15px 4%; }
+      .hero { padding-top: 58px; }
+      main { width: 94%; }
+    }
+
+    /* Mobile */
+
+    @media (max-width:600px) {
+      body {
+        background:
+          linear-gradient(rgba(25,7,43,.72),rgba(35,8,55,.78)),
+          url("logo1.png") center center / cover fixed no-repeat;
+      }
+
       .topbar {
         justify-content: center;
         text-align: center;
-      }
-
-      nav {
-        justify-content: center;
+        padding: 16px 12px;
         gap: 12px;
       }
 
-      .hero {
-        padding-top: 42px;
+      .logo { font-size: 24px; }
+
+      nav {
+        justify-content: center;
+        gap: 7px;
       }
 
-      .hero p {
-        font-size: 15px;
+      nav a {
+        font-size: 12px;
+        padding: 6px 9px;
       }
+
+      .hero { padding: 48px 0 32px; }
+      .hero p { font-size: 15px; }
+
+      h1 {
+        font-size: clamp(32px,9vw,43px);
+      }
+
+      .hero-image { border-radius: 13px; }
+
+      .lang-controls { gap: 8px; }
+
+      .lang-btn {
+        padding: 9px 13px;
+        font-size: 13px;
+      }
+
+      main { width: 93%; }
 
       .article-card {
-        border-radius: 12px;
+        border-radius: 13px;
+        padding: 20px 17px;
+        margin: 19px 0;
+      }
+
+      .article-card:hover { transform: none; }
+
+      .article-card h2 { font-size: 23px; }
+      .article-card h3 { font-size: 18px; }
+
+      .contents { gap: 8px; }
+
+      .contents a {
+        font-size: 12px;
+        padding: 7px 11px;
+      }
+
+      .quiz-question { padding: 15px; }
+      .primary-btn { width: 100%; }
+
+      footer nav { gap: 5px; }
+
+      footer nav a { font-size: 12px; }
+
+      .sky-glow {
+        width: 300px;
+        height: 300px;
       }
     }
 
-    @media print {
-      body {
-        background: white;
-        color: black;
+    @media (max-width:380px) {
+      .logo { font-size: 21px; }
+
+      nav a {
+        font-size: 11px;
+        padding: 5px 7px;
       }
 
-      .topbar, .lang-controls, .quiz-section, footer {
-        display: none;
+      .article-card { padding: 17px 14px; }
+
+      .lang-btn {
+        font-size: 12px;
+        padding: 8px 11px;
+      }
+    }
+
+    /* Accessibility */
+
+    @media (prefers-reduced-motion:reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    /* Print */
+
+    @media print {
+      body {
+        background: white !important;
+        color: black !important;
+      }
+
+      body::before,
+      .stars,
+      .sky-glow {
+        display: none !important;
+      }
+
+      .topbar,
+      .lang-controls,
+      .quiz-section,
+      footer {
+        display: none !important;
       }
 
       .article-card {
-        background: white;
-        border: 0;
+        background: white !important;
+        color: black !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        break-inside: avoid;
       }
 
-      p, li {
-        color: #222;
+      .article-card h2,
+      .article-card h3,
+      strong {
+        color: black !important;
+        text-shadow: none !important;
       }
+
+      p,
+      li {
+        color: #222 !important;
+      }
+
+      a { color: #222 !important; }
     }
   </style>
 </head>
 
 <body>
+
+  <div class="stars" aria-hidden="true"></div>
+  <div class="sky-glow" aria-hidden="true"></div>
 
   <header class="topbar">
     <a class="logo" href="index.html">✦ NovaFacts</a>
@@ -420,9 +752,11 @@
       <button class="lang-btn active" data-language="both" type="button">
         English + नेपाली
       </button>
+
       <button class="lang-btn" data-language="en" type="button">
         English
       </button>
+
       <button class="lang-btn" data-language="ne" type="button">
         नेपाली
       </button>
@@ -500,6 +834,7 @@
           <strong>Key fact:</strong> A black hole is defined by its
           extreme gravity and event horizon, not by a literal empty hole.
         </p>
+
         <p class="ne hidden">
           <strong>मुख्य तथ्य:</strong> ब्ल्याक होलको विशेषता यसको अत्यधिक
           गुरुत्वाकर्षण र घटना क्षितिज हो, खाली प्वाल हुनु होइन।
@@ -560,6 +895,7 @@
 
       <div class="en">
         <h3>Stellar-mass black holes</h3>
+
         <p>
           Some black holes form when a sufficiently massive star reaches
           the end of its life. After the star can no longer support
@@ -570,6 +906,7 @@
         </p>
 
         <h3>Supermassive black holes</h3>
+
         <p>
           Supermassive black holes are found at the centers of many
           galaxies. They may grow by accumulating gas and merging with
@@ -580,6 +917,7 @@
 
       <div class="ne hidden">
         <h3>तारकीय-द्रव्यमानका ब्ल्याक होल</h3>
+
         <p>
           केही ब्ल्याक होल पर्याप्त विशाल ताराको जीवनको अन्त्यमा
           बन्छन्। ताराले गुरुत्वाकर्षणविरुद्ध आफूलाई धान्न नसक्दा
@@ -590,6 +928,7 @@
         </p>
 
         <h3>सुपरम्यासिभ ब्ल्याक होल</h3>
+
         <p>
           धेरै आकाशगंगाको केन्द्रमा सुपरम्यासिभ ब्ल्याक होल पाइन्छन्।
           तिनले लामो ब्रह्माण्डीय समयावधिमा ग्यास जम्मा गरेर र अन्य
@@ -615,15 +954,18 @@
             <strong>Hot gas:</strong> Gas falling toward a black hole
             can form a hot accretion disk that emits radiation.
           </li>
+
           <li>
             <strong>Star orbits:</strong> Stars moving around an
             invisible, compact object can reveal its mass.
           </li>
+
           <li>
             <strong>Gravitational waves:</strong> Merging black holes
             can create ripples in spacetime detected by instruments
             such as LIGO.
           </li>
+
           <li>
             <strong>Gravitational lensing:</strong> A black hole's
             gravity can bend light from more distant objects.
@@ -631,6 +973,7 @@
         </ul>
 
         <h3>The first black hole images</h3>
+
         <p>
           In 2019, the Event Horizon Telescope collaboration released
           the first image of the shadow of the supermassive black hole
@@ -660,16 +1003,19 @@
             तातो अभिवृद्धि चक्र (accretion disk) बनाउन सक्छ र विकिरण
             उत्सर्जन गर्न सक्छ।
           </li>
+
           <li>
             <strong>ताराको कक्षा:</strong> नदेखिने तर अत्यन्त सघन
             वस्तुको वरिपरि ताराहरू घुमेको अध्ययनबाट त्यसको द्रव्यमान
             अनुमान गर्न सकिन्छ।
           </li>
+
           <li>
             <strong>गुरुत्वाकर्षण तरङ्ग:</strong> दुई ब्ल्याक होल
             मिसिँदा अन्तरिक्ष-समयमा तरङ्ग उत्पन्न हुन सक्छन्।
             LIGO जस्ता उपकरणले ती तरङ्ग पत्ता लगाउँछन्।
           </li>
+
           <li>
             <strong>गुरुत्वीय लेन्सिङ:</strong> ब्ल्याक होलको
             गुरुत्वाकर्षणले टाढाका वस्तुबाट आएको प्रकाशको मार्ग
@@ -678,6 +1024,7 @@
         </ul>
 
         <h3>ब्ल्याक होलका पहिलो तस्बिरहरू</h3>
+
         <p>
           सन् २०१९ मा Event Horizon Telescope सहकार्यले M87*
           नामक सुपरम्यासिभ ब्ल्याक होलको छायाँको पहिलो तस्बिर
@@ -700,6 +1047,7 @@
 
       <div class="en">
         <h3>Myth: Black holes suck in everything in the universe.</h3>
+
         <p>
           <strong>Fact:</strong> A black hole's gravity depends on its
           mass and distance. If the Sun were replaced by a black hole
@@ -709,6 +1057,7 @@
         </p>
 
         <h3>Myth: Scientists can see the inside of a black hole.</h3>
+
         <p>
           <strong>Fact:</strong> No signal from inside the event horizon
           can reach a distant observer. Scientists study surrounding
@@ -717,6 +1066,7 @@
         </p>
 
         <h3>Myth: Every black hole is the same size.</h3>
+
         <p>
           <strong>Fact:</strong> Black holes span a wide range of masses,
           from stellar-mass objects to supermassive black holes at
@@ -726,6 +1076,7 @@
 
       <div class="ne hidden">
         <h3>भ्रम: ब्ल्याक होलले ब्रह्माण्डका सबै वस्तु तान्छ।</h3>
+
         <p>
           <strong>तथ्य:</strong> ब्ल्याक होलको गुरुत्वाकर्षण त्यसको
           द्रव्यमान र दूरीमा निर्भर हुन्छ। सूर्यको ठाउँमा उही
@@ -735,6 +1086,7 @@
         </p>
 
         <h3>भ्रम: वैज्ञानिकहरूले ब्ल्याक होलको भित्री भाग देख्न सक्छन्।</h3>
+
         <p>
           <strong>तथ्य:</strong> घटना क्षितिजभित्रबाट आएको कुनै
           संकेत टाढाको पर्यवेक्षकसम्म पुग्न सक्दैन। वैज्ञानिकहरूले
@@ -743,6 +1095,7 @@
         </p>
 
         <h3>भ्रम: सबै ब्ल्याक होलको आकार एउटै हुन्छ।</h3>
+
         <p>
           <strong>तथ्य:</strong> तारकीय-द्रव्यमानका वस्तुदेखि
           आकाशगंगाको केन्द्रमा रहेका सुपरम्यासिभ ब्ल्याक होलसम्म
@@ -857,40 +1210,35 @@
       <ol class="sources">
         <li>
           <strong>NASA Science — Black Holes</strong><br>
-          <a href="https://science.nasa.gov/universe/black-holes/"
-             target="_blank" rel="noopener noreferrer">
+          <a href="https://science.nasa.gov/universe/black-holes/" target="_blank" rel="noopener noreferrer">
             Read NASA's black hole guide
           </a>
         </li>
 
         <li>
           <strong>NASA — Anatomy of a Black Hole</strong><br>
-          <a href="https://science.nasa.gov/universe/black-holes/anatomy/"
-             target="_blank" rel="noopener noreferrer">
+          <a href="https://science.nasa.gov/universe/black-holes/anatomy/" target="_blank" rel="noopener noreferrer">
             Learn about event horizons and accretion disks
           </a>
         </li>
 
         <li>
           <strong>Event Horizon Telescope — Black Hole Images FAQ</strong><br>
-          <a href="https://eventhorizontelescope.org/faq"
-             target="_blank" rel="noopener noreferrer">
+          <a href="https://eventhorizontelescope.org/faq" target="_blank" rel="noopener noreferrer">
             Explore how black hole images are made
           </a>
         </li>
 
         <li>
           <strong>European Southern Observatory — First Black Hole Image</strong><br>
-          <a href="https://www.eso.org/public/images/eso1907a/"
-             target="_blank" rel="noopener noreferrer">
+          <a href="https://www.eso.org/public/images/eso1907a/" target="_blank" rel="noopener noreferrer">
             Read about the M87* observation
           </a>
         </li>
 
         <li>
           <strong>NASA — Introduction to Black Holes</strong><br>
-          <a href="https://www.nasa.gov/stem-content/introduction-to-black-holes/"
-             target="_blank" rel="noopener noreferrer">
+          <a href="https://www.nasa.gov/stem-content/introduction-to-black-holes/" target="_blank" rel="noopener noreferrer">
             Explore the educational resource
           </a>
         </li>
@@ -933,6 +1281,7 @@
       <p>
         <a href="index.html">← Return to the NovaFacts homepage</a>
       </p>
+
       <p>
         <a href="about.html">About Us</a> ·
         <a href="contact.html">Contact Us</a> ·
@@ -959,17 +1308,11 @@
 
     function setLanguage(language) {
       document.querySelectorAll(".en").forEach(element => {
-        element.classList.toggle(
-          "hidden",
-          language === "ne"
-        );
+        element.classList.toggle("hidden", language === "ne");
       });
 
       document.querySelectorAll(".ne").forEach(element => {
-        element.classList.toggle(
-          "hidden",
-          language === "en"
-        );
+        element.classList.toggle("hidden", language === "en");
       });
 
       languageButtons.forEach(button => {
