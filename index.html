@@ -1017,13 +1017,13 @@ body {
 <section class="main-content">
 
   <nav class="category-bar" id="topics" aria-label="Topics">
-    <button class="category-chip active" data-category="all">All</button>
-    <button class="category-chip" data-category="Science">Science</button>
-    <button class="category-chip" data-category="Space">Space</button>
-    <button class="category-chip" data-category="AI">AI</button>
-    <button class="category-chip" data-category="Physics">Physics</button>
-    <button class="category-chip" data-category="Technology">Technology</button>
-    <button class="category-chip" data-category="Discovery">Discoveries</button>
+    <button class="category-chip active" data-category="all">सबै समाचार</button>
+    <button class="category-chip" data-category="विज्ञान">विज्ञान</button>
+    <button class="category-chip" data-category="अन्तरिक्ष">अन्तरिक्ष</button>
+    <button class="category-chip" data-category="कृत्रिम बुद्धिमत्ता">कृत्रिम बुद्धिमत्ता</button>
+    <button class="category-chip" data-category="भौतिकशास्त्र">भौतिकशास्त्र</button>
+    <button class="category-chip" data-category="जीवविज्ञान">जीवविज्ञान</button>
+    <button class="category-chip" data-category="पृथ्वी तथा वातावरण">पृथ्वी तथा वातावरण</button>
   </nav>
 
   <section class="welcome">
@@ -1050,12 +1050,12 @@ body {
 
   <!-- NEWS -->
   <div class="section-heading" id="latest">
-    <h2>Latest Discoveries</h2>
-    <small id="newsCount">Loading articles...</small>
+    <h2>ताजा समाचार तथा खोजहरू</h2>
+    <small id="newsCount">समाचार लोड हुँदैछ...</small>
   </div>
 
   <div class="news-grid" id="newsGrid">
-    <div class="empty-message">Loading NovaFacts articles...</div>
+    <div class="empty-message">नेपाली समाचार लोड हुँदैछन्...</div>
   </div>
 
   <!-- QUIZ -->
@@ -1332,7 +1332,7 @@ resetAppearance.addEventListener("click", () => {
 
 
 /* =====================================
-   NEWS DATA
+   नेपाली समाचार
 ===================================== */
 
 const newsGrid = document.getElementById("newsGrid");
@@ -1340,8 +1340,19 @@ const newsCount = document.getElementById("newsCount");
 
 let allArticles = [];
 
-function safeText(value) {
-  return String(value ?? "");
+function nepaliTime(value) {
+  if (!value) return "समय उपलब्ध छैन";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "समय उपलब्ध छैन";
+  return new Intl.DateTimeFormat("ne-NP", {
+    timeZone: "Asia/Kathmandu",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true
+  }).format(date);
 }
 
 function renderArticles(articles) {
@@ -1349,13 +1360,12 @@ function renderArticles(articles) {
 
   if (!articles.length) {
     newsGrid.innerHTML =
-      '<div class="empty-message">No articles found in this category.</div>';
-
-    newsCount.textContent = "0 articles";
+      '<div class="empty-message">यस विषयमा समाचार भेटिएन।</div>';
+    newsCount.textContent = "० समाचार";
     return;
   }
 
-  newsCount.textContent = articles.length + " articles";
+  newsCount.textContent = new Intl.NumberFormat("ne-NP").format(articles.length) + " समाचार";
 
   articles.forEach(article => {
     const card = document.createElement("article");
@@ -1364,7 +1374,7 @@ function renderArticles(articles) {
     const image = document.createElement("img");
     image.className = "news-image";
     image.loading = "lazy";
-    image.alt = safeText(article.title);
+    image.alt = article.title_ne || "समाचारको तस्बिर";
     image.src = article.image ||
       "https://placehold.co/600x400/191a1f/e6b84c?text=NovaFacts";
 
@@ -1373,123 +1383,92 @@ function renderArticles(articles) {
 
     const category = document.createElement("div");
     category.className = "news-category";
-    category.textContent = safeText(article.category || "Knowledge");
+    category.textContent = article.category_ne || "विज्ञान";
 
     const title = document.createElement("h3");
-    title.textContent = safeText(article.title || "Untitled article");
+    title.textContent = article.title_ne || "शीर्षक उपलब्ध छैन";
 
     const summary = document.createElement("p");
-    summary.textContent = safeText(
-      article.summary || article.description || ""
-    );
+    summary.textContent = article.summary_ne || "यस समाचारको थप विवरण उपलब्ध छैन।";
 
     const meta = document.createElement("div");
     meta.className = "news-meta";
 
     const source = document.createElement("span");
-    source.textContent = safeText(article.source || "NovaFacts");
+    source.textContent = article.source ? "स्रोत: " + article.source : "समाचार स्रोत";
 
     const date = document.createElement("span");
-    date.textContent = safeText(article.published || article.date || "");
+    date.textContent = nepaliTime(article.published || article.date);
 
     meta.append(source, date);
 
     const link = document.createElement("a");
     link.className = "read-more";
-    link.textContent = "Read more →";
+    link.textContent = "पूरा समाचार पढ्नुहोस् ↗";
     link.href = article.url || article.link || "#";
     link.target = link.href.startsWith("http") ? "_blank" : "_self";
     link.rel = "noopener noreferrer";
 
     body.append(category, title, summary, meta, link);
     card.append(image, body);
-
     newsGrid.appendChild(card);
   });
 }
 
-
-/* LOAD NEWS.JSON */
-
-fetch("news.json")
+/* नेपालीमा तयार गरिएको समाचार फाइल */
+fetch("news_nepali.json")
   .then(response => {
-    if (!response.ok) throw new Error("Could not load news.json");
+    if (!response.ok) throw new Error("नेपाली समाचार फाइल भेटिएन");
     return response.json();
   })
   .then(data => {
     allArticles = Array.isArray(data)
       ? data
       : (Array.isArray(data.articles) ? data.articles : []);
-
     renderArticles(allArticles);
   })
   .catch(error => {
     console.error(error);
-
     newsGrid.innerHTML =
-      '<div class="empty-message">News could not be loaded. Please check your news.json file.</div>';
-
-    newsCount.textContent = "News unavailable";
+      '<div class="empty-message">नेपाली समाचार लोड हुन सकेन। मुख्य फोल्डरमा news_nepali.json फाइल राख्नुहोस्।</div>';
+    newsCount.textContent = "समाचार उपलब्ध छैन";
   });
 
 
 /* =====================================
-   CATEGORY FILTER
+   समाचार वर्गीकरण
 ===================================== */
 
 document.querySelectorAll(".category-chip").forEach(button => {
   button.addEventListener("click", () => {
-    document.querySelectorAll(".category-chip").forEach(item => {
-      item.classList.remove("active");
-    });
-
+    document.querySelectorAll(".category-chip").forEach(item => item.classList.remove("active"));
     button.classList.add("active");
-
     const category = button.dataset.category;
-
     const filtered = category === "all"
       ? allArticles
-      : allArticles.filter(article =>
-          safeText(article.category).toLowerCase() === category.toLowerCase()
-        );
-
+      : allArticles.filter(article => article.category_ne === category);
     renderArticles(filtered);
   });
 });
 
 
 /* =====================================
-   SEARCH
+   नेपाली समाचार खोज
 ===================================== */
 
 document.getElementById("searchForm").addEventListener("submit", event => {
   event.preventDefault();
-
-  const query = document.getElementById("searchInput")
-    .value.trim().toLowerCase();
-
+  const query = document.getElementById("searchInput").value.trim().toLowerCase();
   if (!query) {
     renderArticles(allArticles);
     return;
   }
-
-  const results = allArticles.filter(article => {
-    const text = [
-      article.title,
-      article.summary,
-      article.description,
-      article.category,
-      article.source
-    ].join(" ").toLowerCase();
-
-    return text.includes(query);
-  });
-
+  const results = allArticles.filter(article =>
+    [article.title_ne, article.summary_ne, article.category_ne, article.source]
+      .join(" ").toLowerCase().includes(query)
+  );
   renderArticles(results);
-
-  document.getElementById("latest").scrollIntoView({
-    behavior:"smooth"
-  });
+  document.getElementById("latest").scrollIntoView({behavior:"smooth"});
 });
 
 
