@@ -1688,66 +1688,6 @@ document.getElementById("searchForm").addEventListener("submit", event => {
 
 
 /* =====================================
-   CATEGORY FILTER
-===================================== */
-
-document.querySelectorAll(".category-chip").forEach(button => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll(".category-chip").forEach(item => {
-      item.classList.remove("active");
-    });
-
-    button.classList.add("active");
-
-    const category = button.dataset.category;
-
-    const filtered = category === "all"
-      ? allArticles
-      : allArticles.filter(article =>
-          safeText(article.category).toLowerCase() === category.toLowerCase()
-        );
-
-    renderArticles(filtered);
-  });
-});
-
-
-/* =====================================
-   SEARCH
-===================================== */
-
-document.getElementById("searchForm").addEventListener("submit", event => {
-  event.preventDefault();
-
-  const query = document.getElementById("searchInput")
-    .value.trim().toLowerCase();
-
-  if (!query) {
-    renderArticles(allArticles);
-    return;
-  }
-
-  const results = allArticles.filter(article => {
-    const text = [
-      article.title,
-      article.summary,
-      article.description,
-      article.category,
-      article.source
-    ].join(" ").toLowerCase();
-
-    return text.includes(query);
-  });
-
-  renderArticles(results);
-
-  document.getElementById("latest").scrollIntoView({
-    behavior:"smooth"
-  });
-});
-
-
-/* =====================================
    KNOWLEDGE QUIZ
 ===================================== */
 
