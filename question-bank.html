@@ -1,65 +1,135 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#101114">
-<meta name="description" content="Build NEB Class 11 and 12 exam question paper drafts with NovaFacts.">
-<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
-<title>Exam Question Generator | NovaFacts</title>
+<meta name="description" content="Class 11 English, Physics and Mathematics question bank and printable exam paper generator.">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Class 11 Question Generator | NovaFacts</title>
 <style>
-:root{--bg:#0c1018;--panel:rgba(24,29,40,.95);--panel2:#202838;--text:#f5f6fa;--muted:#aeb7c7;--line:rgba(255,255,255,.12);--gold:#e6b84c}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 75% 0%,#24334c 0,transparent 42%),var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}a{color:inherit;text-decoration:none}
-.top{height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 max(4%,calc((100% - 1120px)/2));border-bottom:1px solid var(--line);background:#0a0e16d9;backdrop-filter:blur(16px);position:sticky;top:0;z-index:5}
-.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900}.logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(140deg,#f4d47d,#b17b1d);display:grid;place-items:center;color:#17130a}.brand em{font-style:normal;color:var(--gold)}.back{border:1px solid var(--line);border-radius:22px;padding:9px 14px;color:var(--muted);font-size:13px}
-main{width:min(1040px,92%);margin:34px auto 70px}.hero{padding:32px;border:1px solid #e6b84c55;border-radius:20px;background:linear-gradient(115deg,#e6b84c24,#1c2739 55%,#181d28);box-shadow:0 18px 50px #0005}.tag{color:#f2d58c;font-size:11px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(28px,5vw,43px);margin:14px 0 10px}.hero h1 span{color:var(--gold)}.hero p{max-width:680px;color:#c4ccda;line-height:1.7;margin:0;font-size:14px}.pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}.pill{border:1px solid var(--line);border-radius:30px;padding:8px 12px;color:#e8edf5;font-size:12px;background:#ffffff09}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:20px;margin-top:22px}.card,.side-card{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:22px;box-shadow:0 12px 35px #0003}.card h2,.side-card h3{margin:0 0 7px;font-size:18px}.sub{margin:0 0 20px;color:var(--muted);font-size:13px;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field{display:flex;flex-direction:column;gap:8px;margin-bottom:15px}.field label{font-size:12px;font-weight:800;color:#dce2ed}.field select{width:100%;min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);color:var(--text);padding:0 12px;outline:none}.field select:focus{border-color:var(--gold);box-shadow:0 0 0 3px #e6b84c20}.field option{background:#202838;color:#fff}.actions{display:flex;flex-wrap:wrap;gap:10px}.btn{border:0;border-radius:10px;padding:12px 17px;font-weight:900;cursor:pointer}.primary{background:linear-gradient(110deg,#f3d27d,#d99c2b);color:#211707}.secondary{background:#ffffff0d;border:1px solid var(--line);color:var(--text)}.note{border:1px solid #e6b84c45;background:#e6b84c10;border-radius:12px;padding:13px;color:#e8d7ad;font-size:12px;line-height:1.6;margin-top:17px}.side-card{margin-bottom:15px}.side-card p,.side-card li{font-size:12px;color:var(--muted);line-height:1.7}.side-card ul{padding-left:18px;margin-bottom:0}
-#paper{display:none;margin-top:20px;background:#fff;color:#171717;border-radius:12px;padding:28px}#paper h2,#paper h3{text-align:center}#paper .paper-meta{display:flex;justify-content:space-between;gap:10px;border-block:1px solid #aaa;padding:10px 0;font-size:13px}#paper ol{line-height:1.9;padding-left:22px}#paper .paper-foot{border-top:1px solid #aaa;padding-top:12px;font-size:12px;text-align:center}footer{text-align:center;color:var(--muted);font-size:12px;padding:25px 10px;border-top:1px solid var(--line)}
-@media(max-width:780px){.layout{grid-template-columns:1fr}.top{padding:0 4%}.hero{padding:24px 19px}.card,.side-card{padding:18px}}@media(max-width:480px){.grid{grid-template-columns:1fr;gap:0}.hero h1{font-size:29px}.back{font-size:11px;padding:8px 10px}main{margin-top:18px}}
-@media print{body{background:#fff!important;color:#111!important}.top,.hero,.layout,.note,footer{display:none!important}main{width:100%;margin:0}#paper{display:block!important;box-shadow:none;border-radius:0;padding:0}}
-</style></head><body>
-<header class="top"><a class="brand" href="index.html"><span class="logo">N</span><span>Nova<em>Facts</em></span></a><a class="back" href="index.html">← Back to NovaFacts</a></header>
-<main><section class="hero"><div class="tag">✦ Premium Student Tool · NEB</div><h1>Exam <span>Question Generator</span></h1><p>Prepare an organized exam-paper draft for NEB Class 11 and 12. Choose your class, subject, marks and exam duration, then create a printable paper layout.</p><div class="pills"><span class="pill">NEB Class 11 & 12</span><span class="pill">Question Paper Builder</span><span class="pill">Print / Save PDF</span></div></section>
-<div class="layout"><section class="card"><h2>01 / Exam settings</h2><p class="sub">Select the details for your question paper.</p>
-<div class="grid"><div class="field"><label for="classLevel">Class / कक्षा</label><select id="classLevel"><option value="11">Class 11</option><option value="12">Class 12</option></select></div>
-<div class="field"><label for="subject">Subject / विषय</label><select id="subject"><option>English</option><option>Nepali</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>Mathematics</option><option>Social Studies and Life Skills</option><option>Accountancy</option><option>Economics</option><option>Business Studies</option><option>Computer Science</option></select></div>
-<div class="field"><label for="marks">Full Marks / पूर्णाङ्क</label><select id="marks"><option>25</option><option>50</option><option selected>75</option><option>100</option></select></div>
-<div class="field"><label for="duration">Time / समय</label><select id="duration"><option>1 hour</option><option>1 hour 30 minutes</option><option selected>2 hours</option><option>3 hours</option></select></div>
-<div class="field"><label for="questionType">Question format</label><select id="questionType"><option>Mixed (MCQ, Short and Long)</option><option>Multiple Choice Questions</option><option>Short Answer Questions</option><option>Long Answer Questions</option></select></div>
-<div class="field"><label for="language">Language / भाषा</label><select id="language"><option>English</option><option>नेपाली</option></select></div></div>
-<div class="actions"><button class="btn primary" id="generate">✦ Create Paper Draft</button><button class="btn secondary" id="print" type="button">↓ Print / Save PDF</button></div>
-<div class="note">महत्त्वपूर्ण: यो प्रारम्भिक Paper Builder हो। वास्तविक पाठ्यक्रमअनुसारका प्रमाणित प्रश्नहरूको बैंक र AI प्रश्न निर्माण सेवा अझै जडान गरिएको छैन। अहिले यसले परीक्षा विवरणसहित सम्पादन/प्रिन्ट गर्न मिल्ने नमुना ढाँचा तयार गर्छ।</div></section>
-<aside><section class="side-card"><h3>✦ कसरी प्रयोग गर्ने?</h3><ul><li>कक्षा र विषय छान्नुहोस्।</li><li>पूर्णाङ्क र समय निर्धारण गर्नुहोस्।</li><li>प्रश्नपत्रको प्रारूप तयार गर्नुहोस्।</li><li>प्रिन्ट वा PDF मा सुरक्षित गर्नुहोस्।</li></ul></section><section class="side-card"><h3>अर्को चरण</h3><p>NEB पाठ्यक्रमअनुसार प्रश्न बैंक, MCQ उत्तरकुञ्जी र सुरक्षित AI प्रश्न निर्माण सेवा चरणबद्ध रूपमा थप्न सकिन्छ।</p></section></aside></div>
-<section id="paper" aria-live="polite"><h2>NOVAfACTS · EXAM QUESTION PAPER</h2><h3 id="paperTitle">Class 11 · English</h3><div class="paper-meta"><span id="paperClass"></span><span id="paperMarks"></span><span id="paperTime"></span></div><p><strong>Instructions:</strong> Answer the questions according to the instructions. Figures in the margin indicate full marks.</p><ol id="questionList"></ol><div class="paper-foot">— End of Question Paper —<br>Prepared with NovaFacts Question Bank</div></section></main>
-<footer>© <span id="year"></span> NovaFacts · Student Learning Tools</footer>
+:root{color-scheme:dark;--bg:#101114;--panel:#191a1f;--panel2:#22242a;--text:#f5f5f5;--muted:#a6a8b0;--line:rgba(255,255,255,.13);--accent:#e6b84c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px Arial,Helvetica,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}
+header{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 max(4%,calc((100% - 1120px)/2));border-bottom:1px solid var(--line);background:#101114;position:sticky;top:0;z-index:4}.brand{font-size:20px;font-weight:800}.brand span{color:var(--accent)}.back{border:1px solid var(--line);padding:8px 13px;border-radius:20px;color:var(--muted);font-size:13px}
+main{width:min(1080px,92%);margin:30px auto 60px}.hero{padding:28px;border:1px solid var(--line);border-radius:17px;background:#191a1f}.eyebrow{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:1.4px}.hero h1{font-size:clamp(27px,5vw,40px);margin:9px 0}.hero p{color:var(--muted);margin:0;max-width:750px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:18px;margin-top:18px}.card,.side{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:21px}.card h2,.side h3{margin:0 0 5px}.muted{color:var(--muted);font-size:13px;margin:0 0 18px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:12px;font-weight:700;color:#d8d8dc}.field select{height:44px;border:1px solid var(--line);border-radius:9px;padding:0 10px;background:var(--panel2);color:var(--text);font-size:14px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.btn{border:1px solid var(--line);border-radius:9px;padding:11px 15px;font-weight:700;cursor:pointer;background:#25262c;color:var(--text)}.btn.primary{background:var(--accent);color:#17130a;border-color:var(--accent)}.btn:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.side{margin-bottom:14px}.side p,.side li{color:var(--muted);font-size:13px}.side ul{padding-left:18px}.notice{margin-top:15px;padding:12px;border-left:3px solid var(--accent);background:#e6b84c12;color:#d8d0bd;font-size:12px}
+#paper{display:none;margin-top:20px;padding:30px;background:#fff;color:#171717;border-radius:10px}#paper h2,#paper h3{text-align:center;margin:4px}#paper .meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;border-block:1px solid #aaa;padding:10px 0;margin:15px 0;font-size:13px}#paper .instructions{font-size:13px}#paper ol{padding-left:25px}#paper li{margin:0 0 13px;white-space:pre-line;break-inside:avoid}#paper .qmarks{font-weight:bold}#paper .end{text-align:center;border-top:1px solid #aaa;padding-top:12px;font-size:12px}
+footer{text-align:center;color:var(--muted);padding:20px;border-top:1px solid var(--line);font-size:12px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}header{padding:0 4%}.card,.side{padding:17px}}@media(max-width:460px){.fields{grid-template-columns:1fr}.hero{padding:21px}.back{font-size:11px}}
+@page{size:A4;margin:16mm}@media print{body{background:#fff!important;color:#111!important}header,.hero,.layout,footer{display:none!important}main{width:100%;margin:0}#paper{display:block!important;padding:0;border:0;border-radius:0}#paper li{font-size:11pt}}
+</style>
+</head>
+<body>
+<header><a class="brand" href="index.html">Nova<span>Facts</span></a><a class="back" href="index.html">← Back to website</a></header>
+<main>
+<section class="hero"><div class="eyebrow">NEB · CLASS 11 · STUDENT TOOL</div><h1>Question Bank & Paper Generator</h1><p>English, Physics र Mathematics का अभ्यास प्रश्न छान्नुहोस्। ३०, ५०, ७५ वा १०० पूर्णाङ्क र १ वा २ घण्टाको नमुना प्रश्नपत्र बनाएर PDF मा सुरक्षित गर्न सकिन्छ।</p></section>
+<div class="layout">
+<section class="card">
+<h2>प्रश्नपत्र तयार गर्नुहोस्</h2><p class="muted">आफ्नो आवश्यकता अनुसार विषय, पूर्णाङ्क र समय छान्नुहोस्।</p>
+<div class="fields">
+<div class="field"><label for="subject">विषय / Subject</label><select id="subject"><option value="English">English</option><option value="Physics">Physics</option><option value="Mathematics">Mathematics</option></select></div>
+<div class="field"><label for="marks">पूर्णाङ्क / Full Marks</label><select id="marks"><option>30</option><option>50</option><option selected>75</option><option>100</option></select></div>
+<div class="field"><label for="duration">समय / Duration</label><select id="duration"><option value="1 hour">१ घण्टा</option><option value="2 hours" selected>२ घण्टा</option></select></div>
+<div class="field"><label for="mix">प्रश्नको प्रकार</label><select id="mix"><option value="mixed">सबै प्रकारका मिश्रित प्रश्न</option><option value="objective">वस्तुगत / छोटो प्रश्न बढी</option><option value="written">वर्णनात्मक प्रश्न बढी</option></select></div>
+</div>
+<div class="actions"><button class="btn primary" id="generate" type="button">✦ प्रश्नपत्र बनाउनुहोस्</button><button class="btn" id="print" type="button">↓ PDF मा सुरक्षित गर्नुहोस्</button><button class="btn" id="reset" type="button">Reset</button></div>
+<div class="notice">यी अभ्यासका लागि तयार गरिएका नमुना प्रश्न हुन्। विद्यालय वा NEB को आधिकारिक प्रश्नपत्र होइनन्। पाठ्यक्रम र शिक्षकको निर्देशनसँग मिलाएर अभ्यास गर्नुहोस्। PDF बनाउन “PDF मा सुरक्षित गर्नुहोस्” थिचेर Print dialog मा “Save as PDF” छान्नुहोस्।</div>
+</section>
+<aside>
+<section class="side"><h3>उपलब्ध विकल्प</h3><ul><li>कक्षा ११ — English</li><li>कक्षा ११ — Physics</li><li>कक्षा ११ — Mathematics</li><li>३०, ५०, ७५ र १०० पूर्णाङ्क</li><li>१ घण्टा र २ घण्टा</li><li>प्रश्नपत्र Print / Save PDF</li></ul></section>
+<section class="side"><h3>प्रयोग गर्ने तरिका</h3><ol><li>विषय र पूर्णाङ्क छान्नुहोस्।</li><li>समय र प्रश्नको प्रकार छान्नुहोस्।</li><li>प्रश्नपत्र बनाउनुहोस्।</li><li>PDF मा सुरक्षित गर्नुहोस्।</li></ol></section>
+</aside>
+</div>
+<section id="paper" aria-live="polite"><h2>NOVAFACTS</h2><h3 id="paperTitle">Class 11 · English</h3><div class="meta"><span id="metaSubject"></span><span id="metaMarks"></span><span id="metaTime"></span></div><p class="instructions"><strong>Instructions:</strong> सबै प्रश्नको उत्तर दिनुहोस्। प्रत्येक प्रश्नको अगाडि दिइएको अङ्कभार ध्यान दिनुहोस्। आवश्यक परे उपयुक्त चित्र, सूत्र र चरण देखाउनुहोस्।</p><ol id="questionList"></ol><p class="end">— प्रश्नपत्र समाप्त —<br>Prepared for practice · NovaFacts</p></section>
+</main>
+<footer>© <span id="year"></span> NovaFacts · Class 11 Learning Tools</footer>
 <script>
-const $=id=>document.getElementById(id);$("year").textContent=new Date().getFullYear();
-$("generate").addEventListener("click",()=>{
-const level=$("classLevel").value,subject=$("subject").value,marks=$("marks").value,duration=$("duration").value,lang=$("language").value,type=$("questionType").value;
-$("paperTitle").textContent="Class "+level+" · "+subject;
-$("paperClass").textContent="Class "+level+" | "+subject;
-$("paperMarks").textContent="Full Marks: "+marks;
-$("paperTime").textContent="Time: "+duration;
-const isGrade11English=level==="11" && subject==="English" && marks==="75" && duration==="3 hours";
-let questions=[];
-if(isGrade11English){
-questions=[
-"1. Read the following passage and do the tasks. [15]\\n\\nMany communities are learning that protecting the environment begins with ordinary choices. A school that separates waste, saves water and plants native trees can influence families beyond its classroom. These actions may appear small, but when students explain why they matter, neighbours often begin to take part.\\n\\nIn one hill village, students noticed that plastic wrappers were collecting beside a stream. They discussed the problem with teachers and local residents, then placed labelled bins near the school and organised an awareness programme. The group also asked shopkeepers to reduce unnecessary packaging. After several weeks, the stream bank became cleaner. The students understood that lasting change requires cooperation, patience and regular effort.\\n\\nA. Choose the best answer. (5×1=5)\\n a. What is the main idea of the passage?\\n   i. School competitions  ii. Community action for the environment  iii. Village tourism  iv. Modern transport\\n b. Where did students find wrappers?\\n   i. Near a stream  ii. In a library  iii. On a mountain peak  iv. At a bus park\\n c. Whom did students discuss the problem with?\\n   i. Only shopkeepers  ii. Teachers and residents  iii. Tourists  iv. Drivers\\n d. What did the group place near the school?\\n   i. Benches  ii. Labelled bins  iii. Posters for sale  iv. Water tanks\\n e. Which quality is needed for lasting change?\\n   i. Patience  ii. Competition  iii. Silence  iv. Luck\\n\\nB. Write TRUE or FALSE. (5×1=5)\\n a. Small school actions can influence families.\\n b. Students ignored the waste near the stream.\\n c. The bins were labelled.\\n d. Shopkeepers were asked to increase packaging.\\n e. Cooperation helps create lasting change.\\n\\nC. Answer briefly. (5×1=5)\\n a. Mention two actions a school can take to protect the environment.\\n b. What problem did the students notice?\\n c. Why did they organise an awareness programme?\\n d. What change was seen after several weeks?\\n e. What lesson did the students learn?",
-"2. Answer the following questions in about 50–75 words each. (5×2=10)\\n a. Describe the central idea or message of a short story you have studied.\\n b. How does the main character respond to a difficult situation in a prescribed text?\\n c. Explain how the setting contributes to the meaning of a story or poem you have studied.\\n d. Identify one conflict in a prescribed literary text and explain how it develops.\\n e. What lesson or feeling does a poem from your course communicate?",
-"3. Answer the following questions in about 150 words each. (2×5=10)\\n a. Discuss how a character changes from the beginning to the end of a story you have studied. Support your answer with relevant events.\\n b. Explain the major theme of a poem or story from your textbook and show how the writer communicates it.",
-"4. Guided writing. Write a well-organised paragraph of about 150 words using the clues below. [7]\\n\\nThe value of reading\\n\\nknowledge — vocabulary — imagination — critical thinking — confidence — choosing good books — regular habit — conclusion",
-"5. Functional writing. Write a formal application to the Principal of your school requesting permission to organise an English-speaking club. Include the purpose, proposed activities and benefits for students. Use an appropriate format. [8]",
-"6. Free writing. Write an essay of about 250 words on “The Role of Technology in Education”. Include both benefits and challenges, give relevant examples and end with your own conclusion. [10]",
-"7. Rewrite or complete the following sentences as instructed. (10×1=10)\\n a. She ______ (study) English every evening. (Use the correct form of the verb.)\\n b. They have completed the project. (Change into passive voice.)\\n c. He said, “I am busy.” (Change into indirect speech.)\\n d. If I ______ (have) more time, I would read another book. (Use the correct verb form.)\\n e. The boy ______ won the prize is my friend. (Use a suitable relative pronoun.)\\n f. She is good ______ mathematics. (Use a suitable preposition.)\\n g. I saw ______ elephant at the zoo. (Use a suitable article.)\\n h. Neither the teacher nor the students ______ absent today. (Choose the correct verb: is/are.)\\n i. They are coming tomorrow, ______? (Add a question tag.)\\n j. He is too weak to walk. (Rewrite using “so…that”.)",
-"8. Answer the following vocabulary questions. (5×1=5)\\n a. Write a synonym of “cooperation”.\\n b. Write an antonym of “regular”.\\n c. What does “native” mean in the passage in Question 1?\\n d. Use “influence” in a meaningful sentence.\\n e. Write one word that means “the protection of the natural world”."
-];
-}else{
-const prompts=lang==="नेपाली"?["सबै प्रश्न ध्यानपूर्वक पढ्नुहोस् र उपयुक्त उत्तर लेख्नुहोस्।","पाठ्यवस्तुका मुख्य अवधारणाहरू उदाहरणसहित स्पष्ट पार्नुहोस्।","दिइएको विषयमा छोटो टिप्पणी लेख्नुहोस्।","आफ्नो उत्तरलाई तर्क र उपयुक्त उदाहरणले समर्थन गर्नुहोस्।","पाठको सारांश लेख्नुहोस् र मुख्य बुँदाहरू उल्लेख गर्नुहोस्।"]:["Read the questions carefully and answer in your own words.","Explain the key concepts of the selected subject with suitable examples.","Write short notes on relevant topics from your course.","Support your answers with clear reasoning and appropriate examples.","Summarize the main ideas and explain their importance."];
-const count=type.includes("Multiple")?10:type.includes("Short")?8:type.includes("Long")?5:12;
-for(let i=0;i<count;i++)questions.push((i+1)+". "+prompts[i%prompts.length]);
+const $=id=>document.getElementById(id);
+$("year").textContent=new Date().getFullYear();
+const bank={
+English:[
+{m:5,t:"Read a short passage about the importance of education and answer five comprehension questions based on its main idea, details, vocabulary and inference."},
+{m:5,t:"Write a paragraph of about 150 words on “The Value of Time”. Organise your ideas with a topic sentence, supporting details and a conclusion."},
+{m:5,t:"Write a formal letter to your school principal requesting permission to organise an English-speaking programme. Use an appropriate format."},
+{m:5,t:"Rewrite five sentences using the correct tense, voice, reported speech, articles and prepositions."},
+{m:5,t:"Answer briefly: identify the central theme, setting and one important character from a story prescribed in your course."},
+{m:10,t:"Write an essay of about 250 words on “Technology in Education”. Discuss benefits, challenges and your conclusion."},
+{m:10,t:"Read an unseen passage and answer questions on comprehension, true/false statements, word meanings and short explanations."},
+{m:10,t:"Write a news report about an educational event held at your school. Include a headline, place, date and key details."},
+{m:10,t:"Explain the theme and message of a poem you have studied. Support your answer with relevant ideas from the text."},
+{m:15,t:"Attempt a literature question: discuss how the main character changes during a prescribed story and explain the causes of that change."},
+{m:15,t:"Write an article for your school magazine on environmental conservation, using examples and a clear introduction and conclusion."},
+{m:20,t:"Answer a set of reading and writing tasks: comprehension, vocabulary in context, a formal email and an argumentative essay."}
+],
+Physics:[
+{m:2,t:"Define physical quantity and distinguish between fundamental and derived quantities with one example each."},
+{m:2,t:"State the principle of dimensional homogeneity."},
+{m:2,t:"What is the difference between distance and displacement?"},
+{m:3,t:"A body starts from rest and accelerates uniformly at 2 m/s² for 5 s. Find its final velocity and displacement."},
+{m:3,t:"State Newton’s three laws of motion and give one everyday example of any one law."},
+{m:3,t:"Define work, energy and power. Write their SI units."},
+{m:5,t:"Derive the relation between linear velocity and angular velocity for a body moving in a circle."},
+{m:5,t:"Explain conservation of mechanical energy for a freely falling body, neglecting air resistance."},
+{m:5,t:"A 2 kg object moves at 6 m/s. Calculate its kinetic energy and explain the formula used."},
+{m:5,t:"State the laws of reflection and explain image formation by a plane mirror."},
+{m:5,t:"Explain the first law of thermodynamics and describe the meaning of each term in its equation."},
+{m:10,t:"Derive the equations of motion for uniformly accelerated straight-line motion using a velocity-time graph."},
+{m:10,t:"Explain simple harmonic motion. Obtain the expression for the time period of a simple pendulum for small oscillations."},
+{m:10,t:"Describe the working principle of a hydraulic press and explain it using Pascal’s law."},
+{m:10,t:"Explain Ohm’s law. Describe an experiment to determine the resistance of a wire and draw a labelled circuit diagram."},
+{m:15,t:"Discuss projectile motion and derive expressions for time of flight, maximum height and horizontal range."},
+{m:15,t:"Explain the kinetic theory of gases and derive the relation between pressure and mean square speed."},
+{m:20,t:"Answer a structured problem on mechanics involving free-body diagrams, Newton’s laws, friction and conservation of energy. Show all calculations and units."}
+],
+Mathematics:[
+{m:2,t:"Find the domain of the function f(x) = 1/(x − 3)."},
+{m:2,t:"If A = {1, 2, 3} and B = {2, 3, 4}, find A ∩ B and A ∪ B."},
+{m:2,t:"Evaluate sin 30° + cos 60°."},
+{m:3,t:"Solve the quadratic equation x² − 5x + 6 = 0 by factorisation."},
+{m:3,t:"Find the equation of a straight line with slope 2 passing through (1, 3)."},
+{m:3,t:"Differentiate y = 3x² − 4x + 7 with respect to x."},
+{m:5,t:"Prove the trigonometric identity (1 − cos 2x)/sin 2x = tan x, where defined."},
+{m:5,t:"Find the inverse of the matrix [[2, 1], [5, 3]], if it exists."},
+{m:5,t:"Find the equation of a circle with centre (2, −1) and radius 3."},
+{m:5,t:"Evaluate the limit as x approaches 2 of (x² − 4)/(x − 2)."},
+{m:5,t:"Find the mean and standard deviation of the data set 2, 4, 4, 6, 9."},
+{m:10,t:"Using mathematical induction, prove that 1 + 2 + ... + n = n(n + 1)/2 for every positive integer n."},
+{m:10,t:"Find the maximum and minimum values of f(x) = x³ − 3x² + 2 using differentiation, and identify the stationary points."},
+{m:10,t:"Solve a pair of simultaneous linear equations using matrices and verify the solution."},
+{m:10,t:"Derive the formula for the sum of the first n terms of an arithmetic progression and solve a related numerical problem."},
+{m:15,t:"Discuss the properties of a parabola and find its equation, focus and directrix for a standard form."},
+{m:15,t:"Evaluate a definite integral using suitable methods and interpret the result as an area under a curve."},
+{m:20,t:"Solve a mixed problem involving differentiation, stationary points, increasing/decreasing intervals and a sketch of the curve. Show each step clearly."}
+]};
+function makePaper(){
+ const subject=$("subject").value,full=Number($("marks").value),duration=$("duration").value,mode=$("mix").value;
+ const source=bank[subject].slice().sort(()=>Math.random()-.5);
+ let selected=[],sum=0;
+ const preferred=mode==="objective"?[2,3,5]:mode==="written"?[5,10,15,20]:[2,3,5,10,15,20];
+ for(const mark of preferred){
+  for(const q of source){
+   if(q.m===mark&&!selected.includes(q)&&sum+q.m<=full){selected.push(q);sum+=q.m;break;}
+  }
+ }
+ for(const q of source){
+  if(sum>=full)break;
+  if(!selected.includes(q)&&sum+q.m<=full){selected.push(q);sum+=q.m;}
+ }
+ selected.sort(()=>Math.random()-.5);
+ $("paperTitle").textContent="Class 11 · "+subject;
+ $("metaSubject").textContent="Subject: "+subject;
+ $("metaMarks").textContent="Full Marks: "+full;
+ $("metaTime").textContent="Time: "+duration;
+ const list=$("questionList");list.replaceChildren();
+ selected.forEach((q,i)=>{const li=document.createElement("li");const text=document.createElement("span");text.textContent=q.t;const mark=document.createElement("span");mark.className="qmarks";mark.textContent=" ["+q.m+"]";li.append(text,mark);list.append(li);});
+ if(sum<full){const li=document.createElement("li");li.textContent="अतिरिक्त अभ्यास: आफ्नो पाठ्यपुस्तकबाट बाँकी "+(full-sum)+" अङ्क बराबरका प्रश्न अभ्यास गर्नुहोस्।";list.append(li);}
+ $("paper").style.display="block";
+ $("paper").scrollIntoView({behavior:"smooth",block:"start"});
 }
-$("questionList").innerHTML="";
-questions.forEach(q=>{const li=document.createElement("li");li.style.whiteSpace="pre-line";li.textContent=q;$("questionList").appendChild(li);});
-$("paper").style.display="block";
-$("paper").scrollIntoView({behavior:"smooth",block:"start"});
-});
-$("print").addEventListener("click",()=>{if($("paper").style.display!=="block"){$("generate").click();setTimeout(()=>window.print(),150);}else window.print();});
-</script></body></html>
+$("generate").addEventListener("click",makePaper);
+$("print").addEventListener("click",()=>{if($("paper").style.display!=="block")makePaper();window.setTimeout(()=>window.print(),100);});
+$("reset").addEventListener("click",()=>{$("subject").value="English";$("marks").value="75";$("duration").value="2 hours";$("mix").value="mixed";$("paper").style.display="none";});
+</script>
+</body>
+</html>
