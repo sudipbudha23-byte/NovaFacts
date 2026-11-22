@@ -1,896 +1,646 @@
 {
-  "updated_at": "2026-11-17T11:35:30.793788+00:00",
+  "updated_at": "2026-11-22",
   "article_count": 80,
-  "nepali_count": 2,
-  "english_count": 78,
-  "news_stats": {
-    "total": 80,
-    "english_articles": 78,
-    "nepali_articles": 2,
-    "nepali_titles": 2,
-    "nepali_summaries": 2
-  },
   "articles": [
     {
-      "title": "Japan space probe changes target over engine trouble",
-      "summary": "A Japanese probe that returned precious asteroid dust to Earth six years ago has changed course in its extended mission, officials said Tuesday, citing issues in its aging engines.",
-      "url": "https://phys.org/news/2026-11-japan-space-probe.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-11-17T10:38:13+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Humpback whale snot unlocks whole-genome sequencing without invasive sampling",
-      "summary": "New research from the University of St Andrews, in collaboration with the University of Copenhagen, the North Coast Cetacean Society and Fisheries and Oceans Canada, has sequenced a whole whale genome using samples of \"whale snot\" collected by small drones off the coast of British Columbia—a world first.",
-      "url": "https://phys.org/news/2026-11-humpback-whale-snot-genome-sequencing.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-11-17T10:00:05+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "APOD: 2026 November 17 – Milky Way versus Aurora",
-      "summary": "APOD Science APOD APOD: 2026 November 17 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. OriginalAnnotated Milky Way […]",
-      "url": "https://science.nasa.gov/image-article/apod-2026-november-17-milky-way-versus-aurora/",
+      "title_ne": "जुनो यानले बृहस्पतिका रंगीन घुमाउरा बादल कैद गर्‍यो",
+      "summary_ne": "नासाको जुनो अन्तरिक्षयानले बृहस्पतिको वायुमण्डलमा देखिने घुमाउरा बादल र विभिन्न रङका संरचना कैद गरेको छ। यस्ता तस्बिरले विशाल ग्रहको मौसम र वायुमण्डलीय गतिविधि अध्ययन गर्न वैज्ञानिकलाई सहयोग गर्छन्।",
+      "url": "https://science.nasa.gov/image-article/apod-2026-november-22-swirls-and-colors-on-jupiter-from-juno/",
       "source": "NASA",
-      "category": "Space",
-      "published": "2026-11-17T05:05:00+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-22T05:05:00+00:00"
     },
     {
-      "title": "Tossing Fireworks from Cloud to Cloud",
-      "summary": "For many astronauts, the spectacular sight of lightning stands out when looking back at Earth from the International Space Station.",
-      "url": "https://science.nasa.gov/earth/earth-observatory/tossing-fireworks-from-cloud-to-cloud/",
+      "title_ne": "एउटा प्वाँखबाटै पूर्वी कालो रेल चरा कहाँ बस्छ वा बसाइँ सर्छ भन्ने पत्ता लाग्न सक्छ",
+      "summary_ne": "अनुसन्धानकर्ताहरूले पूर्वी कालो रेल नामक दुर्लभ चराको प्वाँखबाट त्यसको बसाइँसराइबारे जानकारी पाउन सकिने सम्भावना अध्ययन गरिरहेका छन्। प्वाँखको विश्लेषणले चरा टेक्सासमै बस्छ कि उत्तरतर्फ सर्छ भन्ने बुझ्न मद्दत गर्न सक्छ।",
+      "url": "https://phys.org/news/2026-11-feathers-reveal-eastern-black-rails.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-22T01:00:01+00:00"
+    },
+    {
+      "title_ne": "लामो दूरीसम्म उड्ने चराहरूले वैज्ञानिकलाई अझै चकित पार्दै",
+      "summary_ne": "हिस्पानिओलामा पाइने लोप भइसकेको चराको अध्ययनबाट सुरु भएको अनुसन्धानले लामो दूरी बसाइँसराइ गर्ने चराहरूबारे नयाँ प्रश्न उठाएको छ। वैज्ञानिकहरूले चराहरूको यात्रा क्षमता र विकासक्रमबारे थप प्रमाण खोजिरहेका छन्।",
+      "url": "https://phys.org/news/2026-11-avian-champions-distance-migration-scientists.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-21T22:00:01+00:00"
+    },
+    {
+      "title_ne": "बारम्बार मोड्दा कमजोर होइन, झन् बलियो बन्दै चिनीबाट बनेको जेल",
+      "summary_ne": "धेरै सामग्री पटकपटक प्रयोग गर्दा कमजोर हुन्छन्। तर वासिङ्टन विश्वविद्यालयका अनुसन्धानकर्ता चेनफेङ के नेतृत्वको टोलीले बारम्बार मोड्दा झन् बलियो हुने चिनीमा आधारित बहुलक पदार्थ विकास गरेको जनाएको छ।",
+      "url": "https://phys.org/news/2026-11-sugar-based-hydrogel.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-21T20:00:05+00:00"
+    },
+    {
+      "title_ne": "विश्वविद्यालयको उपाधि अनिवार्य नराख्दा उपाधि नभएका कर्मचारीको तलब बढ्न सक्ने",
+      "summary_ne": "रोजगारीमा विश्वविद्यालयको उपाधि अनिवार्य राख्दा सीप र अनुभव भएका तर उपाधि नभएका मानिस अवसरबाट वञ्चित हुन सक्छन्। उपाधिको अनिवार्यता हटाउँदा यस्ता कामदारले राम्रो अवसर र तलब पाउन सक्ने अध्ययनले देखाएको छ।",
+      "url": "https://phys.org/news/2026-11-degree-requirements-linked-higher-pay.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-21T18:20:01+00:00"
+    },
+    {
+      "title_ne": "प्राचीन ग्रिसको उपनिवेशमा शिशुलाई तीन महिनामै ठोस खाना, तर चार वर्षसम्म स्तनपान",
+      "summary_ne": "प्राचीन ग्रिसको हिमेरा बस्तीमा रहेका शिशुहरूले करिब तीन महिनामै ठोस खाना सुरु गरेको, तर लामो समयसम्म स्तनपान जारी राखेको रासायनिक प्रमाणले सङ्केत गर्छ। त्यहाँका फरक समुदायमा पनि यस्तो चलन समान रहेको देखिन्छ।",
+      "url": "https://phys.org/news/2026-11-babies-ancient-greek-colony-solid.html",
+      "source": "Phys.org",
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-21T15:40:02+00:00"
+    },
+    {
+      "title_ne": "कृत्रिम बुद्धिमत्ता मानव मस्तिष्कजस्तै काम नगर्न सक्ने वैज्ञानिकको नयाँ खोज",
+      "summary_ne": "नयाँ अनुसन्धानअनुसार मस्तिष्कको गतिविधि अनुमान गर्न सक्ने कृत्रिम बुद्धिमत्ता प्रणालीले मानव मस्तिष्कले प्रयोग नगर्ने आन्तरिक प्रक्रिया अपनाउन सक्छन्। यसले मस्तिष्क अध्ययनमा यस्ता प्रणालीको नतिजा कसरी बुझ्ने भन्ने प्रश्न उठाएको छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261120075701.htm",
+      "source": "ScienceDaily",
+      "category_ne": "कृत्रिम बुद्धिमत्ता",
+      "published": "2026-11-21T15:24:58+00:00"
+    },
+    {
+      "title_ne": "समयको अनौठो व्यवहार जाँच्ने नयाँ उपाय वैज्ञानिकले प्रस्ताव गरे",
+      "summary_ne": "वैज्ञानिकहरूले एउटै समयमा समयका फरक प्रवाह अनुभव गर्ने घडीजस्तो क्वान्टम प्रभाव पत्ता लगाउन अति संवेदनशील परमाणु घडी प्रयोग गर्ने प्रस्ताव गरेका छन्। सफल भए यसले समय र गुरुत्वाकर्षणबारे बुझाइ बदल्न सक्छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261120075558.htm",
+      "source": "ScienceDaily",
+      "category_ne": "भौतिकशास्त्र",
+      "published": "2026-11-21T15:09:46+00:00"
+    },
+    {
+      "title_ne": "एउटा विशाल ताराले अर्को तारालाई निल्यो: जेम्स वेबले देखायो त्यसपछिको दृश्य",
+      "summary_ne": "एन्ड्रोमेडा आकाशगङ्गामा एउटा सानो तारा विशाल तारातर्फ घुम्दै गएर त्यसमा मिसिएको घटनाको अध्ययन गरिएको छ। जेम्स वेब अन्तरिक्ष दूरबिनले घटनाको ४७ दिनपछि बनेको दृश्य खिचेर दुई तारा कसरी एउटामा मिल्छन् भन्नेबारे नयाँ जानकारी दिएको छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261120075556.htm",
+      "source": "ScienceDaily",
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-21T14:53:40+00:00"
+    },
+    {
+      "title_ne": "वेस्टमिन्स्टर एबेमा भेटिएको रोमन कफिनको १५० वर्ष पुरानो रहस्य खुल्न सक्ने",
+      "summary_ne": "वेस्टमिन्स्टर एबेमा रोमन ढुङ्गे कफिनभित्र भेटिएका मानव अवशेषको पहिचान १५० वर्षभन्दा बढी समयदेखि रहस्य बनेको छ। नयाँ मिति निर्धारणले ती अवशेष मध्ययुगका उच्च पदस्थ धर्मगुरुका हुन सक्ने देखाएको छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261119194553.htm",
+      "source": "ScienceDaily",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-21T14:25:39+00:00"
+    },
+    {
+      "title_ne": "विकासक्रमबारे ५० वर्ष पुरानो सिद्धान्त गलत हुन सक्ने नयाँ अध्ययन",
+      "summary_ne": "ब्याक्टेरिया र यीस्टमा भएका वंशाणुगत परिवर्तनको ठूलो विश्लेषणले अत्यावश्यक जीनमा अरू जीनभन्दा कम परिवर्तन हुन्छ भन्ने पुरानो सिद्धान्तलाई समर्थन गरेन। पहिलेका अध्ययनमा प्राकृतिक छनोटका कारण हानिकारक परिवर्तन हराइसकेको हुन सक्ने अनुसन्धानकर्ताको भनाइ छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261119194538.htm",
+      "source": "ScienceDaily",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-21T14:06:15+00:00"
+    },
+    {
+      "title_ne": "अफ्रिकाको पुरानो भूभागभित्र निष्क्रिय ठानिएको चिरा फेरि सक्रिय हुँदै",
+      "summary_ne": "सन् २०१७ मा बोत्सवानाको कालाहारी भूभागमा ६.५ म्याग्निच्युडको भूकम्प गएको थियो। महादेशका अर्बौँ वर्ष पुराना र बलिया चट्टान पनि समयसँगै चिरिन वा छुट्टिन सक्छन् भन्ने सम्भावनाबारे यसले भूगर्भविद्लाई पुनर्विचार गर्न प्रेरित गरेको छ।",
+      "url": "https://phys.org/news/2026-11-ancient-rift-reawakening-africa-oldest.html",
+      "source": "Phys.org",
+      "category_ne": "पृथ्वी तथा वातावरण",
+      "published": "2026-11-21T14:00:06+00:00"
+    },
+    {
+      "title_ne": "विज्ञान वास्तवमा के हो भन्ने विषयमा वैज्ञानिकहरूबीच नै मतभेद",
+      "summary_ne": "नयाँ अध्ययनले विज्ञानको अर्थबारे वैज्ञानिकहरूकै धारणा सर्वसाधारणको भन्दा बढी फरक हुन सक्ने देखाएको छ। विज्ञानमा अनिश्चितता किन हुन्छ र कृत्रिम बुद्धिमत्ताले भविष्यको खोजलाई कसरी बदल्न सक्छ भन्ने विषयमा यसले बहस उठाएको छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261119194541.htm",
+      "source": "ScienceDaily",
+      "category_ne": "कृत्रिम बुद्धिमत्ता",
+      "published": "2026-11-21T13:55:11+00:00"
+    },
+    {
+      "title_ne": "मानव पुर्खाको वंशवृक्ष नयाँ ढङ्गले वर्गीकरण गर्नुपर्ने हुन सक्ने",
+      "summary_ne": "मोनाश विश्वविद्यालयको अनुसन्धानले मानवका प्राचीन पुर्खा मानिएका केही प्रजातिलाई पहिलेभन्दा फरक समूहमा राख्नुपर्ने तर्क गरेको छ। नयाँ जीवाश्म र विकासक्रमको विश्लेषणले मानव वंशवृक्षको परम्परागत वर्गीकरण पुनर्विचार गर्नुपर्ने देखाएको छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118074039.htm",
+      "source": "ScienceDaily",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-21T13:44:55+00:00"
+    },
+    {
+      "title_ne": "फर्मीको १४ वर्षको आकाश नक्साले गामा किरणको अध्ययनमा रहेको खाली ठाउँ घटायो",
+      "summary_ne": "फर्मी अन्तरिक्ष दूरबिनको १४ वर्षको तथ्याङ्कबाट २० देखि २०० मेगाइलेक्ट्रोनभोल्ट ऊर्जा भएका ४५० गामा किरण स्रोत पहिचान गरिएको छ। यसले खगोलविद्हरूलाई पहिले कठिन रहेको ऊर्जा क्षेत्रमा ब्रह्माण्ड हेर्न सहयोग पुर्‍याउँछ।",
+      "url": "https://phys.org/news/2026-11-fermi-year-sky-bridges-astronomy.html",
+      "source": "Phys.org",
+      "category_ne": "भौतिकशास्त्र",
+      "published": "2026-11-21T13:00:10+00:00"
+    },
+    {
+      "title_ne": "कक्षाकोठाका पर्दादेखि स्मार्ट चस्मासम्म: नर्वेले नयाँ प्रविधिबारे पुनर्विचार गर्दै",
+      "summary_ne": "नर्वेले विद्यालयमा डिजिटल उपकरणको प्रयोगबारे आफ्नो नीति पुनर्विचार गरिरहेको छ। केही वर्षअघि विद्यार्थीलाई ट्याब्लेटको सट्टा कागज र कलम प्रयोग गराएको भन्दै कारबाहीमा परेका शिक्षकको घटनापछि प्रविधि र परम्परागत सिकाइबीच सन्तुलनबारे बहस बढेको छ।",
+      "url": "https://phys.org/news/2026-11-screens-class-smart-glasses-norway.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-21T10:20:16+00:00"
+    },
+    {
+      "title_ne": "भारतको एक विद्यालय परिसरमा हरेक महिना अन्तरिक्ष अवलोकन कार्यक्रम हुने",
+      "summary_ne": "भारतको सिंगरौलीस्थित कन्या शिक्षा परिसरमा हरेक महिना अन्तरिक्ष अवलोकन कार्यक्रम सञ्चालन गर्ने समाचार प्रकाशित भएको छ। उपलब्ध स्रोतमा विस्तृत कार्यक्रम र मिति स्पष्ट नभएकाले थप विवरण मूल समाचारबाट हेर्न सकिन्छ।",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPXzlSMUZXU1N6czJGZHVvaUtoTEZ2SFQwaEVETmtMd2FVNzVNYVMyRjhZZHhzYUU0WXRSeVh6b2hoYXlkLTc1OW5MbTNaZHhYSGhxX0pza1poSTFabzRJaU10SU1nV0hRNFVvby1zMjVXMnI1clE0Sko3U2stdHVFcG5HZGJFWWdXeU9BdHpiX2JTeTZ2NlZpd3E1X29fMHhyQnJhVTZBOHVzQ1BNN0R6ODhxeVZrLW8tZ3ROUzhfQlBhU0NqSDE2Y3dB?oc=5",
+      "source": "नेपाली विज्ञान समाचार",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-21T06:01:00+00:00"
+    },
+    {
+      "title_ne": "भ्वाएजरले खिचेको वरुण ग्रहको दृश्य",
+      "summary_ne": "नासाको भ्वाएजर अभियानले खिचेको वरुण ग्रहको तस्बिरले बाहिरी सौर्यमण्डलको अध्ययनमा योगदान पुर्‍याएको छ। यस्तो अवलोकनले ग्रहको वायुमण्डल र संरचनाबारे वैज्ञानिक जानकारी दिन्छ।",
+      "url": "https://science.nasa.gov/image-article/apod-2026-november-21-voyagers-neptune/",
       "source": "NASA",
-      "category": "Earth",
-      "published": "2026-11-17T05:01:00+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-21T05:05:00+00:00"
     },
     {
-      "title": "The sun, Earth, Jupiter and white dwarfs: Potential traps for dark matter",
-      "summary": "Dark matter continues to evade direct detection. Its slower-moving particles might leave signals too faint for detectors to register, yet be more easily captured by planets and stars. As they accumulate inside these bodies, they could produce effects that existing instruments would allow us to search for.",
-      "url": "https://phys.org/news/2026-11-sun-earth-jupiter-white-dwarfs.html",
+      "title_ne": "महादेशमुनिको गहिरो चट्टान किन छुट्टिएर पृथ्वीभित्र डुब्छ?",
+      "summary_ne": "केही पर्वतमाला र ज्वालामुखी क्षेत्रमुनि पृथ्वीको बाहिरी तहको बाक्लो चट्टान अस्थिर भएर छुट्टिन र म्यान्टलतर्फ डुब्न सक्छ। भूकम्पीय तस्बिरहरूले एन्डिज र सिएरा नेभाडा क्षेत्रमा यस्तो प्रक्रिया भएको सङ्केत गरेका छन्।",
+      "url": "https://phys.org/news/2026-11-deep-beneath-continents.html",
       "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-11-17T05:00:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "पृथ्वी तथा वातावरण",
+      "published": "2026-11-21T04:20:01+00:00"
     },
     {
-      "title": "What makes food 'organic?' For many consumers, the answer isn't always on the label",
-      "summary": "\"Organic\" is a word we encounter every time we visit the supermarket. It's also one that can mean very different things to different people.",
-      "url": "https://phys.org/news/2026-11-food-consumers-isnt.html",
+      "title_ne": "स्ट्रबेरीको बोक्राको बल मापन गर्ने उपकरणले राम्रो जात विकासमा सघाउने",
+      "summary_ne": "अस्ट्रेलियाको क्विन्सल्यान्ड विश्वविद्यालयका विद्यार्थीले स्ट्रबेरीको बाहिरी छालाको बल मापन गर्ने उपकरणको नमुना बनाएका छन्। यसले ढुवानी र भण्डारणमा राम्रोसँग टिक्ने स्ट्रबेरीका जात छान्न प्रजनन कार्यक्रमलाई सहयोग गर्न सक्छ।",
+      "url": "https://phys.org/news/2026-11-device-strawberry-skin-strength-aid.html",
       "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-17T04:20:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "विज्ञान",
+      "published": "2026-11-21T03:40:01+00:00"
     },
     {
-      "title": "Report finds consistent pandemic learning loss and gaps between grades and test scores across Canada",
-      "summary": "A new national report identifies declines in student performance in every province and territory examined in Canada, with grade inflation obscuring the extent of setbacks during the COVID-19 pandemic.",
-      "url": "https://phys.org/news/2026-11-pandemic-loss-gaps-grades-scores.html",
+      "title_ne": "अणुबीचको अन्तरक्रियाको हिसाबमा क्वान्टम सफ्टवेयरले परम्परागत कम्प्युटरको नतिजा भेट्यो",
+      "summary_ne": "अणुहरू कसरी एकअर्कासँग अन्तरक्रिया गर्छन् भन्ने अनुमान औषधि विकासमा महत्त्वपूर्ण हुन्छ। नयाँ क्वान्टम सफ्टवेयरले एउटा अणुगत अन्तरक्रियाको नतिजा परम्परागत कम्प्युटरको मानकसँग मिलाएको छ, यद्यपि सबै समस्या समाधान भइसकेका छैनन्।",
+      "url": "https://phys.org/news/2026-11-quantum-software-classical-benchmark-molecular.html",
       "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-17T03:20:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "भौतिकशास्त्र",
+      "published": "2026-11-21T03:00:01+00:00"
     },
     {
-      "title": "Mourning Notcho: What one whale's death teaches us about ecological grief",
-      "summary": "Sighting a humpback whale from a boat can be awe-inspiring. For some BC Ferries passengers, that experience became disturbing when their ferry struck and fatally injured a humpback whale on Oct. 18.",
-      "url": "https://phys.org/news/2026-11-notcho-whale-death-ecological-grief.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-17T03:00:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "How enhanced rock weathering can speed up carbon capture",
-      "summary": "Water flooded the pasture, spilling from an irrigation pipe tucked alongside a hill at the Sierra Foothill Research and Extension Center, a University of California research facility located about 20 miles (32 kilometers) east of Yuba City. For more than three hours, starting at 6 a.m. this summer day, the water had seeped into the soils beneath the yellow-green grass, spreading to various depths while flowing downslope toward its destination.",
-      "url": "https://phys.org/news/2026-11-weathering-carbon-capture.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-11-17T02:20:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Could your personality be affecting how you feel about social media?",
-      "summary": "Social media offers everyone the same basic promise: post something about yourself and get responses from other people. Whether it's a vacation, a promotion or just a midweek meal, these days many people's lives are shared online.",
-      "url": "https://phys.org/news/2026-11-personality-affecting-social-media.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-17T02:00:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Baby, she's back: SpaceX catches a Starship from orbit for first time",
-      "summary": "SpaceX brought back its Starship rocket's second stage today for a first-ever midair capture at its launch pad, capping a record-setting orbital flight test.",
-      "url": "https://phys.org/news/2026-11-baby-spacex-starship-orbit.html",
-      "source": "Phys.org",
-      "category": "Space",
-      "published": "2026-11-17T01:40:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Flat optics roadmap charts path toward smaller imaging and sensing systems",
-      "summary": "For centuries, optical systems have relied on lenses, mirrors and other components that manipulate light through their shape and size. Today, advances in nanotechnology are enabling a different approach. Researchers can now engineer materials at scales smaller than the wavelength of light, creating ultrathin optical components that offer new ways to control how light behaves.",
-      "url": "https://phys.org/news/2026-11-flat-optics-roadmap-path-smaller.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-17T01:20:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Early black holes may have grown through productive chaos",
-      "summary": "When the universe was less than 700 million years old, the supermassive black hole powering a quasar called J0313-1806 had already grown to about 3 billion times the mass of the sun. It is one of the most extreme examples of a puzzle that has occupied astrophysicists for two decades: How did supermassive black holes grow so big so quickly?",
-      "url": "https://phys.org/news/2026-11-early-black-holes-grown-productive.html",
-      "source": "Phys.org",
-      "category": "Space",
-      "published": "2026-11-17T01:00:05+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "'Buffer spaces' may help resolve workplace concerns",
-      "summary": "Nearly every person will run into conflict in their workplace at some point in their career, but it can be difficult to know when or how to report these concerns.",
-      "url": "https://phys.org/news/2026-11-buffer-spaces-workplace.html",
-      "source": "Phys.org",
-      "category": "Space",
-      "published": "2026-11-17T01:00:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "AI could help speed up research ethics approvals",
-      "summary": "Artificial intelligence programs could be used to improve efficiency for professionals dealing with research ethics reviews, enabling humans to focus on the ethical decision-making.",
-      "url": "https://phys.org/news/2026-11-ai-ethics.html",
-      "source": "Phys.org",
-      "category": "AI",
-      "published": "2026-11-17T00:40:04+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Flip side: Upside-down atomic layers could steer heat in stacked computer chips",
-      "summary": "Stacking chips on top of one another could keep computers getting faster, but it creates a heating problem. Now, researchers from Japan have found that simply flipping atom-thin layers upside down could help steer that heat where it needs to go.",
-      "url": "https://phys.org/news/2026-11-flip-side-upside-atomic-layers.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-17T00:40:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "New analysis shows that even young children want to be seen as morally good",
-      "summary": "As early as 130,000 years ago, the first human societies were built on morality and cooperation within groups. The same is true today. Even young children exhibit a distinctly human desire to be seen as morally good. That is the conclusion of a new article by researchers at Leipzig University. Humboldt Research Fellow Dr. Leon Li and Junior Professor Dr. Sebastian Grüneisen are investigating the origins of human cooperation and social identity. Their paper, \"Evolutionary foundations of social identity,\" has just been published in the journal Philosophical Transactions of the Royal Society B: Biological Sciences.",
-      "url": "https://phys.org/news/2026-11-analysis-young-children-morally-good.html",
-      "source": "Phys.org",
-      "category": "Biology",
-      "published": "2026-11-17T00:20:05+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Tigers, zebras, quantum dots: Nanoparticles assemble into patterns",
-      "summary": "Forget about how the zebra got its stripes. For a group of Cornell engineers, an equally important question is: What drives the formation of such eye-catching patterns?",
-      "url": "https://phys.org/news/2026-11-tigers-zebras-quantum-dots-nanoparticles.html",
-      "source": "Phys.org",
-      "category": "Physics",
-      "published": "2026-11-17T00:20:02+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Capping nanovials that trap cells and their secretions for analysis enables new bioscience experiments",
-      "summary": "A UCLA-developed technology that is like a test tube but on the cellular scale has led to a number of biomedical discoveries in recent years, including revelations about cancer, heart disease and the genetic levers that push cells to release proteins.",
-      "url": "https://phys.org/news/2026-11-capping-nanovials-cells-secretions-analysis.html",
-      "source": "Phys.org",
-      "category": "Biology",
-      "published": "2026-11-17T00:00:08+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Researchers are testing whether agrivoltaics can help farmers adapt to hotter, drier conditions",
-      "summary": "Majdi Abou Najm stands in a tomato crop under the summer sun in UC Davis' agricultural research fields. A few hours after sunrise, the sun is beginning to feel less like warmth and more like a weight—the kind of heat that could scald tomatoes on the vine.",
-      "url": "https://phys.org/news/2026-11-agrivoltaics-farmers-hotter-drier-conditions.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-17T00:00:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Euclid's H-alpha observations map where stars form in distant galaxies",
-      "summary": "Euclid was launched into space in July 2023 to explore two of astronomy's biggest mysteries: dark matter and dark energy. The space telescope's first major data release covers some 1,900 square degrees of the sky, equivalent to around 14% of the area planned for the six-year mission and around 5% of the total sky. It is an unprecedented collection of visible and near-infrared observations.",
-      "url": "https://phys.org/news/2026-11-euclid-alpha-stars-distant-galaxies.html",
-      "source": "Phys.org",
-      "category": "Physics",
-      "published": "2026-11-16T23:40:07+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Long-term study reveals how humidity affects the durability of biodegradable thermoplastic polymers",
-      "summary": "As the demand for sustainable alternatives to conventional plastics continues to grow, biodegradable polymers such as poly(lactic acid) (PLA) are attracting increasing attention for applications ranging from packaging to consumer products.",
-      "url": "https://phys.org/news/2026-11-term-reveals-humidity-affects-durability.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-16T23:40:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Tiny switch harnesses four electrical states, moving beyond simple on-off control",
-      "summary": "From light switches to transistors, many kinds of switches have exactly two states: on or off, conducting or insulating, zero or one. Researchers at TU Wien are working with unusual materials that challenge some of the standard assumptions of materials physics. Using one of these materials, they have developed a tiny switch with four distinct states and several ways to move between them. This opens up new ways to process and store information. The study is published in the journal Communications Materials.",
-      "url": "https://phys.org/news/2026-11-tiny-harnesses-electrical-states-simple.html",
-      "source": "Phys.org",
-      "category": "Physics",
-      "published": "2026-11-16T23:20:06+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Turning biomass into renewable fuels and chemicals using microorganisms",
-      "summary": "Texas A&M University researchers have developed a process that converts biomass into renewable fuels and chemicals. Dr. Mark Holtzapple, professor in the Artie McFerrin Department of Chemical Engineering, aims to make producing these products more efficient and affordable by using microorganisms to break down plant material.",
-      "url": "https://phys.org/news/2026-11-biomass-renewable-fuels-chemicals-microorganisms.html",
-      "source": "Phys.org",
-      "category": "Biology",
-      "published": "2026-11-16T23:20:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Perseverance Update: The Ghostly Rocks of ‘Idubi’ — Bright Remnants of Aqueous Systems from Long Ago",
-      "summary": "Written by Candice Bedford, Research Scientist at Purdue University Date: Nov. 16, 2026 During the Perseverance rover’s investigation of “Idubi” — an area of ancient Martian crust exposed in the “Lac de Charmes” region, outside of Jezero crater — the Perseverance rover team has been captivated by a cluster of eerily bright, light-toned rocks in […]",
-      "url": "https://science.nasa.gov/blog/perseverance-update-the-ghostly-rocks-of-idubi-bright-remnants-of-aqueous-systems-from-long-ago/",
-      "source": "NASA",
-      "category": "Science",
-      "published": "2026-11-16T23:12:45+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "AI tool counts mosquito eggs in smartphone photos to aid surveillance",
-      "summary": "Your mission, should you choose to accept it: Track down and identify thousands of nearly microscopic mosquito eggs hiding in plain sight. Your only weapon? A smartphone armed with artificial intelligence.",
-      "url": "https://phys.org/news/2026-11-ai-tool-mosquito-eggs-smartphone.html",
-      "source": "Phys.org",
-      "category": "AI",
-      "published": "2026-11-16T23:00:06+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Sunspot dynamic fibrils linked to slow magnetoacoustic waves",
-      "summary": "Using high-resolution observations from the New Vacuum Solar Telescope (NVST), a research team from the Yunnan Observatories of the Chinese Academy of Sciences (CAS) has systematically studied the kinematic properties of dynamic fibrils around a sunspot and the mechanisms that drive them. The study was published in The Astrophysical Journal on Nov. 10.",
-      "url": "https://phys.org/news/2026-11-sunspot-dynamic-fibrils-linked-magnetoacoustic.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-16T23:00:02+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Ultracold diamond microwave laser amplifies quantum signals 1,000-fold",
-      "summary": "Researchers from the Okinawa Institute of Science and Technology (OIST) have created a spin-based microwave amplifier that operates near absolute zero, boosting signals by more than 1,000-fold while adding noise close to the bare minimum required by the laws of physics. As a more robust alternative to current state-of-the-art devices, the OIST device can handle much stronger signals and operate in magnetic fields, paving the way for practical quantum computing and higher-resolution sensing technologies.",
-      "url": "https://phys.org/news/2026-11-ultracold-diamond-microwave-laser-amplifies.html",
-      "source": "Phys.org",
-      "category": "Physics",
-      "published": "2026-11-16T22:40:10+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Why marine climate refugia matter for safeguarding the world's oceans",
-      "summary": "The ocean is changing rapidly. Warming, acidification, oxygen loss, sea-level rise and the intensification of extreme events are transforming marine ecosystems, leading to species shifts and mass mortality events. However, these impacts are not distributed evenly. There are areas that buffer these effects and act as true \"marine climate refugia.\"",
-      "url": "https://phys.org/news/2026-11-marine-climate-refugia-safeguarding-world.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-11-16T22:40:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Two gorillas form a 'living ladder' to reach high branches",
-      "summary": "Observations by a team of researchers from Tel Aviv University at the Ramat Gan Safari reveal recurring cooperation between two adult female gorillas, who assume complementary roles to solve a practical problem.",
-      "url": "https://phys.org/news/2026-11-gorillas-ladder-high.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-16T22:30:02+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "The expanding genetics of blue eyes in cats",
-      "summary": "Blue eyes in cats have long attracted attention, especially when they occur in cats with fully colored coats. The dominant blue eye (DBE) phenotype has become increasingly visible across several breeds. When we prepared our literature review, four independent DBE variants had been described in scientific publications. Today, eight variants are reported, although published genetic evidence is available for six. Some of these variants are also associated with health concerns.",
-      "url": "https://phys.org/news/2026-11-genetics-blue-eyes-cats.html",
-      "source": "Phys.org",
-      "category": "Biology",
-      "published": "2026-11-16T22:20:06+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Can AI replace college advisers? Research says not yet",
-      "summary": "Colleges use AI tools for academic advising, analyzing data to predict which students need additional help. But research from Princeton Engineering suggests that helping students requires judgment and expertise that go beyond the algorithm.",
-      "url": "https://phys.org/news/2026-11-ai-college.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-16T22:20:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "A Collage Showing 49 Drill Holes Made by NASA’s Curiosity Mars Rover",
-      "summary": "Description This collage shows 49 drill holes captured by NASA’s Curiosity Mars rover as of November 2026. Each hole represents a sample collected from rocks on the Martian surface; Curiosity’s drill, located on the end of its robotic arm, drops pulverized rock samples into instruments in its belly that analyze their composition. These images were […]",
-      "url": "https://science.nasa.gov/photojournal/a-collage-showing-49-drill-holes-made-by-nasas-curiosity-mars-rover/",
-      "source": "NASA",
-      "category": "AI",
-      "published": "2026-11-16T22:05:23+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "COP 31: Who qualifies for loss and damage funding? Why country borders are a poor guide",
-      "summary": "Developing countries hardest hit by climate change were promised a new source of support when governments agreed at the annual global climate change conference in 2022 (COP27) to create a Loss and Damage fund. This fund was intended to help them cope with losses ranging from destroyed homes and livelihoods to the loss of lives and cultural heritage.",
-      "url": "https://phys.org/news/2026-11-cop-loss-funding-country-borders.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-11-16T22:00:09+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "NASA Receives 16th Consecutive ‘Clean’ Financial Audit Opinion",
-      "summary": "For the 16th consecutive year, NASA has received an unmodified, or “clean,” opinion from an external auditor on its fiscal year 2026 financial statements. The rating is the best possible audit opinion, certifying that NASA’s financial statements conform with Generally Accepted Accounting Principles for federal agencies and accurately present the agency’s financial position. “Our responsibility […]",
-      "url": "https://www.nasa.gov/news-release/nasa-receives-16th-consecutive-clean-financial-audit-opinion/",
-      "source": "NASA",
-      "category": "Space",
-      "published": "2026-11-16T20:30:40+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Sentinel-6B in Orbit Around Earth",
-      "summary": "Description This artist’s concept shows the Sentinel-6B satellite, which will become the reference satellite for other missions studying sea surface height.",
-      "url": "https://science.nasa.gov/photojournal/sentinel-6b-in-orbit-around-earth/",
-      "source": "NASA",
-      "category": "Earth",
-      "published": "2026-11-16T18:52:32+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Thunderbirds in Formation",
-      "summary": "U.S. Air Force Thunderbirds fighter jets pass overhead during the agency’s MAX POWER expo and air show on Saturday, Nov. 7, 2026, at NASA’s Kennedy Space Center in Florida. NASA’s inaugural MAX POWER was an aerospace festival celebrating the past, present, and future of flight and space exploration in honor of America’s 250th anniversary. Image […]",
-      "url": "https://www.nasa.gov/image-article/thunderbirds-in-formation/",
-      "source": "NASA",
-      "category": "Space",
-      "published": "2026-11-16T18:34:47+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Class 12th Physics Ardhvarshik Pariksha Paper 2026-27🔥 | Mp Board | imp Objective Question Answer - YouTube",
-      "summary": "Class 12th Physics Ardhvarshik Pariksha Paper 2026-27🔥 | Mp Board | imp Objective Question Answer YouTube",
-      "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE5mLUwtNGlfN1F0NnpHb3cxWFFSQ2NSV2pwQ3FDdkVVNmJ4YVB0dHE1UDVRb1QzYmFUUVNVUXptQzRoUQ?oc=5",
-      "source": "नेपाली भौतिक विज्ञान समाचार",
-      "category": "Physics",
-      "published": "2026-11-16T16:06:20+00:00",
-      "language": "ne",
-      "title_ne": "Class 12th Physics Ardhvarshik Pariksha Paper 2026-27🔥 | Mp Board | imp Objective Question Answer - YouTube",
-      "summary_ne": "Class 12th Physics Ardhvarshik Pariksha Paper 2026-27🔥 | Mp Board | imp Objective Question Answer YouTube"
-    },
-    {
-      "title": "Contractor to Civil Servant: NASA Welcomes Jim Mirandy",
-      "summary": "The rumble of a rocket engine might be considered a soundtrack for Jim Mirandy’s life. Mirandy has grown up with NASA as a constant presence, and his path to becoming a civil servant at NASA’s Stennis Space Center near Bay St. Louis, Mississippi, has been decades in the making. Hired under the agency’s workforce directive […]",
-      "url": "https://www.nasa.gov/centers-and-facilities/stennis/contractor-to-civil-servant-jim-mirandy/",
-      "source": "NASA",
-      "category": "Space",
-      "published": "2026-11-16T15:22:09+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Vitamin B12 may hold the key to treating a rare genetic disorder",
-      "summary": "Scientists discovered that vitamin B12 largely reversed developmental abnormalities in worms carrying a genetic mutation linked to Verheij syndrome, a rare disorder that causes growth problems and developmental delays. Similar metabolic changes were identified in human patients, raising the possibility that this common vitamin could inspire new treatments for rare genetic diseases.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261115085552.htm",
+      "title_ne": "सूक्ष्म प्लास्टिक पहिले सोचिएभन्दा बढी हानिकारक हुन सक्ने कारण पत्ता लाग्यो",
+      "summary_ne": "वैज्ञानिकहरूले सूक्ष्म प्लास्टिकका कणले पानीसँग प्रतिक्रिया गर्दा कोषलाई असर गर्न सक्ने अत्यधिक प्रतिक्रियाशील अणु बनाउन सक्ने पत्ता लगाएका छन्। यसले सूक्ष्म प्लास्टिक र स्वास्थ्य जोखिमबीचको सम्बन्ध बुझ्न थप अनुसन्धान आवश्यक बनाएको छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261120075549.htm",
       "source": "ScienceDaily",
-      "category": "Biology",
-      "published": "2026-11-16T14:31:10+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-21T02:35:26+00:00"
     },
     {
-      "title": "Scientists discover that the heart doesn't age the way we thought",
-      "summary": "Scientists have discovered that the heart ages unevenly, with surprising hotspots of inflammation and scarring concentrated in the valves and major blood vessels rather than the heart muscle. The findings challenge long-standing assumptions about cardiac aging and could help researchers develop new ways to protect the heart as we grow older.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261115085550.htm",
+      "title_ne": "आठ वर्षको अन्तरिक्ष यात्रापछि बुधतर्फ गइरहेको नयाँ एक्स–रे दूरबिनले पहिलो दृश्य खिच्यो",
+      "summary_ne": "बुध ग्रहको अध्ययनका लागि पठाइएको एक्स–रे दूरबिनले लामो अन्तरिक्ष यात्रापछि पहिलो ब्रह्माण्डीय अवलोकन गरेको छ। उपकरणले अपेक्षाभन्दा राम्रो काम गरेको र भविष्यमा बुधको रासायनिक संरचना बुझ्न सहयोग गर्न सक्ने अनुसन्धानकर्ताको भनाइ छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261120075547.htm",
       "source": "ScienceDaily",
-      "category": "Science",
-      "published": "2026-11-16T14:16:56+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-21T02:11:14+00:00"
     },
     {
-      "title": "NASA is offering $1 million for bold ideas to help build a Moon base",
-      "summary": "NASA is offering $1 million in its new Moon Base Challenge, inviting U.S. students to develop innovative solutions for building humanity’s first permanent lunar outpost. From power systems to astronaut safety, their ideas could help make long-term life on the Moon possible and pave the way to Mars.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261115085542.htm",
-      "source": "ScienceDaily",
-      "category": "Space",
-      "published": "2026-11-16T14:02:10+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "NASA smashed into an asteroid. Now Hera has revealed a strange new world",
-      "summary": "A European spacecraft has revealed a mysterious, crater-covered side of the asteroid Didymos as it prepares to investigate the aftermath of NASA’s historic 2022 asteroid impact. The mission could uncover new clues about the collision and help turn asteroid deflection into a powerful defense against future threats to Earth.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261116023351.htm",
-      "source": "ScienceDaily",
-      "category": "Earth",
-      "published": "2026-11-16T13:40:11+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "A hidden biological divide may help explain Alzheimer’s and chronic pain",
-      "summary": "New research reveals that biological sex, genetics, and menopause may dramatically influence Alzheimer's risk, treatment responses, and chronic pain conditions such as fibromyalgia. Scientists also uncovered surprising differences in immune activity and gut-brain interactions, opening the door to more personalized treatments for neurological disorders.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261115085535.htm",
-      "source": "ScienceDaily",
-      "category": "Biology",
-      "published": "2026-11-16T12:41:09+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Hidden ecosystem: Scientists discover 245 animals living inside a single deep-sea rock",
-      "summary": "Deep beneath the Pacific Ocean, scientists have discovered tiny hidden ecosystems inside metal-rich rocks that take millions of years to form. Researchers examined 244 nodules and found more than 4,100 animals living in their cracks and cavities, including unique communities unlike those in the surrounding seafloor mud. These remarkable miniature habitats could now be threatened by deep-sea mining for valuable metals.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261114202133.htm",
-      "source": "ScienceDaily",
-      "category": "Earth",
-      "published": "2026-11-16T11:40:14+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "A 19-year study reveals a troubling link between napping and death",
-      "summary": "A surprising new study suggests that when and how often older adults nap could reveal hidden warning signs about their health. Researchers followed 1,338 people for up to 19 years and discovered that longer, more frequent naps were linked to higher mortality, while morning nappers faced a 30% greater risk of death than afternoon nappers. Each additional hour of daytime sleep was associated with a 13% increase in mortality risk.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261112230505.htm",
-      "source": "ScienceDaily",
-      "category": "Science",
-      "published": "2026-11-16T10:49:15+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "New wearable ultrasound patch boosts REM sleep without drugs or surgery",
-      "summary": "A revolutionary new wearable patch could help people get more restorative sleep without medication or surgery. Developed by University of Texas researchers, the device uses gentle ultrasound to stimulate deep brain regions, helping participants enter REM sleep 43 minutes faster and remain there 16 minutes longer on average. The technology also showed promising effects on stress regulation and brain circuits involved in emotion.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261116014842.htm",
-      "source": "ScienceDaily",
-      "category": "Biology",
-      "published": "2026-11-16T10:22:15+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "APOD: 2026 November 16 – NGC 7129: Star Formation with Jets from Webb",
-      "summary": "APOD Science APOD APOD: 2026 November 16 – NGC… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. NGC 7129: […]",
-      "url": "https://science.nasa.gov/image-article/apod-2026-november-16-ngc-7129-star-formation-with-jets-from-webb/",
-      "source": "NASA",
-      "category": "Space",
-      "published": "2026-11-16T05:05:00+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "The Last Ice on Puncak Jaya",
-      "summary": "Ice near the summit of the Indonesian mountain peak has shrunk to scattered patches too small to flow like glaciers.",
-      "url": "https://science.nasa.gov/earth/earth-observatory/the-last-ice-on-puncak-jaya/",
-      "source": "NASA",
-      "category": "Science",
-      "published": "2026-11-16T05:00:00+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "The secret to building Moon bases may be hiding in emergency blankets",
-      "summary": "Scientists have turned the thin plastic used in emergency blankets into remarkably strong insulation that could help astronauts survive the Moon's extreme temperatures. Built from hundreds of stacked layers, the material withstands crushing pressure without losing its thermal protection, potentially paving the way for tougher, longer-lasting lunar habitats.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261115085549.htm",
-      "source": "ScienceDaily",
-      "category": "Space",
-      "published": "2026-11-16T03:51:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Physicists defy expectations by controlling the magnetic heart of a single atom",
-      "summary": "Scientists have unexpectedly discovered how to control the magnetic spin inside a single atom's nucleus using radio waves, overturning previous assumptions about atomic behavior. The breakthrough could pave the way for more reliable quantum memory, although researchers are still trying to understand why it works.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261114202232.htm",
-      "source": "ScienceDaily",
-      "category": "Physics",
-      "published": "2026-11-16T02:56:02+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "MIT scientists discover a surprising way to boost the brain’s nighttime cleaning system",
-      "summary": "MIT scientists discovered that carefully timed bursts of gentle pink noise during sleep can strengthen the brain’s natural cleaning waves, which help flush away potentially harmful waste. The breakthrough could pave the way for new treatments aimed at improving sleep and memory while potentially reducing the buildup of proteins linked to Alzheimer’s disease.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261115085533.htm",
-      "source": "ScienceDaily",
-      "category": "Science",
-      "published": "2026-11-16T01:40:04+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "An ancient virus may help explain what makes the human brain different",
-      "summary": "A virus that infected chimpanzees millions of years ago may have helped shape one of the most important differences between humans and our closest relatives: how our brains develop. Scientists at Lund University discovered that ancient viral DNA embedded in the chimpanzee genome switches off a gene called LINC00662, which remains active in humans and appears to play an important role in early brain development.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261114202230.htm",
-      "source": "ScienceDaily",
-      "category": "Biology",
-      "published": "2026-11-16T00:32:12+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Giant, prehistoric rodent fossils discovered in southern Thailand",
-      "summary": "An international team of paleontologists, including researchers from McGill University, has discovered \"remarkably large\" rodent fossils in the pit of a mine in southern Thailand. The finding, published in Scientific Reports, provides a new perspective on the early manifestation of rodent gigantism—the process by which animals evolve to become larger—demonstrating that the evolutionary history of large-bodied rodents is considerably older and more geographically widespread than previously recognized, the researchers said.",
-      "url": "https://phys.org/news/2026-11-giant-prehistoric-rodent-fossils-southern.html",
+      "title_ne": "अटलान्टिक महासागरमा कवच भएका दुई नयाँ सूक्ष्म जलचर प्रजाति भेटिए",
+      "summary_ne": "केप भर्डे नजिक समुद्री पहाडको तलछटमा कवच भएका टार्डिग्रेडका दुई नयाँ प्रजाति भेटिएका छन्। यस खोजले समुद्रभित्रका पहाडहरू जैविक विविधताका महत्त्वपूर्ण आश्रयस्थल हुन सक्ने देखाएको छ।",
+      "url": "https://phys.org/news/2026-11-seamount-armored-tardigrades-atlantic.html",
       "source": "Phys.org",
-      "category": "Biology",
-      "published": "2026-11-15T15:00:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "विज्ञान",
+      "published": "2026-11-21T02:00:01+00:00"
     },
     {
-      "title": "Vitamin C could help block cancer-linked chemicals in your stomach, study finds",
-      "summary": "Scientists have discovered that vitamin C may help prevent potentially cancer-causing chemicals from forming in the stomach after eating foods containing nitrates and nitrites. A new mathematical model suggests that taking vitamin C after meals could reduce these harmful reactions, offering a possible new strategy for lowering cancer risk.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261114202236.htm",
-      "source": "ScienceDaily",
-      "category": "Science",
-      "published": "2026-11-15T14:13:18+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "A common osteoporosis drug blocked spinal damage in a surprising new study",
-      "summary": "Scientists have uncovered a surprising genetic connection to spinal degeneration and found that an existing osteoporosis drug can prevent damaging mineral buildup in zebrafish spines. The discovery could pave the way for new treatments that slow or prevent a major cause of chronic back pain.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261113232105.htm",
-      "source": "ScienceDaily",
-      "category": "Biology",
-      "published": "2026-11-15T14:03:39+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "New observations challenge evidence for an 'outsize' black hole in the early universe",
-      "summary": "A recent reanalysis of the outsize black hole galaxy UHZ1 using existing X-ray data and new infrared observations challenges a previous groundbreaking claim. Three years ago, this galaxy made news for hosting an unusually massive and heavily dust-obscured black hole formed through direct collapse. Led by Fan Zou of the University of Michigan, the new study reports no signs of hidden black hole activity. The paper, published in The Astrophysical Journal on Oct. 14, suggests UHZ1 could be a low-mass, metal-poor, star-forming galaxy.",
-      "url": "https://phys.org/news/2026-11-evidence-outsize-black-hole-early.html",
+      "title_ne": "आरएनएको भूमिका विस्तारिँदै: सन्देशवाहकदेखि कोषभित्रका संरचना समन्वय गर्नेसम्म",
+      "summary_ne": "आरएनएलाई कोषभित्र सूचना बोक्ने अणुका रूपमा मात्र होइन, विभिन्न जैविक प्रक्रिया समन्वय गर्ने संरचनासँग पनि जोडेर अध्ययन भइरहेको छ। नयाँ अनुसन्धानले कोषका साना संरचनाले प्रतिक्रिया सञ्चालन गर्न कसरी सहयोग गर्छन् भन्ने बुझाइ विस्तार गरेको छ।",
+      "url": "https://phys.org/news/2026-11-broadening-role-rna-messenger-condensate.html",
       "source": "Phys.org",
-      "category": "Space",
-      "published": "2026-11-15T14:00:04+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-21T00:40:01+00:00"
     },
     {
-      "title": "NASA warns this year's Monster El Niño could be even bigger than legendary 1997 event",
-      "summary": "NASA scientists warn that the rapidly intensifying 2026 El Niño could surpass the historic 1997-98 event, which triggered devastating weather extremes around the world. Satellite data reveal striking similarities between the two, raising the possibility of major rainfall and flooding this winter, although the exact impacts remain uncertain.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261114202227.htm",
-      "source": "ScienceDaily",
-      "category": "Earth",
-      "published": "2026-11-15T13:53:25+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Uranus and Neptune’s bizarre magnetic fields may finally be explained",
-      "summary": "The strange, wildly tilted magnetic fields of Uranus and Neptune have puzzled scientists since NASA's Voyager 2 spacecraft explored the planets in the 1980s. New simulations suggest that extreme conditions deep inside these icy giants create unusual electrical properties that could explain their magnetic fields. Remarkably, the models indicate that their magnetic poles could shift by tens of degrees within just a few decades, far faster than Earth's.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261114202204.htm",
-      "source": "ScienceDaily",
-      "category": "Earth",
-      "published": "2026-11-15T13:43:22+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Taiwan Indigenous farmer revives climate-resilient millet",
-      "summary": "Indigenous farmer Banu Ismahasan walks through a golden field of tall stalks in southeastern Taiwan, harvesting by hand the grain heads of an ancient crop resistant to extreme weather.",
-      "url": "https://phys.org/news/2026-11-taiwan-indigenous-farmer-revives-climate.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-11-15T13:40:08+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Nations grapple with loss of 1.5C target at UN climate summit",
-      "summary": "For a decade, the 1.5C goal has served as the north star of climate action, a line nations pledged to hold to avoid the worst ravages of a warming planet.",
-      "url": "https://phys.org/news/2026-11-nations-grapple-loss-15c-climate.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-11-15T13:20:05+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "SpaceX's Starship returns from orbit and is captured by launch pad arms in a dramatic first",
-      "summary": "SpaceX's Starship made a triumphant return to Earth on Saturday, caught in midair by giant mechanical arms where its journey began 22 hours earlier.",
-      "url": "https://phys.org/news/2026-11-spacex-starship-orbit-captured-pad.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-11-15T13:06:43+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Astronomers discover a dead star spinning every 8 minutes and sending mysterious radio pulses",
-      "summary": "Scientists have discovered a strange stellar pair more than 5,000 light-years away, where a dead star spinning every eight minutes produces mysterious radio pulses while orbiting a Sun-like star. The breakthrough also revealed massive magnetic storms on the companion star, offering fresh clues to one of astronomy's emerging mysteries.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261114202136.htm",
-      "source": "ScienceDaily",
-      "category": "Space",
-      "published": "2026-11-15T13:04:09+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "ALMA reveals three star-forming cores at different stages inside one gas clump",
-      "summary": "Astronomers have revealed three dense cores at different evolutionary stages within the massive star-forming region G40.282−0.219, shedding light on the physical and chemical differences among cores within the same massive dense clump.",
-      "url": "https://phys.org/news/2026-11-alma-reveals-star-cores-stages.html",
-      "source": "Phys.org",
-      "category": "Space",
-      "published": "2026-11-15T13:00:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "A simple supplement could help your immune system fight cancer and viral infections",
-      "summary": "A surprising discovery from Rockefeller University suggests that a common amino acid could play a powerful role in protecting against cancer and viral infections. Scientists found that low arginine levels interfere with the immune system's ability to recognize dangerous cells, while increasing arginine intake reduced colon cancer tumors and improved viral infection outcomes in mice. Even more remarkably, giving mice arginine after they contracted influenza helped them recover.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261113232000.htm",
-      "source": "ScienceDaily",
-      "category": "Biology",
-      "published": "2026-11-15T12:36:52+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "Quantum biology and how it could transform the medical world - Technology Org",
-      "summary": "Quantum biology and how it could transform the medical world Technology Org",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQVzMzYmEyYVljcVcyRDRuTVIxaVJNUnBCOXIzSEVDbkxZNWY4MEp2d2NMQjZkTW9lWDY0d2ljRjV0VWxGRmFSOHh2UnY0R3RJWUZtM0djUjVnbUNULW10Y2ZaZ19PQ256NjFHbjRFQ3N2UWFDRGNfZ3NMNFkzZzBiU2E4WEw3Y0l0U3hlWXpMc0FHekZYb3BaOVpyeXZCd0xL?oc=5",
+      "title_ne": "स्क्वामस क्यान्सरको जीवविज्ञान र नयाँ उपचार लक्ष्यबारे अनुसन्धान",
+      "summary_ne": "यस शीर्षकमा स्क्वामस प्रकारका क्यान्सर, उपचारका सम्भावित नयाँ लक्ष्य र टीआरओपी२ लक्षित औषधि संयोजनबारे चर्चा गरिएको छ। उपलब्ध समाचार सारांशमा थप अनुसन्धान विवरण छैन, त्यसैले विस्तृत निष्कर्षका लागि मूल प्रकाशन हेर्नुपर्छ।",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNOXdERWF6Ty15QXQ4UHdFbWFQRUxmTjBHTXBDQk41UlZXLUZac0FGYVI0am12aUw5TGNwT3dSUllqZmxibXZLQnhvZm5oTDNCYWZXQ3JBb1gyM0R1dk9fbkI3RlBHUGpzc3JIMERUaWk1OFpOUkEtOFJUWDFoY2ZBYWRDeVZ2ZXFCek1mWHBvTUtaQm90TVJ5X0RtU3Fsdw?oc=5",
       "source": "नेपाली जीवविज्ञान समाचार",
-      "category": "Biology",
-      "published": "2026-11-15T05:00:00+00:00",
-      "language": "ne",
-      "title_ne": "Quantum biology and how it could transform the medical world - Technology Org",
-      "summary_ne": "Quantum biology and how it could transform the medical world Technology Org"
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-21T00:20:30+00:00"
     },
     {
-      "title": "Alzheimer’s may start shrinking two brain regions years before memory loss",
-      "summary": "Johns Hopkins scientists have uncovered hidden warning signs of Alzheimer’s disease that may appear up to a decade before memory loss begins. Brain scans revealed that two regions involved in memory and emotion start shrinking before the hippocampus, the area doctors typically examine for signs of Alzheimer’s. These early changes are linked to abnormal tau protein buildup and could provide a powerful new way to identify people at risk.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261114202130.htm",
+      "title_ne": "प्रकाशसम्बन्धी दशकौँ पुरानो रहस्य खुले तीव्र इन्टरनेट सम्भव हुन सक्ने",
+      "summary_ne": "बेरियम टाइटानेट नामक पदार्थले प्रकाश कसरी नियन्त्रण र अवशोषण गर्छ भन्ने विषयमा वैज्ञानिकहरूले दशकौँदेखि रहेको अस्पष्टता घटाएका छन्। यसले कम प्रकाश नोक्सानीसहित तीव्र गतिमा सूचना पठाउने प्रकाशीय उपकरण विकास गर्न सहयोग गर्न सक्छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261119194544.htm",
       "source": "ScienceDaily",
-      "category": "Space",
-      "published": "2026-11-15T04:31:56+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "विज्ञान",
+      "published": "2026-11-21T00:02:01+00:00"
     },
     {
-      "title": "Scientists discover a bizarre paradox among endangered penguins",
-      "summary": "A groundbreaking drone survey has revealed a startling split in the fate of New Zealand's endangered Erect-crested penguins. While one population has remained stable for decades, another has declined by more than 40%, apparently due to a combination of predators, worsening storms, and changing ocean conditions. Even more surprisingly, the tiny Bounty Islands support nearly as many breeding pairs as the Antipodes Islands, despite being 40 times smaller.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261112230458.htm",
+      "title_ne": "‘सधैँ रहने’ रसायनबारे नयाँ अध्ययनले फरक सम्भावना देखायो",
+      "summary_ne": "बाल्टिमोरको पानी प्रशोधन केन्द्रमा विश्वविद्यालयका विद्यार्थीले पानीलाई कीटाणुरहित बनाउने प्रक्रियाबारे अध्ययन गरेका छन्। ‘सधैँ रहने रसायन’ भनिने केही पदार्थको व्यवहार र पानी प्रशोधनमा तिनको व्यवस्थापनबारे थप अनुसन्धान आवश्यक रहेको विषय उठाइएको छ।",
+      "url": "https://phys.org/news/2026-11-chemicals-dont.html",
+      "source": "Phys.org",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-20T22:40:02+00:00"
+    },
+    {
+      "title_ne": "नासाको क्युरियोसिटीले मंगल ग्रहमा साँझ देखिने बादल कैद गर्‍यो",
+      "summary_ne": "मंगल ग्रहमा काम गरिरहेको नासाको क्युरियोसिटी यानले सूर्यास्तपछि केही समय देखिने बादलको दृश्य खिचेको छ। यी बादल गेल क्रेटर क्षेत्रमा मंगल ग्रहको शरद ऋतुमा देखिने गर्छन्।",
+      "url": "https://science.nasa.gov/photojournal/curiosity-spots-drifting-twilight-clouds/",
+      "source": "NASA",
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-20T22:27:05+00:00"
+    },
+    {
+      "title_ne": "मोन्टानामा पाइने नीलो सकर माछा १३० वर्षभन्दा बढी बाँच्न सक्ने",
+      "summary_ne": "मोन्टानाको माथिल्लो मिसौरी नदीमा पाइने नीलो सकर माछा पहिले अनुमान गरिएभन्दा धेरै लामो समय बाँच्ने पत्ता लागेको छ। कानको सानो हड्डीमा रेडियोकार्बन परीक्षण गर्दा केही माछा १३० वर्षसम्म बाँचेको देखिएको छ।",
+      "url": "https://phys.org/news/2026-11-fish-montana-blue-sucker-years.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T22:20:06+00:00"
+    },
+    {
+      "title_ne": "क्यारिबियनका पुराना जीवाश्म प्रवालले भविष्यमा प्रवाल कहाँ जोगिन सक्छन् भन्ने देखाउन सक्ने",
+      "summary_ne": "क्यारिबियन क्षेत्रमा जीवित प्रवाल चट्टान पछिल्ला दशकमा घटेका छन्। नजिकै रहेका प्राचीन जीवाश्म प्रवालको अध्ययनले कुन प्रजाति र स्थान भविष्यको न्यानो वातावरणमा टिक्न सक्छन् भन्ने पहिचान गर्न मद्दत गर्न सक्छ।",
+      "url": "https://phys.org/news/2026-11-caribbean-corals-crisis-fossil-reefs.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T22:00:01+00:00"
+    },
+    {
+      "title_ne": "टेक्सासमा भेटिएको प्राचीन भैँसी सिकारस्थलले पुराना मान्यता चुनौती दियो",
+      "summary_ne": "टेक्सासमा भेटिएको प्राचीन भैँसी सिकारस्थलले आदिवासी समुदायले पहिले कसरी सिकार गर्थे भन्नेबारे पुराना मान्यतालाई चुनौती दिएको छ। पुरातत्त्वविद्हरूले उत्तरी अमेरिकाका फरक क्षेत्रमा प्रयोग भएका सिकार विधिबारे पुनः अध्ययन गरिरहेका छन्।",
+      "url": "https://phys.org/news/2026-11-ancient-bison-site-texas-held.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T21:40:02+00:00"
+    },
+    {
+      "title_ne": "परमाणुजत्तिकै पातला अर्धचालकमा तह घुमाउँदा बदलिने नयाँ कण अवस्था पत्ता लाग्यो",
+      "summary_ne": "अर्धचालकका दुई अति पातला तह एकअर्कामाथि राख्दा इलेक्ट्रोन र तिनले छोडेका खाली स्थानबीच विशेष जोडी बन्न सक्छ। तहलाई घुमाउँदा यस्तो अवस्थाको गुण बदलिन सक्ने नयाँ अध्ययनले देखाएको छ।",
+      "url": "https://phys.org/news/2026-11-scientists-tunable-interlayer-excitons-atomically.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T21:20:08+00:00"
+    },
+    {
+      "title_ne": "खेलजस्ता सुविधा भएका मोबाइल भुक्तानीले युवामा प्रयोग बढाउन सक्ने",
+      "summary_ne": "मोबाइल भुक्तानी अनुप्रयोगमा खेलजस्ता चुनौती र पुरस्कार राख्दा विकासोन्मुख अर्थतन्त्रका युवाले ती सेवा अपनाउने सम्भावना बढ्न सक्छ। अध्ययनमा पुरुष र महिलाको प्रतिक्रिया लगभग समान देखिएको छ।",
+      "url": "https://phys.org/news/2026-11-gamified-mobile-payment-features-gen.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T21:00:05+00:00"
+    },
+    {
+      "title_ne": "अहिलेसम्मकै छोटो तरङ्गदैर्ध्यको एक्स–रे लेजर परीक्षण सफल",
+      "summary_ne": "युरोपेली एक्स–रे लेजर केन्द्रका अनुसन्धानकर्ताले करिब ०.०४ न्यानोमिटर तरङ्गदैर्ध्य भएका एक्स–रे चमक विश्वसनीय रूपमा उत्पादन र पठाउन सफल भएका छन्। यति छोटो तरङ्गले ठोस पदार्थभित्रका परमाणुहरूलाई अझ सूक्ष्म रूपमा अध्ययन गर्न मद्दत गर्छ।",
+      "url": "https://phys.org/news/2026-11-ray-laser-reliably-generates-wavelengths.html",
+      "source": "Phys.org",
+      "category_ne": "भौतिकशास्त्र",
+      "published": "2026-11-20T21:00:01+00:00"
+    },
+    {
+      "title_ne": "नासाको नयाँ बीउ लगानीले साना व्यवसायमा अन्तरिक्ष प्रविधिको नवीनता बढाउने",
+      "summary_ne": "नासाको साना व्यवसाय अनुसन्धान कार्यक्रमले चन्द्रमा र मंगल ग्रहको अन्वेषणसँग सम्बन्धित प्रविधि विकासका लागि ३०२ परियोजना छनोट गरेको छ। यसका लागि कुल १७ करोड १० लाख अमेरिकी डलरसम्मको प्रारम्भिक लगानी उपलब्ध गराइने जनाइएको छ।",
+      "url": "https://www.nasa.gov/directorates/rtmd/new-nasa-seed-funding-primes-small-businesses-for-innovation/",
+      "source": "NASA",
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-20T20:46:14+00:00"
+    },
+    {
+      "title_ne": "मध्ययुगीन पाण्डुलिपिका लुकेका कुरा डिजिटल चित्रणबाट पत्ता लगाउने प्रयास",
+      "summary_ne": "इलिनोइस विश्वविद्यालयको दुर्लभ पुस्तक तथा पाण्डुलिपि पुस्तकालयमा मध्ययुगीन दस्तावेज अध्ययन गर्न बहुवर्णीय डिजिटल चित्रण प्रविधि परीक्षण गरिएको छ। यसबाट समयसँगै मेटिएका वा आँखाले सजिलै नदेखिने लेखोट पत्ता लगाउन सकिने सम्भावना छ।",
+      "url": "https://phys.org/news/2026-11-digital-imaging-workshop-aims-reveal.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T20:40:09+00:00"
+    },
+    {
+      "title_ne": "टीएचसी नबनाउने नयाँ गाँजा जात विकास, बाली नष्ट हुने जोखिम घट्न सक्ने",
+      "summary_ne": "टेक्सास ए एन्ड एमका अनुसन्धानकर्ताले टीएचसीसहित पहिचान गर्न सकिने क्यानाबिनोइड नबनाउने गाँजाको नयाँ जात विकास गरेको बताएका छन्। यसले केही अवस्थामा बाली नष्ट हुन सक्ने जोखिम घटाउन सक्छ।",
+      "url": "https://phys.org/news/2026-11-hemp-thc-potentially-crop-destruction.html",
+      "source": "Phys.org",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-20T20:40:01+00:00"
+    },
+    {
+      "title_ne": "च्याउमा परीक्षण गरिएको कृत्रिम बुद्धिमत्ता मोडेलले बालीको तनाव कम गणनाबाट पत्ता लगाउन सक्ने",
+      "summary_ne": "पेन्सिल्भेनिया राज्य विश्वविद्यालयको टोलीले च्याउमा आधारित परीक्षणमार्फत कम गणनाशक्ति प्रयोग गरेर बालीमा खडेरी, रोग वा पोषणको कमीबाट उत्पन्न तनाव पत्ता लगाउन सक्ने कृत्रिम बुद्धिमत्ता मोडेल विकास गरेको छ।",
+      "url": "https://phys.org/news/2026-11-mushrooms-ai-potential-crop-stress.html",
+      "source": "Phys.org",
+      "category_ne": "कृत्रिम बुद्धिमत्ता",
+      "published": "2026-11-20T20:20:11+00:00"
+    },
+    {
+      "title_ne": "इन्स्टाग्राममा अपरिचित समूहसँगको सम्पर्कले पूर्वाग्रह घटाउन सक्छ?",
+      "summary_ne": "पोट्सडाम विश्वविद्यालयको प्रयोगले अपरिचित इन्स्टाग्राम खातालाई केही दिन पछ्याउँदा त्यस खाताले प्रतिनिधित्व गर्ने समूहप्रतिको धारणा सकारात्मक हुन सक्ने देखाएको छ। तर सामाजिक सञ्जाल सम्पर्कले पूर्वाग्रह घटाउने प्रभावको सीमा पनि रहेको अनुसन्धानकर्ताले बताएका छन्।",
+      "url": "https://phys.org/news/2026-11-instagram-prejudice-reveals-potential-limits.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T20:20:09+00:00"
+    },
+    {
+      "title_ne": "१० लाख साना क्रिस्टलले अर्धचालकको भित्री संरचना बुझाउन सघाए",
+      "summary_ne": "वैज्ञानिकहरूले करिब दुई सेन्टिमिटरको चिपमा लाखौँ साना क्रिस्टल राखेर अर्धचालक पदार्थको संरचना अध्ययन गरेका छन्। पदार्थका भित्री तह र तिनको संरचनाले प्रकाश सोस्ने तथा उत्सर्जन गर्ने क्षमतामा प्रभाव पार्छ।",
+      "url": "https://phys.org/news/2026-11-million-tiny-crystals-reveal-semiconductors.html",
+      "source": "Phys.org",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-20T20:00:11+00:00"
+    },
+    {
+      "title_ne": "जोखिमयुक्त हिमताललाई जलाशयसरह सुरक्षा निगरानी आवश्यक",
+      "summary_ne": "जलवायु परिवर्तनसँगै हिमनदीबाट बनेका तालको आकार बढिरहेको छ। यस्ता तालका प्राकृतिक बाँध कमजोर भए तल्लो क्षेत्रमा बाढीको जोखिम हुन सक्ने भएकाले तिनलाई जलाशयसरह नियमित सुरक्षा निगरानीमा राख्नुपर्ने अनुसन्धानकर्ताको सुझाव छ।",
+      "url": "https://phys.org/news/2026-11-hazardous-glacial-lakes-reservoir-style.html",
+      "source": "Phys.org",
+      "category_ne": "पृथ्वी तथा वातावरण",
+      "published": "2026-11-20T20:00:06+00:00"
+    },
+    {
+      "title_ne": "बाढीको पानीमा हिँड्दा मानिसले जोखिम कम आँक्छन्: सुरक्षित रहने उपाय",
+      "summary_ne": "बाढीको पानी कम गहिरो देखिए पनि त्यसमा हिँड्नु जोखिमपूर्ण हुन सक्छ। मानिसले छोटो दूरी वा ढिलाइबाट बच्ने सोचले जोखिम कम आँक्ने भएकाले सुरक्षित बाटो रोज्नु र बाढीको पानी पार नगर्नु महत्त्वपूर्ण हुन्छ।",
+      "url": "https://phys.org/news/2026-11-people-wade-floodwater-underestimate-danger.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T19:40:06+00:00"
+    },
+    {
+      "title_ne": "विश्वव्यापी अध्ययनले हिमतालले हिमनदी पग्लने गति बढाउने देखायो",
+      "summary_ne": "हिमनदीसँग जोडिएका तालले बरफलाई तलबाट पगाल्न र बरफका ठूला टुक्रा छुट्टिएर खस्न मद्दत गर्न सक्छन्। विश्वव्यापी विश्लेषणले यस्तो प्रक्रियाले हिमनदीको पछाडि हट्ने गति बढाउन सक्ने देखाएको छ।",
+      "url": "https://phys.org/news/2026-11-global-analysis-reveals-lakes-amplify.html",
+      "source": "Phys.org",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T19:40:01+00:00"
+    },
+    {
+      "title_ne": "अत्यधिक चापमा रहेका पदार्थको तापक्रम नाप्ने एक्स–रे विधिमा प्रगति",
+      "summary_ne": "अत्यधिक चापमा रहेका पदार्थको तापक्रम मापन गर्न वैज्ञानिकहरूले एक्स–रे प्रविधि सुधार गरेका छन्। यसले उच्च ऊर्जा भौतिकशास्त्र र अत्यन्त कठिन अवस्थामुनि पदार्थले देखाउने व्यवहार बुझ्न सहयोग गर्छ।",
+      "url": "https://phys.org/news/2026-11-ray-technique-advances-temperature-extreme.html",
+      "source": "Phys.org",
+      "category_ne": "भौतिकशास्त्र",
+      "published": "2026-11-20T19:20:06+00:00"
+    },
+    {
+      "title_ne": "परजीवीको प्रोटिनले कोषका ऊर्जा केन्द्रले राइबोसोम कसरी बनाउँछन् भन्ने बुझायो",
+      "summary_ne": "माइटोकन्ड्रिया अधिकांश जीवका कोषमा ऊर्जा उत्पादन गर्ने महत्त्वपूर्ण संरचना हुन्। परजीवीको प्रोटिनबारे गरिएको अध्ययनले यी संरचनाले आफ्ना राइबोसोम कसरी बनाउँछन् भन्ने विकासक्रम बुझ्न नयाँ जानकारी दिएको छ।",
+      "url": "https://phys.org/news/2026-11-parasite-protein-mitochondria-ribosomes.html",
+      "source": "Phys.org",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-20T19:20:01+00:00"
+    },
+    {
+      "title_ne": "नासाको स्टेनिस केन्द्रका कर्मचारी सम्मानित",
+      "summary_ne": "नासाको मिसिसिपीस्थित स्टेनिस अन्तरिक्ष केन्द्रमा संस्थाको अभियानमा योगदान पुर्‍याउने कर्मचारीलाई नोभेम्बर १८ मा आयोजित समारोहमा सम्मान गरिएको छ।",
+      "url": "https://www.nasa.gov/centers-and-facilities/stennis/honor-awards-ceremony-at-stennis/",
+      "source": "NASA",
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-20T16:27:46+00:00"
+    },
+    {
+      "title_ne": "नासाको क्युरियोसिटी मंगलयानले चट्टानका नमुना सङ्कलन गर्‍यो",
+      "summary_ne": "नासाको क्युरियोसिटी मंगलयानले नोभेम्बर २०२६ सम्म सङ्कलन गरेका चट्टानका ४९ वटा नमुनाका प्वालको तस्बिर सार्वजनिक गरेको छ। यानले चट्टान पिसेर प्राप्त नमुना आफ्ना उपकरणमा परीक्षण गर्छ।",
+      "url": "https://www.nasa.gov/image-article/nasas-curiosity-mars-rover-collects-samples/",
+      "source": "NASA",
+      "category_ne": "कृत्रिम बुद्धिमत्ता",
+      "published": "2026-11-20T15:53:24+00:00"
+    },
+    {
+      "title_ne": "भ्वाएजर–१ यति टाढा पुग्यो कि पृथ्वीबाट सन्देश पुग्न २४ घण्टा लाग्छ",
+      "summary_ne": "भ्वाएजर–१ पृथ्वीबाट करिब १६.१ अर्ब माइल टाढा पुगेको विवरण सार्वजनिक भएको छ। त्यस यानबाट पठाइएको सङ्केत पृथ्वीमा आइपुग्न करिब २४ घण्टा लाग्ने भएकाले यो मानव निर्मित सबैभन्दा टाढा पुगेका अन्वेषक यानमध्ये एक हो।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261120075554.htm",
       "source": "ScienceDaily",
-      "category": "Earth",
-      "published": "2026-11-15T03:42:52+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "पृथ्वी तथा वातावरण",
+      "published": "2026-11-20T12:55:54+00:00"
     },
     {
-      "title": "Dinosaurs may have been eating seaweed 100 million years ago",
-      "summary": "Dinosaurs may have been snacking on seaweed and other ocean foods more than 100 million years ago, according to surprising new evidence hidden in their fossilized teeth. Researchers discovered chemical signatures suggesting that coastal dinosaurs and other prehistoric animals relied partly on nutrients originating in the sea. The findings reveal that marine resources traveled through ancient food chains, supplementing the diets of everything from plant-eating dinosaurs to predators.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261112230502.htm",
+      "title_ne": "नासाको चन्द्रयानका शक्तिशाली रकेट इन्जिनको २०० सेकेन्ड परीक्षण सफल",
+      "summary_ne": "नासाले चन्द्र अभियानका लागि प्रयोग हुने आरएस–२५ रकेट इन्जिनलाई २०० सेकेन्डसम्म सफलतापूर्वक परीक्षण गरेको छ। परीक्षणबाट प्राप्त तथ्याङ्कले आगामी आर्टेमिस अभियानलाई सुरक्षित र भरपर्दो बनाउन सहयोग गर्नेछ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261120075551.htm",
       "source": "ScienceDaily",
-      "category": "Earth",
-      "published": "2026-11-15T03:00:54+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-20T12:55:51+00:00"
     },
     {
-      "title": "Physicists use laser light to unlock a crystal's hidden electrical powers",
-      "summary": "Scientists have discovered how to use flashes of laser light to organize tiny electrical regions inside a crystal, solving a decades-old mystery about how the material behaves. The laser-induced alignment lasts just a trillionth of a second, but the breakthrough could open the door to new ways of processing and storing information.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261112230500.htm",
+      "title_ne": "केटोजेनिक आहारले चार महिनामा कलेजोको बोसो ६७ प्रतिशत घटाएको अध्ययन",
+      "summary_ne": "नयाँ चिकित्सकीय परीक्षणमा केटोजेनिक आहार अपनाएका सहभागीको कलेजोमा रहेको बोसो औसत ६७ प्रतिशत घटेको देखिएको छ। भूमध्यसागरीय र कम बोसोयुक्त आहारसँग तुलना गरिएको यस अध्ययनको नतिजा थप अनुसन्धानबाट पुष्टि गर्नुपर्ने हुन्छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261120070904.htm",
       "source": "ScienceDaily",
-      "category": "Science",
-      "published": "2026-11-15T02:18:16+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T12:44:39+00:00"
     },
     {
-      "title": "Euclid discovers ancient cosmic beacons from the dawn of time, shining like a trillion suns",
-      "summary": "ESA’s Euclid space telescope has discovered 31 ancient quasars, including two record-breaking objects that shone with the brightness of a trillion Suns when the Universe was just 670 million years old. Powered by supermassive black holes, these extraordinary cosmic beacons reveal a time when the first galaxies were still taking shape.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261112230504.htm",
+      "title_ne": "वैज्ञानिकले चन्द्रमाको धुलोबाट खेलौनाका इँटाजस्ता निर्माण सामग्री बनाए",
+      "summary_ne": "वैज्ञानिकहरूले चन्द्रमाको धुलोबाट त्रिआयामिक मुद्रण प्रविधि प्रयोग गरी खेलौनाका इँटाजस्ता ब्लक बनाएका छन्। ती नमुनालाई अझ बलियो बनाउनुपर्ने भए पनि भविष्यमा चन्द्रमामै उपलब्ध सामग्रीबाट आधार शिविर निर्माण गर्ने सम्भावना देखिएको छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261119194525.htm",
       "source": "ScienceDaily",
-      "category": "Space",
-      "published": "2026-11-15T01:52:47+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "पृथ्वी तथा वातावरण",
+      "published": "2026-11-20T12:34:56+00:00"
     },
     {
-      "title": "Is this iconic black hole image accurate? New study delivers an independent result",
-      "summary": "On April 10, 2019, the Event Horizon Telescope (EHT) Collaboration revealed the first picture of a black hole. The object is at the center of a galaxy known as M87, about 55 million light-years away.",
-      "url": "https://phys.org/news/2026-11-iconic-black-hole-image-accurate.html",
-      "source": "Phys.org",
-      "category": "Space",
-      "published": "2026-11-15T01:30:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
-    },
-    {
-      "title": "AI discovers a hidden heart signal that could predict sudden death",
-      "summary": "Scientists have uncovered a hidden warning sign in routine heart scans that could predict sudden cardiac death before it strikes. The AI-powered discovery outperformed conventional screening methods, potentially revealing thousands of people at risk of a fatal heart malfunction that doctors might otherwise miss.",
-      "url": "https://www.sciencedaily.com/releases/2026/11/261112230456.htm",
+      "title_ne": "४० वर्षपछि सर्नको दुर्लभ कण क्षयको पहिलो प्रमाण भेटियो",
+      "summary_ne": "सर्नका वैज्ञानिकले अत्यन्त दुर्लभ कण क्षय प्रक्रियाको पहिलो प्रमाण फेला पारेका छन्। यस्तो घटना करिब १० अर्ब सौन्दर्य कणमध्ये एउटामा मात्र हुने अनुमान भएकाले यसले सूक्ष्म कण र अज्ञात भौतिक बलको अध्ययनमा सहयोग गर्न सक्छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261119194530.htm",
       "source": "ScienceDaily",
-      "category": "Science",
-      "published": "2026-11-15T01:05:10+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "category_ne": "भौतिकशास्त्र",
+      "published": "2026-11-20T12:23:23+00:00"
     },
     {
-      "title": "Urban expansion causes ecological collapse in streams in the São Paulo Metropolitan Area",
-      "summary": "The advance of urbanization in the São Paulo Metropolitan Area in Brazil is causing the collapse of food webs in local streams. A study published in August in the journal Nature Cities reveals that the impact of the metropolis goes far beyond a simple reduction in species. Degradation selectively eliminates organisms based on their size and simplifies ecological interactions. Networks of 190 connections plummet to just three.",
-      "url": "https://phys.org/news/2026-11-urban-expansion-ecological-collapse-streams.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-14T22:00:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "title_ne": "पढ्ने बानी अल्जाइमर रोगको जोखिम ३३ प्रतिशत कम हुनुसँग सम्बन्धित",
+      "summary_ne": "मनोरञ्जनका लागि पढ्ने बानी राम्रो स्मरणशक्ति र कम तनावसँग सम्बन्धित देखिएको छ। केही अध्ययनले नियमित पढाइ र अल्जाइमर रोगको कम जोखिमबीच सम्बन्ध देखाए पनि यसले रोग नलाग्ने निश्चित गर्दैन।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118065536.htm",
+      "source": "ScienceDaily",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T12:06:07+00:00"
     },
     {
-      "title": "A dead star is flashing radio waves every 8 minutes, and its partner looks a lot like the sun",
-      "summary": "Since 2022, astronomers have been puzzling over a new kind of cosmic object called long-period radio transients. These are objects that emit bright flashes of radio waves into space every few minutes to every few hours. Some have been traced back to binary systems consisting of a small, dim, cool star called a red dwarf in orbit with a stellar remnant called a white dwarf.",
-      "url": "https://phys.org/news/2026-11-dead-star-radio-minutes-partner.html",
-      "source": "Phys.org",
-      "category": "Space",
-      "published": "2026-11-14T21:00:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "title_ne": "मानसिक स्वास्थ्यका लागि व्यायामको तीव्रताभन्दा नियमितता महत्त्वपूर्ण हुन सक्ने",
+      "summary_ne": "१० हजारभन्दा बढी विद्यार्थीमा गरिएको अध्ययनले मानसिक स्वास्थ्यका लागि धेरै कडा व्यायाम गर्नुभन्दा नियमित रूपमा सक्रिय रहनु महत्त्वपूर्ण हुन सक्ने देखाएको छ। व्यायामको बानी र मानसिक स्वास्थ्यबीचको सम्बन्ध बुझ्न थप अध्ययन आवश्यक छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261119194601.htm",
+      "source": "ScienceDaily",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T09:09:17+00:00"
     },
     {
-      "title": "Does your culture shape how you look at art? What an eye‑tracking study in Sudan revealed",
-      "summary": "Today, Old Dongola is an abandoned settlement on the banks of the Nile in northern Sudan. Hundreds of years ago, however, this place looked very different.",
-      "url": "https://phys.org/news/2026-11-culture-art-eyetracking-sudan-revealed.html",
-      "source": "Phys.org",
-      "category": "Science",
-      "published": "2026-11-14T19:00:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "title_ne": "दुई विशाल ताराले मिल्की वेको महाविशाल कृष्णविवरलाई पदार्थ उपलब्ध गराइरहेका हुन सक्ने",
+      "summary_ne": "खगोलविद्हरूले मिल्की वेको केन्द्रमा रहेको विशाल कृष्णविवरनजिकका ग्यासका बादल दुई ठूला ताराको हावाको ठक्करबाट बनेको हुन सक्ने पत्ता लगाएका छन्। ती बादल भविष्यमा कृष्णविवरमा खस्ने पदार्थको स्रोत बन्न सक्छन्।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261119194605.htm",
+      "source": "ScienceDaily",
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-20T05:41:16+00:00"
     },
     {
-      "title": "NASA's Voyager 1 closes in on a light-day in interstellar space for a new distance record",
-      "summary": "NASA's Voyager 1 is about to become humanity's first object to reach one light-day from Earth as it pushes ever deeper into interstellar space.",
-      "url": "https://phys.org/news/2026-11-nasa-voyager-day-interstellar-space.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-11-14T18:37:10+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "title_ne": "नासाको दैनिक अन्तरिक्ष तस्बिर: अन्तरिक्ष सन्देश र पृथ्वी",
+      "summary_ne": "नासाको दैनिक खगोल तस्बिर विवरणमा नोभेम्बर १७ मा अन्तरिक्ष यात्रामा रुचि राख्ने मानिसलाई पृथ्वीबाट अन्तरिक्षतर्फ सन्देश पठाउने गतिविधिमा सहभागी हुन आमन्त्रण गरिएको उल्लेख छ। उपलब्ध सारांश अपूरो भएकाले थप विवरण मूल स्रोतमा हेर्न सकिन्छ।",
+      "url": "https://science.nasa.gov/image-article/apod-2026-november-20-v-g-r/",
+      "source": "NASA",
+      "category_ne": "पृथ्वी तथा वातावरण",
+      "published": "2026-11-20T05:05:00+00:00"
     },
     {
-      "title": "A cosmic magnifying glass could reveal the same supernova two more times in roughly 70 years",
-      "summary": "Thanks to the gravitational lensing caused by a massive galaxy cluster and high-resolution images from the James Webb Space Telescope (JWST), astronomers discovered an exploding star when the universe was 4.9 billion years old. The discovery paper, posted to the arXiv preprint server on Oct. 23, presents a prediction for when the rest of the distorted images of SN Ares will arrive.",
-      "url": "https://phys.org/news/2026-11-cosmic-magnifying-glass-reveal-supernova.html",
-      "source": "Phys.org",
-      "category": "Space",
-      "published": "2026-11-14T18:20:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "title_ne": "नासाको पृथ्वी अवलोकन: दक्षिणपश्चिम प्रशान्त महासागरमा शक्तिशाली आँधी",
+      "summary_ne": "उष्णकटिबन्धीय चक्रवात जेभियरले दक्षिणपश्चिम प्रशान्त महासागरको आँधीको मौसम सुरु गराएको नासाको पृथ्वी अवलोकन विवरणमा उल्लेख छ। उपग्रहबाट प्राप्त तस्बिरले यस क्षेत्रको मौसमी गतिविधि देखाउँछ।",
+      "url": "https://science.nasa.gov/earth/earth-observatory/the-stormy-southwest-pacific/",
+      "source": "NASA",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T05:01:00+00:00"
     },
     {
-      "title": "Some of the oldest rocks ever discovered shed light on Earth's early history",
-      "summary": "Earth is approximately 4.5 billion years old, according to estimates. However, rocks dating back to the planet's earliest days are extremely rare. Hence the excitement over the discovery in northern China of some of the oldest known rocks on Earth, dating back 3.95 billion years. And one of the reasons for all the attention is that they're revealing new clues about how Earth's crust formed and evolved.",
-      "url": "https://phys.org/news/2026-11-oldest-earth-early-history.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-11-14T17:00:33+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "title_ne": "नयाँ परीक्षणात्मक औषधिले घुँडाको दुखाइ आधा घटाउन सक्ने",
+      "summary_ne": "घुँडाको जोर्नीसम्बन्धी समस्यामा परीक्षण गरिएको नयाँ औषधि रेटाट्रुटाइडको उच्च मात्राले सहभागीको तौल र घुँडाको दुखाइ घटाएको अध्ययनले जनाएको छ। तर यसले जोर्नीको थप क्षति रोक्छ कि रोक्दैन भन्ने अझै स्पष्ट छैन।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118065534.htm",
+      "source": "ScienceDaily",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T04:31:15+00:00"
     },
     {
-      "title": "World's largest freshwater lake is recovering after decades of decline",
-      "summary": "Lake Baikal in Siberia holds around 20% of the world's surface freshwater, making it the most voluminous freshwater lake (Lake Superior on the United States–Canada border is the largest by surface area). This makes the lake one of the most important environments for biodiversity—in fact, it was designated a UNESCO World Heritage site in 1996 because of this. Yet it has shown considerable decline over the last century, with aridification spreading across East Asia.",
-      "url": "https://phys.org/news/2026-11-world-largest-freshwater-lake-recovering.html",
-      "source": "Phys.org",
-      "category": "Earth",
-      "published": "2026-11-14T15:40:01+00:00",
-      "language": "en",
-      "title_ne": "",
-      "summary_ne": ""
+      "title_ne": "३० लाख वर्ष पुरानो बालकको जीवाश्मले मानव विकासको कथा झन् जटिल बनायो",
+      "summary_ne": "तीन लाख होइन, ३० लाख वर्ष पुरानो टाउङ बालकको जीवाश्मको नयाँ अध्ययनले प्राचीन मानव पुर्खाका केही समूह फरक विकासीय शाखा हुन सक्ने देखाएको छ। यसले मानव उत्पत्तिबारे लामो समयदेखि स्वीकारिएका धारणामाथि प्रश्न उठाएको छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118065531.htm",
+      "source": "ScienceDaily",
+      "category_ne": "पृथ्वी तथा वातावरण",
+      "published": "2026-11-20T03:17:52+00:00"
+    },
+    {
+      "title_ne": "३० हजार मानिसको अध्ययनले केही अवसादरोधी औषधिबारे नयाँ जानकारी दियो",
+      "summary_ne": "३० हजारभन्दा बढी मानिस समेटिएको अध्ययन समीक्षाले केही अवसादरोधी औषधिले लक्षणमा आएको सुधार कायम राख्न अरू औषधिभन्दा राम्रो काम गर्न सक्ने देखाएको छ। तर दीर्घकालीन प्रमाण पर्याप्त नभएकाले सबैका लागि एउटै औषधि उत्तम भन्न सकिँदैन।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118065515.htm",
+      "source": "ScienceDaily",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-20T01:50:20+00:00"
+    },
+    {
+      "title_ne": "मांसपेशी जोगाउँदै शरीरको ऊर्जा खर्च बढाउने नयाँ यौगिक मुसामा परीक्षण",
+      "summary_ne": "क्यालिफोर्निया विश्वविद्यालय बर्कलीका अनुसन्धानकर्ताले मुसामा ऊर्जा खर्च बढाउने एउटा यौगिक परीक्षण गरेका छन्। यसले रगतमा चिनीको नियन्त्रण र कलेजोको बोसोमा सुधार देखाएको भए पनि मानिसमा प्रभावकारी र सुरक्षित छ भन्ने निष्कर्ष निकाल्न थप अध्ययन चाहिन्छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118073918.htm",
+      "source": "ScienceDaily",
+      "category_ne": "भौतिकशास्त्र",
+      "published": "2026-11-20T00:19:49+00:00"
+    },
+    {
+      "title_ne": "सन् २०७५ को जीवनबारे जनताको विचार नासाले माग्यो",
+      "summary_ne": "नासाले सन् २०७५ मा जीवन र संसार कस्तो हुन सक्छ भन्नेबारे जनताको अवधारणा सङ्कलन गरिरहेको छ। उड्डयन तथा अन्तरिक्ष प्रणालीको भविष्यसँग सम्बन्धित चार विषयमा प्राविधिक योजना होइन, अवधारणात्मक विचार पठाउन आह्वान गरिएको छ।",
+      "url": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/challenge-public-input-on-life-and-the-world-in-2075/",
+      "source": "NASA",
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-19T19:34:20+00:00"
+    },
+    {
+      "title_ne": "मांसपेशीमा इन्सुलिनबिनै ग्लुकोज प्रवेश गराउने प्रक्रियाबारे नयाँ अध्ययन",
+      "summary_ne": "नेचर जर्नलमा प्रकाशित अध्ययनले मुसाको कङ्काल मांसपेशीमा सोडियम–ग्लुकोज वाहकमार्फत इन्सुलिनबिना पनि ग्लुकोज प्रवेश हुन सक्ने प्रक्रियाको चर्चा गरेको छ। यसले मांसपेशीमा चिनीको उपयोगसम्बन्धी बुझाइ विस्तार गर्न सक्छ।",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBmMk82b3QxQUVCR1lJbWFmWk9EeUpnMVhsU1hMMHFWdkZkdVZ6UUVPSnZ5QlBCT05zQS1PUXdpVXp6cWFtbGJXQkRJRzMxOUtJMWhWdENwRVVmMjhtUGFV?oc=5",
+      "source": "नेपाली जीवविज्ञान समाचार",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-19T18:10:24+00:00"
+    },
+    {
+      "title_ne": "नासाको फर्मी तथ्याङ्कले पल्सार पत्ता लगाउने नयाँ विधि सम्भव बनायो",
+      "summary_ne": "नासाको फर्मी अभियानबाट खुला रूपमा उपलब्ध तथ्याङ्क प्रयोग गरेर वैज्ञानिकहरूले पल्सार खोज्ने नयाँ विधि विकास गरेका छन्। यस विधिले पहिलेको तुलनामा खोज प्रक्रिया करिब १० लाख गुणा छिटो बनाउन सक्ने जनाइएको छ।",
+      "url": "https://science.nasa.gov/open-science/fermi-data-pulsar-discovery/",
+      "source": "NASA",
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-19T15:33:55+00:00"
+    },
+    {
+      "title_ne": "परीक्षण गरिएका २१२ वनस्पतिमा आधारित खाद्य वस्तुमा ढुसीका विषाक्त पदार्थ भेटिए",
+      "summary_ne": "बेलायतमा बिक्री हुने वनस्पतिमा आधारित २१२ खाद्य तथा पेय पदार्थ परीक्षण गर्दा सबैमा कम्तीमा एउटा ढुसीबाट बन्ने विषाक्त पदार्थ भेटिएको अध्ययनले जनाएको छ। यस्ता पदार्थ खेती वा भण्डारणका क्रममा अन्न, गेडागुडी र बीउमा मिसिन सक्छन्।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118073749.htm",
+      "source": "ScienceDaily",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-19T11:13:29+00:00"
+    },
+    {
+      "title_ne": "६० लाख वर्ष पुरानो ह्वेलको अनुहार स्तनधारीमध्ये सबैभन्दा बाङ्गो हुन सक्ने",
+      "summary_ne": "पेरुमा भेटिएको करिब ६० लाख वर्ष पुरानो सानो स्पर्म ह्वेलको खोपडी असामान्य रूपमा बाङ्गो थियो। सुरुमा मृत्यु भएपछि बिग्रिएको ठानिएको संरचना वास्तवमा समुद्रको भुइँमा आहार खोज्न विकसित भएको विशेषता हुन सक्ने वैज्ञानिकको अनुमान छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118065528.htm",
+      "source": "ScienceDaily",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-19T10:59:55+00:00"
+    },
+    {
+      "title_ne": "गहिरो समुद्रका ‘सी पिग’ को छालामुनि अनौठो जीवाणु भेटियो",
+      "summary_ne": "गहिरो समुद्रमा बस्ने ‘सी पिग’ नामका जीवको छालामुनि सानो वंशाणुगत संरचना भएको जीवाणु भेटिएको छ। त्यो जीवाणु आफ्नो पोषणका लागि पाहुना जीवमा निर्भर हुन सक्ने भए पनि त्यसबाट सी पिगलाई के फाइदा हुन्छ भन्ने अझै अज्ञात छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118065512.htm",
+      "source": "ScienceDaily",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-19T10:33:03+00:00"
+    },
+    {
+      "title_ne": "हाइड्रोजनको आगो कहिले सुन्तला रङको त कहिले लगभग अदृश्य किन हुन्छ?",
+      "summary_ne": "हाइड्रोजनको आगोमा हावामा रहेका अत्यन्त थोरै सोडियम कणले रङ परिवर्तन गराउन सक्छन्। त्यसैले आगो सुन्तला देखिन सक्छ वा लगभग आँखाले नदेखिने हुन सक्छ। यस खोजले भविष्यका हाइड्रोजन चुलोमा विशेष संवेदक प्रयोग गरी सुरक्षा बढाउन सहयोग गर्न सक्छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118065509.htm",
+      "source": "ScienceDaily",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-19T10:10:24+00:00"
+    },
+    {
+      "title_ne": "अन्टार्कटिकाका बरफका भीर सोचेजति सजिलै भत्किन नपाउने नयाँ अध्ययन",
+      "summary_ne": "अन्टार्कटिकाका १५ हजारभन्दा बढी बरफका भीरको अध्ययनले एउटा भीर भत्किँदैमा निरन्तर ठूलो विनाशकारी शृङ्खला सुरु हुन्छ भन्ने छैन देखाएको छ। समुद्रमुनिका डाँडा, वरपरको पानी र टुक्रिएको बरफले थप भत्किनबाट रोक्न सक्ने अनुसन्धानकर्ताको भनाइ छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261117033925.htm",
+      "source": "ScienceDaily",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-19T09:51:15+00:00"
+    },
+    {
+      "title_ne": "तौल घटाउने औषधिले सबैमा समान प्रभाव किन पार्दैन?",
+      "summary_ne": "तौल घटाउने औषधिले सबै मानिसमा समान नतिजा नदिनुको कारण शरीरको ऊर्जा बचत गर्ने प्रतिक्रिया हुन सक्ने वैज्ञानिकहरूले अध्ययन गरिरहेका छन्। यसले भविष्यमा व्यक्तिअनुसार फरक उपचार विकास गर्न मद्दत गर्न सक्छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118065518.htm",
+      "source": "ScienceDaily",
+      "category_ne": "भौतिकशास्त्र",
+      "published": "2026-11-19T08:43:56+00:00"
+    },
+    {
+      "title_ne": "स्टोनहेन्जको छ टनको ढुङ्गाको रहस्य अझै गहिरियो",
+      "summary_ne": "स्टोनहेन्जको करिब छ टनको अल्टर स्टोन स्कटल्यान्डको उत्तरपूर्वी भागबाट आएको हुन सक्ने नयाँ अनुसन्धानले देखाएको छ। पहिले वेल्सबाट आएको ठानिए पनि यसको ठ्याक्कै स्रोत अझै पहिचान भएको छैन।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261117033914.htm",
+      "source": "ScienceDaily",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-19T03:11:22+00:00"
+    },
+    {
+      "title_ne": "आक्रामक प्रोस्टेट क्यान्सरसँग सम्बन्धित वंशाणुगत परिवर्तन पत्ता लाग्यो",
+      "summary_ne": "सीडीके१२ नामक जीनमा हुने दुर्लभ वंशाणुगत परिवर्तन आक्रामक प्रोस्टेट क्यान्सरसँग सम्बन्धित हुन सक्ने वैज्ञानिकहरूले पत्ता लगाएका छन्। यस खोजले जोखिम भएका परिवारमा वंशाणुगत परीक्षण र रोगको प्रारम्भिक पहिचानबारे थप अध्ययन गर्न सहयोग गर्न सक्छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261117033911.htm",
+      "source": "ScienceDaily",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-19T02:31:02+00:00"
+    },
+    {
+      "title_ne": "मानिसको स्वतन्त्र निर्णय भ्रम मात्रै हो? मस्तिष्कसम्बन्धी नयाँ अध्ययन",
+      "summary_ne": "नयाँ अनुसन्धानले मस्तिष्कले स्वतन्त्र निर्णय गर्दा र बाध्य भएर निर्णय गर्दा केही समान स्नायु प्रक्रिया प्रयोग गर्ने देखाएको छ। निर्णय हुनुअघि नै मस्तिष्कको गतिविधि बढ्ने भए पनि व्यक्तिगत अनुभव र रुचिले छनोटमा भूमिका खेल्ने अनुसन्धानकर्ताको भनाइ छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118065524.htm",
+      "source": "ScienceDaily",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-19T01:21:35+00:00"
+    },
+    {
+      "title_ne": "डायनासोरभन्दा धेरै पहिले ३० करोड ९० लाख वर्षअघि अनौठो जीव बाँचेको थियो",
+      "summary_ne": "तीन करोड होइन, ३० करोड ९० लाख वर्षअघि अहिलेको सिकागो क्षेत्र दलदलयुक्त र न्यानो वातावरण थियो। त्यहाँ बाँचेको प्राचीन उभयचर पुर्खाको नयाँ प्रजाति पहिचान हुँदा भ्यागुता र सलामान्डरको विकासक्रमबारे थप प्रमाण प्राप्त भएको छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261117033928.htm",
+      "source": "ScienceDaily",
+      "category_ne": "पृथ्वी तथा वातावरण",
+      "published": "2026-11-18T23:24:05+00:00"
+    },
+    {
+      "title_ne": "अत्यधिक व्यायामले मस्तिष्कलाई लामो समय सक्रिय अवस्थामा राख्न सक्ने",
+      "summary_ne": "लामो समयसम्म अत्यधिक व्यायाम गर्दा मुसाको मस्तिष्कको स्मरण र भावनासँग सम्बन्धित भागमा डोपामिनको मात्रा बढेको अध्ययनले देखाएको छ। यसले पर्याप्त आरामबिनाको कठोर अभ्यासपछि थकान वा निद्रासम्बन्धी समस्या किन हुन सक्छ भन्ने बुझ्न मद्दत गर्न सक्छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261117033923.htm",
+      "source": "ScienceDaily",
+      "category_ne": "विज्ञान",
+      "published": "2026-11-18T21:28:29+00:00"
+    },
+    {
+      "title_ne": "दुर्लभ रोगले रोगप्रतिरोधी प्रणालीको लुकेको कमजोरी देखायो",
+      "summary_ne": "वैज्ञानिकहरूले दुर्लभ सूजनसम्बन्धी रोगको कारण रोगप्रतिरोधी प्रणालीका केही कोषको खराब कार्य हुन सक्ने पत्ता लगाएका छन्। यसले तीन दशक पुरानो बुझाइ परिवर्तन गरेको छ र उपलब्ध औषधिबाट उपचार सम्भव हुन सक्ने सङ्केत दिएको छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261117035052.htm",
+      "source": "ScienceDaily",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-18T12:33:09+00:00"
+    },
+    {
+      "title_ne": "भिटामिन बी१२ प्रयोग गरेर नयाँ पुनःचार्ज गर्न मिल्ने ब्याट्री बनाइयो",
+      "summary_ne": "भिटामिन बी१२ प्रयोग गरेर विद्युत् उत्पादन र भण्डारण गर्न सक्ने पुनःचार्ज गर्न मिल्ने ब्याट्रीको नमुना बनाइएको छ। प्रारम्भिक नमुनाले २५० पटकसम्म चार्ज चक्र पूरा गरेको र भविष्यमा वातावरणमैत्री विकल्प विकासमा सहयोग गर्न सक्ने बताइएको छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261117033909.htm",
+      "source": "ScienceDaily",
+      "category_ne": "पृथ्वी तथा वातावरण",
+      "published": "2026-11-18T12:26:20+00:00"
+    },
+    {
+      "title_ne": "कोठाको तापक्रममै विद्युत् प्रतिरोधरहित प्रवाह रोक्ने बाधाबारे नयाँ खोज",
+      "summary_ne": "कोठाको तापक्रममा इलेक्ट्रोनका जोडी स्थिर रहन सक्ने प्रमाण भेटिएको अध्ययनले देखाएको छ। यसले प्रतिरोधरहित विद्युत् प्रवाह सम्भव बनाउने सुपरकन्डक्टर विकासमा अर्को कुन बाधा बाँकी छ भन्ने प्रश्नमा नयाँ दिशा दिएको छ।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261116023358.htm",
+      "source": "ScienceDaily",
+      "category_ne": "भौतिकशास्त्र",
+      "published": "2026-11-18T12:16:46+00:00"
+    },
+    {
+      "title_ne": "आन्द्राका जीवाणुले बनाउने गन्धयुक्त ग्यासका कारण दिसा त्यति गन्हाउने गर्छ",
+      "summary_ne": "आन्द्राका जीवाणुले खाना पचाउँदा थोरै मात्रामा सल्फरयुक्त ग्यास उत्पादन गर्छन्, जसले दिसाको गन्धमा ठूलो भूमिका खेल्छ। केही खानेकुराले गन्ध किन बढाउँछन् र मानिसको नाकले यस्ता गन्ध कसरी छुट्याउँछ भन्ने विषयमा वैज्ञानिकहरूले अध्ययन गरेका छन्।",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261118065521.htm",
+      "source": "ScienceDaily",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-18T11:55:21+00:00"
     }
-  ],
-  "note": "English articles are collected from their original English RSS publishers. Nepali articles are collected directly from Nepali language RSS search results. Nepali articles are not machine translated. Read full stories at their original publishers."
+  ]
 }

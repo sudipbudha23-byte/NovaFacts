@@ -1,308 +1,998 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <title>News Details | NovaFacts</title>
-  <meta name="description" content="Read available science news details on NovaFacts.">
-  <link rel="canonical" href="https://novafacts.pages.dev/news-details.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #080d18;
-      --panel: #111b2d;
-      --text: #edf3ff;
-      --muted: #9aaac2;
-      --accent: #64b5ff;
-      --border: #263650;
-    }
+<title>समाचार विवरण | NovaFacts</title>
+<meta name="description" content="विज्ञान, अन्तरिक्ष, प्रविधि र विश्वका समाचार नेपाली भाषामा पढ्नुहोस्।">
+<meta name="theme-color" content="#ffffff">
 
-    * { box-sizing: border-box; }
+<link rel="icon" href="favicon.png">
+<link rel="canonical" href="https://novafacts.pages.dev/news-details.html">
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, sans-serif;
-      line-height: 1.7;
-    }
+<style>
+:root {
+  --blue: #0b3d91;
+  --dark-blue: #061b3a;
+  --accent: #155eef;
+  --text: #171717;
+  --muted: #686868;
+  --border: #e5e7eb;
+  --bg: #ffffff;
+  --soft: #f4f6f9;
+  --max: 1180px;
+}
 
-    header {
-      padding: 18px 6%;
-      border-bottom: 1px solid var(--border);
-      background: #0c1423;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .brand {
-      color: var(--text);
-      font-size: 23px;
-      font-weight: bold;
-      text-decoration: none;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    .brand span { color: var(--accent); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, "Noto Sans Devanagari", sans-serif;
+  line-height: 1.8;
+}
 
-    main {
-      width: min(850px, 92%);
-      margin: 45px auto;
-    }
+/* HEADER */
 
-    .back {
-      display: inline-block;
-      color: var(--accent);
-      text-decoration: none;
-      margin-bottom: 22px;
-    }
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-    article {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: clamp(20px, 5vw, 38px);
-    }
+.header-inner {
+  max-width: var(--max);
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .category {
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
+.logo {
+  text-decoration: none;
+  color: #111;
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
 
-    h1 {
-      font-size: clamp(27px, 5vw, 40px);
-      line-height: 1.25;
-      margin: 12px 0;
-    }
+.logo span {
+  color: var(--blue);
+}
 
-    .meta {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
+.nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
 
-    .news-image {
-      width: 100%;
-      max-height: 430px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin: 10px 0 22px;
-    }
+.nav a {
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+  font-weight: 700;
+}
 
-    .summary {
-      font-size: 18px;
-      color: #d5e3f7;
-      margin-bottom: 22px;
-    }
+.nav a:hover {
+  color: var(--accent);
+}
 
-    .details {
-      white-space: pre-wrap;
-      overflow-wrap: anywhere;
-    }
+/* NEWS BAR */
 
-    .original {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 11px 18px;
-      border-radius: 8px;
-      background: var(--accent);
-      color: #07111f;
-      font-weight: bold;
-      text-decoration: none;
-    }
+.news-bar {
+  background: var(--dark-blue);
+  color: #fff;
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+}
 
-    #loading, #error {
-      color: var(--muted);
-      text-align: center;
-      padding: 30px 10px;
-    }
+/* MAIN */
 
-    footer {
-      text-align: center;
-      color: var(--muted);
-      padding: 25px;
-      border-top: 1px solid var(--border);
-      margin-top: 60px;
-    }
+main {
+  max-width: var(--max);
+  width: 92%;
+  margin: 35px auto 80px;
+}
 
-    [hidden] { display: none !important; }
-  </style>
+.breadcrumb {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.breadcrumb a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* ARTICLE */
+
+article {
+  width: 100%;
+  animation: appear .5s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category {
+  display: inline-block;
+  background: #eaf1ff;
+  color: var(--blue);
+  padding: 5px 13px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+  border-radius: 3px;
+}
+
+h1 {
+  font-size: clamp(30px, 5vw, 53px);
+  line-height: 1.45;
+  font-weight: 900;
+  letter-spacing: -1px;
+  max-width: 1050px;
+  margin-bottom: 22px;
+  color: #111827;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 27px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  color: #aaa;
+}
+
+/* CONTENT */
+
+.content-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 790px) 270px;
+  justify-content: space-between;
+  gap: 45px;
+  margin: 42px auto 0;
+}
+
+.content-area {
+  min-width: 0;
+}
+
+.summary {
+  font-size: 21px;
+  font-weight: 700;
+  color: #292929;
+  line-height: 2;
+  border-left: 4px solid var(--blue);
+  padding: 5px 0 5px 20px;
+  margin-bottom: 32px;
+}
+
+.details {
+  font-size: 17px;
+  line-height: 2.15;
+  color: #333;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* SOURCE */
+
+.source-box {
+  margin-top: 38px;
+  padding: 23px;
+  background: var(--soft);
+  border: 1px solid var(--border);
+}
+
+.source-box h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.source-box p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.original {
+  display: inline-block;
+  padding: 11px 20px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: .2s;
+}
+
+.original:hover {
+  background: var(--dark-blue);
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  border-top: 3px solid var(--blue);
+  padding-top: 17px;
+  align-self: start;
+}
+
+.sidebar h3 {
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+
+.side-item {
+  border-bottom: 1px solid var(--border);
+  padding: 13px 0;
+  font-size: 13px;
+}
+
+.side-item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.side-item span {
+  color: var(--muted);
+}
+
+/* ACTIONS */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 28px 0 0;
+}
+
+.action-btn {
+  background: #fff;
+  color: #333;
+  border: 1px solid var(--border);
+  padding: 9px 15px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 3px;
+  transition: .2s;
+}
+
+.action-btn:hover {
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+}
+
+/* LOADING */
+
+#loading, #error {
+  text-align: center;
+  padding: 75px 20px;
+  color: var(--muted);
+}
+
+.loader {
+  width: 42px;
+  height: 42px;
+  border: 4px solid #e8e8e8;
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  margin: 0 auto 18px;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#error {
+  color: #b42318;
+}
+
+.retry {
+  margin-top: 18px;
+  padding: 11px 22px;
+  border: none;
+  background: var(--blue);
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--border);
+  background: #fafafa;
+  text-align: center;
+  padding: 35px 15px;
+  font-size: 13px;
+  color: #777;
+}
+
+footer strong {
+  color: var(--blue);
+}
+
+/* PROGRESS */
+
+.progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--accent);
+  z-index: 200;
+}
+
+/* MOBILE */
+
+@media(max-width: 850px) {
+  .content-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .sidebar {
+    max-width: 100%;
+  }
+}
+
+@media(max-width: 600px) {
+  .header-inner {
+    padding: 13px 5%;
+  }
+
+  .logo {
+    font-size: 23px;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .nav a {
+    font-size: 12px;
+  }
+
+  main {
+    margin-top: 23px;
+  }
+
+  .breadcrumb {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 30px;
+    line-height: 1.5;
+  }
+
+  .meta {
+    gap: 9px;
+    font-size: 11px;
+  }
+
+  .content-layout {
+    margin-top: 28px;
+  }
+
+  .summary {
+    font-size: 18px;
+    padding-left: 13px;
+  }
+
+  .details {
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .actions {
+    gap: 7px;
+  }
+
+  .action-btn {
+    padding: 9px 11px;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media print {
+  .topbar,
+  .news-bar,
+  .actions,
+  .sidebar,
+  footer,
+  .progress-track,
+  .breadcrumb {
+    display: none !important;
+  }
+
+  main {
+    width: 100%;
+    margin: 0;
+  }
+
+  .content-layout {
+    display: block;
+  }
+
+  .source-box {
+    background: white;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <a class="brand" href="index.html">Nova<span>Facts</span></a>
+<div class="progress-track" id="progress"></div>
+
+<header class="topbar">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      Nova<span>Facts</span>
+    </a>
+
+    <nav class="nav">
+      <a href="index.html">मुख्य पृष्ठ</a>
+      <a href="index.html">समाचार</a>
+    </nav>
+  </div>
 </header>
 
-<main>
-  <a class="back" href="index.html">← Back to NovaFacts</a>
+<div class="news-bar">
+  NOVAFACTS • विज्ञान • अन्तरिक्ष • प्रविधि
+</div>
 
-  <p id="loading">Loading news details...</p>
-  <p id="error" hidden></p>
+<main>
+
+  <div class="breadcrumb">
+    <a href="index.html">मुख्य पृष्ठ</a>
+    &nbsp; / &nbsp;
+    समाचार विवरण
+  </div>
+
+  <div id="loading">
+    <div class="loader"></div>
+    <p>समाचार लोड हुँदैछ...</p>
+  </div>
+
+  <div id="error" hidden>
+    <h2>समाचार उपलब्ध भएन</h2>
+    <p id="errorMessage"></p>
+    <button class="retry" onclick="loadNewsDetails()">
+      पुनः प्रयास गर्नुहोस्
+    </button>
+  </div>
 
   <article id="newsArticle" hidden>
+
     <div class="category" id="category"></div>
 
     <h1 id="title"></h1>
 
     <div class="meta" id="meta"></div>
 
-    <img class="news-image" id="image" alt="" hidden>
+    <div class="actions">
+      <button class="action-btn" onclick="shareNews()">
+        ↗ साझा गर्नुहोस्
+      </button>
 
-    <p class="summary" id="summary"></p>
+      <button class="action-btn" onclick="copyNewsLink()">
+        🔗 लिङ्क कपी गर्नुहोस्
+      </button>
 
-    <!-- खाली विवरण भाग: विवरण नभए केही देखाइँदैन -->
-    <div class="details" id="details"></div>
+      <button class="action-btn" onclick="window.print()">
+        🖨 प्रिन्ट गर्नुहोस्
+      </button>
+    </div>
 
-    <a class="original" id="originalLink"
-       target="_blank"
-       rel="noopener noreferrer"
-       hidden>
-      Read Original Source ↗
-    </a>
+    <div class="content-layout">
+
+      <section class="content-area">
+
+        <p class="summary" id="summary" hidden></p>
+
+        <div class="details" id="details"></div>
+
+        <div class="source-box">
+
+          <h3>आधिकारिक समाचार लिङ्क</h3>
+
+          <p id="sourceName">समाचारको मूल स्रोत</p>
+
+          <a
+            id="originalLink"
+            class="original"
+            target="_blank"
+            rel="noopener noreferrer"
+            hidden
+          >
+            मूल समाचार पढ्नुहोस् ↗
+          </a>
+
+          <p id="noSource" hidden>
+            यस समाचारको आधिकारिक लिङ्क उपलब्ध छैन।
+          </p>
+
+        </div>
+
+      </section>
+
+      <aside class="sidebar">
+
+        <h3>समाचार जानकारी</h3>
+
+        <div class="side-item">
+          <strong>श्रेणी</strong>
+          <span id="sideCategory">—</span>
+        </div>
+
+        <div class="side-item">
+          <strong>समाचार स्रोत</strong>
+          <span id="sideSource">—</span>
+        </div>
+
+        <div class="side-item">
+          <strong>प्रकाशित मिति</strong>
+          <span id="sideDate">—</span>
+        </div>
+
+        <div class="side-item">
+          <strong>वेबसाइट</strong>
+          <span>NovaFacts</span>
+        </div>
+
+      </aside>
+
+    </div>
+
   </article>
+
 </main>
 
 <footer>
-  © <span id="year"></span> NovaFacts. All rights reserved.
+  © <span id="year"></span>
+  <strong>NovaFacts</strong>.
+  सबै अधिकार सुरक्षित।
 </footer>
 
 <script>
 "use strict";
 
-const params = new URLSearchParams(window.location.search);
+const $ = id => document.getElementById(id);
+
+const loading = $("loading");
+const errorBox = $("error");
+const articleBox = $("newsArticle");
+
+const params = new URLSearchParams(location.search);
 
 const requestedURL = params.get("url") || "";
 const requestedTitle = params.get("title") || "";
-const requestedCategory = params.get("category") || "Science";
+const requestedId = params.get("id") || "";
 
-const loading = document.getElementById("loading");
-const errorBox = document.getElementById("error");
-const articleBox = document.getElementById("newsArticle");
+let currentNews = null;
 
-const titleElement = document.getElementById("title");
-const categoryElement = document.getElementById("category");
-const metaElement = document.getElementById("meta");
-const imageElement = document.getElementById("image");
-const summaryElement = document.getElementById("summary");
-const detailsElement = document.getElementById("details");
-const originalLink = document.getElementById("originalLink");
+$("year").textContent = new Date().getFullYear();
 
-document.getElementById("year").textContent =
-  new Date().getFullYear();
+/* TEXT */
 
-function safeHttpURL(value) {
+function cleanText(value) {
+  return typeof value === "string" ? value.trim() : "";
+}
+
+/* SAFE URL */
+
+function safeURL(value) {
   try {
-    const parsed = new URL(value);
-    return ["http:", "https:"].includes(parsed.protocol)
-      ? parsed.href
-      : "";
+    const url = new URL(value, location.origin);
+
+    if (!["http:", "https:"].includes(url.protocol)) {
+      return "";
+    }
+
+    return url.href;
   } catch {
     return "";
   }
 }
 
+/* DATE */
+
+function formatDate(value) {
+  if (!value) return "";
+
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) return "";
+
+  return new Intl.DateTimeFormat("ne-NP", {
+    timeZone: "Asia/Kathmandu",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }).format(date);
+}
+
+/* ERROR */
+
 function showError(message) {
   loading.hidden = true;
-  errorBox.textContent = message;
+  articleBox.hidden = true;
+
+  $("errorMessage").textContent = message;
   errorBox.hidden = false;
 }
 
-function displayNews(news) {
-  titleElement.textContent = news.title || "";
-  categoryElement.textContent =
-    news.category || requestedCategory;
+/* ARTICLE FIELDS */
 
-  const date = news.published || news.date || "";
-  const source = news.source || "";
-
-  metaElement.textContent = [source, date]
-    .filter(Boolean)
-    .join(" • ");
-
-  const imageURL = safeHttpURL(news.image || news.image_url || "");
-
-  if (imageURL) {
-    imageElement.src = imageURL;
-    imageElement.alt = news.title || "News image";
-    imageElement.hidden = false;
-  }
-
-  summaryElement.textContent = news.summary || "";
-
-  // उपलब्ध विवरण मात्र देखाउने; नभए भाग खाली रहनेछ।
-  const fullDetails =
-    news.content ||
-    news.body ||
-    news.fullText ||
-    news.full_text ||
-    "";
-
-  detailsElement.textContent =
-    typeof fullDetails === "string" ? fullDetails : "";
-
-  const publisherURL = safeHttpURL(news.url || requestedURL);
-
-  if (publisherURL) {
-    originalLink.href = publisherURL;
-    originalLink.hidden = false;
-  }
-
-  document.title =
-    (news.title || "News Details") + " | NovaFacts";
-
-  loading.hidden = true;
-  articleBox.hidden = false;
+function getTitle(news) {
+  return cleanText(
+    news.title_ne ||
+    news.titleNepali ||
+    news.title ||
+    ""
+  );
 }
 
+function getSummary(news) {
+  return cleanText(
+    news.summary_ne ||
+    news.description_ne ||
+    news.summary ||
+    news.description ||
+    ""
+  );
+}
+
+function getDetails(news) {
+  return cleanText(
+    news.content_ne ||
+    news.details_ne ||
+    news.full_text_ne ||
+    news.content ||
+    news.details ||
+    ""
+  );
+}
+
+function getCategory(news) {
+  return cleanText(
+    news.category_ne ||
+    news.category ||
+    news.category_name ||
+    "समाचार"
+  );
+}
+
+function getSource(news) {
+  return cleanText(
+    news.source_ne ||
+    news.source ||
+    news.publisher ||
+    "NovaFacts"
+  );
+}
+
+function getDate(news) {
+  return news.published ||
+    news.publishedAt ||
+    news.date ||
+    news.created_at ||
+    "";
+}
+
+/* MATCH ARTICLE */
+
+function normalize(value) {
+  return cleanText(value)
+    .replace(/\/+$/, "")
+    .toLowerCase();
+}
+
+function findNews(articles) {
+
+  if (requestedId) {
+    const found = articles.find(item =>
+      String(item.id || item.news_id || "") === requestedId
+    );
+
+    if (found) return found;
+  }
+
+  if (requestedURL) {
+    const requested = safeURL(requestedURL);
+
+    const found = articles.find(item => {
+      const articleURL = safeURL(item.url || item.link || "");
+
+      return articleURL &&
+        requested &&
+        normalize(articleURL) === normalize(requested);
+    });
+
+    if (found) return found;
+  }
+
+  if (requestedTitle) {
+    const found = articles.find(item =>
+      normalize(getTitle(item)) === normalize(requestedTitle)
+    );
+
+    if (found) return found;
+  }
+
+  return null;
+}
+
+/* DISPLAY NEWS */
+
+function displayNews(news) {
+
+  const title = getTitle(news);
+
+  if (!title) {
+    showError("यो समाचारको शीर्षक उपलब्ध छैन।");
+    return;
+  }
+
+  currentNews = news;
+
+  $("title").textContent = title;
+  document.title = title + " | NovaFacts";
+
+  const category = getCategory(news);
+
+  $("category").textContent = category;
+  $("sideCategory").textContent = category;
+
+  const source = getSource(news);
+
+  $("sourceName").textContent = "प्रकाशक: " + source;
+  $("sideSource").textContent = source;
+
+  const date = formatDate(getDate(news));
+
+  $("sideDate").textContent = date || "उपलब्ध छैन";
+
+  /* META */
+
+  $("meta").replaceChildren();
+
+  const metaItems = [source, date].filter(Boolean);
+
+  metaItems.forEach((item, index) => {
+
+    if (index > 0) {
+      const dot = document.createElement("span");
+      dot.className = "dot";
+      dot.textContent = "•";
+      $("meta").appendChild(dot);
+    }
+
+    const span = document.createElement("span");
+    span.className = "meta-item";
+    span.textContent = item;
+
+    $("meta").appendChild(span);
+  });
+
+  /* SUMMARY */
+
+  const summary = getSummary(news);
+
+  $("summary").textContent = summary;
+  $("summary").hidden = !summary;
+
+  /* DETAILS */
+
+  const details = getDetails(news);
+
+  $("details").textContent = details ||
+    "यस समाचारको विस्तृत विवरण उपलब्ध छैन।";
+
+  /* ORIGINAL NEWS LINK */
+
+  const sourceURL = safeURL(news.url || news.link || "");
+
+  if (sourceURL) {
+    $("originalLink").href = sourceURL;
+    $("originalLink").hidden = false;
+    $("noSource").hidden = true;
+  } else {
+    $("originalLink").removeAttribute("href");
+    $("originalLink").hidden = true;
+    $("noSource").hidden = false;
+  }
+
+  /* SHOW ARTICLE */
+
+  loading.hidden = true;
+  errorBox.hidden = true;
+  articleBox.hidden = false;
+
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
+}
+
+/* LOAD NEWS JSON */
+
 async function loadNewsDetails() {
-  if (!requestedURL && !requestedTitle) {
-    showError("No news article was selected.");
+
+  loading.hidden = false;
+  errorBox.hidden = true;
+  articleBox.hidden = true;
+
+  if (!requestedURL && !requestedTitle && !requestedId) {
+    showError("कृपया मुख्य पृष्ठबाट कुनै समाचार चयन गर्नुहोस्।");
     return;
   }
 
   try {
-    const response = await fetch(
-      "./news.json?updated=" + Date.now(),
-      { cache: "no-store" }
-    );
+
+    const response = await fetch("./news.json", {
+      cache: "no-store",
+      headers: {
+        "Accept": "application/json"
+      }
+    });
 
     if (!response.ok) {
-      throw new Error("Could not load news.json.");
+      throw new Error("news.json लोड हुन सकेन।");
     }
 
     const data = await response.json();
 
-    const articles = Array.isArray(data.articles)
-      ? data.articles
-      : [];
+    const articles = Array.isArray(data)
+      ? data
+      : Array.isArray(data.articles)
+        ? data.articles
+        : Array.isArray(data.news)
+          ? data.news
+          : [];
 
-    const selected = articles.find(item =>
-      requestedURL &&
-      item.url === requestedURL
-    ) || articles.find(item =>
-      requestedTitle &&
-      item.title === requestedTitle
-    );
+    if (!articles.length) {
+      showError("news.json मा समाचार भेटिएन।");
+      return;
+    }
+
+    const selected = findNews(articles);
 
     if (!selected) {
-      showError("This news article is no longer available.");
+      showError(
+        "चयन गरिएको समाचार भेटिएन। मुख्य पृष्ठबाट फेरि समाचार खोल्नुहोस्।"
+      );
       return;
     }
 
     displayNews(selected);
 
   } catch (error) {
-    console.error("NovaFacts detail error:", error);
-    showError("Unable to load this news article. Please try again later.");
+
+    console.error("NovaFacts Error:", error);
+
+    showError(
+      "समाचार लोड गर्न सकिएन। इन्टरनेट जडान र news.json फाइल जाँच गर्नुहोस्।"
+    );
   }
 }
 
+/* SHARE */
+
+async function shareNews() {
+
+  const shareData = {
+    title: $("title").textContent,
+    text: $("summary").textContent ||
+      $("title").textContent,
+    url: location.href
+  };
+
+  try {
+
+    if (navigator.share) {
+      await navigator.share(shareData);
+    } else {
+      await copyNewsLink();
+    }
+
+  } catch (error) {
+    if (error.name !== "AbortError") {
+      console.error(error);
+    }
+  }
+}
+
+/* COPY LINK */
+
+async function copyNewsLink() {
+
+  try {
+
+    await navigator.clipboard.writeText(location.href);
+    alert("समाचारको लिङ्क सफलतापूर्वक कपी भयो।");
+
+  } catch {
+    alert("लिङ्क कपी गर्न सकिएन।");
+  }
+}
+
+/* READING PROGRESS */
+
+window.addEventListener("scroll", () => {
+
+  const scrollable =
+    document.documentElement.scrollHeight - window.innerHeight;
+
+  const progress = scrollable > 0
+    ? (window.scrollY / scrollable) * 100
+    : 0;
+
+  $("progress").style.width =
+    Math.min(progress, 100) + "%";
+});
+
+/* START */
+
 loadNewsDetails();
+
 </script>
 
 </body>
