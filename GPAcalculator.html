@@ -869,6 +869,17 @@ footer{border-color:rgba(255,255,255,.22)!important;animation:pageAppear .9s eas
     right: 0 !important;
     transform: none !important;
 }
+
+/* Simple, static visual style */
+body, body:before, body:after { background-image:none !important; animation:none !important; }
+body { background:#101114 !important; background-attachment:scroll !important; }
+.login-stars,.login-sky-glow,.hero:after,.logo:after { display:none !important; }
+*,*::before,*::after { animation:none !important; transition:border-color .15s ease,background-color .15s ease,color .15s ease !important; }
+header,.hero,.card,.subject,.result-box,footer { animation:none !important; box-shadow:none !important; }
+header,.hero,.card { background:#191a1f !important; backdrop-filter:none !important; }
+.card:hover,.result-box:hover,.btn:hover { transform:none !important; filter:none !important; }
+.logo { animation:none !important; box-shadow:none !important; }
+.progress { box-shadow:none !important; }
 </style>
 </head>
 
