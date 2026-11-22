@@ -1,6 +1,6 @@
 {
   "updated_at": "2026-11-22",
-  "article_count": 80,
+  "article_count": 88,
   "articles": [
     {
       "title_ne": "जुनो यानले बृहस्पतिका रंगीन घुमाउरा बादल कैद गर्‍यो",
@@ -641,6 +641,70 @@
       "source": "ScienceDaily",
       "category_ne": "जीवविज्ञान",
       "published": "2026-11-18T11:55:21+00:00"
+    },
+    {
+      "title_ne": "गुरुत्वाकर्षण तरङ्ग: अन्तरिक्ष-समयमा फैलिने कम्पन",
+      "summary_ne": "Einstein ले भविष्यवाणी गरेका गुरुत्वाकर्षण तरङ्ग के हुन्, ब्ल्याक होल र न्यूट्रोन ताराको टक्करबाट कसरी उत्पन्न हुन्छन्, र LIGO ले तिनलाई कसरी पत्ता लगाउँछ भन्ने विस्तृत परिचय।",
+      "url": "https://novafacts.pages.dev/science-articles.html#waves",
+      "source": "NovaFacts",
+      "category_ne": "भौतिकशास्त्र",
+      "published": "2026-11-22"
+    },
+    {
+      "title_ne": "ब्ल्याक होल: घटना क्षितिज, गुरुत्वाकर्षण र वैज्ञानिक प्रमाण",
+      "summary_ne": "ब्ल्याक होल कसरी बन्छन् र तिनलाई ताराको कक्षा, तातो ग्यास, प्रकाश र गुरुत्वाकर्षण तरङ्गबाट कसरी अध्ययन गरिन्छ भन्ने विस्तृत लेख।",
+      "url": "https://novafacts.pages.dev/black-holes.html",
+      "source": "NovaFacts",
+      "category_ne": "अन्तरिक्ष",
+      "published": "2026-11-22"
+    },
+    {
+      "title_ne": "Newton र Einstein: गुरुत्वाकर्षणबारे दुई महान् सोच",
+      "summary_ne": "Newton ले पृथ्वी र ग्रहको गतिलाई एउटै नियमले कसरी व्याख्या गरे र Einstein ले सापेक्षतामार्फत गुरुत्वाकर्षणको बुझाइ कसरी विस्तार गरे भन्ने इतिहास र विज्ञान।",
+      "url": "https://novafacts.pages.dev/science-articles.html#einstein",
+      "source": "NovaFacts",
+      "category_ne": "भौतिकशास्त्र",
+      "published": "2026-11-22"
+    },
+    {
+      "title_ne": "विज्ञान, भगवान् र मानव विश्वास",
+      "summary_ne": "वैज्ञानिक विधि, धार्मिक आस्था र दर्शनले ब्रह्माण्ड, जीवनको अर्थ तथा भगवान्सम्बन्धी प्रश्नलाई कसरी हेर्छन् भन्ने सन्तुलित परिचय।",
+      "url": "https://novafacts.pages.dev/science-articles.html#faith",
+      "source": "NovaFacts",
+      "category_ne": "विज्ञान र दर्शन",
+      "published": "2026-11-22"
+    },
+    {
+      "title_ne": "कम्प्युटर र मानव जीवन: सूचना कसरी प्रशोधन हुन्छ?",
+      "summary_ne": "CPU, RAM र Operating System तथा मानव मस्तिष्क, स्नायु प्रणाली र शरीरका अंगले सूचना कसरी प्रशोधन गर्छन् भन्ने तुलना।",
+      "url": "https://novafacts.pages.dev/science-articles.html#computer",
+      "source": "NovaFacts",
+      "category_ne": "प्रविधि र जीवविज्ञान",
+      "published": "2026-11-22"
+    },
+    {
+      "title_ne": "समय र अन्तरिक्षको रहस्य",
+      "summary_ne": "Einstein को सापेक्षताअनुसार गति र गुरुत्वाकर्षणले समयको मापनमा कसरी प्रभाव पार्छन् र अन्तरिक्ष-समयको अवधारणा के हो भन्ने व्याख्या।",
+      "url": "https://novafacts.pages.dev/science-articles.html#time",
+      "source": "NovaFacts",
+      "category_ne": "भौतिकशास्त्र",
+      "published": "2026-11-22"
+    },
+    {
+      "title_ne": "मानव मस्तिष्क र चेतना",
+      "summary_ne": "न्युरोन, स्नायु सञ्जाल, स्मृति, भावना र चेतनाबारे वैज्ञानिक बुझाइ तथा अझै अनुत्तरित प्रश्नहरूको परिचय।",
+      "url": "https://novafacts.pages.dev/science-articles.html#brain",
+      "source": "NovaFacts",
+      "category_ne": "जीवविज्ञान",
+      "published": "2026-11-22"
+    },
+    {
+      "title_ne": "कृत्रिम बुद्धिमत्ताको भविष्य",
+      "summary_ne": "AI ले डेटाबाट ढाँचा कसरी सिक्छ, यसको उपयोग, सीमितता, गोपनीयता र जिम्मेवार प्रयोगका चुनौतीबारे लेख।",
+      "url": "https://novafacts.pages.dev/science-articles.html#ai",
+      "source": "NovaFacts",
+      "category_ne": "कृत्रिम बुद्धिमत्ता",
+      "published": "2026-11-22"
     }
   ]
 }
