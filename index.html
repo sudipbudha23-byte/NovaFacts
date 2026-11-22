@@ -1582,9 +1582,14 @@ function renderArticles(articles) {
     const articleURL = safeText(article.url || article.link);
 
     if (/^https?:\/\//i.test(articleURL)) {
-      link.href =
-        "news-detail.html?url=" +
-        encodeURIComponent(articleURL);
+      const parsedArticleURL = new URL(articleURL, location.origin);
+      if (parsedArticleURL.origin === location.origin) {
+        link.href = articleURL;
+      } else {
+        link.href =
+          "news-detail.html?url=" +
+          encodeURIComponent(articleURL);
+      }
     } else {
       link.href = "#";
       link.addEventListener("click", event => {
