@@ -737,6 +737,15 @@ body.hide-brand-logo .brand-mark {display:none}
 .tool-link:last-child {border-bottom:0}
 .tool-link span:first-child {font-size:20px}
 .tool-link:hover {color:var(--accent)}
+.question-bank-link,.question-bank-cta,.question-bank-tool,.question-bank-footer,.question-bank-mobile {
+  border:1px solid rgba(230,184,76,.55)!important;
+  background:linear-gradient(110deg,rgba(230,184,76,.18),rgba(230,184,76,.05))!important;
+  color:var(--accent)!important;
+  box-shadow:0 0 16px rgba(230,184,76,.10);
+}
+.question-bank-link {font-weight:800}
+.question-bank-link:hover,.question-bank-tool:hover {background:var(--accent)!important;color:#17130a!important}
+.question-bank-cta {border:1px solid var(--accent)!important}
 .right-ad {min-height:250px}
 
 /* QUIZ */
@@ -1028,6 +1037,7 @@ body {
   <div class="side-group">
     <div class="side-heading">Tools</div>
     <a class="side-link" href="GPAcalculator.html"><span class="side-icon">▦</span><span class="side-label">GPA Calculator</span></a>
+    <a class="side-link question-bank-link" href="question-bank.html"><span class="side-icon">✦</span><span class="side-label">Exam Question Generator</span></a>
     <a class="side-link" href="#quiz"><span class="side-icon">☑</span><span class="side-label">Knowledge Quiz</span></a>
   </div>
 
@@ -1068,6 +1078,7 @@ body {
     <div class="welcome-actions">
       <a href="#latest" class="primary-button">Explore Latest News →</a>
       <a href="#quiz" class="secondary-button">Try Knowledge Quiz</a>
+      <a href="question-bank.html" class="primary-button question-bank-cta">✦ Exam Question Generator</a>
     </div>
   </section>
 
@@ -1109,6 +1120,7 @@ body {
       <a href="contact.html">Contact</a>
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="GPAcalculator.html">GPA Calculator</a>
+      <a class="question-bank-footer" href="question-bank.html">✦ Exam Question Generator</a>
     </div>
     <div>© 2026 NovaFacts. All rights reserved.</div>
     <div>Science • Space • AI • Physics • Knowledge</div>
@@ -1145,6 +1157,7 @@ body {
   <section class="right-panel">
     <h3>🛠 Explore Tools</h3>
     <a class="tool-link" href="GPAcalculator.html"><span>🎓</span><span>GPA Calculator</span></a>
+    <a class="tool-link question-bank-tool" href="question-bank.html"><span>✦</span><span>Exam Question Generator</span></a>
     <a class="tool-link" href="#quiz"><span>🧠</span><span>Knowledge Quiz</span></a>
     <a class="tool-link" href="about.html"><span>🌐</span><span>About NovaFacts</span></a>
     <a class="tool-link" href="my-information.html"><span>🌐</span><span>Our Information</span></a>
@@ -1176,6 +1189,7 @@ body {
   <a class="mobile-nav-link" href="#topics"><span>◈</span><span>Topics</span></a>
   <a class="mobile-nav-link" href="#quiz"><span>✎</span><span>Quiz</span></a>
   <a class="mobile-nav-link" href="GPAcalculator.html"><span>▦</span><span>GPA</span></a>
+  <a class="mobile-nav-link question-bank-mobile" href="question-bank.html"><span>✦</span><span>Questions</span></a>
 </nav>
 
 <script>
