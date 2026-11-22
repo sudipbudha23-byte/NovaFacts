@@ -7,21 +7,21 @@
 
 <title>समाचार विवरण | NovaFacts</title>
 <meta name="description" content="विज्ञान, अन्तरिक्ष, प्रविधि र विश्वका समाचार नेपाली भाषामा पढ्नुहोस्।">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#101114">
 
 <link rel="icon" href="favicon.png">
-<link rel="canonical" href="https://novafacts.pages.dev/news-details.html">
+<link rel="canonical" href="https://novafacts.pages.dev/news-detail.html">
 
 <style>
 :root {
-  --blue: #0b3d91;
-  --dark-blue: #061b3a;
-  --accent: #155eef;
-  --text: #171717;
-  --muted: #686868;
-  --border: #e5e7eb;
-  --bg: #ffffff;
-  --soft: #f4f6f9;
+  --blue: #e6b84c;
+  --dark-blue: #101114;
+  --accent: #e6b84c;
+  --text: #f5f5f5;
+  --muted: #a6a8b0;
+  --border: rgba(255,255,255,.12);
+  --bg: #101114;
+  --soft: #191a1f;
   --max: 1180px;
 }
 
@@ -474,6 +474,13 @@ footer strong {
     background: white;
   }
 }
+
+/* Shared NovaFacts homepage palette */
+:root{--nf-bg:#101114;--nf-surface:#191a1f;--nf-surface2:#22242a;--nf-text:#f5f5f5;--nf-muted:#a6a8b0;--nf-border:rgba(255,255,255,.12);--nf-accent:#e6b84c}
+body{background:var(--nf-bg)!important;color:var(--nf-text)!important}
+.topbar{background:rgba(16,17,20,.96)!important;border-color:var(--nf-border)!important}
+.logo,.nav a{color:var(--nf-text)!important}.logo span,.nav a:hover,h1,h2,h3{color:var(--nf-accent)!important}
+article,.article,.content,.sidebar,.card,.related{background:var(--nf-surface)!important;color:var(--nf-text)!important;border-color:var(--nf-border)!important}
 </style>
 </head>
 
