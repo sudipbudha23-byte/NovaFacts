@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#101114">
   <meta name="description" content="Read the NovaFacts Privacy Policy to understand how we collect, use, and protect information when you visit our educational website.">
   <title>Privacy Policy — NovaFacts</title>
 
@@ -13,11 +13,11 @@
 
   <style>
     :root {
-      --bg: #050505;
-      --surface: #101010;
-      --surface-light: #171717;
+      --bg: #101114;
+      --surface: #191a1f;
+      --surface-light: #22242a;
       --text: #f5f5f5;
-      --muted: #a3a3a3;
+      --muted: #a6a8b0;
       --border: rgba(255,255,255,.12);
       --white: #fff;
       --max-width: 1100px;
@@ -502,7 +502,13 @@
         transform: none;
       }
     }
-  </style>
+  
+/* Shared NovaFacts homepage palette */
+:root{--nf-bg:#101114;--nf-surface:#191a1f;--nf-surface2:#22242a;--nf-text:#f5f5f5;--nf-muted:#a6a8b0;--nf-border:rgba(255,255,255,.12);--nf-accent:#e6b84c}
+body{background:var(--nf-bg)!important;color:var(--nf-text)!important}
+a:hover,h1 span,h2,h3,.active{color:var(--nf-accent)}
+button,.button,.btn,.contact-btn{background:var(--nf-accent);border-color:var(--nf-accent);color:#101114}
+</style>
 </head>
 
 <body>
