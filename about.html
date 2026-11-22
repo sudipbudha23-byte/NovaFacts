@@ -976,23 +976,18 @@ footer {
 body{background:var(--nf-bg)!important;color:var(--nf-text)!important}
 a:hover,h1 span,h2,h3,.active{color:var(--nf-accent)}
 button,.button,.btn{background:var(--nf-accent);border-color:var(--nf-accent);color:#101114}
+
+/* Simple, static visual style */
+.loader,#particles,.hero::before,.about-visual::before,.about-visual::after { display:none !important; }
+*,*::before,*::after { animation:none !important; transition:none !important; }
+.reveal,.reveal-left,.reveal-right,.reveal.visible,.reveal-left.visible,.reveal-right.visible { opacity:1 !important; transform:none !important; }
+.button:hover,.info-card:hover,.topic-card:hover,.topic-card:hover::after { transform:none !important; }
 </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
 
-<div class="loader" id="loader">
-    <div class="loader-content">
-        <div class="loader-logo">NOVAfACTS</div>
-        <div class="loader-line"></div>
-    </div>
-</div>
-
-<!-- PARTICLES -->
-
-<canvas id="particles" aria-hidden="true"></canvas>
 
 <div class="site">
 
@@ -1650,164 +1645,7 @@ if ("IntersectionObserver" in window && !prefersReducedMotion) {
 }
 
 
-/* ==============================
-   MONOCHROME PARTICLES
-================================ */
-
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-
-let particles = [];
-let width = 0;
-let height = 0;
-let animationFrame;
-let lastFrame = 0;
-
-const isMobile = window.matchMedia("(max-width: 700px)").matches;
-const particleCount = isMobile ? 24 : 55;
-const reduceMotion = prefersReducedMotion;
-
-function resizeCanvas() {
-
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-    width = window.innerWidth;
-    height = window.innerHeight;
-
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
-
-    canvas.style.width = width + "px";
-    canvas.style.height = height + "px";
-
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-}
-
-function createParticles() {
-
-    particles = [];
-
-    for (let i = 0; i < particleCount; i++) {
-
-        particles.push({
-
-            x: Math.random() * width,
-            y: Math.random() * height,
-
-            radius: Math.random() * 1.5 + .4,
-
-            speedX: (Math.random() - .5) * .25,
-            speedY: (Math.random() - .5) * .25
-
-        });
-
-    }
-
-}
-
-function drawParticles(timestamp = 0) {
-
-    if (document.hidden) {
-        animationFrame = null;
-        return;
-    }
-
-    if (timestamp - lastFrame < 40) {
-        animationFrame = requestAnimationFrame(drawParticles);
-        return;
-    }
-
-    lastFrame = timestamp;
-
-    ctx.clearRect(0, 0, width, height);
-
-    particles.forEach((p, i) => {
-
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        if (p.x < 0 || p.x > width) p.speedX *= -1;
-        if (p.y < 0 || p.y > height) p.speedY *= -1;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-
-        ctx.fillStyle = "rgba(255,255,255,.55)";
-        ctx.fill();
-
-        for (let j = i + 1; j < particles.length; j++) {
-
-            const other = particles[j];
-
-            const dx = p.x - other.x;
-            const dy = p.y - other.y;
-
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 115) {
-
-                ctx.beginPath();
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(other.x, other.y);
-
-                ctx.strokeStyle =
-                    `rgba(255,255,255,${.07 * (1 - distance / 115)})`;
-
-                ctx.lineWidth = .6;
-                ctx.stroke();
-
-            }
-
-        }
-
-    });
-
-    animationFrame = requestAnimationFrame(drawParticles);
-
-}
-
-function startParticles() {
-
-    if (reduceMotion || document.hidden) return;
-
-    if (animationFrame === null) {
-        animationFrame = requestAnimationFrame(drawParticles);
-    }
-
-}
-
-function stopParticles() {
-
-    if (animationFrame !== null) {
-        cancelAnimationFrame(animationFrame);
-        animationFrame = null;
-    }
-
-}
-
-resizeCanvas();
-createParticles();
-
-if (!reduceMotion) {
-    startParticles();
-}
-
-window.addEventListener("resize", () => {
-    resizeCanvas();
-    createParticles();
-});
-
-document.addEventListener("visibilitychange", () => {
-
-    if (document.hidden) {
-        stopParticles();
-    } else {
-        startParticles();
-    }
-
-});
-
+/* Particle canvas and pointer-based 3D animation removed. */
 
 /* ==============================
    SUBTLE 3D CARD INTERACTION
