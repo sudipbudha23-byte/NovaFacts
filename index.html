@@ -1339,6 +1339,23 @@ body.sidebar-collapsed .main-layout{margin-left:78px}
   *,*:before,*:after{scroll-behavior:auto!important;transition:none!important}
 }
 
+
+/* YOUTUBE-STYLE SKELETON LOADING — NEWS CONTENT ONLY */
+.skeleton-card{min-width:0;overflow:hidden;border:1px solid var(--border);border-radius:14px;background:var(--surface);box-shadow:var(--shadow)}
+.skeleton-image,.skeleton-line,.skeleton-pill{position:relative;overflow:hidden;background:var(--surface2)}
+.skeleton-image{width:100%;height:175px}
+.skeleton-card-body{padding:15px}
+.skeleton-pill{width:78px;height:10px;margin-bottom:12px;border-radius:6px}
+.skeleton-line{height:12px;margin:0 0 10px;border-radius:6px}
+.skeleton-line.title{height:16px;width:88%;margin-bottom:13px}
+.skeleton-line.short{width:62%}
+.skeleton-line.medium{width:78%}
+.skeleton-line.meta{height:9px;width:45%;margin-top:15px}
+.skeleton-image::after,.skeleton-line::after,.skeleton-pill::after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(128,128,128,.16),transparent);animation:skeletonShimmer 1.35s infinite}
+@keyframes skeletonShimmer{100%{transform:translateX(100%)}}
+@media(max-width:760px){.skeleton-card{display:grid;grid-template-columns:116px minmax(0,1fr);min-height:126px}.skeleton-image{height:100%;min-height:126px}.skeleton-card-body{padding:11px}.skeleton-line.title{height:14px}.skeleton-line{height:10px;margin-bottom:8px}}
+@media(prefers-reduced-motion:reduce){.skeleton-image::after,.skeleton-line::after,.skeleton-pill::after{animation:none}}
+
 </style>
   <link rel="stylesheet" href="ads-system.css">
 </head>
@@ -1642,6 +1659,7 @@ function nepaliDate(value) {
 
 function renderArticles(articles) {
   newsGrid.replaceChildren();
+  newsGrid.setAttribute("aria-busy", "false");
 
   if (!articles.length) {
     const empty = document.createElement("div");
@@ -1716,6 +1734,20 @@ function renderArticles(articles) {
     newsGrid.appendChild(card);
   });
 }
+
+function showNewsSkeletons(count = 4) {
+  newsGrid.replaceChildren();
+  for (let i = 0; i < count; i++) {
+    const card = document.createElement("div");
+    card.className = "skeleton-card";
+    card.setAttribute("aria-hidden", "true");
+    card.innerHTML = '<div class="skeleton-image"></div><div class="skeleton-card-body"><div class="skeleton-pill"></div><div class="skeleton-line title"></div><div class="skeleton-line medium"></div><div class="skeleton-line short"></div><div class="skeleton-line meta"></div></div>';
+    newsGrid.appendChild(card);
+  }
+  newsGrid.setAttribute("aria-busy", "true");
+}
+
+showNewsSkeletons();
 
 /* LOAD NEWS.JSON */
 
