@@ -146,13 +146,13 @@ function makeCssPreview(css){
  return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>'+css.replace(/<\\/style/gi,"<\\\\/style")+'</style></head><body><div class="card"><h1>CSS Preview</h1><p>Your CSS is being applied to this sample card.</p><button>Sample button</button></div></body></html>';
 }
 function makeJsPreview(source,id){
- const safeSource=source.replace(/<\\/script/gi,"<\\\\/script");
+ const safeSource=source.replace(/<\/script/gi,"<\\/script");
  return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="font-family:Arial;padding:20px"><div id="app"><h2>JavaScript preview</h2><p>Your JavaScript runs in this preview.</p></div><script>'+
  'const send=(type,args)=>parent.postMessage({channel:"novafacts-coding",run:'+id+',type:type,args:args.map(v=>{try{return typeof v==="string"?v:JSON.stringify(v)}catch(e){return String(v)}})}, "*");'+
  'console.log=(...args)=>send("log",args);console.warn=(...args)=>send("warn",args);console.error=(...args)=>send("error",args);'+
  'window.onerror=(message,source,line,column,error)=>{send("error",[String(message)+" (line "+line+")"]);};'+
  'window.onunhandledrejection=e=>send("error",[String(e.reason)]);'+
- '\\n'+safeSource+'\\n</'+'script></body></html>';
+ '\n'+safeSource+'\n</'+'script></body></html>';
 }
 function choose(lang){
  language=lang;
@@ -199,7 +199,7 @@ async function runPython(source,id){
  preview.hidden=true;consoleBox.hidden=true;output.hidden=false;output.textContent="Loading Python runtime…";
  const py=await loadPyodideRuntime();
  let captured="";
- py.setStdout({batched:text=>{captured+=text+"\\n";}});
+ py.setStdout({batched:text=>{captured+=text+"\n";}});
  py.setStderr({batched:text=>{captured+=text+"\\n";}});
  await py.runPythonAsync(source);
  if(id!==runNumber)return;
@@ -221,7 +221,7 @@ async function runCode(){
     preview.srcdoc=source;
     setConsole("HTML preview updated. No JavaScript console is attached in HTML mode.");
    }else if(language==="css"){
-    const fullDocument=/<\\s*(html|body|style)\\b/i.test(source);
+    const fullDocument=/<\s*(html|body|style)\b/i.test(source);
     preview.srcdoc=fullDocument?source:makeCssPreview(source);
     setConsole("CSS applied to the preview sample.");
    }else{
@@ -262,7 +262,7 @@ window.addEventListener("message",event=>{
  const args=(data.args||[]).join(" ");
  const prefix=data.type==="error"?"✖ ":data.type==="warn"?"⚠ ":"";
  const previous=consoleBox.textContent==="Running JavaScript…"?"":consoleBox.textContent;
- setConsole((previous?previous+"\\n":"")+prefix+args,data.type==="error");
+ setConsole((previous?previous+"\n":"")+prefix+args,data.type==="error");
 });
 choose("html");
 </script>
