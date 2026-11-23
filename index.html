@@ -1073,7 +1073,7 @@ body.sidebar-collapsed .main-layout{margin-left:78px}
 
 /* ===== NovaFacts mobile header refinement (CSS only) ===== */
 .brand-mark{
-  background-image:url("logo.png");
+  background-image:url("favicon.png");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
@@ -1178,6 +1178,165 @@ body.sidebar-collapsed .main-layout{margin-left:78px}
   .study-link{padding:7px 7px;font-size:10px;letter-spacing:0}
   .signin{padding:7px 7px;font-size:10px}
   .main-layout{padding-top:112px}
+}
+
+
+
+/* ===== NovaFacts mobile app-style experience ===== */
+@media (max-width:760px){
+  :root{scroll-behavior:smooth}
+  body{overflow-x:hidden}
+  .topbar{
+    min-height:116px;
+    padding:10px 13px 11px;
+    gap:9px;
+    background:rgba(12,16,25,.94);
+    border-bottom:1px solid rgba(130,160,210,.18);
+    box-shadow:0 8px 28px rgba(0,0,0,.24);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    animation:nfHeaderEnter .65s cubic-bezier(.2,.75,.25,1) both;
+  }
+  .brand-area{align-items:center;gap:8px}
+  .brand{gap:9px;font-size:20px;font-weight:850;letter-spacing:-.6px}
+  .brand-mark{
+    width:38px;height:38px;flex:0 0 38px;
+    border-radius:12px;
+    background-color:#101827;
+    background-image:url("favicon.png");
+    background-size:cover;background-position:center;background-repeat:no-repeat;
+    color:transparent;font-size:0;
+    box-shadow:0 0 0 1px rgba(120,170,255,.3),0 5px 18px rgba(45,125,255,.2);
+    animation:nfLogoFloat 4s ease-in-out infinite;
+  }
+  .menu-button{
+    width:34px;height:34px;border-radius:11px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+  }
+  .header-actions{gap:6px}
+  .study-link,.signin{
+    min-height:34px;padding:8px 10px;border-radius:12px;
+    font-size:11px;font-weight:800;letter-spacing:.1px;
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .study-link:active,.signin:active,.search-button:active{transform:scale(.96)}
+  .search-area{
+    width:100%;max-width:none;flex:1 0 100%;
+    height:42px;margin:0;display:flex;
+    padding:3px;border-radius:15px;
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(130,160,210,.2);
+    box-shadow:inset 0 1px 5px rgba(0,0,0,.14);
+    animation:nfSearchEnter .75s .08s both;
+  }
+  .search-area input{
+    flex:1;width:100%;min-width:0;height:34px;
+    padding:0 12px;border:0!important;outline:0;
+    background:transparent!important;box-shadow:none!important;
+    font-size:13px;
+  }
+  .search-button{
+    width:36px;height:34px;flex:0 0 36px;
+    border:0;border-radius:11px;
+    background:linear-gradient(135deg,#398cff,#765bff);
+    color:white;font-size:21px;
+  }
+  .category-bar{
+    top:116px;padding:11px 13px 12px;
+    margin:0 -13px 15px;
+    background:rgba(12,16,25,.94);
+    border-bottom:1px solid rgba(130,160,210,.12);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+  }
+  .category-chip{
+    border-radius:20px;padding:8px 13px;
+    white-space:nowrap;font-size:11px;
+    transition:transform .2s ease,background .2s ease;
+  }
+  .main-layout{
+    display:block;margin:0;
+    padding:132px 13px 100px;
+  }
+  .main-content{min-width:0}
+  .welcome{
+    position:relative;overflow:hidden;
+    margin:4px 0 20px;padding:23px 19px;
+    border-radius:22px;
+    background:linear-gradient(145deg,rgba(28,45,75,.96),rgba(18,23,39,.98) 58%,rgba(37,29,74,.94));
+    border:1px solid rgba(130,165,255,.24);
+    box-shadow:0 14px 35px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.07);
+    animation:nfWelcomeEnter .8s .12s both;
+  }
+  .welcome:before{
+    content:"";position:absolute;width:190px;height:190px;right:-75px;top:-95px;
+    border-radius:50%;background:rgba(80,130,255,.16);filter:blur(3px);
+    pointer-events:none;
+  }
+  .welcome-label{font-size:10px;letter-spacing:1.7px;text-transform:uppercase}
+  .welcome h1{position:relative;font-size:clamp(25px,7vw,33px);line-height:1.15;letter-spacing:-1px;margin:11px 0}
+  .welcome p{font-size:13px;line-height:1.65;margin-bottom:17px}
+  .welcome-actions{display:flex;flex-wrap:wrap;gap:8px}
+  .welcome-actions a{min-height:39px;display:inline-flex;align-items:center;justify-content:center;padding:9px 12px;border-radius:12px;font-size:11px}
+  .section-heading{margin:23px 0 13px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .section-heading h2{font-size:19px}
+  .news-grid{grid-template-columns:minmax(0,1fr);gap:13px}
+  .news-card{
+    overflow:hidden;border-radius:18px;
+    background:var(--surface);
+    border:1px solid rgba(130,160,210,.17);
+    box-shadow:0 8px 24px rgba(0,0,0,.13);
+    animation:nfCardEnter .55s both;
+  }
+  .news-card:nth-child(2){animation-delay:.06s}
+  .news-card:nth-child(3){animation-delay:.12s}
+  .news-card:nth-child(4){animation-delay:.18s}
+  .news-card:nth-child(5){animation-delay:.24s}
+  .news-card:active{transform:scale(.985)}
+  .news-card-body{padding:17px}
+  .news-card h3{font-size:16px;line-height:1.45}
+  .news-card p{font-size:13px;line-height:1.7}
+  .news-meta{font-size:10px}
+  .read-more{display:inline-flex;margin-top:9px;padding:8px 11px;border-radius:10px;background:var(--accent-soft)}
+  .quiz-panel,.right-panel{border-radius:18px}
+  .right-sidebar{display:none}
+  .mobile-bottom{
+    position:fixed;z-index:1000;left:10px;right:10px;bottom:10px;
+    width:auto;height:64px;
+    grid-template-columns:repeat(7,minmax(0,1fr));
+    padding:6px 4px calc(6px + env(safe-area-inset-bottom));
+    border:1px solid rgba(130,160,210,.22);
+    border-radius:20px;
+    background:rgba(15,20,32,.92);
+    box-shadow:0 10px 35px rgba(0,0,0,.38);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+  }
+  .mobile-nav-link{min-width:0;gap:2px;font-size:9px;border-radius:13px}
+  .mobile-nav-link span:first-child{font-size:18px}
+  .mobile-nav-link.active{background:rgba(76,135,255,.17);color:#8dbaff}
+  .footer{padding-bottom:25px}
+}
+@media(max-width:390px){
+  .topbar{min-height:112px;padding:8px 9px}
+  .brand{font-size:18px;gap:7px}
+  .brand-mark{width:34px;height:34px;flex-basis:34px}
+  .study-link,.signin{padding:7px 8px;font-size:10px}
+  .category-bar{top:112px}
+  .main-layout{padding-top:128px}
+  .mobile-bottom{left:6px;right:6px;bottom:7px;height:61px}
+  .mobile-nav-link{font-size:8px}
+  .mobile-nav-link span:first-child{font-size:17px}
+}
+@keyframes nfHeaderEnter{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes nfSearchEnter{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@keyframes nfWelcomeEnter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes nfCardEnter{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+@keyframes nfLogoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){
+  .topbar,.search-area,.welcome,.news-card,.brand-mark{animation:none!important}
+  *,*:before,*:after{scroll-behavior:auto!important;transition:none!important}
 }
 
 </style>
