@@ -54,6 +54,7 @@ footer{background:#fff;color:#64748b;border-top:1px solid #e2e8f0}
 }
 
 </style>
+  <link rel="stylesheet" href="ads-system.css">
 </head>
 <body>
 <header><a class="brand" href="index.html">Nova<span>Facts</span></a><a class="back" href="index.html">← Back to website</a></header>
@@ -94,5 +95,6 @@ function shuffle(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math
 function exactSet(items,target){const a=shuffle(items),dp=Array(target+1).fill(null);dp[0]=[];for(let i=0;i<a.length;i++){let m=a[i][0];for(let s=target;s>=m;s--)if(dp[s]===null&&dp[s-m]!==null)dp[s]=dp[s-m].concat(i);}return dp[target]===null?null:dp[target].map(i=>a[i]);}
 function makePaper(){const grade=$("grade").value,full=Number($("marks").value),duration=$("duration").value,selected=exactSet(bank[grade]||[],full);$("paperTitle").textContent="कक्षा "+grade+" · विज्ञान तथा प्रविधि";$("metaSubject").textContent="विषय: विज्ञान तथा प्रविधि";$("metaMarks").textContent="पूर्णाङ्क: "+full;$("metaTime").textContent="समय: "+duration;const list=$("questionList");list.replaceChildren();if(!selected){$("paper").style.display="none";$("bankNotice").textContent="यस PDF मा प्रत्येक कक्षाका लागि जम्मा ५२ अङ्क बराबरका प्रश्न मात्र छन्। त्यसैले ७५ पूर्णाङ्कको प्रश्नपत्र बनाउन थप स्रोत प्रश्न चाहिन्छ।";alert("स्रोतमा ७५ पूर्णाङ्क पुग्ने प्रश्न छैन। २५ वा ५० छान्नुहोस्।");return;}selected.forEach(q=>{const li=document.createElement("li"),t=document.createElement("span"),m=document.createElement("span");t.textContent=q[1];m.className="qmarks";m.textContent=" ["+q[0]+" अङ्क]";li.append(t,m);list.append(li);});$("bankNotice").textContent="प्रश्नहरू उपलब्ध गराइएको PDF बाट निकालिएका हुन्। PDF आफैँ वेबसाइटमा अपलोड गरिएको छैन। प्रत्येक पटक प्रश्न छनोट र क्रम फरक हुन सक्छ।";$("paper").style.display="block";$("paper").scrollIntoView({behavior:"smooth",block:"start"});}
 $("generate").addEventListener("click",makePaper);$("print").addEventListener("click",()=>{if($("paper").style.display!=="block")makePaper();if($("paper").style.display==="block")window.print();});$("reset").addEventListener("click",()=>{$("grade").value="8";$("marks").value="25";$("duration").selectedIndex=1;$("paper").style.display="none";});$("grade").addEventListener("change",()=>$("paper").style.display="none");</script>
+<script src="ads-system.js" defer></script>
 </body>
 </html>
