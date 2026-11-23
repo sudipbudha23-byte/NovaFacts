@@ -43,31 +43,31 @@
 
 <style>
 :root {
-  --bg:#101114;
-  --surface:rgba(25,26,31,.94);
-  --surface2:rgba(34,36,42,.94);
-  --hover:#30313a;
-  --text:#f5f5f5;
-  --muted:#a6a8b0;
-  --border:rgba(255,255,255,.12);
-  --accent:#e6b84c;
-  --accent-soft:rgba(230,184,76,.14);
-  --header:rgba(16,17,20,.90);
-  --shadow:0 10px 35px rgba(0,0,0,.25);
-  --custom-bg:#101114;
+  --bg:#ffffff;
+  --surface:rgba(255,255,255,.98);
+  --surface2:rgba(245,246,248,.98);
+  --hover:#f0f1f3;
+  --text:#17181b;
+  --muted:#555b66;
+  --border:rgba(0,0,0,.13);
+  --accent:#c62828;
+  --accent-soft:rgba(198,40,40,.09);
+  --header:rgba(255,255,255,.97);
+  --shadow:0 8px 24px rgba(0,0,0,.07);
+  --custom-bg:#ffffff;
 }
 
 body.light {
-  --bg:#f7f7f8;
-  --surface:rgba(255,255,255,.94);
-  --surface2:rgba(240,241,243,.95);
+  --bg:#ffffff;
+  --surface:rgba(255,255,255,.98);
+  --surface2:rgba(245,246,248,.98);
   --hover:#e8e9ec;
   --text:#17181b;
-  --muted:#656873;
+  --muted:#555b66;
   --border:rgba(0,0,0,.12);
-  --accent:#ad7914;
-  --accent-soft:rgba(173,121,20,.12);
-  --header:rgba(255,255,255,.91);
+  --accent:#c62828;
+  --accent-soft:rgba(198,40,40,.09);
+  --header:rgba(255,255,255,.97);
   --shadow:0 10px 35px rgba(0,0,0,.08);
 }
 
@@ -682,10 +682,14 @@ body.hide-brand-logo .brand-mark {display:none}
 
 .read-more {
   display:inline-block;
-  margin-top:13px;
-  color:var(--accent);
-  font-size:12px;
-  font-weight:800;
+  margin-top:14px;
+  padding:5px 0;
+  color:#c62828;
+  font-size:14px;
+  line-height:1.5;
+  font-weight:900;
+  text-decoration:underline;
+  text-underline-offset:3px;
 }
 
 .empty-message {
@@ -1317,10 +1321,10 @@ function applyTheme(theme) {
   localStorage.setItem("novafacts-theme", theme);
 
   document.querySelector('meta[name="theme-color"]')
-    .setAttribute("content", theme === "light" ? "#f7f7f8" : "#101114");
+    .setAttribute("content", theme === "light" ? "#ffffff" : "#101114");
 }
 
-applyTheme(localStorage.getItem("novafacts-theme") || "dark");
+applyTheme("light");
 
 themeToggle.addEventListener("click", () => {
   applyTheme(document.body.classList.contains("light") ? "dark" : "light");
@@ -1461,7 +1465,7 @@ resetAppearance.addEventListener("click", () => {
   document.body.classList.remove("has-background-image");
   document.body.classList.remove("hide-brand-logo");
 
-  backgroundColor.value = "#101114";
+  backgroundColor.value = "#ffffff";
   backgroundUpload.value = "";
   hideLogo.checked = false;
 
