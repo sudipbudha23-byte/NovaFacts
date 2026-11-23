@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Explore Articles | NovaFacts</title>
+  <meta name="description" content="Explore NovaFacts educational articles about human reality, computers, artificial intelligence, physics, science and the universe in Nepali and English.">
+  <link rel="canonical" href="https://novafacts.pages.dev/explore-articles.html">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <meta property="og:title" content="Explore Articles | NovaFacts">
+  <meta property="og:description" content="A library of NovaFacts science, technology and educational explainers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://novafacts.pages.dev/explore-articles.html">
+  <style>
+    :root{color-scheme:light;--bg:#f5f7fa;--panel:#fff;--ink:#172033;--muted:#647084;--line:#e3e8ef;--gold:#b88628;--blue:#2458a6}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Arial,"Noto Sans Devanagari",sans-serif}
+    a{color:inherit}
+    .top{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+    .top-inner{width:min(1160px,92%);margin:auto;min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{font-weight:800;font-size:22px;text-decoration:none;letter-spacing:-.5px}.brand span{color:var(--gold)}
+    nav{display:flex;gap:20px;flex-wrap:wrap}nav a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:700}nav a:hover{color:var(--blue)}
+    main{width:min(1160px,92%);margin:38px auto 70px}
+    .hero{background:linear-gradient(120deg,#fff,#edf3fb);border:1px solid var(--line);border-radius:22px;padding:clamp(26px,5vw,54px);margin-bottom:28px}
+    .eyebrow{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:12px}
+    h1{font-size:clamp(32px,5vw,52px);line-height:1.12;margin:12px 0}
+    .hero p{max-width:720px;color:var(--muted);margin:0}
+    .tools{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+    input{flex:1 1 260px;min-width:0;padding:13px 15px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font:inherit}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}
+    .filters button{border:1px solid var(--line);background:#fff;color:var(--muted);padding:10px 14px;border-radius:999px;font-weight:700;cursor:pointer}
+    .filters button.active,.filters button:hover{background:#172033;color:#fff;border-color:#172033}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:17px;overflow:hidden;box-shadow:0 5px 22px rgba(24,39,75,.045);transition:transform .2s,border-color .2s}
+    .card:hover{transform:translateY(-3px);border-color:#c9d5e5}
+    .art{height:158px;display:grid;place-items:center;color:#fff;font-size:58px;position:relative;overflow:hidden}
+    .art:after{content:"";position:absolute;width:230px;height:230px;border:1px solid rgba(255,255,255,.22);border-radius:50%;right:-55px;top:-95px;box-shadow:0 0 0 22px rgba(255,255,255,.05),0 0 0 48px rgba(255,255,255,.04)}
+    .art span{position:relative;z-index:1;filter:drop-shadow(0 4px 9px rgba(0,0,0,.2))}
+    .human{background:linear-gradient(120deg,#5d3a91,#a64be8)}.space{background:linear-gradient(120deg,#101c43,#2671a8)}.science{background:linear-gradient(120deg,#174d53,#279b88)}.ai{background:linear-gradient(120deg,#25315c,#6876c9)}
+    .body{padding:20px}
+    .tag{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);font-weight:800}
+    h2{font-size:21px;line-height:1.3;margin:7px 0}
+    .body p{color:var(--muted);font-size:14px;margin:0 0 17px}
+    .read{display:inline-flex;align-items:center;gap:7px;color:var(--blue);font-weight:800;text-decoration:none;font-size:14px}
+    .read:hover{text-decoration:underline}
+    .empty{grid-column:1/-1;padding:35px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:14px;color:var(--muted)}
+    footer{text-align:center;border-top:1px solid var(--line);padding:26px;color:var(--muted);font-size:13px;background:#fff}
+    @media(max-width:680px){.top-inner{padding:13px 0;align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}main{margin-top:22px}.art{height:135px}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <a class="brand" href="index.html">Nova<span>Facts</span></a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#latest">Latest News</a>
+        <a href="science-articles.html">Science Explained</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">NOVAFACTS KNOWLEDGE LIBRARY</div>
+      <h1>Explore Articles</h1>
+      <p>Read educational explainers about human life, computers, artificial intelligence, physics, science and the universe. Existing NovaFacts articles remain available at their original addresses.</p>
+    </section>
+    <div class="tools">
+      <input id="search" type="search" placeholder="Search articles and topics…" aria-label="Search articles">
+    </div>
+    <div class="filters" role="group" aria-label="Filter articles">
+      <button class="active" data-filter="all" type="button">All</button>
+      <button data-filter="human" type="button">Human Reality</button>
+      <button data-filter="space" type="button">Space</button>
+      <button data-filter="science" type="button">Science & Physics</button>
+      <button data-filter="ai" type="button">AI & Technology</button>
+    </div>
+    <section class="grid" id="articles" aria-live="polite" style="margin-top:18px">
+      <article class="card" data-category="human" data-search="human reality life consciousness identity society">
+        <div class="art human" aria-hidden="true"><span>♧</span></div>
+        <div class="body"><div class="tag">Human Reality</div><h2>The Reality of Being Human</h2><p>Explore human life, identity, consciousness, society and the questions that connect science and everyday experience.</p><a class="read" href="human-reality.html">Read article →</a></div>
+      </article>
+      <article class="card" data-category="space" data-search="black holes space universe gravity astronomy">
+        <div class="art space" aria-hidden="true"><span>◉</span></div>
+        <div class="body"><div class="tag">Space & Astronomy</div><h2>Black Holes: Where Gravity Rules</h2><p>Learn about event horizons, gravity, accretion disks and how astronomers study black holes.</p><a class="read" href="black-holes.html">Read article →</a></div>
+      </article>
+      <article class="card" data-category="science" data-search="science physics computer human brain time gravitational waves">
+        <div class="art science" aria-hidden="true"><span>⚛</span></div>
+        <div class="body"><div class="tag">Science & Physics</div><h2>Science, the Universe and Human Thought</h2><p>A collection covering gravitational waves, Newton and Einstein, computers, time, the brain and scientific thinking.</p><a class="read" href="science-articles.html">Explore collection →</a></div>
+      </article>
+      <article class="card" data-category="ai" data-search="artificial intelligence technology learning study computer">
+        <div class="art ai" aria-hidden="true"><span>⌘</span></div>
+        <div class="body"><div class="tag">AI & Technology</div><h2>AI Learning Studio</h2><p>Use the NovaFacts learning space to explore science, technology and school subjects with guided explanations.</p><a class="read" href="AI-Learning.html">Open learning studio →</a></div>
+      </article>
+    </section>
+  </main>
+  <footer>© <span id="year"></span> NovaFacts · Explore science. Ask questions. Follow the evidence.</footer>
+  <script>
+    const cards=[...document.querySelectorAll(".card")];
+    const search=document.getElementById("search");
+    const filters=[...document.querySelectorAll("[data-filter]")];
+    let selected="all";
+    function update(){
+      const q=search.value.trim().toLowerCase();
+      let visible=0;
+      cards.forEach(card=>{
+        const matchesCategory=selected==="all"||card.dataset.category===selected;
+        const matchesText=(card.dataset.search+" "+card.innerText).toLowerCase().includes(q);
+        const show=matchesCategory&&matchesText;
+        card.hidden=!show;
+        if(show)visible++;
+      });
+      let empty=document.querySelector(".empty");
+      if(!visible&&!empty){empty=document.createElement("div");empty.className="empty";empty.textContent="No matching articles found.";document.getElementById("articles").appendChild(empty);}
+      if(empty)empty.hidden=visible>0;
+    }
+    filters.forEach(button=>button.addEventListener("click",()=>{
+      selected=button.dataset.filter;
+      filters.forEach(item=>item.classList.toggle("active",item===button));
+      update();
+    }));
+    search.addEventListener("input",update);
+    document.getElementById("year").textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
