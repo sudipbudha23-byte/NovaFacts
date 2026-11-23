@@ -1068,9 +1068,7 @@ body.sidebar-collapsed .main-layout{margin-left:78px}
 }
 
 
-/* Learn.ai and Code Study header links */
-.top-link{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border:1px solid rgba(59,160,255,.6);border-radius:22px;background:linear-gradient(120deg,rgba(13,75,140,.2),rgba(20,145,255,.1));color:#168cff;font-size:13px;font-weight:800;white-space:nowrap;box-shadow:0 0 9px rgba(0,140,255,.22);transition:.2s}.top-link:hover{transform:translateY(-1px);border-color:#48b4ff;box-shadow:0 0 8px #168cff,0 0 22px #168cff66;color:#55b8ff}.link-dot{width:7px;height:7px;border-radius:50%;background:#28a6ff;box-shadow:0 0 6px #168cff,0 0 12px #168cff}.learn-ai-link{color:#73c6ff;border-color:#5bb eff;box-shadow:0 0 12px #269dff55}
-@media(max-width:900px){.top-link{padding:8px 9px;font-size:11px}.header-actions{gap:5px}}@media(max-width:760px){.topbar{gap:5px}.header-actions{gap:4px}.top-link{padding:7px 8px;font-size:10px}.link-dot{width:5px;height:5px}.signin{padding:7px 8px;font-size:10px}.theme-button{width:30px;height:30px;font-size:17px}}@media(max-width:390px){.top-link{padding:6px;font-size:9px}.signin{padding:6px;font-size:9px}.brand{font-size:16px}}
+.study-link{display:inline-flex;align-items:center;justify-content:center;padding:9px 16px;border:1px solid #258cff;border-radius:22px;background:linear-gradient(135deg,#0d3764,#092448);color:#8dccff;font-size:13px;font-weight:800;letter-spacing:.3px;box-shadow:0 0 10px #168cff55,inset 0 0 9px #168cff22;transition:.2s}.study-link:hover{color:#fff;border-color:#67c5ff;box-shadow:0 0 9px #168cff,0 0 20px #168cff88;transform:translateY(-1px)}@media(max-width:760px){.study-link{padding:7px 10px;font-size:11px}}
 </style>
   <link rel="stylesheet" href="ads-system.css">
 </head>
@@ -1095,8 +1093,7 @@ body.sidebar-collapsed .main-layout{margin-left:78px}
 
   <div class="header-actions">
     <button class="icon-button theme-button" id="themeToggle" title="Change theme">☼</button>
-    <a class="top-link code-study-link" href="Code%20Study.html"><span class="link-dot"></span>Code Study</a>
-    <a class="top-link learn-ai-link" href="Learn%20Study/index.html"><span class="link-dot"></span>Learn.ai</a>
+    <a class="study-link" href="Learn%20Study/index.html">Study</a>
     <a class="signin" id="googleSignIn" href="login.html" title="Sign in">◉ Sign in</a>
   </div>
 </header>
@@ -1266,14 +1263,10 @@ menuToggle.addEventListener("click", () => {
 });
 
 
-/* =====================================
-   DARK / WHITE THEME
-===================================== */
 const themeToggle = document.getElementById("themeToggle");
 function applyTheme(theme) {
   document.body.classList.toggle("light", theme === "light");
   themeToggle.textContent = theme === "light" ? "☾" : "☼";
-  themeToggle.setAttribute("aria-label", theme === "light" ? "Switch to dark theme" : "Switch to white theme");
   localStorage.setItem("novafacts-theme", theme);
   document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "light" ? "#ffffff" : "#101114");
 }
@@ -1284,6 +1277,7 @@ themeToggle.addEventListener("click", () => applyTheme(document.body.classList.c
 /* =====================================
    NOVAFACTS — NEPALI NEWS SYSTEM
 ===================================== */
+
 
 const newsGrid = document.getElementById("newsGrid");
 const newsCount = document.getElementById("newsCount");
