@@ -1,0 +1,24 @@
+/* NovaFacts Global Skeleton Loader */
+#nf-global-loader{position:fixed;inset:0;z-index:2147483000;background:var(--bg,#101114);padding:18px 22px;display:grid;grid-template-rows:54px 1fr;gap:22px;opacity:1;visibility:visible;transition:opacity .28s ease,visibility .28s ease}
+#nf-global-loader.nf-hidden{opacity:0;visibility:hidden;pointer-events:none}
+.nf-skel{position:relative;overflow:hidden;background:rgba(128,128,128,.13);border-radius:9px}
+.nf-skel:after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(150,150,150,.17),transparent);animation:nf-shimmer 1.35s infinite}
+@keyframes nf-shimmer{to{transform:translateX(100%)}}
+.nf-load-head{display:flex;align-items:center;gap:14px;border-bottom:1px solid rgba(128,128,128,.13);padding-bottom:12px}
+.nf-load-logo{width:38px;height:38px;border-radius:11px;flex:none}
+.nf-load-search{height:38px;max-width:540px;width:48%;border-radius:22px;margin:auto}
+.nf-load-action{height:34px;width:82px;border-radius:20px}
+.nf-load-layout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:24px;max-width:1500px;width:100%;margin:0 auto}
+.nf-load-side{display:flex;flex-direction:column;gap:13px;padding:8px}
+.nf-load-side .nf-skel{height:15px;width:82%}
+.nf-load-side .nf-skel:nth-child(2n){width:65%}
+.nf-load-main{min-width:0}
+.nf-load-hero{height:150px;border-radius:16px;margin-bottom:24px}
+.nf-load-title{height:21px;width:190px;margin:0 0 16px}
+.nf-load-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.nf-load-card{border:1px solid rgba(128,128,128,.12);border-radius:13px;overflow:hidden;padding-bottom:14px}
+.nf-load-thumb{height:120px;border-radius:0;margin-bottom:14px}
+.nf-load-line{height:11px;margin:0 13px 9px;width:78%}
+.nf-load-line.small{width:48%}
+@media(max-width:760px){#nf-global-loader{padding:10px 12px;grid-template-rows:45px 1fr;gap:12px}.nf-load-layout{display:block}.nf-load-side{display:none}.nf-load-search{width:38%}.nf-load-action{width:56px}.nf-load-hero{height:115px;margin-bottom:18px}.nf-load-grid{grid-template-columns:1fr;gap:11px}.nf-load-card{display:grid;grid-template-columns:105px minmax(0,1fr);min-height:105px;padding:0}.nf-load-thumb{height:100%;min-height:105px;margin:0}.nf-load-card-body{padding:14px 0}.nf-load-line{margin-left:12px;margin-bottom:9px}.nf-load-title{margin-bottom:12px}}
+@media(prefers-reduced-motion:reduce){.nf-skel:after{animation:none}#nf-global-loader{transition:none}}
