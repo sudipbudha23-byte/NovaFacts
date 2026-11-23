@@ -1002,6 +1002,40 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
   .subject{break-inside:avoid}
 }
 
+
+/* ===== Contrast correction: force readable light controls and text ===== */
+body, body * { text-shadow:none!important; }
+body { background:#f6f8fc!important; color:#172033!important; }
+.hero,.card,.subject,.result-box,.source-box,.table-wrap {
+  background:#ffffff!important; color:#172033!important;
+  border-color:#e2e8f0!important; backdrop-filter:none!important;
+}
+.brand h2,.brand p,.header-label,.hero p,.card h2,footer,
+.form-group label,.form-group>label,.subject-fields label,
+label,.subject-top strong,.subject-result,.subject-result span,
+.result-box p,.info,.muted {
+  color:#334155!important;
+}
+.hero h1,.card h2,.subject-top strong { color:#172033!important; }
+.hero h1 span,.section-icon,.subject-result strong,.result-box h3 {
+  color:#2563eb!important; -webkit-text-fill-color:#2563eb!important;
+}
+input,select,.subject-fields input,.form-group input,.form-group select {
+  background:#ffffff!important; background-image:none!important;
+  color:#172033!important; border:1px solid #cbd5e1!important;
+  box-shadow:none!important; opacity:1!important;
+}
+input::placeholder { color:#94a3b8!important; opacity:1!important; }
+select option { background:#ffffff!important; color:#172033!important; }
+.subject-result { background:#f8fafc!important; border-color:#e5eaf2!important; }
+.status { color:#1e40af!important; background:#eff6ff!important; border-color:#bfdbfe!important; }
+.tag { color:#1d4ed8!important; background:#eff6ff!important; border-color:#bfdbfe!important; }
+.gold { background:#2563eb!important; color:#ffffff!important; border-color:#2563eb!important; }
+.secondary { background:#ffffff!important; color:#334155!important; border-color:#cbd5e1!important; }
+.remove { background:#fff1f2!important; color:#be123c!important; border-color:#fecdd3!important; }
+th { background:#f1f5f9!important; color:#334155!important; }
+td { color:#334155!important; }
+
 </style>
 </head>
 
