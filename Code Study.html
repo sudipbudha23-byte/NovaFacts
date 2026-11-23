@@ -200,7 +200,7 @@ async function runPython(source,id){
  const py=await loadPyodideRuntime();
  let captured="";
  py.setStdout({batched:text=>{captured+=text+"\n";}});
- py.setStderr({batched:text=>{captured+=text+"\\n";}});
+ py.setStderr({batched:text=>{captured+=text+"\n";}});
  await py.runPythonAsync(source);
  if(id!==runNumber)return;
  output.textContent=captured.trimEnd()||"Program finished successfully (no printed output).";
