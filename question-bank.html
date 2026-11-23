@@ -58,113 +58,41 @@ footer{background:#fff;color:#64748b;border-top:1px solid #e2e8f0}
 <body>
 <header><a class="brand" href="index.html">Nova<span>Facts</span></a><a class="back" href="index.html">← Back to website</a></header>
 <main>
-<section class="hero"><div class="eyebrow">NEB · CLASS 11 · STUDENT TOOL</div><h1>Question Bank & Paper Generator</h1><p>English, Physics र Mathematics का अभ्यास प्रश्न छान्नुहोस्। ३०, ५०, ७५ वा १०० पूर्णाङ्क र १ वा २ घण्टाको नमुना प्रश्नपत्र बनाएर PDF मा सुरक्षित गर्न सकिन्छ।</p></section>
-<div class="layout">
-<section class="card">
-<h2>प्रश्नपत्र तयार गर्नुहोस्</h2><p class="muted">आफ्नो आवश्यकता अनुसार विषय, पूर्णाङ्क र समय छान्नुहोस्।</p>
+<section class="hero"><div class="eyebrow">NOVAFACTS · QUESTION PAPER GENERATOR</div><h1>Question Paper Generator</h1><p>कक्षा १ देखि १० सम्मका लागि उपलब्ध स्रोत प्रश्नबाट अभ्यास प्रश्नपत्र तयार गर्नुहोस्।</p></section>
+<div class="layout"><section class="card"><h2>प्रश्नपत्र तयार गर्नुहोस्</h2><p class="muted">कक्षा, विषय, पूर्णाङ्क र समय छान्नुहोस्।</p>
 <div class="fields">
-<div class="field"><label for="subject">विषय / Subject</label><select id="subject"><option value="English">English</option><option value="Physics">Physics</option><option value="Mathematics">Mathematics</option></select></div>
-<div class="field"><label for="marks">पूर्णाङ्क / Full Marks</label><select id="marks"><option>30</option><option>50</option><option selected>75</option><option>100</option></select></div>
-<div class="field"><label for="duration">समय / Duration</label><select id="duration"><option value="1 hour">१ घण्टा</option><option value="2 hours" selected>२ घण्टा</option></select></div>
-<div class="field"><label for="mix">प्रश्नको प्रकार</label><select id="mix"><option value="mixed">सबै प्रकारका मिश्रित प्रश्न</option><option value="objective">वस्तुगत / छोटो प्रश्न बढी</option><option value="written">वर्णनात्मक प्रश्न बढी</option></select></div>
-</div>
+<div class="field"><label for="grade">कक्षा / Grade</label><select id="grade">
+<option value="1" disabled>कक्षा 1 — प्रश्न उपलब्ध हुन बाँकी</option><option value="2" disabled>कक्षा 2 — प्रश्न उपलब्ध हुन बाँकी</option><option value="3" disabled>कक्षा 3 — प्रश्न उपलब्ध हुन बाँकी</option><option value="4" disabled>कक्षा 4 — प्रश्न उपलब्ध हुन बाँकी</option><option value="5" disabled>कक्षा 5 — प्रश्न उपलब्ध हुन बाँकी</option><option value="6" disabled>कक्षा 6 — प्रश्न उपलब्ध हुन बाँकी</option><option value="7" disabled>कक्षा 7 — प्रश्न उपलब्ध हुन बाँकी</option>
+<option value="8" selected>कक्षा ८</option><option value="9">कक्षा ९</option><option value="10">कक्षा १०</option></select></div>
+<div class="field"><label for="subject">विषय / Subject</label><select id="subject"><option>विज्ञान तथा प्रविधि</option></select></div>
+<div class="field"><label for="marks">पूर्णाङ्क / Full Marks</label><select id="marks"><option value="25">२५</option><option value="50">५०</option><option value="75">७५</option></select></div>
+<div class="field"><label for="duration">समय / Duration</label><select id="duration"><option>१ घण्टा</option><option selected>२ घण्टा</option><option>३ घण्टा</option></select></div></div>
 <div class="actions"><button class="btn primary" id="generate" type="button">✦ प्रश्नपत्र बनाउनुहोस्</button><button class="btn" id="print" type="button">↓ PDF मा सुरक्षित गर्नुहोस्</button><button class="btn" id="reset" type="button">Reset</button></div>
-<div class="notice">यी अभ्यासका लागि तयार गरिएका नमुना प्रश्न हुन्। विद्यालय वा NEB को आधिकारिक प्रश्नपत्र होइनन्। पाठ्यक्रम र शिक्षकको निर्देशनसँग मिलाएर अभ्यास गर्नुहोस्। PDF बनाउन “PDF मा सुरक्षित गर्नुहोस्” थिचेर Print dialog मा “Save as PDF” छान्नुहोस्।</div>
-</section>
-<aside>
-<section class="side"><h3>उपलब्ध विकल्प</h3><ul><li>कक्षा ११ — English</li><li>कक्षा ११ — Physics</li><li>कक्षा ११ — Mathematics</li><li>३०, ५०, ७५ र १०० पूर्णाङ्क</li><li>१ घण्टा र २ घण्टा</li><li>प्रश्नपत्र Print / Save PDF</li></ul></section>
-<section class="side"><h3>प्रयोग गर्ने तरिका</h3><ol><li>विषय र पूर्णाङ्क छान्नुहोस्।</li><li>समय र प्रश्नको प्रकार छान्नुहोस्।</li><li>प्रश्नपत्र बनाउनुहोस्।</li><li>PDF मा सुरक्षित गर्नुहोस्।</li></ol></section>
-</aside>
-</div>
+<div class="notice" id="bankNotice">PDF फाइल अपलोड हुँदैन। त्यसबाट निकालिएका प्रश्नहरू मात्र Generator मा राखिएका छन्।</div></section>
+<aside><section class="side"><h3>उपलब्ध प्रश्न बैंक</h3><ul><li>कक्षा ८ — विज्ञान तथा प्रविधि</li><li>कक्षा ९ — विज्ञान तथा प्रविधि</li><li>कक्षा १० — विज्ञान तथा प्रविधि</li><li>२५ / ५० / ७५ पूर्णाङ्क विकल्प</li><li>प्रत्येक पटक नयाँ प्रश्न छनोट र क्रम</li><li>PDF Save / Print</li></ul></section><section class="side"><h3>प्रयोग गर्ने तरिका</h3><ol><li>कक्षा छान्नुहोस्।</li><li>पूर्णाङ्क र समय छान्नुहोस्।</li><li>Generate थिच्नुहोस्।</li><li>PDF मा सुरक्षित गर्नुहोस्।</li></ol></section></aside></div>
 <section id="paper" aria-live="polite"><h2>NOVAFACTS</h2><h3 id="paperTitle">Class 11 · English</h3><div class="meta"><span id="metaSubject"></span><span id="metaMarks"></span><span id="metaTime"></span></div><p class="instructions"><strong>Instructions:</strong> सबै प्रश्नको उत्तर दिनुहोस्। प्रत्येक प्रश्नको अगाडि दिइएको अङ्कभार ध्यान दिनुहोस्। आवश्यक परे उपयुक्त चित्र, सूत्र र चरण देखाउनुहोस्।</p><ol id="questionList"></ol><p class="end">— प्रश्नपत्र समाप्त —<br>Prepared for practice · NovaFacts</p></section>
 </main>
 <footer>© <span id="year"></span> NovaFacts · Class 11 Learning Tools</footer>
-<script>
-const $=id=>document.getElementById(id);
-$("year").textContent=new Date().getFullYear();
+<script>const $=id=>document.getElementById(id);$("year").textContent=new Date().getFullYear();
 const bank={
-English:[
-{m:5,t:"Read a short passage about the importance of education and answer five comprehension questions based on its main idea, details, vocabulary and inference."},
-{m:5,t:"Write a paragraph of about 150 words on “The Value of Time”. Organise your ideas with a topic sentence, supporting details and a conclusion."},
-{m:5,t:"Write a formal letter to your school principal requesting permission to organise an English-speaking programme. Use an appropriate format."},
-{m:5,t:"Rewrite five sentences using the correct tense, voice, reported speech, articles and prepositions."},
-{m:5,t:"Answer briefly: identify the central theme, setting and one important character from a story prescribed in your course."},
-{m:10,t:"Write an essay of about 250 words on “Technology in Education”. Discuss benefits, challenges and your conclusion."},
-{m:10,t:"Read an unseen passage and answer questions on comprehension, true/false statements, word meanings and short explanations."},
-{m:10,t:"Write a news report about an educational event held at your school. Include a headline, place, date and key details."},
-{m:10,t:"Explain the theme and message of a poem you have studied. Support your answer with relevant ideas from the text."},
-{m:15,t:"Attempt a literature question: discuss how the main character changes during a prescribed story and explain the causes of that change."},
-{m:15,t:"Write an article for your school magazine on environmental conservation, using examples and a clear introduction and conclusion."},
-{m:20,t:"Answer a set of reading and writing tasks: comprehension, vocabulary in context, a formal email and an argumentative essay."}
-],
-Physics:[
-{m:2,t:"Define physical quantity and distinguish between fundamental and derived quantities with one example each."},
-{m:2,t:"State the principle of dimensional homogeneity."},
-{m:2,t:"What is the difference between distance and displacement?"},
-{m:3,t:"A body starts from rest and accelerates uniformly at 2 m/s² for 5 s. Find its final velocity and displacement."},
-{m:3,t:"State Newton’s three laws of motion and give one everyday example of any one law."},
-{m:3,t:"Define work, energy and power. Write their SI units."},
-{m:5,t:"Derive the relation between linear velocity and angular velocity for a body moving in a circle."},
-{m:5,t:"Explain conservation of mechanical energy for a freely falling body, neglecting air resistance."},
-{m:5,t:"A 2 kg object moves at 6 m/s. Calculate its kinetic energy and explain the formula used."},
-{m:5,t:"State the laws of reflection and explain image formation by a plane mirror."},
-{m:5,t:"Explain the first law of thermodynamics and describe the meaning of each term in its equation."},
-{m:10,t:"Derive the equations of motion for uniformly accelerated straight-line motion using a velocity-time graph."},
-{m:10,t:"Explain simple harmonic motion. Obtain the expression for the time period of a simple pendulum for small oscillations."},
-{m:10,t:"Describe the working principle of a hydraulic press and explain it using Pascal’s law."},
-{m:10,t:"Explain Ohm’s law. Describe an experiment to determine the resistance of a wire and draw a labelled circuit diagram."},
-{m:15,t:"Discuss projectile motion and derive expressions for time of flight, maximum height and horizontal range."},
-{m:15,t:"Explain the kinetic theory of gases and derive the relation between pressure and mean square speed."},
-{m:20,t:"Answer a structured problem on mechanics involving free-body diagrams, Newton’s laws, friction and conservation of energy. Show all calculations and units."}
-],
-Mathematics:[
-{m:2,t:"Find the domain of the function f(x) = 1/(x − 3)."},
-{m:2,t:"If A = {1, 2, 3} and B = {2, 3, 4}, find A ∩ B and A ∪ B."},
-{m:2,t:"Evaluate sin 30° + cos 60°."},
-{m:3,t:"Solve the quadratic equation x² − 5x + 6 = 0 by factorisation."},
-{m:3,t:"Find the equation of a straight line with slope 2 passing through (1, 3)."},
-{m:3,t:"Differentiate y = 3x² − 4x + 7 with respect to x."},
-{m:5,t:"Prove the trigonometric identity (1 − cos 2x)/sin 2x = tan x, where defined."},
-{m:5,t:"Find the inverse of the matrix [[2, 1], [5, 3]], if it exists."},
-{m:5,t:"Find the equation of a circle with centre (2, −1) and radius 3."},
-{m:5,t:"Evaluate the limit as x approaches 2 of (x² − 4)/(x − 2)."},
-{m:5,t:"Find the mean and standard deviation of the data set 2, 4, 4, 6, 9."},
-{m:10,t:"Using mathematical induction, prove that 1 + 2 + ... + n = n(n + 1)/2 for every positive integer n."},
-{m:10,t:"Find the maximum and minimum values of f(x) = x³ − 3x² + 2 using differentiation, and identify the stationary points."},
-{m:10,t:"Solve a pair of simultaneous linear equations using matrices and verify the solution."},
-{m:10,t:"Derive the formula for the sum of the first n terms of an arithmetic progression and solve a related numerical problem."},
-{m:15,t:"Discuss the properties of a parabola and find its equation, focus and directrix for a standard form."},
-{m:15,t:"Evaluate a definite integral using suitable methods and interpret the result as an area under a curve."},
-{m:20,t:"Solve a mixed problem involving differentiation, stationary points, increasing/decreasing intervals and a sketch of the curve. Show each step clearly."}
-]};
-function makePaper(){
- const subject=$("subject").value,full=Number($("marks").value),duration=$("duration").value,mode=$("mix").value;
- const source=bank[subject].slice().sort(()=>Math.random()-.5);
- let selected=[],sum=0;
- const preferred=mode==="objective"?[2,3,5]:mode==="written"?[5,10,15,20]:[2,3,5,10,15,20];
- for(const mark of preferred){
-  for(const q of source){
-   if(q.m===mark&&!selected.includes(q)&&sum+q.m<=full){selected.push(q);sum+=q.m;break;}
-  }
- }
- for(const q of source){
-  if(sum>=full)break;
-  if(!selected.includes(q)&&sum+q.m<=full){selected.push(q);sum+=q.m;}
- }
- selected.sort(()=>Math.random()-.5);
- $("paperTitle").textContent="Class 11 · "+subject;
- $("metaSubject").textContent="Subject: "+subject;
- $("metaMarks").textContent="Full Marks: "+full;
- $("metaTime").textContent="Time: "+duration;
- const list=$("questionList");list.replaceChildren();
- selected.forEach((q,i)=>{const li=document.createElement("li");const text=document.createElement("span");text.textContent=q.t;const mark=document.createElement("span");mark.className="qmarks";mark.textContent=" ["+q.m+"]";li.append(text,mark);list.append(li);});
- if(sum<full){const li=document.createElement("li");li.textContent="अतिरिक्त अभ्यास: आफ्नो पाठ्यपुस्तकबाट बाँकी "+(full-sum)+" अङ्क बराबरका प्रश्न अभ्यास गर्नुहोस्।";list.append(li);}
- $("paper").style.display="block";
- $("paper").scrollIntoView({behavior:"smooth",block:"start"});
-}
-$("generate").addEventListener("click",makePaper);
-$("print").addEventListener("click",()=>{if($("paper").style.display!=="block")makePaper();window.setTimeout(()=>window.print(),100);});
-$("reset").addEventListener("click",()=>{$("subject").value="English";$("marks").value="75";$("duration").value="2 hours";$("mix").value="mixed";$("paper").style.display="none";});
-</script>
+"8":[
+[1,"कोषको खोजी गर्ने वैज्ञानिकको नाम लेख्नुहोस्।"],[1,"पानीको रासायनिक सूत्र लेख्नुहोस्।"],[1,"बलको SI एकाइ के हो?"],[1,"प्रकाशको गति कति हुन्छ?"],[1,"पृथ्वीको वायुमण्डलमा सबैभन्दा बढी पाइने ग्यास कुन हो?"],[1,"प्रकाश संश्लेषणमा बिरुवाले कुन ग्यास ग्रहण गर्छ?"],
+[2,"तत्व र यौगिकबीचका कुनै दुई भिन्नता लेख्नुहोस्।"],[2,"भौतिक परिवर्तन र रासायनिक परिवर्तनको एक–एक उदाहरण दिनुहोस्।"],[2,"घर्षण भनेको के हो? यसका दुई फाइदा लेख्नुहोस्।"],[2,"ध्वनि उत्पन्न हुन के कुरा आवश्यक पर्छ?"],[2,"चालक र कुचालकको परिभाषा दिनुहोस्।"],[2,"वनस्पति कोष र जन्तु कोषबीचका कुनै दुई भिन्नता लेख्नुहोस्।"],
+[4,"प्रकाशको परावर्तनका नियमहरू चित्रसहित लेख्नुहोस्।"],[4,"साधारण विद्युतीय सर्किटको चित्र बनाई यसका भागहरू नामाङ्कन गर्नुहोस्।"],[4,"वायु प्रदूषणका कारण र रोकथामका उपाय लेख्नुहोस्।"],[4,"मिश्रण छुट्याउने कुनै चार विधि उदाहरणसहित लेख्नुहोस्।"],[4,"बलले वस्तुमा पार्ने प्रभावहरू उदाहरणसहित स्पष्ट पार्नुहोस्।"],[4,"कोषका मुख्य अङ्गहरू र तिनका कार्य लेख्नुहोस्।"],
+[5,"प्रकाश संश्लेषण प्रक्रियाको व्याख्या गरी यसको महत्त्व लेख्नुहोस्।"],[5,"न्युटनका गतिका नियमहरू उदाहरणसहित व्याख्या गर्नुहोस्।"]],
+"9":[
+[1,"परमाणुको केन्द्रकमा पाइने कणहरूका नाम लेख्नुहोस्।"],[1,"गतिको SI एकाइ (चाल) के हो?"],[1,"कार्यको SI एकाइ के हो?"],[1,"सोडियमको प्रतीक र परमाणु क्रमाङ्क लेख्नुहोस्।"],[1,"रातो रक्तकणको मुख्य कार्य के हो?"],[1,"सुख्खा बरफ कुन पदार्थको ठोस रूप हो?"],
+[2,"चाल र वेगबीचका कुनै दुई भिन्नता लेख्नुहोस्।"],[2,"सन्तुलित रासायनिक समीकरण भनेको के हो? एउटा उदाहरण दिनुहोस्।"],[2,"शक्ति (Power) को परिभाषा दिई यसको सूत्र लेख्नुहोस्।"],[2,"ताप र तापक्रमबीचका कुनै दुई भिन्नता लेख्नुहोस्।"],[2,"आइसोटोप भनेको के हो? एउटा उदाहरण दिनुहोस्।"],[2,"धमनी र शिराबीचका कुनै दुई भिन्नता लेख्नुहोस्।"],
+[4,"बोहरको परमाणु मोडेलका मुख्य मान्यताहरू लेख्नुहोस्।"],[4,"एउटा गाडी १० m/s को चालबाट ५ सेकेन्डमा २५ m/s को चाल पुग्यो भने यसको त्वरण निकाल्नुहोस्।"],[4,"रासायनिक अभिक्रियाका प्रकारहरू उदाहरणसहित लेख्नुहोस्।"],[4,"गतिज ऊर्जा र स्थितिज ऊर्जाबीचको भिन्नता उदाहरणसहित लेख्नुहोस्।"],[4,"मानव हृदयको संरचनाको नामाङ्कित चित्र बनाउनुहोस्।"],[4,"तापको सञ्चरण विधिहरू (चालन, संवहन, विकिरण) उदाहरणसहित लेख्नुहोस्।"],
+[5,"न्युटनको गतिको दोस्रो नियम युक्ति गरी F = ma स्थापित गर्नुहोस्।"],[5,"मानव रक्तसञ्चार प्रणालीको वर्णन गर्नुहोस् र यसको महत्त्व लेख्नुहोस्।"]],
+"10":[
+[1,"अम्लीय घोलमा नीलो लिटमस पेपरले कुन रङ देखाउँछ?"],[1,"ओमको नियमको सूत्र लेख्नुहोस्।"],[1,"मिथेनको आणविक सूत्र लेख्नुहोस्।"],[1,"उत्तल लेन्स (Convex lens) लाई अर्को नाम के भनिन्छ?"],[1,"खाद्य शृङ्खलाको सुरुवात गर्ने जीवलाई के भनिन्छ?"],[1,"DNA को पूरा रूप लेख्नुहोस्।"],
+[2,"अम्ल र क्षारबीचका कुनै दुई भिन्नता लेख्नुहोस्।"],[2,"धातु र अधातुबीचका कुनै दुई भिन्नता लेख्नुहोस्।"],[2,"प्रतिरोध भनेको के हो? यसको SI एकाइ लेख्नुहोस्।"],[2,"खाद्य शृङ्खला र खाद्य जालोबीचका दुई भिन्नता लेख्नुहोस्।"],[2,"लेन्सको क्षमता (Power) को परिभाषा दिनुहोस्।"],[2,"जीन र क्रोमोजोमबीचको सम्बन्ध लेख्नुहोस्।"],
+[4,"उदासीनीकरण अभिक्रिया भनेको के हो? दैनिक जीवनमा यसका प्रयोग लेख्नुहोस्।"],[4,"कार्बनको बहुरूपता (Allotropy) हीरा र ग्रेफाइटको उदाहरणसहित स्पष्ट पार्नुहोस्।"],[4,"श्रेणी र समानान्तर सर्किटबीचका भिन्नता लेख्नुहोस्।"],[4,"मानव पाचन प्रणालीको नामाङ्कित चित्र बनाई कार्य लेख्नुहोस्।"],[4,"पारिस्थितिक प्रणालीका जैविक र अजैविक तत्वहरू लेख्नुहोस्।"],[4,"मेन्डेलको एकसङ्कर क्रस (Monohybrid cross) को निष्कर्ष लेख्नुहोस्।"],
+[5,"धातुहरूका भौतिक र रासायनिक गुणहरू उदाहरणसहित वर्णन गर्नुहोस्।"],[5,"उत्तल ऐना र अवतल ऐनाबाट बन्ने प्रतिबिम्बको किरण रेखाचित्रसहित वर्णन गर्नुहोस्।"]]};
+function shuffle(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+function exactSet(items,target){const a=shuffle(items),dp=Array(target+1).fill(null);dp[0]=[];for(let i=0;i<a.length;i++){let m=a[i][0];for(let s=target;s>=m;s--)if(dp[s]===null&&dp[s-m]!==null)dp[s]=dp[s-m].concat(i);}return dp[target]===null?null:dp[target].map(i=>a[i]);}
+function makePaper(){const grade=$("grade").value,full=Number($("marks").value),duration=$("duration").value,selected=exactSet(bank[grade]||[],full);$("paperTitle").textContent="कक्षा "+grade+" · विज्ञान तथा प्रविधि";$("metaSubject").textContent="विषय: विज्ञान तथा प्रविधि";$("metaMarks").textContent="पूर्णाङ्क: "+full;$("metaTime").textContent="समय: "+duration;const list=$("questionList");list.replaceChildren();if(!selected){$("paper").style.display="none";$("bankNotice").textContent="यस PDF मा प्रत्येक कक्षाका लागि जम्मा ५२ अङ्क बराबरका प्रश्न मात्र छन्। त्यसैले ७५ पूर्णाङ्कको प्रश्नपत्र बनाउन थप स्रोत प्रश्न चाहिन्छ।";alert("स्रोतमा ७५ पूर्णाङ्क पुग्ने प्रश्न छैन। २५ वा ५० छान्नुहोस्।");return;}selected.forEach(q=>{const li=document.createElement("li"),t=document.createElement("span"),m=document.createElement("span");t.textContent=q[1];m.className="qmarks";m.textContent=" ["+q[0]+" अङ्क]";li.append(t,m);list.append(li);});$("bankNotice").textContent="प्रश्नहरू उपलब्ध गराइएको PDF बाट निकालिएका हुन्। PDF आफैँ वेबसाइटमा अपलोड गरिएको छैन। प्रत्येक पटक प्रश्न छनोट र क्रम फरक हुन सक्छ।";$("paper").style.display="block";$("paper").scrollIntoView({behavior:"smooth",block:"start"});}
+$("generate").addEventListener("click",makePaper);$("print").addEventListener("click",()=>{if($("paper").style.display!=="block")makePaper();if($("paper").style.display==="block")window.print();});$("reset").addEventListener("click",()=>{$("grade").value="8";$("marks").value="25";$("duration").selectedIndex=1;$("paper").style.display="none";});$("grade").addEventListener("change",()=>$("paper").style.display="none");</script>
 </body>
 </html>
