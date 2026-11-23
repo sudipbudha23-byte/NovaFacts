@@ -1577,19 +1577,6 @@ document.querySelectorAll(".mobile-nav-link").forEach(link => {
 });
 
 
-/* =====================================
-   CLOSE CUSTOMIZER WHEN CLICKING OUTSIDE
-===================================== */
-
-document.addEventListener("click", event => {
-  if (
-    appearancePanel.classList.contains("open") &&
-    !appearancePanel.contains(event.target) &&
-    !customizeToggle.contains(event.target)
-  ) {
-    appearancePanel.classList.remove("open");
-  }
-});
 
 </script>
 <script src="ads-system.js" defer></script>
