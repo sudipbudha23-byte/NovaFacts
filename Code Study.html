@@ -143,7 +143,7 @@ function setConsole(message,isError=false){
  consoleBox.textContent=message || "(No console output)";
 }
 function makeCssPreview(css){
- return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>'+css.replace(/<\\/style/gi,"<\\\\/style")+'</style></head><body><div class="card"><h1>CSS Preview</h1><p>Your CSS is being applied to this sample card.</p><button>Sample button</button></div></body></html>';
+ return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>'+css+'</style></head><body><div class="card"><h1>CSS Preview</h1><p>Your CSS is being applied to this sample card.</p><button>Sample button</button></div></body></html>';
 }
 function makeJsPreview(source,id){
  const safeSource=source.replace(/<\/script/gi,"<\\/script");
