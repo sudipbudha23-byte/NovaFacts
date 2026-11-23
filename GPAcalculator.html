@@ -880,6 +880,81 @@ header,.hero,.card { background:#191a1f !important; backdrop-filter:none !import
 .card:hover,.result-box:hover,.btn:hover { transform:none !important; filter:none !important; }
 .logo { animation:none !important; box-shadow:none !important; }
 .progress { box-shadow:none !important; }
+
+/* ===== Clean, simple calculator UI (CSS only) ===== */
+:root{
+  --bg:#f5f7fb;--panel:#ffffff;--panel2:#f8fafc;
+  --border:#e2e8f0;--text:#172033;--muted:#64748b;
+  --gold:#2563eb;--gold2:#1d4ed8;--blue:#2563eb;
+  --green:#15803d;--red:#dc2626;
+}
+html{scroll-behavior:smooth}
+body{
+  background:#f5f7fb!important;background-image:none!important;
+  color:#172033!important;font-family:Inter,Arial,sans-serif;
+}
+body:before,body:after,.login-stars,.login-sky-glow{display:none!important;content:none!important}
+*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto}
+header{
+  background:#fff!important;border:1px solid #e2e8f0!important;
+  border-radius:12px!important;box-shadow:0 2px 8px rgba(15,23,42,.04)!important;
+  backdrop-filter:none!important;transform:none!important
+}
+.logo{box-shadow:none!important;animation:none!important}
+.logo:after{display:none!important}
+.brand h2,.hero h1,.card h2{color:#172033}
+.header-label,.section-icon,.subject-top strong{color:#1d4ed8!important}
+.container{max-width:900px;margin:28px auto 48px}
+.hero{
+  background:#fff!important;border:1px solid #e2e8f0!important;
+  border-radius:14px!important;padding:26px!important;box-shadow:0 2px 8px rgba(15,23,42,.04)
+}
+.hero:after{display:none!important}
+.tag{background:#eff6ff!important;border:1px solid #bfdbfe!important;color:#1d4ed8!important}
+.hero h1 span{
+  background:none!important;-webkit-text-fill-color:#1d4ed8!important;color:#1d4ed8!important
+}
+.hero p{color:#64748b!important}
+.card,.subject,.result-box{
+  background:#fff!important;border:1px solid #e2e8f0!important;
+  border-radius:12px!important;box-shadow:0 2px 8px rgba(15,23,42,.035)!important;
+  transform:none!important;translate:none!important
+}
+.card:hover,.result-box:hover,.subject:hover{transform:none!important;translate:none!important;box-shadow:0 2px 8px rgba(15,23,42,.035)!important}
+.card h2{font-size:18px}
+label{color:#334155!important;font-size:13px!important}
+input,select{
+  background:#fff!important;color:#172033!important;border:1px solid #cbd5e1!important;
+  border-radius:8px!important;min-height:46px!important
+}
+input::placeholder{color:#94a3b8}
+input:focus,select:focus{border-color:#2563eb!important;box-shadow:0 0 0 3px rgba(37,99,235,.12)!important}
+select option{background:#fff!important;color:#172033!important}
+.subject{padding:16px!important}
+.subject-result{background:#f8fafc!important;color:#475569!important}
+.subject-result strong{color:#1d4ed8!important}
+.btn{border-radius:8px!important;box-shadow:none!important}
+.gold{background:#2563eb!important;color:#fff!important}
+.gold:hover{background:#1d4ed8!important;filter:none!important}
+.secondary{background:#fff!important;color:#334155!important;border:1px solid #cbd5e1!important}
+.remove{background:#fef2f2!important;color:#b91c1c!important;border:1px solid #fecaca!important}
+.result-box{padding:18px 12px!important}
+.result-box p{color:#64748b!important}
+.result-box h3{color:#1d4ed8!important}
+.status{background:#eff6ff!important;border:1px solid #bfdbfe!important;color:#1e40af!important}
+table{border-collapse:collapse;width:100%;background:#fff;color:#172033}
+th{background:#f1f5f9;color:#334155}
+td,th{border:1px solid #e2e8f0;padding:11px;text-align:left}
+footer{background:#fff;color:#64748b;border-top:1px solid #e2e8f0}
+@media(max-width:650px){
+  header{position:static!important;width:92%!important;margin:12px auto!important}
+  .container{width:92%!important;margin:18px auto 35px!important}
+  .hero,.card{padding:18px!important}
+  .grid,.subject-fields{grid-template-columns:1fr!important}
+  .result-grid{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
 </style>
 </head>
 
