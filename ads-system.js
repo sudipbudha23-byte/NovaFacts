@@ -1,9 +1,9 @@
 (() => {
   "use strict";
   const ads = [
-    { image: "https://static.hilltopads.com/other/banners/pub/make_big_money/728x90.gif?v=1795373373", click: "https://hilltopads.com/?ref=411460", alt: "HilltopAds advertisement" },
-    { image: "https://static.hilltopads.com/other/banners/adv/ht_advantages/728x90.gif?v=1795373373", click: "https://hilltopads.com/?ref=411460", alt: "HilltopAds advantages advertisement" },
-    { image: "https://static.hilltopads.com/other/banners/adv/boost_roi/728x90.gif?v=1795373373", click: "https://hilltopads.com/?ref=411460", alt: "HilltopAds boost ROI advertisement" }];
+    { image: "https://static.hilltopads.com/other/banners/pub/make_big_money/728x90.gif?v=1795373373", click: "https://plump-plastic.com/7JdpH1", alt: "HilltopAds advertisement" },
+    { image: "https://static.hilltopads.com/other/banners/adv/ht_advantages/728x90.gif?v=1795373373", click: "https://plump-plastic.com/7JdpH1", alt: "HilltopAds advantages advertisement" },
+    { image: "https://static.hilltopads.com/other/banners/adv/boost_roi/728x90.gif?v=1795373373", click: "https://plump-plastic.com/7JdpH1", alt: "HilltopAds boost ROI advertisement" }];
   let counter = 0;
   const isExternal = url => /^https:\/\//i.test(url);
   function creative(item) {
