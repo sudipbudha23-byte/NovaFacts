@@ -39,7 +39,7 @@ button,input,select{font:inherit}.top{height:64px;background:#fff;border-bottom:
 <div class="reward-card"><div class="reward-label">STREAK</div><div class="reward-value">🔥 <span id="streak">0</span>/10</div><div class="streak-meter"><span id="streakBar"></span></div></div>
 <div class="reward-card"><div class="reward-label">BEST STREAK</div><div class="reward-value">🏆 <span id="bestStreak">0</span></div><div class="reward-hint">5: +3 coins · 10: +10 coins</div></div>
 </section>
-<div class="filters" aria-label="Quiz controls">
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px"><a class="pill primary" href="quiz.html?mode=daily" style="background:#d9a83b;color:#17130a;border-color:#d9a83b">⚡ Daily Challenge · 10 Questions</a><a class="pill" href="Learn%20Study/index.html">← Study Dashboard</a></div><div class="filters" aria-label="Quiz controls">
 <input class="field" id="search" placeholder="Search questions or topics…" aria-label="Search questions">
 <select class="field" id="filter" aria-label="Choose a course"><option value="all">All courses</option></select>
 <select class="field" id="mode" aria-label="Question mode"><option value="all">All questions</option><option value="new">Unanswered</option><option value="wrong">Review mistakes</option></select>
@@ -55,19 +55,29 @@ button,input,select{font:inherit}.top{height:64px;background:#fff;border-bottom:
 <div class="reward-toast" id="toast" role="status" aria-live="polite"></div>
 </main>
 <script>
+const quizUser=(()=>{try{return JSON.parse(localStorage.getItem("novafacts_study_user")||"{}")}catch{return {}}})();
+const quizUserId=String(quizUser.email||quizUser.id||"guest").trim().toLowerCase();
+const progressKey="nfStudyGameProgress:"+quizUserId;
+const loadProgress=()=>{try{return JSON.parse(localStorage.getItem(progressKey)||"{}")}catch{return {}}};
+const savedProgress=loadProgress();
+const gameProgress={xp:Number(savedProgress.xp||0),coins:Number(savedProgress.coins||0),totalAnswered:Number(savedProgress.totalAnswered||0),totalCorrect:Number(savedProgress.totalCorrect||0),quizzesCompleted:Number(savedProgress.quizzesCompleted||0),bestStreak:Number(savedProgress.bestStreak||0),dailyDays:Array.isArray(savedProgress.dailyDays)?savedProgress.dailyDays:[],lastActiveDate:savedProgress.lastActiveDate||""};
+const dailyMode=new URLSearchParams(location.search).get("mode")==="daily";
+const requestedCourse=new URLSearchParams(location.search).get("course");
+const todayKey=new Date().toLocaleDateString("en-CA");
+function persistGame(){localStorage.setItem(progressKey,JSON.stringify(gameProgress))}
 const raw = [["Physics","A particle moves in a circle of radius r with constant speed v. Its centripetal acceleration is:","एउटा कण r त्रिज्याको वृत्तमा v चालले घुम्छ। यसको केन्द्राभिमुख त्वरण कति हुन्छ?","v²/r|v/r²|r/v²|vr","v²/r|v/r²|r/v²|vr",0],["Physics","For a projectile launched at speed u at angle θ, the maximum range on level ground occurs at:","u वेगले θ कोणमा प्रक्षेपित वस्तुको अधिकतम क्षैतिज दूरी कुन कोणमा हुन्छ?","30°|45°|60°|90°","३०°|४५°|६०°|९०°",1],["Physics","The dimensional formula of Planck's constant is:","प्ल्याङ्क स्थिराङ्कको विमीय सूत्र कुन हो?","ML²T⁻¹|MLT⁻²|M⁰L²T⁻¹|ML²T⁻²","ML²T⁻¹|MLT⁻²|M⁰L²T⁻¹|ML²T⁻²",0],["Physics","A capacitor of capacitance C is charged to potential V. Energy stored is:","C धारिता भएको क्यापासिटरलाई V विभवमा चार्ज गर्दा सञ्चित ऊर्जा कति हुन्छ?","CV²|½CV²|2CV²|½C²V","CV²|½CV²|2CV²|½C²V",1],["Physics","In a series RLC circuit at resonance, the impedance is:","श्रृङ्खलाबद्ध RLC परिपथमा अनुनाद हुँदा प्रतिबाधा कति हुन्छ?","Maximum|Zero|Equal to resistance R|Equal to inductive reactance","अधिकतम|शून्य|प्रतिरोध R बराबर|प्रेरकीय प्रतिघात बराबर",2],["Physics","The de Broglie wavelength of a particle is inversely proportional to its:","कणको डी-ब्रोग्ली तरङ्गदैर्ध्य कुन राशिसँग व्युत्क्रमानुपाती हुन्छ?","Velocity only|Momentum|Kinetic energy squared|Charge","वेग मात्र|संवेग|गतिज ऊर्जाको वर्ग|आवेश",1],["Physics","If the half-life of a radioactive sample is 5 days, the fraction remaining after 15 days is:","कुनै रेडियोधर्मी पदार्थको अर्धआयु ५ दिन छ भने १५ दिनपछि कति भाग बाँकी रहन्छ?","1/2|1/4|1/8|1/16","१/२|१/४|१/८|१/१६",2],["Physics","The work done by a conservative force over a closed path is:","संरक्षी बलले बन्द मार्गमा गर्ने कुल कार्य कति हुन्छ?","Positive|Negative|Zero|Path dependent","धनात्मक|ऋणात्मक|शून्य|मार्गमा निर्भर",2],["Chemistry","For a first-order reaction, the unit of the rate constant is:","प्रथम कोटिको प्रतिक्रियाको वेग स्थिराङ्कको एकाइ कुन हो?","mol L⁻¹ s⁻¹|s⁻¹|L mol⁻¹ s⁻¹|mol² L⁻² s⁻¹","mol L⁻¹ s⁻¹|s⁻¹|L mol⁻¹ s⁻¹|mol² L⁻² s⁻¹",1],["Chemistry","The pH of 1.0 × 10⁻³ M HCl at 25°C is approximately:","२५°C मा 1.0 × 10⁻³ M HCl को pH लगभग कति हुन्छ?","1|2|3|11","१|२|३|११",2],["Chemistry","Which quantum number determines the shape of an orbital?","कुन क्वान्टम सङ्ख्याले कक्षको आकार निर्धारण गर्छ?","Principal n|Azimuthal l|Magnetic m|Spin s","मुख्य n|दिगंशीय l|चुम्बकीय m|स्पिन s",1],["Chemistry","The hybridization of carbon in ethyne (C₂H₂) is:","Ethyne (C₂H₂) मा कार्बनको hybridization कुन हो?","sp|sp²|sp³|dsp²","sp|sp²|sp³|dsp²",0],["Chemistry","For an exothermic reaction, increasing temperature generally shifts equilibrium:","उष्माक्षेपी प्रतिक्रियामा तापक्रम बढाउँदा साम्यावस्था सामान्यतया कतातिर सर्छ?","Towards products|Towards reactants|No change|First products then reactants","उत्पादनतर्फ|अभिकारकतर्फ|परिवर्तन हुँदैन|पहिले उत्पादन अनि अभिकारक",1],["Chemistry","Which species has the highest bond order?","तलका मध्ये कुन कणको bond order सबैभन्दा बढी हुन्छ?","O₂|O₂⁺|O₂⁻|O₂²⁻","O₂|O₂⁺|O₂⁻|O₂²⁻",1],["Chemistry","The standard electrode potential of the standard hydrogen electrode is defined as:","Standard hydrogen electrode को मानक इलेक्ट्रोड विभव कति परिभाषित गरिएको छ?","+1.00 V|−1.00 V|0.00 V|+0.76 V","+1.00 V|−1.00 V|0.00 V|+0.76 V",2],["Biology","During which stage of meiosis does crossing over occur?","Meiosis को कुन चरणमा crossing over हुन्छ?","Leptotene|Zygotene|Pachytene|Diakinesis","Leptotene|Zygotene|Pachytene|Diakinesis",2],["Biology","In the Calvin cycle, the primary CO₂ acceptor in C₃ plants is:","C₃ बिरुवामा Calvin cycle को प्राथमिक CO₂ स्वीकारकर्ता कुन हो?","RuBP|PEP|OAA|NADPH","RuBP|PEP|OAA|NADPH",0],["Biology","The enzyme that joins Okazaki fragments is:","Okazaki fragments लाई जोड्ने enzyme कुन हो?","DNA helicase|DNA ligase|RNA polymerase|Primase","DNA helicase|DNA ligase|RNA polymerase|Primase",1],["Biology","In a Hardy–Weinberg population, if p = 0.7, the heterozygote frequency is:","Hardy–Weinberg सन्तुलनमा p = 0.7 भए heterozygote को आवृत्ति कति हुन्छ?","0.09|0.21|0.42|0.49","०.०९|०.२१|०.४२|०.४९",2],["Biology","Which hormone lowers blood glucose by promoting cellular uptake?","कोशिकाले ग्लुकोज ग्रहण गर्न सहयोग गरेर रगतको ग्लुकोज घटाउने हर्मोन कुन हो?","Glucagon|Insulin|Adrenaline|Thyroxine","Glucagon|Insulin|Adrenaline|Thyroxine",1],["Biology","The oxygen released during photosynthesis comes directly from:","प्रकाश संश्लेषणमा निस्कने अक्सिजन प्रत्यक्ष रूपमा कहाँबाट आउँछ?","Carbon dioxide|Glucose|Water|Chlorophyll","कार्बन डाइअक्साइड|ग्लुकोज|पानी|क्लोरोफिल",2],["Biology","Which part of the nephron is primarily responsible for ultrafiltration?","नेफ्रोनको कुन भागमा मुख्यतः ultrafiltration हुन्छ?","Loop of Henle|Collecting duct|Glomerulus|Distal tubule","हेन्लेको लूप|सङ्कलन नली|ग्लोमेरुलस|डिस्टल नली",2],["Mathematics","If f(x)=x³−3x, the local maximum occurs at:","f(x)=x³−3x भए स्थानीय अधिकतम कुन x मा हुन्छ?","x = −1|x = 0|x = 1|x = 3","x = −१|x = ०|x = १|x = ३",0],["Mathematics","The determinant of a 2×2 matrix [[a,b],[c,d]] is:","2×2 म्याट्रिक्स [[a,b],[c,d]] को determinant कुन हो?","ab−cd|ad−bc|ac−bd|a+b+c+d","ab−cd|ad−bc|ac−bd|a+b+c+d",1],["Mathematics","The sum of the first n terms of an arithmetic progression is:","अंकगणितीय श्रेणीका पहिलो n पदहरूको योगफल कुन हो?","n/2[2a+(n−1)d]|a(1−rⁿ)/(1−r)|n²d|a+nd","n/2[2a+(n−1)d]|a(1−rⁿ)/(1−r)|n²d|a+nd",0],["Mathematics","The value of ∫₀¹ 2x dx is:","∫₀¹ 2x dx को मान कति हुन्छ?","0|1|2|4","०|१|२|४",1],["Mathematics","If two events A and B are independent, then P(A∩B) equals:","A र B स्वतन्त्र घटना भए P(A∩B) कति हुन्छ?","P(A)+P(B)|P(A)P(B)|P(A)/P(B)|1−P(A)","P(A)+P(B)|P(A)P(B)|P(A)/P(B)|1−P(A)",1],["Computer Science","Which data structure is typically used for function-call management?","Function call व्यवस्थापन गर्न सामान्यतया कुन data structure प्रयोग हुन्छ?","Queue|Stack|Graph|Hash table","Queue|Stack|Graph|Hash table",1],["Computer Science","In a relational database, a candidate key is:","Relational database मा candidate key भनेको के हो?","Any non-unique field|A minimal superkey|A foreign key only|A duplicated index","कुनै पनि दोहोरिने field|न्यूनतम superkey|Foreign key मात्र|दोहोरिएको index",1],["Computer Science","What is the average time complexity of binary search on a sorted array?","क्रमबद्ध array मा binary search को औसत समय जटिलता कति हुन्छ?","O(n)|O(log n)|O(n log n)|O(1)","O(n)|O(log n)|O(n log n)|O(1)",1],["Computer Science","Which protocol provides reliable, ordered byte-stream delivery?","भरपर्दो र क्रमबद्ध byte-stream delivery कुन protocol ले दिन्छ?","UDP|IP|TCP|ARP","UDP|IP|TCP|ARP",2],["Computer Science","In object-oriented programming, encapsulation primarily means:","Object-oriented programming मा encapsulation को मुख्य अर्थ के हो?","Combining data and methods with controlled access|Repeating code|Converting source to binary|Sorting objects","डेटा र method लाई नियन्त्रित पहुँचसहित एउटै संरचनामा राख्नु|कोड दोहोर्‍याउनु|Source लाई binary बनाउनु|Object क्रमबद्ध गर्नु",0],["Computer Science","Which SQL clause filters grouped records after aggregation?","Aggregation पछि समूह बनाइएका record छान्न SQL को कुन clause प्रयोग हुन्छ?","WHERE|ORDER BY|HAVING|JOIN","WHERE|ORDER BY|HAVING|JOIN",2],["General Knowledge","The term 'opportunity cost' in economics refers to:","अर्थशास्त्रमा 'opportunity cost' भन्नाले के बुझिन्छ?","Total money spent|Value of the next best alternative forgone|Market price after tax|Fixed production cost","त्यागिएको अर्को उत्तम विकल्पको मूल्य|खर्च भएको कुल पैसा|करपछिको बजार मूल्य|स्थिर उत्पादन लागत",1],["General Knowledge","Which international agreement is specifically aimed at limiting global warming?","विश्वव्यापी तापक्रम वृद्धि सीमित गर्ने उद्देश्य भएको अन्तर्राष्ट्रिय सम्झौता कुन हो?","Montreal Protocol|Paris Agreement|Geneva Convention|Basel Convention","मोन्ट्रियल प्रोटोकल|पेरिस सम्झौता|जेनेभा महासन्धि|बासेल महासन्धि",1],["General Knowledge","In Nepal, the federal legislature is constitutionally called:","नेपालको संविधानअनुसार संघीय व्यवस्थापिकालाई के भनिन्छ?","National Assembly only|House of Representatives only|Federal Parliament|Council of Ministers","राष्ट्रिय सभा मात्र|प्रतिनिधि सभा मात्र|संघीय संसद्|मन्त्रिपरिषद्",2]];
 const bank=raw.map(q=>({cat:q[0],en:q[1],ne:q[2],oe:q[3].split("|"),on:q[4].split("|"),a:q[5]}));
 const categories=[...new Set(bank.map(q=>q.cat))];
 const $=id=>document.getElementById(id);
-const state={lang:"en",cat:"all",mode:"all",query:"",list:[],pos:0,answers:new Map(),wrong:new Set(),correct:0,coins:Number(localStorage.getItem("nfQuizCoins")||0),streak:0,best:Number(localStorage.getItem("nfQuizBestStreak")||0),hinted:new Set(),eliminated:new Map()};
+const state={lang:"en",cat:"all",mode:"all",query:"",list:[],pos:0,answers:new Map(),wrong:new Set(),correct:0,coins:gameProgress.coins,streak:0,best:gameProgress.bestStreak,hinted:new Set(),eliminated:new Map()};
 const tr=(en,ne)=>state.lang==="en"?en:ne;
 function options(q){return state.lang==="en"?q.oe:q.on}
-function saveCoins(){localStorage.setItem("nfQuizCoins",String(state.coins));localStorage.setItem("nfQuizBestStreak",String(state.best))}
+function saveCoins(){gameProgress.coins=state.coins;gameProgress.bestStreak=state.best;persistGame()}
 function toast(msg){$("toast").textContent=msg;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2300)}
 function updateStats(){
  $("coins").textContent=state.coins;$("streak").textContent=state.streak;$("bestStreak").textContent=state.best;
  $("score").textContent=(state.answers.size?Math.round(state.correct/state.answers.size*100):0)+"%";
- $("count").textContent=tr(state.answers.size+" answered • "+state.correct+" correct",state.answers.size+" उत्तर • "+state.correct+" सही");
+ $("count").textContent=tr(gameProgress.totalAnswered+" total • "+gameProgress.totalCorrect+" correct",gameProgress.totalAnswered+" जम्मा • "+gameProgress.totalCorrect+" सही");
  $("streakBar").style.width=Math.min(state.streak,10)*10+"%";
 }
 function buildFilters(){
@@ -80,6 +90,12 @@ function buildList(){
   return (state.cat==="all"||q.cat===state.cat)&&(!query||text.includes(query))&&
    (state.mode==="all"||(state.mode==="new"&&!state.answers.has(i))||(state.mode==="wrong"&&state.wrong.has(i)));
  });
+ if(requestedCourse)state.list=state.list.filter(i=>bank[i].cat.toLowerCase()===requestedCourse.toLowerCase());
+ if(dailyMode){
+  const seed=Number(todayKey.replaceAll("-",""));const pool=bank.map((q,i)=>i);
+  for(let i=pool.length-1;i>0;i--){const j=(seed+i*17)%(i+1);[pool[i],pool[j]]=[pool[j],pool[i]]}
+  state.list=pool.slice(0,10);
+ }
  state.pos=0;renderQuestion();
 }
 function renderQuestion(){
@@ -115,7 +131,7 @@ function selectAnswer(id,index){
  if(state.answers.has(id))return;
  state.answers.set(id,index);
  if(index===bank[id].a){
-  state.correct++;state.coins++;state.streak++;
+  state.correct++;gameProgress.totalCorrect++;gameProgress.xp+=10;state.coins++;state.streak++;
   if(state.streak===5){state.coins+=3;toast(tr("5 correct in a row! +3 bonus coins","लगातार ५ सही! +३ बोनस कोइन"))}
   if(state.streak===10){state.coins+=10;state.streak=0;toast(tr("10 streak! +10 bonus coins!","लगातार १० सही! +१० बोनस कोइन"))}
   state.best=Math.max(state.best,state.streak);
@@ -131,7 +147,15 @@ function useHint(){
 }
 function advance(){
  if(state.pos<state.list.length-1){state.pos++;renderQuestion()}
- else{toast(tr("Quiz set completed! Choose another course to continue.","क्विज समूह पूरा भयो! अर्को विषय छानेर जारी राख्नुहोस्।"));$("next").disabled=true}
+ else{
+  if(state.answers.size===state.list.length){
+   gameProgress.quizzesCompleted++;
+   if(dailyMode&&!gameProgress.dailyDays.includes(todayKey)){gameProgress.dailyDays.push(todayKey);gameProgress.xp+=25;state.coins+=5;saveCoins();toast(tr("Daily challenge complete! +25 XP and +5 coins","डेली च्यालेन्ज पूरा! +२५ XP र +५ कोइन"))}
+   else toast(tr("Quiz completed! Progress saved.","क्विज पूरा भयो! प्रगति सुरक्षित भयो।"));
+   persistGame();
+  }else toast(tr("Answer every question to complete this challenge.","च्यालेन्ज पूरा गर्न सबै प्रश्नको उत्तर दिनुहोस्।"));
+  $("next").disabled=true;
+ }
 }
 function shuffleQuestions(){for(let i=state.list.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[state.list[i],state.list[j]]=[state.list[j],state.list[i]]}state.pos=0;renderQuestion()}
 function setLanguage(){
