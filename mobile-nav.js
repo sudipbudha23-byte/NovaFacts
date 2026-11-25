@@ -7,7 +7,7 @@
     {label:'Home',icon:'🏠',href:'index.html',match:['','index.html']},
     {label:'Computer',icon:'💻',href:'Code%20Study.html',match:['code study.html','virtual-lab.html']},
     {label:'Dashboard',icon:'📊',href:'dashboard.html',match:['dashboard.html'],center:true},
-    {label:'Study',icon:'📚',href:'AI-Learning.html',match:['ai-learning.html','periodic table.html','g pacalculator.html','gpacalculator.html','question-bank.html','learn study/index.html','learn study/feature.html','learn study/science-lab.html']},
+    {label:'Study',icon:'📚',href:(base?'register.html':'Learn%20Study/register.html'),match:['ai-learning.html','periodic table.html','g pacalculator.html','gpacalculator.html','question-bank.html','learn study/index.html','learn study/feature.html','learn study/science-lab.html']},
     {label:'Quiz',icon:'🧠',href:'quiz.html',match:['quiz.html']}
   ];
   var nav=document.createElement('nav');nav.id='nf-mobile-nav';nav.setAttribute('aria-label','Mobile navigation');
