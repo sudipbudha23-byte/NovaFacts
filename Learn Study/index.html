@@ -64,6 +64,7 @@ footer{text-align:center;color:#8b9ba9;font-size:10px;padding:25px 0 0}
 .game-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:11px;margin-top:11px}.game-card{background:#fff;border:1px solid #e2edf4;border-radius:13px;padding:16px;min-width:0}.game-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.mission-tag{font-size:9px;font-weight:900;color:#9a6a0d;background:#fff3d5;padding:6px 9px;border-radius:20px}.game-card h3{font-size:14px;margin:7px 0;color:#18334b}.game-card p{font-size:10px;line-height:1.6;color:#74889a;margin:0}.mission-reward{font-size:10px;margin:12px 0;color:#617689}.mission-reward b{color:#9b711e;margin-right:7px}.game-cta{display:inline-flex;padding:9px 13px;border-radius:8px;background:linear-gradient(110deg,#176b9d,#2499b5);color:#fff;font-size:10px;font-weight:800}.rank-card{background:linear-gradient(135deg,#18334b,#245b79);color:#fff}.rank-card .game-kicker{color:#8dd9f3}.rank-card h3{font-size:18px;color:#fff}.rank-card p,.rank-card small{color:#d2e5ef}.rank-progress{background:#ffffff30}.rank-progress span{background:#f1c45a}.subject-card{margin-top:11px}.subject-card .game-card-top h3,.activity-card .game-card-top h3{margin:5px 0 0}.subject-card .game-card-top>a{font-size:10px;color:#237ba5;font-weight:800}.subject-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:13px}.subject-grid a{display:grid;gap:5px;padding:12px 9px;border:1px solid #e5edf2;border-radius:10px;background:#f9fcfe}.subject-grid a:hover{border-color:#9ccce2;transform:translateY(-2px)}.subject-grid b{font-size:20px}.subject-grid span{font-size:10px;font-weight:850;color:#29465d}.subject-grid small{font-size:8px;color:#8395a3}.activity-card{margin-top:11px}.activity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 10px}.activity-grid>div{padding:11px;background:#f6fafc;border-radius:9px}.activity-grid strong{display:block;font-size:19px;color:#1a719c}.activity-grid small{font-size:9px;color:#7b8e9e}.game-note{padding-top:9px;border-top:1px solid #edf1f4;font-size:9px!important}
 @media(max-width:800px){.game-hub{padding:13px;margin-bottom:17px}.game-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.game-layout{grid-template-columns:1fr}.game-welcome h2{font-size:20px}}
 @media(max-width:430px){.activity-grid{grid-template-columns:repeat(2,1fr)}.game-stat strong{font-size:22px}.game-trophy{font-size:34px}}
+.recent-activity{display:grid;gap:7px;margin-top:12px}.recent-row{display:flex;align-items:center;gap:9px;padding:9px;background:#f7fafc;border-radius:8px;min-width:0}.recent-dot{width:25px;height:25px;flex:0 0 25px;border-radius:50%;display:grid;place-items:center;font-size:12px}.recent-dot.good{background:#e0f6ed;color:#13805d}.recent-dot.bad{background:#fff0e5;color:#b56c25}.recent-copy{min-width:0;flex:1}.recent-copy strong{display:block;font-size:10px;color:#29465d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.recent-copy small{font-size:8px;color:#8293a1}
 </style>
 
 <link rel="stylesheet" href="../mobile-nav.css">
@@ -127,7 +128,8 @@ footer{text-align:center;color:#8b9ba9;font-size:10px;padding:25px 0 0}
    <a href="../quiz.html?course=Computer%20Science"><b>💻</b><span>Computer Science</span><small>Logic & programming</small></a>
   </div>
  </div>
- <div class="game-card activity-card"><div class="game-card-top"><div><span class="game-kicker">YOUR RECORD</span><h3>Learning statistics</h3></div><span>📊</span></div><div class="activity-grid"><div><strong id="gameAnswered">0</strong><small>Questions answered</small></div><div><strong id="gameCorrect">0</strong><small>Correct answers</small></div><div><strong id="gameBadges">0</strong><small>Milestones unlocked</small></div><div><strong id="gameActiveDays">0</strong><small>Active challenge days</small></div></div><p class="game-note">Your progress is saved in this browser for this account. A shared worldwide leaderboard needs a secure server-side score database and is not enabled yet.</p></div>
+ <div class="game-card activity-card"><div class="game-card-top"><div><span class="game-kicker">YOUR RECORD</span><h3>Learning statistics</h3></div><span>📊</span></div><div class="activity-grid"><div><strong id="gameAnswered">0</strong><small>Questions answered</small></div><div><strong id="gameCorrect">0</strong><small>Correct answers</small></div><div><strong id="gameBadges">0</strong><small>Milestones unlocked</small></div><div><strong id="gameActiveDays">0</strong><small>Active challenge days</small></div></div><p class="game-note">Your progress is saved in this browser for this account. A shared worldwide leaderboard needs a secure server-side score database and is not enabled yet.</p><div class="game-card activity-card"><div class="game-card-top"><div><span class="game-kicker">RECENT PRACTICE</span><h3>Quiz activity</h3></div><a href="../quiz.html">Practice more ↗</a></div><div id="gameRecentActivity" class="recent-activity"><p class="game-note">Your answered questions will appear here after you start practising.</p></div></div>
+</div>
 </section>
 <div class="content"><div class="columns"><section>
 <div class="banner"><div class="banner-copy"><h2>Ready to learn something new?</h2><p>Explore lessons, practise exam questions and build your knowledge with the NovaFacts learning space.</p><a class="white-btn" href="#lessons">Explore Learning&nbsp; ›</a></div><div class="banner-art" aria-hidden="true">🎓</div></div>
@@ -156,6 +158,19 @@ footer{text-align:center;color:#8b9ba9;font-size:10px;padding:25px 0 0}
 document.getElementById('year').textContent=new Date().getFullYear();
 const search=document.getElementById('toolSearch');
 search.addEventListener('input',()=>{const q=search.value.toLowerCase();document.querySelectorAll('.lesson').forEach(card=>{card.hidden=!card.innerText.toLowerCase().includes(q)})});
+function renderRecentGameActivity(history){
+ const box=document.getElementById("gameRecentActivity");if(!box)return;
+ if(!history.length){box.innerHTML='<p class="game-note">Your answered questions will appear here after you start practising.</p>';return}
+ box.replaceChildren();
+ history.slice(0,6).forEach(item=>{
+  const row=document.createElement("div");row.className="recent-row";
+  const dot=document.createElement("span");dot.className="recent-dot "+(item.correct?"good":"bad");dot.textContent=item.correct?"✓":"↻";
+  const copy=document.createElement("div");copy.className="recent-copy";
+  const title=document.createElement("strong");title.textContent=item.question||"Quiz question";
+  const meta=document.createElement("small");meta.textContent=(item.subject||"Quiz")+" · "+(item.date||"");
+  copy.append(title,meta);row.append(dot,copy);box.append(row);
+ });
+}
 function loadLearningGameDashboard(){
  const user=(()=>{try{return JSON.parse(localStorage.getItem("novafacts_study_user")||"{}")}catch{return {}}})();
  const key="nfStudyGameProgress:"+String(user.email||user.id||"guest").trim().toLowerCase();
@@ -167,6 +182,7 @@ function loadLearningGameDashboard(){
  const streakDays=days.slice().sort().reverse();let streak=0;let d=new Date();let today=new Date().toLocaleDateString("en-CA");if(!days.includes(today))d.setDate(d.getDate()-1);
  while(days.includes(d.toLocaleDateString("en-CA"))){streak++;d.setDate(d.getDate()-1)}
  const badges=[answered>=1,correct>=10,quizzes>=1,days.length>=3,xp>=500].filter(Boolean).length;
+ renderRecentGameActivity(Array.isArray(p.history)?p.history:[]);
  const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value};
  set("gameXP",xp);set("gameCoins",coins);set("gameQuizzes",quizzes);set("gameStreak",streak+" days");set("gameAccuracy",(answered?Math.round(correct/answered*100):0)+"% accuracy");set("gameAnswered",answered);set("gameCorrect",correct);set("gameBadges",badges);set("gameActiveDays",days.length);
  set("gameLevel","Level "+(levels.indexOf(level)+1)+" · "+level.name);
