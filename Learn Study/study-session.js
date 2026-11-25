@@ -1,0 +1,1 @@
+(()=>{const ok=localStorage.getItem("novafacts_study_logged_in")==="true"&&!!localStorage.getItem("novafacts_study_user");if(!ok){const next=location.pathname+location.search+location.hash;location.replace("/Learn%20Study/register.html?next="+encodeURIComponent(next));return;}document.documentElement.classList.add("nf-study-session");})();
