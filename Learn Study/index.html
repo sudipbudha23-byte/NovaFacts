@@ -13,7 +13,22 @@
 <style>
 :root{--ink:#18334b;--muted:#72869a;--blue:#1675ad;--blue2:#e9f6fd;--line:#e2edf4;--bg:#f4f8fb;--white:#fff;--green:#15966e}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Inter,Arial,sans-serif}a{color:inherit;text-decoration:none}button,input{font:inherit}
-.app{min-height:100vh;display:grid;grid-template-columns:218px minmax(0,1fr)}.sidebar{background:#fff;border-right:1px solid var(--line);padding:25px 15px;display:flex;flex-direction:column;min-height:100vh;position:sticky;top:0;height:100vh}.logo{font-size:21px;font-weight:850;color:#176b9d;padding:0 13px 31px;letter-spacing:-.6px}.logo span{color:#263f56}.nav-label{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:#91a1b0;font-weight:800;padding:10px 13px}.nav{display:grid;gap:5px}.nav a{display:flex;align-items:center;gap:12px;padding:11px 13px;border-radius:8px;color:#52677a;font-size:12px;font-weight:650}.nav a:hover,.nav a.active{background:#e5f4fc;color:#126d9f}.nav .ico{width:18px;text-align:center;font-size:15px}.side-bottom{margin-top:auto;border-top:1px solid var(--line);padding-top:14px}
+.app{min-height:100vh;display:grid;grid-template-columns:218px minmax(0,1fr)}.sidebar{background:#fff;border-right:1px solid var(--line);padding:25px 15px;display:flex;flex-direction:column;min-height:100vh;position:sticky;top:0;height:100vh}.logo{font-size:21px;font-weight:850;color:#176b9d;padding:0 13px 31px;letter-spacing:-.6px}.logo span{color:#263f56}.student-profile{padding:15px 11px;margin:0 0 18px;border:1px solid #dcebf4;border-radius:14px;background:linear-gradient(145deg,#f3faff,#fff);box-shadow:0 5px 16px rgba(31,91,125,.06)}
+.student-profile-main{display:flex;align-items:center;gap:11px;min-width:0}
+.student-photo-wrap{position:relative;flex:0 0 56px;width:56px;height:56px;border-radius:50%;overflow:visible;background:linear-gradient(145deg,#d9effb,#a9d6ed);display:grid;place-items:center;border:3px solid #fff;box-shadow:0 2px 9px #176b9d22}
+.student-photo{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.student-initial{font-size:25px;font-weight:850;color:#176b9d}
+.photo-edit{position:absolute;right:-4px;bottom:-3px;width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:#176b9d;color:#fff;border:2px solid #fff;font-size:11px;cursor:pointer}
+.student-identity{display:grid;gap:4px;min-width:0}
+.student-identity strong{font-size:12px;color:#18334b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.student-identity span{font-size:9px;color:#72869a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.student-identity small{font-size:9px;color:#15966e;display:flex;align-items:center;gap:5px}
+.student-identity small i{width:6px;height:6px;border-radius:50%;background:#15966e}
+.student-profile-actions{display:flex;justify-content:space-between;align-items:center;margin:12px 0 0 67px;font-size:9px}
+.student-profile-actions label,.student-profile-actions button{border:0;background:none;color:#176b9d;font-size:9px;font-weight:750;padding:2px;cursor:pointer}
+.student-profile-actions button{color:#8494a2}
+@media(max-width:800px){.student-profile{margin:0 0 12px;padding:11px 12px}.student-photo-wrap{width:48px;height:48px;flex-basis:48px}.student-profile-actions{margin-left:59px}.sidebar{overflow:hidden}}
+.nav-label{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:#91a1b0;font-weight:800;padding:10px 13px}.nav{display:grid;gap:5px}.nav a{display:flex;align-items:center;gap:12px;padding:11px 13px;border-radius:8px;color:#52677a;font-size:12px;font-weight:650}.nav a:hover,.nav a.active{background:#e5f4fc;color:#126d9f}.nav .ico{width:18px;text-align:center;font-size:15px}.side-bottom{margin-top:auto;border-top:1px solid var(--line);padding-top:14px}
 .main{min-width:0;padding:0 28px 34px}.top{height:74px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);margin-bottom:24px}.top h1{font-size:19px;margin:0}.profile{display:flex;align-items:center;gap:10px;color:#4e6478;font-size:11px}.avatar{width:34px;height:34px;border-radius:50%;background:#d9eef9;color:#176b9d;display:grid;place-items:center;font-weight:800;font-size:14px}
 .content{max-width:1400px;margin:auto}.columns{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:18px;align-items:start}.banner{min-height:177px;border-radius:13px;background:linear-gradient(105deg,#176b9d,#2387b8);color:#fff;padding:25px 28px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;position:relative}.banner:after{content:"✦";font-size:170px;line-height:1;color:#ffffff18;position:absolute;right:30px;top:-27px}.banner-copy{max-width:570px;position:relative;z-index:1}.banner h2{font-size:25px;margin:0 0 8px;letter-spacing:-.6px}.banner p{font-size:11px;line-height:1.7;color:#e0f2fc;max-width:460px;margin:0 0 17px}.white-btn{display:inline-flex;padding:9px 15px;border-radius:7px;background:#fff;color:#176b9d;font-weight:750;font-size:11px}.banner-art{position:relative;z-index:1;font-size:70px;margin:0 25px 0 10px;filter:drop-shadow(0 7px 5px #063b5a55)}
 .dots{display:flex;gap:5px;margin:10px 0 21px}.dots i{width:22px;height:4px;border-radius:4px;background:#c8dce8}.dots i:first-child{background:#237cac}
@@ -36,6 +51,25 @@ footer{text-align:center;color:#8b9ba9;font-size:10px;padding:25px 0 0}
 <div class="app">
 <aside class="sidebar">
 <a class="logo" href="../index.html">Nova<span>Facts</span></a>
+<section class="student-profile" aria-label="Student profile">
+  <div class="student-profile-main">
+    <div class="student-photo-wrap">
+      <img id="studentPhoto" class="student-photo" alt="Student profile photo" hidden>
+      <span id="studentInitial" class="student-initial">S</span>
+      <label class="photo-edit" for="studentPhotoInput" title="Upload profile photo">📷</label>
+      <input id="studentPhotoInput" type="file" accept="image/*" hidden>
+    </div>
+    <div class="student-identity">
+      <strong id="sidebarStudentName">Student</strong>
+      <span id="sidebarStudentEmail">Signed in</span>
+      <small><i></i> Active account</small>
+    </div>
+  </div>
+  <div class="student-profile-actions">
+    <label for="studentPhotoInput">＋ Change photo</label>
+    <button type="button" id="removeStudentPhoto">Remove</button>
+  </div>
+</section>
 <div class="nav-label">Learning space</div>
 <nav class="nav" aria-label="Study navigation">
 <a class="active" href="#dashboard"><span class="ico">▦</span>Dashboard</a>
@@ -76,6 +110,46 @@ document.getElementById('year').textContent=new Date().getFullYear();
 const search=document.getElementById('toolSearch');
 search.addEventListener('input',()=>{const q=search.value.toLowerCase();document.querySelectorAll('.lesson').forEach(card=>{card.hidden=!card.innerText.toLowerCase().includes(q)})});
 document.getElementById("studyLogout").addEventListener("click",()=>{localStorage.removeItem("novafacts_study_logged_in");localStorage.removeItem("novafacts_study_user");location.replace("register.html")});
-try{const u=JSON.parse(localStorage.getItem("novafacts_study_user")||"{}");if(u.name)document.getElementById("studyUserName").textContent=u.name}catch(e){}
+const PROFILE_PHOTO_KEY="novafacts_study_profile_photo";
+function refreshStudentProfile(){
+  let u={};try{u=JSON.parse(localStorage.getItem("novafacts_study_user")||"{}")}catch(e){}
+  const name=String(u.name||u.fullName||u.full_name||u.email||"Student");
+  const email=String(u.email||"Signed in to NovaFacts");
+  document.getElementById("studyUserName").textContent=name;
+  document.getElementById("sidebarStudentName").textContent=name;
+  document.getElementById("sidebarStudentEmail").textContent=email;
+  const initial=(name.trim()[0]||"S").toUpperCase();
+  document.getElementById("studentInitial").textContent=initial;
+  const photo=localStorage.getItem(PROFILE_PHOTO_KEY);
+  const img=document.getElementById("studentPhoto");
+  img.hidden=!photo;
+  img.src=photo||"";
+  document.getElementById("studentInitial").hidden=!!photo;
+  const topAvatar=document.querySelector(".top .avatar");
+  if(topAvatar){topAvatar.textContent=photo?"":initial;topAvatar.style.backgroundImage=photo?'url("'+photo+'")':"none";topAvatar.style.backgroundSize="cover";topAvatar.style.backgroundPosition="center"}
+}
+document.getElementById("studentPhotoInput").addEventListener("change",event=>{
+  const file=event.target.files&&event.target.files[0];if(!file)return;
+  if(!file.type.startsWith("image/")){alert("Please choose an image file.");return}
+  if(file.size>8*1024*1024){alert("Please choose an image smaller than 8 MB.");event.target.value="";return}
+  const reader=new FileReader();
+  reader.onload=()=>{
+    const image=new Image();
+    image.onload=()=>{
+      const canvas=document.createElement("canvas");const side=320;canvas.width=side;canvas.height=side;
+      const scale=Math.max(side/image.width,side/image.height);
+      const sw=side/scale,sh=side/scale,sx=(image.width-sw)/2,sy=(image.height-sh)/2;
+      const ctx=canvas.getContext("2d");ctx.drawImage(image,sx,sy,sw,sh,0,0,side,side);
+      try{localStorage.setItem(PROFILE_PHOTO_KEY,canvas.toDataURL("image/jpeg",.78));refreshStudentProfile()}
+      catch(e){alert("Photo could not be saved in this browser. Try a smaller image.");}
+    };
+    image.onerror=()=>alert("Could not read this image.");
+    image.src=reader.result;
+  };
+  reader.readAsDataURL(file);
+});
+document.getElementById("removeStudentPhoto").addEventListener("click",()=>{localStorage.removeItem(PROFILE_PHOTO_KEY);document.getElementById("studentPhotoInput").value="";refreshStudentProfile()});
+refreshStudentProfile();
+window.addEventListener("storage",event=>{if(event.key==="novafacts_study_user")refreshStudentProfile()});
 </script>
 </body></html>
