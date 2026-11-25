@@ -38,7 +38,10 @@ async function finishLogin(user){
  const response=await fetch(SHEET_WEB_APP_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"logLogin",idToken}),redirect:"follow"});
  if(!response.ok)throw new Error("लगइन विवरण सुरक्षित गर्न सकिएन। केही बेरपछि फेरि प्रयास गर्नुहोस्।");
  const data=await response.json();if(!data.success)throw new Error(data.error||"लगइन विवरण सुरक्षित गर्न सकिएन।");
- show("लगइन सफल भयो। मुख्य पृष्ठ खोलिँदैछ…","success");window.location.replace("index.html");
+ show("लगइन सफल भयो। तपाईंको Study पृष्ठ खोलिँदैछ…","success");
+ const requested=new URLSearchParams(location.search).get("next");
+ const safeTarget=requested&&requested.startsWith("/")&&!requested.startsWith("//")&&!requested.includes("\\")?requested:"/index.html";
+ window.location.replace(safeTarget);
 }
 button.addEventListener("click",async()=>{
  button.disabled=true;show("Google सँग सुरक्षित जडान हुँदैछ…");
