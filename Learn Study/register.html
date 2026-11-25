@@ -50,44 +50,103 @@ input:focus,select:focus,textarea:focus{border-color:var(--purple2);box-shadow:0
 <aside class="visual-side" aria-label="NovaFacts Study welcome panel"><div class="art-card"><div class="art-scene"><span class="spark s1">✧</span><span class="spark s2">✦</span><span class="spark s3">✧</span><div class="orbit"></div><div class="desk"></div><div class="person" aria-hidden="true">🧑🏻‍💻</div></div><div class="art-copy"><h3>Seamless learning experience</h3><p>Everything you need to learn, explore and grow — all in one customizable study space.</p><div class="dots"><i></i><i></i><i></i></div></div></div></aside>
 </main>
 <script>
-const SCRIPT_URL="https://script.google.com/macros/s/AKfycbyhz0VL9QdQIqhgY_bGAutGSULDeW0UK4KQWS9HRpsbIX92tOmYjoJi6wEm7W2mMH7-/exec";
-const SESSION_KEY="novafacts_study_logged_in",USER_KEY="novafacts_study_user";
-const $=id=>document.getElementById(id),status=$("status");
-function say(message,type=""){status.textContent=message;status.className="msg "+type;}
-function pane(which){$("registerPane").hidden=which!=="register";$("loginPane").hidden=which!=="login";say("");}
-$("showLogin").onclick=()=>pane("login");$("showRegister").onclick=()=>pane("register");
-function jsonp(action,params){return new Promise((resolve,reject)=>{const cb="nfStudy_"+Date.now()+"_"+Math.floor(Math.random()*10000),s=document.createElement("script");let q="?action="+encodeURIComponent(action);Object.entries(params).forEach(([k,v])=>q+="&"+encodeURIComponent(k)+"="+encodeURIComponent(v));q+="&callback="+cb;let timer=setTimeout(()=>{cleanup();reject(new Error("Server response समयमै आएन।"));},15000);function cleanup(){clearTimeout(timer);delete window[cb];s.remove();}window[cb]=data=>{cleanup();resolve(data)};s.onerror=()=>{cleanup();reject(new Error("Server सँग जडान हुन सकेन।"));};s.src=SCRIPT_URL+q;document.body.appendChild(s);});}
-async function sha256(value){const hash=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(value));return Array.from(new Uint8Array(hash)).map(x=>x.toString(16).padStart(2,"0")).join("");}
-async function checkEmail(email){return jsonp("emailCheck",{email});}
-$("registerBtn").onclick=async()=>{
- const name=$("name").value.trim(),email=$("email").value.trim().toLowerCase(),password=$("password").value,grade=$("grade").value,purpose=$("purpose").value.trim(),button=$("registerBtn");
- if(!name||!/^\S+@\S+\.\S+$/.test(email)||password.length<6||!grade){say("नाम, सही Email, ६+ अक्षरको Password र कक्षा भर्नुहोस्।","error");return;}
- button.disabled=true;say("Registration जाँच हुँदैछ…");
- try{
-  const check=await checkEmail(email);
-  if(check.success&&check.registered){$("loginEmail").value=email;pane("login");say("यो Email पहिले नै दर्ता छ। अब Login गर्नुहोस्।","error");return;}
-  await fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({name,email,password,festival:"NovaFacts Study - "+grade,message:purpose||"Study section registration"})});
-  say("Registration सुरक्षित हुँदैछ…");
-  let saved=false;for(let i=0;i<8;i++){await new Promise(r=>setTimeout(r,1200));try{const verify=await checkEmail(email);if(verify.success&&verify.registered){saved=true;break;}}catch(e){}}
-  if(saved){$("loginEmail").value=email;$("password").value="";pane("login");say("Registration सफल भयो। अब आफ्नो Password बाट Login गर्नुहोस्।","success");}
-  else say("Registration पुष्टि हुन सकेन। केही बेरपछि फेरि प्रयास गर्नुहोस्।","error");
- }catch(e){say(e.message||"Registration हुन सकेन।","error");}
- finally{button.disabled=false;}
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzfEr5e5Timz36UPwrAEAMu32LJ_-M5QjOf13mFtmTMJPSQxSJKCypYmeDhXVR2dNlM3g/exec";
+const SESSION_KEY = "novafacts_study_token";
+const USER_KEY = "novafacts_study_user";
+const $ = id => document.getElementById(id);
+const status = $("status");
+function say(message, type = "") { status.textContent = message; status.className = "msg " + type; }
+function pane(which) {
+  $("registerPane").hidden = which !== "register";
+  $("loginPane").hidden = which !== "login";
+  say("");
+}
+$("showLogin").onclick = () => pane("login");
+$("showRegister").onclick = () => pane("register");
+
+async function api(action, data = {}) {
+  const response = await fetch(SCRIPT_URL, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify({ action, ...data })
+  });
+  if (!response.ok) throw new Error("Server response: " + response.status);
+  return response.json();
+}
+
+$("registerBtn").onclick = async () => {
+  const name = $("name").value.trim();
+  const email = $("email").value.trim().toLowerCase();
+  const password = $("password").value;
+  const grade = $("grade").value;
+  const purpose = $("purpose").value.trim();
+  const button = $("registerBtn");
+  if (!name || !/^\S+@\S+\.\S+$/.test(email) || password.length < 8 || !grade) {
+    say("नाम, सही Email, कम्तीमा ८ अक्षरको Password र कक्षा भर्नुहोस्।", "error");
+    return;
+  }
+  button.disabled = true;
+  say("Registration जाँच हुँदैछ…");
+  try {
+    const result = await api("register", {
+      name, email, password,
+      grade,
+      purpose: purpose || "NovaFacts Study registration"
+    });
+    if (!result.ok && result.code === "EMAIL_EXISTS") {
+      $("loginEmail").value = email;
+      $("loginPassword").value = "";
+      pane("login");
+      say("यो Email पहिले नै दर्ता छ। कृपया Login गर्नुहोस्।", "error");
+      return;
+    }
+    if (!result.ok) throw new Error(result.error || "Registration सफल भएन।");
+    $("loginEmail").value = email;
+    $("loginPassword").value = "";
+    $("password").value = "";
+    pane("login");
+    say("Registration सफल भयो। अब Login गर्नुहोस्।", "success");
+  } catch (error) {
+    const message = String(error && error.message || error);
+    if (/failed to fetch|cors|networkerror/i.test(message)) {
+      say("Backend सम्म अनुरोध पुग्न सकेन। Google Apps Script CORS/Proxy जडान जाँच आवश्यक छ।", "error");
+    } else {
+      say(message, "error");
+    }
+  } finally {
+    button.disabled = false;
+  }
 };
-$("loginBtn").onclick=async()=>{
- const email=$("loginEmail").value.trim().toLowerCase(),password=$("loginPassword").value,button=$("loginBtn");
- if(!/^\S+@\S+\.\S+$/.test(email)||!password){say("Registered Email र Password राख्नुहोस्।","error");return;}
- button.disabled=true;say("Account जाँच हुँदैछ…");
- try{
-  const result=await jsonp("login",{email,passwordHash:await sha256(password)});
-  if(!result.success){say(result.error||"Email वा Password मिलेन।","error");return;}
-  const user={name:result.name||"Student",email};
-  localStorage.setItem(SESSION_KEY,"true");localStorage.setItem(USER_KEY,JSON.stringify(user));
-  say("Login सफल भयो। Study Dashboard खोलिँदैछ…","success");
-  location.replace("index.html");
- }catch(e){say(e.message||"Login हुन सकेन।","error");}
- finally{button.disabled=false;}
+
+$("loginBtn").onclick = async () => {
+  const email = $("loginEmail").value.trim().toLowerCase();
+  const password = $("loginPassword").value;
+  const button = $("loginBtn");
+  if (!/^\S+@\S+\.\S+$/.test(email) || !password) {
+    say("Registered Email र Password राख्नुहोस्।", "error");
+    return;
+  }
+  button.disabled = true;
+  say("Account जाँच हुँदैछ…");
+  try {
+    const result = await api("login", { email, password });
+    if (!result.ok) throw new Error(result.error || "Email वा Password मिलेन।");
+    sessionStorage.setItem(SESSION_KEY, result.token);
+    localStorage.setItem(USER_KEY, JSON.stringify(result.user || { name: "Student", email }));
+    say("Login सफल भयो। Dashboard खोलिँदैछ…", "success");
+    location.replace("index.html");
+  } catch (error) {
+    const message = String(error && error.message || error);
+    if (/failed to fetch|cors|networkerror/i.test(message)) {
+      say("Backend सम्म अनुरोध पुग्न सकेन। Google Apps Script CORS/Proxy जडान जाँच आवश्यक छ।", "error");
+    } else {
+      say(message, "error");
+    }
+  } finally {
+    button.disabled = false;
+  }
 };
-if(localStorage.getItem(SESSION_KEY)==="true"&&localStorage.getItem(USER_KEY))location.replace("index.html");
+
+if (sessionStorage.getItem(SESSION_KEY)) location.replace("index.html");
 </script>
 </body></html>
