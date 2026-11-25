@@ -71,8 +71,8 @@ button,input{font:inherit}.layout{width:min(1120px,100%);min-height:650px;displa
   let mode = "login";
   const message = $("message");
   const params = new URLSearchParams(location.search);
-  const requestedNext = params.get("next") || "index.html";
-  const safeNext = requestedNext.startsWith("/") && !requestedNext.startsWith("//") ? requestedNext : "index.html";
+  const requestedNext = params.get("next") || "/Learn%20Study/";
+  const safeNext = requestedNext.startsWith("/") && !requestedNext.startsWith("//") ? requestedNext : "/Learn%20Study/";
 
   function showMessage(text, kind = "") {
     message.textContent = text;
@@ -143,9 +143,20 @@ button,input{font:inherit}.layout{width:min(1120px,100%);min-height:650px;displa
           } else showMessage(result.error || "Registration हुन सकेन।", "error");
           return;
         }
+        // Registration creates the account; sign in immediately to establish a session.
+        const loginResult = await api("login", { email, password });
+        if (!loginResult.ok || !loginResult.token || !loginResult.user) {
+          $("password").value = "";
+          setMode("login"); $("email").value = email;
+          showMessage("Registration सफल भयो। अब यही Email र Password बाट Login गर्नुहोस्।", "success");
+          return;
+        }
+        localStorage.setItem(TOKEN_KEY, loginResult.token);
+        localStorage.setItem(SESSION_KEY, "true");
+        localStorage.setItem(USER_KEY, JSON.stringify(loginResult.user));
         $("password").value = "";
-        setMode("login"); $("email").value = email;
-        showMessage("Registration सफल भयो! अब Password बाट Login गर्नुहोस्।", "success");
+        showMessage("Registration सफल भयो। Study Section खोलिँदैछ…", "success");
+        location.replace(safeNext);
       } else {
         const result = await api("login", { email, password });
         if (!result.ok) { showMessage(result.error || "Email वा Password मिलेन।", "error"); return; }
