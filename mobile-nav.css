@@ -1,0 +1,14 @@
+/* NovaFacts mobile-only floating navigation */
+#nf-mobile-nav{display:none}
+@media(max-width:760px){
+  #nf-mobile-nav{position:fixed;z-index:99999;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));height:80px;padding:5px 8px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:center;background:rgba(255,255,255,.94);border:1px solid rgba(220,225,235,.9);border-radius:26px;box-shadow:0 8px 30px rgba(25,45,85,.15);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+  #nf-mobile-nav a{min-width:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#718096;font:700 10px/1.1 Arial,sans-serif;position:relative;-webkit-tap-highlight-color:transparent}
+  #nf-mobile-nav .nf-nav-icon{font-size:21px;line-height:1;display:grid;place-items:center;transition:transform .2s}
+  #nf-mobile-nav .nf-nav-label{white-space:nowrap}
+  #nf-mobile-nav a.nf-active{color:#2563eb}
+  #nf-mobile-nav a.nf-active .nf-nav-icon{transform:translateY(-2px)}
+  #nf-mobile-nav a.nf-dashboard .nf-nav-icon{width:62px;height:62px;margin-top:-27px;border:5px solid #fff;border-radius:50%;background:linear-gradient(145deg,#5b91ff,#2563eb);box-shadow:0 7px 19px rgba(37,99,235,.32);color:#fff;font-size:27px}
+  #nf-mobile-nav a.nf-dashboard.nf-active .nf-nav-label{color:#2563eb;font-weight:800}
+  body{padding-bottom:104px!important}
+}
+@media(min-width:761px){#nf-mobile-nav{display:none!important}}
