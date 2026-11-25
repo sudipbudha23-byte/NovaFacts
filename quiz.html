@@ -60,7 +60,7 @@ const quizUserId=String(quizUser.email||quizUser.id||"guest").trim().toLowerCase
 const progressKey="nfStudyGameProgress:"+quizUserId;
 const loadProgress=()=>{try{return JSON.parse(localStorage.getItem(progressKey)||"{}")}catch{return {}}};
 const savedProgress=loadProgress();
-const gameProgress={xp:Number(savedProgress.xp||0),coins:Number(savedProgress.coins||0),totalAnswered:Number(savedProgress.totalAnswered||0),totalCorrect:Number(savedProgress.totalCorrect||0),quizzesCompleted:Number(savedProgress.quizzesCompleted||0),bestStreak:Number(savedProgress.bestStreak||0),dailyDays:Array.isArray(savedProgress.dailyDays)?savedProgress.dailyDays:[],lastActiveDate:savedProgress.lastActiveDate||""};
+const gameProgress={xp:Number(savedProgress.xp||0),coins:Number(savedProgress.coins||0),totalAnswered:Number(savedProgress.totalAnswered||0),totalCorrect:Number(savedProgress.totalCorrect||0),quizzesCompleted:Number(savedProgress.quizzesCompleted||0),bestStreak:Number(savedProgress.bestStreak||0),dailyDays:Array.isArray(savedProgress.dailyDays)?savedProgress.dailyDays:[],history:Array.isArray(savedProgress.history)?savedProgress.history:[],subjectStats:savedProgress.subjectStats&&typeof savedProgress.subjectStats==="object"?savedProgress.subjectStats:{},lastActiveDate:savedProgress.lastActiveDate||""};
 const dailyMode=new URLSearchParams(location.search).get("mode")==="daily";
 const requestedCourse=new URLSearchParams(location.search).get("course");
 const todayKey=new Date().toLocaleDateString("en-CA");
@@ -130,13 +130,19 @@ function renderQuestion(){
 function selectAnswer(id,index){
  if(state.answers.has(id))return;
  state.answers.set(id,index);
- if(index===bank[id].a){
+ const q=bank[id],isCorrect=index===q.a;
+ gameProgress.totalAnswered++;gameProgress.lastActiveDate=todayKey;
+ const stat=gameProgress.subjectStats[q.cat]||{answered:0,correct:0};
+ stat.answered++;if(isCorrect)stat.correct++;gameProgress.subjectStats[q.cat]=stat;
+ gameProgress.history.unshift({subject:q.cat,question:q.en.slice(0,105),correct:isCorrect,date:todayKey});
+ gameProgress.history=gameProgress.history.slice(0,12);
+ if(isCorrect){
   state.correct++;gameProgress.totalCorrect++;gameProgress.xp+=10;state.coins++;state.streak++;
   if(state.streak===5){state.coins+=3;toast(tr("5 correct in a row! +3 bonus coins","लगातार ५ सही! +३ बोनस कोइन"))}
   if(state.streak===10){state.coins+=10;state.streak=0;toast(tr("10 streak! +10 bonus coins!","लगातार १० सही! +१० बोनस कोइन"))}
   state.best=Math.max(state.best,state.streak);
- }else{state.wrong.add(id);state.streak=0}
- saveCoins();renderQuestion();
+ }else{gameProgress.xp+=2;state.wrong.add(id);state.streak=0}
+ persistGame();saveCoins();renderQuestion();
 }
 function useHint(){
  const id=state.list[state.pos];if(id===undefined||state.answers.has(id)||state.hinted.has(id))return;
