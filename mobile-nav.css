@@ -1,5 +1,7 @@
 /* NovaFacts mobile-only floating navigation */
 #nf-mobile-nav{display:none}
+/* Hide the older injected navigation to prevent duplicate/overlapping round icons */
+#nf-mobile-bottom{display:none!important}
 @media(max-width:760px){
   body .mobile-bottom{display:none!important}
   #nf-mobile-nav{position:fixed;z-index:99999;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));height:80px;padding:5px 8px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:center;background:rgba(255,255,255,.94);border:1px solid rgba(220,225,235,.9);border-radius:26px;box-shadow:0 8px 30px rgba(25,45,85,.15);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
