@@ -34,13 +34,36 @@ button,input,select{font:inherit}.top{height:64px;background:#fff;border-bottom:
 @keyframes confetti-fall{to{transform:translate3d(var(--drift),105vh,0) rotate(760deg);opacity:.1}}
 @media(max-width:600px){.top{height:58px;padding:0 14px}.wrap{width:calc(100% - 22px);margin:16px auto 35px}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/-1}.reward-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.reward-card{padding:10px}.reward-value{font-size:20px}.quiz{padding:17px 14px}.actions .btn{flex:1}.home-label{display:none}}
 @media(max-width:360px){.filters{grid-template-columns:1fr}.filters input{grid-column:auto}}
+
+/* High-contrast quiz card: white page, black quiz surface, white text */
+.quiz{background:#101114!important;border:1px solid #25272c!important;color:#fff!important;box-shadow:0 16px 42px #00000018!important}
+.quiz .qtop .muted{color:#c2c6cf!important}
+.quiz .tag{background:#262a34!important;color:#b9ccff!important}
+.quiz .bar{background:#353943!important}
+.quiz .bar span{background:linear-gradient(90deg,#7da2ff,#c5d5ff)!important}
+.quiz .question{color:#fff!important}
+.quiz .answer{background:#1b1d22!important;color:#fff!important;border-color:#41454f!important}
+.quiz .answer:hover:not(:disabled){background:#272b34!important;border-color:#91adff!important}
+.quiz .letter{background:#30343d!important;color:#fff!important}
+.quiz .feedback{background:#20232a!important;color:#e2e5eb!important}
+.quiz .feedback.good{background:#123a29!important;color:#c5f6d9!important}
+.quiz .feedback.bad{background:#482125!important;color:#ffd5d8!important}
+.quiz .correct{background:#16432f!important;border-color:#39bd7b!important;color:#e1ffed!important}
+.quiz .wrong{background:#54262b!important;border-color:#ed737b!important;color:#ffe5e7!important}
+.quiz .btn{background:#252932!important;border-color:#4a505c!important;color:#fff!important}
+.quiz .btn.primary{background:#3568e8!important;border-color:#3568e8!important;color:#fff!important}
+.quiz .btn.hint-btn{background:#3c3018!important;border-color:#9a762c!important;color:#ffe4a6!important}
+.quiz .btn:disabled{opacity:.45!important}
+.streak-meter{height:5px;background:#e9edf4;border-radius:9px;overflow:hidden;margin-top:7px}
+.streak-meter span{display:block;height:100%;width:0;background:linear-gradient(90deg,#f59e0b,#eab308);transition:width .25s}
+@media(max-width:600px){.quiz{border-radius:16px!important}.quiz .question{font-size:20px}.quiz .answer{min-height:54px}}
 </style></head><body><header class="top"><a class="brand" href="index.html">Nova<b>Facts</b> <small style="font-size:11px;color:#687386">QUIZ</small></a><div style="display:flex;gap:8px"><a class="pill home-label" href="index.html">← Home</a><button class="pill primary" id="lang">नेपाली</button></div></header>
 <main class="wrap">
 <section class="hero" aria-hidden="true"><h1 id="heroTitle">Challenge Your Knowledge</h1><p id="heroDesc">Practice with 110 bilingual questions.</p></section>
 <section class="reward-strip" aria-label="Quiz statistics">
 <div class="reward-card"><div class="reward-label" id="coinLabel">MY COINS</div><div class="reward-value gold">🪙 <span id="coins">0</span></div><div class="reward-hint" id="coinHint">1 coin for each correct answer</div></div>
 <div class="reward-card"><div class="reward-label">ACCURACY</div><div class="reward-value"><span id="score">0%</span></div><div class="reward-hint" id="count">0 answered • 0 correct</div></div>
-<div class="reward-card"><div class="reward-label" id="streakLabel">CURRENT STREAK</div><div class="reward-value">🔥 <span id="streak">0</span>/10</div><div class="reward-hint">Keep it going</div></div>
+<div class="reward-card"><div class="reward-label" id="streakLabel">CURRENT STREAK</div><div class="reward-value">🔥 <span id="streak">0</span>/10</div><div class="reward-hint">Keep it going</div><div class="streak-meter"><span id="streakBar"></span></div></div>
 <div class="reward-card"><div class="reward-label" id="bestLabel">BEST STREAK</div><div class="reward-value">🏆 <span id="bestStreak">0</span></div><div class="reward-hint" id="bonusHint">5 streak: +3 · 10 streak: +10</div></div>
 </section>
 <div class="filters" aria-label="Quiz controls">
