@@ -65,6 +65,42 @@ footer{text-align:center;color:#8b9ba9;font-size:10px;padding:25px 0 0}
 @media(max-width:800px){.game-hub{padding:13px;margin-bottom:17px}.game-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.game-layout{grid-template-columns:1fr}.game-welcome h2{font-size:20px}}
 @media(max-width:430px){.activity-grid{grid-template-columns:repeat(2,1fr)}.game-stat strong{font-size:22px}.game-trophy{font-size:34px}}
 .recent-activity{display:grid;gap:7px;margin-top:12px}.recent-row{display:flex;align-items:center;gap:9px;padding:9px;background:#f7fafc;border-radius:8px;min-width:0}.recent-dot{width:25px;height:25px;flex:0 0 25px;border-radius:50%;display:grid;place-items:center;font-size:12px}.recent-dot.good{background:#e0f6ed;color:#13805d}.recent-dot.bad{background:#fff0e5;color:#b56c25}.recent-copy{min-width:0;flex:1}.recent-copy strong{display:block;font-size:10px;color:#29465d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.recent-copy small{font-size:8px;color:#8293a1}
+/* NovaFacts Premium Study UI */
+:root{--ink:#edf3fb;--muted:#91a1b7;--blue:#d6ad58;--blue2:#252b38;--line:#30394a;--bg:#0b1019;--white:#151d2a;--green:#4ec9a0}
+html{scroll-behavior:smooth}body{background:radial-gradient(ellipse at 75% -15%,#24334c 0,transparent 42%),#0b1019;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{transition:color .18s ease,background .18s ease,border-color .18s ease,transform .18s ease}
+.app{grid-template-columns:250px minmax(0,1fr);background:transparent}
+.sidebar{background:rgba(15,22,34,.96);border-right:1px solid #293346;padding:25px 17px;box-shadow:8px 0 35px #0002;backdrop-filter:blur(16px)}
+.logo{font-size:23px;color:#e4bb69;padding:2px 13px 29px;letter-spacing:-.8px}.logo span{color:#f2f5fa}
+.student-profile{background:linear-gradient(145deg,#202b3c,#151e2b);border-color:#364256;box-shadow:0 10px 25px #0002}
+.student-identity strong{color:#f4f6fa}.student-identity span{color:#9eacc0}.student-identity small{color:#55d1a5}
+.student-photo-wrap{background:linear-gradient(145deg,#e3bd70,#80602b);box-shadow:0 0 0 3px #d5ad5930}
+.student-initial{color:#18202d}.photo-edit{background:#d4aa58;color:#151a22;border-color:#1b2635}
+.nav-label{color:#73849c}.nav a{color:#aab6c8;border-radius:10px;padding:12px 13px}.nav a:hover,.nav a.active{background:linear-gradient(100deg,#d5aa5826,#d5aa580b);color:#f0c978}.nav a.active{box-shadow:inset 3px 0 #d6ad58}.side-bottom{border-color:#2b3546}
+.main{padding:0 32px 42px}.top{height:82px;border-color:#283244;margin-bottom:26px}.top h1{font-size:21px;letter-spacing:-.45px;color:#f1f4fa}.profile{color:#c1ccda}.avatar{background:linear-gradient(145deg,#d7b56e,#9b773b);color:#161d29}
+.profile-dropdown{background:#171f2c;border-color:#3a4659;box-shadow:0 22px 55px #0009}.profile-dropdown-head{background:linear-gradient(145deg,#29364b,#1b2636)}.profile-option{color:#edf1f7}.profile-option:hover{background:#ffffff10}.profile-dropdown-footer{border-color:#3b4658}.profile-dropdown-footer button{background:#263246;border-color:#526078}
+.game-hub{padding:22px;border:1px solid #303b4e;border-radius:20px;background:linear-gradient(145deg,#182333 0%,#111a27 60%,#171e2b 100%);box-shadow:0 20px 55px #0003}
+.game-welcome{padding:7px 5px 21px}.game-kicker{color:#e0b85e;letter-spacing:1.8px}.game-welcome h2{font-size:26px;color:#f5f7fb;letter-spacing:-.7px}.game-welcome p{color:#a2b0c3;font-size:12px}.game-trophy{filter:drop-shadow(0 8px 12px #d5ad5930)}
+.game-stat,.game-card{background:linear-gradient(145deg,#202b3b,#182231);border:1px solid #344156;border-radius:15px;box-shadow:0 8px 24px #0002}
+.game-stat{padding:16px}.game-stat>span{color:#b3bfd0;font-size:10px;letter-spacing:1px}.game-stat strong{color:#f4f6fa;font-size:29px}.game-stat small{color:#9baac0}
+.xp-track,.rank-progress{background:#354155}.xp-track i{background:linear-gradient(90deg,#c99a42,#f1d58b)}.rank-progress span{background:linear-gradient(90deg,#d5a84f,#f2d48c)}
+.game-layout{gap:13px;margin-top:13px}.game-card{padding:18px}.game-card h3{color:#f2f5fa;font-size:15px}.game-card p{color:#a7b4c6;font-size:11px}.mission-tag{background:#3a3020;color:#f1cb79}.mission-reward{color:#bdc7d5}.mission-reward b{color:#e9c36e}.game-cta{background:linear-gradient(110deg,#b98b3b,#e0bd70);color:#171d27;border-radius:9px;padding:10px 15px}.game-cta:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.rank-card{background:linear-gradient(135deg,#29364b,#172333);border-color:#58627a}.rank-card .game-kicker{color:#e7c477}.rank-card h3{color:#f7f4ed}.rank-card p,.rank-card small{color:#c1ccdc}
+.subject-card .game-card-top>a{color:#e4bd6b}.subject-grid a{background:#151f2d;border-color:#354257;border-radius:11px}.subject-grid a:hover{background:#243248;border-color:#c6a157;transform:translateY(-3px)}.subject-grid span{color:#e7edf6}.subject-grid small{color:#98a8bd}
+.activity-grid>div{background:#151f2d;border:1px solid #303c50}.activity-grid strong{color:#e5bd69}.activity-grid small{color:#a0aec0}.game-note{border-color:#344054;color:#9daec2!important}
+.recent-row{background:#151f2d}.recent-copy strong{color:#e9eff7}.recent-copy small{color:#9cacc0}.recent-dot.good{background:#163d35;color:#65dbb1}.recent-dot.bad{background:#453222;color:#efbd76}
+.banner{background:linear-gradient(110deg,#263b58,#17283e 65%,#3c3325);border:1px solid #43536b;border-radius:17px;box-shadow:0 15px 38px #0003}.banner h2{color:#fff}.banner p{color:#c1d0e1}.white-btn{background:#e2bd70;color:#1a202b;border-radius:9px}.dots i{background:#3b4b61}.dots i:first-child{background:#d6ad58}
+.panel,.right-panel{background:#172231;border:1px solid #303d51;border-radius:15px;color:#edf2f8}.panel-head h2,.right-panel h3{color:#f0f3f8}.panel-head a{color:#e2bc6d}
+.lesson,.exam{background:#121c29;border:1px solid #303d50;border-radius:12px;color:#eff3f8}.lesson:hover,.exam:hover{border-color:#b89450;transform:translateY(-2px)}.lesson h3,.exam-top{color:#edf2f8}.lesson p,.exam small{color:#9aaabe}.lesson-icon{background:#26354a;border-color:#47556b;color:#e3bd70}.lesson .enroll,.exam-actions a.go{background:#d5ad62;color:#17202b;border-color:#d5ad62}
+.search{background:#141e2c;border-color:#354257;color:#f2f5fa}.search::placeholder{color:#8292a8}.search:focus{border-color:#d2ad62}
+.progress{background:#344156}.progress span{background:#d5ad62}.exam-actions a{border-color:#65748b;color:#d8e1ed}
+.chart{border-color:#364358;background:repeating-linear-gradient(to bottom,transparent 0,transparent 35px,#2c394d 36px)}.bar{background:#d5ad62}.bar.light{background:#799bb9}.chart-labels{color:#a2b0c2}
+.quick a{background:#172231;border-color:#303d51;color:#eaf0f7;border-radius:12px}.quick b{color:#e2bd70}.quick a:hover{border-color:#d2ad62;background:#202d40;transform:translateY(-2px)}
+footer{color:#7f90a7}
+@media(max-width:1050px){.app{grid-template-columns:220px minmax(0,1fr)}.main{padding:0 22px 32px}}
+@media(max-width:800px){.app{grid-template-columns:1fr}.sidebar{background:#101927;padding:12px 14px;border-bottom:1px solid #303b4e}.logo{padding:0 5px 11px}.nav{gap:4px}.nav a{padding:9px 11px}.main{padding:0 15px 30px}.top{height:66px;margin-bottom:17px}.game-hub{padding:15px}.game-welcome h2{font-size:22px}}
+@media(max-width:540px){.main{padding:0 12px 25px}.top h1{font-size:17px}.game-hub{border-radius:15px;padding:13px}.game-welcome{padding:5px 2px 15px}.game-welcome h2{font-size:20px}.game-trophy{font-size:34px}.game-stat{padding:12px}.game-stat strong{font-size:24px}.game-card{padding:14px}.subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style>
 
 <link rel="stylesheet" href="../mobile-nav.css">
