@@ -26,7 +26,10 @@ button,input,select{font:inherit}.top{height:64px;background:#fff;border-bottom:
 .reward-toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:9;background:#172033;color:white;border-radius:13px;padding:12px 17px;font-weight:800;transition:.25s;text-align:center;max-width:calc(100% - 24px)}.reward-toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:600px){.top{height:58px;padding:0 14px}.wrap{width:calc(100% - 22px);margin:16px auto 35px}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/-1}.reward-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.reward-card{padding:10px}.reward-value{font-size:20px}.quiz{border-radius:16px;padding:17px 14px}.question{font-size:20px}.actions .btn{flex:1}.home-label{display:none}}
 @media(max-width:360px){.filters{grid-template-columns:1fr}.filters input{grid-column:auto}}
-</style></head><body><header class="top"><a class="brand" href="index.html">Nova<b>Facts</b> <small style="font-size:11px;color:#687386">QUIZ</small></a><div style="display:flex;gap:8px"><a class="pill home-label" href="index.html">← Home</a><button class="pill primary" id="lang" type="button">नेपाली</button></div></header>
+</style>
+<link rel="stylesheet" href="mobile-nav.css">
+<script defer src="mobile-nav.js"></script>
+</head><body><header class="top"><a class="brand" href="index.html">Nova<b>Facts</b> <small style="font-size:11px;color:#687386">QUIZ</small></a><div style="display:flex;gap:8px"><a class="pill home-label" href="index.html">← Home</a><button class="pill primary" id="lang" type="button">नेपाली</button></div></header>
 <main class="wrap">
 <section class="reward-strip" aria-label="Quiz statistics">
 <div class="reward-card"><div class="reward-label">MY COINS</div><div class="reward-value gold">🪙 <span id="coins">0</span></div><div class="reward-hint">+1 for each correct answer</div></div>
