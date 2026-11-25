@@ -9,55 +9,55 @@
 <meta name="description" content="Sign in or create your NovaFacts Study account.">
 <title>NovaFacts Study — Your learning space</title>
 <style>
-:root{color-scheme:dark;--bg:#100d20;--panel:#19152c;--panel2:#211b39;--line:#37304f;--text:#f8f6ff;--muted:#aaa3c1;--violet:#a78bfa;--mint:#8ce6cf;--danger:#ff9aab}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 15% 10%,#34255d 0,transparent 34%),radial-gradient(ellipse at 95% 90%,#193e48 0,transparent 28%),var(--bg);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);display:grid;place-items:center;padding:28px}
-button,input{font:inherit}.layout{width:min(1080px,100%);min-height:650px;display:grid;grid-template-columns:1.02fr .98fr;border:1px solid #ffffff18;border-radius:28px;overflow:hidden;background:#171329eF;box-shadow:0 35px 100px #05030d99;animation:enter .65s ease both}
-.story{position:relative;overflow:hidden;padding:46px;background:linear-gradient(145deg,#231a42,#17152d 72%);display:flex;flex-direction:column;justify-content:space-between}
-.story:before,.story:after{content:"";position:absolute;border:1px solid #b7a1ff28;border-radius:50%;width:390px;height:390px;right:-130px;top:90px}.story:after{width:510px;height:510px;right:-190px;top:30px;border-color:#8ce6cf18}
-.brand{display:flex;align-items:center;gap:12px;position:relative;z-index:1;font-weight:800;letter-spacing:.2px}.brand-icon{height:42px;width:42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,#b99bff,#7655d9);color:#17112a;font-size:23px;box-shadow:0 9px 25px #8c67f65c}.brand small{display:block;font-size:10px;letter-spacing:2.6px;color:#aaa0c9;font-weight:650;margin-top:1px}
-.story-copy{position:relative;z-index:1;max-width:440px;margin:54px 0 20px}.eyebrow{color:var(--mint);font-size:11px;letter-spacing:2.5px;font-weight:800;text-transform:uppercase}.story h2{font-size:clamp(34px,4.5vw,53px);line-height:1.05;letter-spacing:-2px;margin:17px 0}.story-copy p{color:#bcb5d2;max-width:370px;line-height:1.8;margin:0}
-.visual{position:relative;z-index:1;height:220px;margin:16px 0 0;display:flex;align-items:center;justify-content:center}.orbit{position:absolute;width:210px;height:210px;border:1px solid #b39aff55;border-radius:50%;box-shadow:0 0 55px #8b6bff18,inset 0 0 40px #8b6bff12}.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #8ce6cf55;border-radius:50%;inset:23px}.orbit:after{inset:47px;border-color:#b39aff77}.core{width:94px;height:94px;border-radius:28px;display:grid;place-items:center;font-size:42px;background:linear-gradient(145deg,#bca7ff,#7b61d9);box-shadow:0 15px 50px #8b6bff66;transform:rotate(-8deg);animation:levitate 5s ease-in-out infinite}.float-chip{position:absolute;padding:9px 13px;border:1px solid #ffffff24;border-radius:12px;background:#ffffff0c;backdrop-filter:blur(8px);font-size:11px;color:#ded7f7}.chip-a{top:12px;left:8%}.chip-b{right:3%;bottom:24px}.story-foot{position:relative;z-index:1;color:#8e87a9;font-size:11px}
-.form-side{display:flex;align-items:center;justify-content:center;padding:clamp(30px,5vw,66px);background:linear-gradient(155deg,#1b1730,#141124)}
-.form-wrap{width:min(100%,390px)}.mobile-brand{display:none}.form-top{margin-bottom:29px}.form-top .eyebrow{font-size:10px}.form-top h1{font-size:32px;letter-spacing:-1.1px;margin:10px 0 6px}.form-top p{color:var(--muted);font-size:13px;margin:0}
-.tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:5px;border:1px solid #ffffff12;background:#100d20;border-radius:13px;margin:25px 0 24px}.tab{border:0;border-radius:9px;padding:10px;background:transparent;color:#928ba9;font-size:13px;font-weight:700;cursor:pointer;transition:.2s}.tab.active{background:#30264b;color:#fff;box-shadow:inset 0 0 0 1px #a78bfa33}
-.field{margin:16px 0}.field label{display:block;margin:0 0 7px;color:#d8d2e8;font-size:12px;font-weight:700}.input-wrap{position:relative}.field input{width:100%;height:49px;border:1px solid var(--line);border-radius:11px;background:#100d20;color:var(--text);padding:0 14px;outline:none;transition:border .2s,box-shadow .2s}.field input::placeholder{color:#716b84}.field input:focus{border-color:var(--violet);box-shadow:0 0 0 3px #a78bfa1b}.toggle-pass{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#aaa3c1;font-size:11px;cursor:pointer;padding:7px}
-.submit{width:100%;height:51px;margin-top:9px;border:0;border-radius:11px;background:linear-gradient(100deg,#b69aff,#8d72ed);color:#18112b;font-weight:850;cursor:pointer;box-shadow:0 10px 25px #9474ef30;transition:transform .2s,filter .2s}.submit:hover{transform:translateY(-2px);filter:brightness(1.07)}.submit:disabled{opacity:.55;cursor:wait;transform:none}
-.message{min-height:22px;margin:13px 0 0;text-align:center;font-size:12px;color:var(--muted)}.message.error{color:var(--danger)}.message.success{color:var(--mint)}.footnote{text-align:center;margin:23px 0 0;color:#77718d;font-size:11px}.home{display:block;text-align:center;color:#9b93b3;text-decoration:none;font-size:12px;margin-top:20px}.home:hover{color:#d8ccff}
-[hidden]{display:none!important}@keyframes enter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}@keyframes levitate{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-10px) rotate(-3deg)}}
-@media(max-width:760px){body{padding:0;display:block;background:var(--bg)}.layout{display:block;width:100%;min-height:100vh;border:0;border-radius:0;box-shadow:none}.story{display:none}.form-side{min-height:100vh;padding:32px 25px;align-items:center}.form-wrap{max-width:430px}.mobile-brand{display:flex;margin-bottom:42px}.form-top h1{font-size:30px}}
+:root{color-scheme:light;--navy:#172d69;--blue:#246bb2;--ink:#17254a;--muted:#74809a;--line:#d9deea;--pale:#f5f7fc;--danger:#c53d55;--success:#16866f}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}body{min-height:100vh;display:grid;place-items:center;padding:34px;background:#1c2f6b;color:var(--ink)}
+button,input{font:inherit}.layout{width:min(1120px,100%);min-height:650px;display:grid;grid-template-columns:365px minmax(0,1fr);overflow:hidden;border-radius:24px;background:#fff;box-shadow:0 30px 90px #07183f66;animation:arrive .6s ease both}
+.form-side{grid-column:1;grid-row:1;background:#fff;display:flex;align-items:center;justify-content:center;padding:46px 38px;position:relative;z-index:2}
+.form-wrap{width:100%;max-width:290px}.brand{display:flex;align-items:center;gap:10px;margin-bottom:34px;color:#1c2d5e;font-weight:850;font-size:17px;letter-spacing:-.4px}.brand-icon{width:35px;height:35px;display:grid;place-items:center;border-radius:11px;background:#203a7a;color:white;font-size:20px}.brand small{display:block;color:#7d89a6;font-size:8px;letter-spacing:2.1px;margin-top:1px}
+.form-top{text-align:center;margin-bottom:22px}.form-top .eyebrow{font-size:10px;letter-spacing:2px;font-weight:800;color:#6c7da6}.form-top h1{font-size:27px;line-height:1.15;letter-spacing:-1px;margin:8px 0 5px;color:#1c2d5e}.form-top p{font-size:12px;color:var(--muted);margin:0}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:10px;background:#f0f3f9;margin:20px 0 18px}.tab{border:0;border-radius:7px;background:transparent;color:#77819a;font-size:11px;font-weight:750;padding:9px 5px;cursor:pointer;transition:.2s}.tab.active{background:#203a7a;color:#fff;box-shadow:0 4px 12px #203a7a30}
+.field{margin:13px 0}.field label{display:block;font-size:10px;font-weight:750;color:#53617f;margin:0 0 6px}.field input{width:100%;height:43px;border:1px solid var(--line);border-radius:9px;padding:0 12px;background:#fff;color:#17254a;outline:none;font-size:12px;transition:.2s}.field input::placeholder{color:#a1a9ba}.field input:focus{border-color:#3c70bd;box-shadow:0 0 0 3px #3c70bd18}.input-wrap{position:relative}.input-wrap input{padding-right:55px}.toggle-pass{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#526c9b;font-size:10px;font-weight:700;cursor:pointer;padding:6px}
+.submit{width:100%;height:43px;border:0;border-radius:9px;margin-top:8px;background:#203a7a;color:#fff;font-size:11px;font-weight:850;letter-spacing:.8px;cursor:pointer;box-shadow:0 7px 17px #203a7a28;transition:transform .2s,background .2s}.submit:hover{background:#2b4c96;transform:translateY(-1px)}.submit:disabled{opacity:.6;cursor:wait;transform:none}
+.message{min-height:20px;margin:10px 0 0;text-align:center;font-size:10px;color:var(--muted)}.message.error{color:var(--danger)}.message.success{color:var(--success)}.footnote{text-align:center;margin:14px 0 0;color:#98a1b4;font-size:9px}.home{display:block;text-align:center;color:#6f7d9d;text-decoration:none;font-size:10px;margin-top:13px}.home:hover{color:#203a7a}
+.story{grid-column:2;grid-row:1;position:relative;overflow:hidden;min-height:650px;padding:40px 48px;background:linear-gradient(120deg,#123d78 0%,#1765a6 42%,#f0d9ae 75%,#f7e6c8 100%);isolation:isolate}
+.story:before{content:"";position:absolute;z-index:-1;inset:-25% -15% -20% -10%;background:radial-gradient(ellipse at 76% 23%,#fff0d6 0 13%,transparent 42%),radial-gradient(ellipse at 52% 60%,#67c5df 0 12%,transparent 43%),linear-gradient(108deg,transparent 27%,#f5dcae 39%,#8ed0df 47%,#123e7e 59%,#1b4e89 72%,#f4dfba 91%);filter:blur(13px);transform:rotate(-7deg) scale(1.12);border-radius:48%}
+.story:after{content:"";position:absolute;z-index:-1;width:58%;height:130%;left:31%;top:-14%;border-radius:48% 52% 42% 58%;background:linear-gradient(160deg,#f7e8c8 0%,#72c6e0 20%,#17477f 48%,#183b78 76%);filter:blur(2px);transform:rotate(13deg);box-shadow:24px 0 70px #f6e0bb55}
+.story-nav{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;color:#fff}.story-nav .brand{color:#fff;margin:0}.story-nav .brand small{color:#d5e5f5}.nav-links{display:flex;align-items:center;gap:23px;font-size:9px;color:#f5f6fb}.nav-pill{padding:8px 15px;border-radius:30px;background:#172d69;color:#fff;font-size:9px;font-weight:800}
+.story-copy{position:absolute;right:8%;bottom:22%;z-index:1;text-align:right;color:#fff;max-width:420px;text-shadow:0 2px 18px #173f7355}.story-copy .eyebrow{font-size:9px;letter-spacing:2.6px;font-weight:800;color:#f9edda}.story-copy h2{font-size:clamp(42px,5.5vw,68px);letter-spacing:-2.8px;line-height:.98;margin:13px 0}.story-copy p{font-size:11px;line-height:1.7;color:#f5f6fa;max-width:300px;margin-left:auto}.story-foot{position:absolute;bottom:30px;left:48px;color:#e3edf8;font-size:9px;letter-spacing:1.5px}
+[hidden]{display:none!important}@keyframes arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){body{display:block;padding:0;background:#fff}.layout{width:100%;min-height:100vh;display:flex;flex-direction:column;border-radius:0;box-shadow:none}.story{order:0;min-height:235px;padding:22px 24px}.story:after{left:32%;width:65%;height:150%;top:-28%}.story-nav .nav-links{gap:10px}.nav-links span:not(.nav-pill){display:none}.story-copy{right:7%;bottom:20%;max-width:250px}.story-copy h2{font-size:38px;margin:8px 0}.story-copy p{font-size:9px;max-width:205px}.story-foot{left:24px;bottom:15px;font-size:7px}.form-side{order:1;flex:1;padding:34px 25px 40px;align-items:flex-start}.form-wrap{max-width:390px;margin:0 auto}.brand{margin-bottom:25px}.form-top h1{font-size:25px}}
+@media(max-width:360px){.story{min-height:210px}.story-copy h2{font-size:32px}.form-side{padding-left:20px;padding-right:20px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <main class="layout">
-<section class="story" aria-label="NovaFacts Study introduction">
-  <div class="brand"><span class="brand-icon">✳</span><span>NovaFacts<small>STUDY SPACE</small></span></div>
-  <div class="story-copy">
-    <div class="eyebrow">LEARN · EXPLORE · GROW</div>
-    <h2>Your next idea<br>starts here.</h2>
-    <p>A focused space for curious minds. Sign in to continue exploring science, knowledge and new ways to learn.</p>
-    <div class="visual"><div class="orbit"></div><div class="core">✦</div><span class="float-chip chip-a">✧ Keep discovering</span><span class="float-chip chip-b">Knowledge grows here ↗</span></div>
-  </div>
-  <div class="story-foot">NOVAfacts STUDY · A SPACE FOR EVERY CURIOUS MIND</div>
-</section>
-<section class="form-side">
+<section class="form-side" aria-label="NovaFacts Study account">
 <div class="form-wrap">
-  <div class="brand mobile-brand"><span class="brand-icon">✳</span><span>NovaFacts<small>STUDY SPACE</small></span></div>
+  <div class="brand"><span class="brand-icon">✳</span><span>NovaFacts<small>STUDY PORTAL</small></span></div>
   <div class="form-top"><div class="eyebrow">YOUR LEARNING SPACE</div><h1 id="heading">Welcome back</h1><p id="subheading">Sign in to continue where you left off.</p></div>
   <div class="tabs" role="tablist" aria-label="Account options">
     <button class="tab active" id="loginTab" type="button" role="tab" aria-selected="true">Sign in</button>
     <button class="tab" id="registerTab" type="button" role="tab" aria-selected="false">Create account</button>
   </div>
   <form id="authForm" novalidate>
-    <div class="field" id="nameField" hidden><label for="fullName">Full name</label><input id="fullName" name="name" autocomplete="name" placeholder="Enter your full name" maxlength="100"></div>
-    <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required></div>
-    <div class="field"><label for="password">Password</label><div class="input-wrap"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required><button class="toggle-pass" id="togglePass" type="button">Show</button></div></div>
-    <button class="submit" id="submitBtn" type="submit">Sign in <span aria-hidden="true">→</span></button>
+    <div class="field" id="nameField" hidden><label for="fullName">FULL NAME</label><input id="fullName" name="name" autocomplete="name" placeholder="Enter your full name" maxlength="100"></div>
+    <div class="field"><label for="email">EMAIL ADDRESS</label><input id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email" maxlength="254" required></div>
+    <div class="field"><label for="password">PASSWORD</label><div class="input-wrap"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required><button class="toggle-pass" id="togglePass" type="button">Show</button></div></div>
+    <button class="submit" id="submitBtn" type="submit">SIGN IN&nbsp; →</button>
   </form>
   <p class="message" id="message" role="status" aria-live="polite"></p>
-  <p class="footnote">Your account is protected with secure password hashing.</p>
+  <p class="footnote">Secure access to your NovaFacts Study account.</p>
   <a class="home" href="../index.html">← Back to NovaFacts</a>
 </div>
+</section>
+<section class="story" aria-label="Welcome to NovaFacts Study">
+  <div class="story-nav">
+    <div class="brand"><span class="brand-icon">✳</span><span>NovaFacts<small>LEARN SOMETHING NEW</small></span></div>
+    <div class="nav-links"><span>HOME</span><span>ABOUT</span><span>STUDY</span><span class="nav-pill">EXPLORE</span></div>
+  </div>
+  <div class="story-copy"><div class="eyebrow">LEARN · DISCOVER · GROW</div><h2>Welcome.</h2><p>Ideas become knowledge when curiosity leads the way. Your next discovery starts here.</p></div>
+  <div class="story-foot">NOVAfacts STUDY · KNOWLEDGE FOR CURIOUS MINDS</div>
 </section>
 </main>
 <script>
