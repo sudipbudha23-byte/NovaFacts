@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ne">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101114">
+<title>Study Registration & Login | NovaFacts</title>
+<style>
+:root{--bg:#090d16;--panel:#151c29;--line:#344257;--text:#f4f7fb;--muted:#aab7c8;--gold:#e8bd70;--blue:#267bb0}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:22px;background:radial-gradient(circle at 15% 10%,#173a57,transparent 38%),radial-gradient(circle at 90% 90%,#44301a,transparent 35%),var(--bg);color:var(--text);font:15px/1.6 Arial,sans-serif;display:grid;place-items:center}
+.card{width:min(100%,490px);padding:clamp(22px,5vw,36px);background:#151c29ed;border:1px solid var(--line);border-radius:22px;box-shadow:0 25px 70px #0008}
+.brand{text-align:center;margin-bottom:24px}.brand .icon{font-size:42px}.brand h1{margin:5px 0;color:var(--gold);font-size:27px}.brand p{margin:0;color:var(--muted)}
+label{display:block;margin:13px 0 6px;color:#e9d4ad;font-size:13px}input,select,textarea{width:100%;padding:12px 13px;border:1px solid #46556a;border-radius:10px;background:#0b1220;color:#fff;font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px #e8bd7022}textarea{min-height:85px;resize:vertical}.btn{width:100%;margin-top:16px;padding:13px;border:0;border-radius:11px;background:linear-gradient(90deg,#f3d27d,#d99a39);color:#211606;font-weight:800;font-size:15px;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.switch{text-align:center;color:var(--muted);font-size:13px;margin:16px 0 0}.switch button{border:0;background:none;color:var(--gold);font-weight:800;cursor:pointer;font:inherit}.msg{min-height:24px;margin:12px 0 0;text-align:center;font-size:13px;color:var(--muted)}.msg.error{color:#ffaaa0}.msg.success{color:#8ce3ad}.back{display:block;text-align:center;color:var(--muted);margin-top:18px;text-decoration:none;font-size:13px}
+</style>
+</head>
+<body>
+<main class="card">
+<div class="brand"><div class="icon">📚</div><h1>NovaFacts Study</h1><p>पहिले Registration गर्नुहोस्, त्यसपछि Study Dashboard खोल्नुहोस्।</p></div>
+<section id="registerPane">
+<h2>📝 Registration</h2>
+<label for="name">पूरा नाम</label><input id="name" autocomplete="name" placeholder="तपाईंको नाम">
+<label for="email">Email</label><input id="email" type="email" autocomplete="email" placeholder="example@gmail.com">
+<label for="password">Password</label><input id="password" type="password" autocomplete="new-password" placeholder="कम्तीमा ६ अक्षर">
+<label for="grade">कक्षा</label><select id="grade"><option value="">कक्षा छान्नुहोस्</option><option>Class 10</option><option>Class 11</option><option>Class 12</option><option>Other</option></select>
+<label for="purpose">Study मा के सिक्न चाहनुहुन्छ?</label><textarea id="purpose" placeholder="आफ्नो अध्ययन रुचि लेख्नुहोस्"></textarea>
+<button class="btn" id="registerBtn" type="button">Registration गर्नुहोस्</button>
+<p class="switch">पहिले नै खाता छ? <button type="button" id="showLogin">Login गर्नुहोस्</button></p>
+</section>
+<section id="loginPane" hidden>
+<h2>🔐 Study Login</h2>
+<label for="loginEmail">Registered Email</label><input id="loginEmail" type="email" autocomplete="username" placeholder="example@gmail.com">
+<label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Password">
+<button class="btn" id="loginBtn" type="button">Login गर्नुहोस्</button>
+<p class="switch">नयाँ प्रयोगकर्ता हुनुहुन्छ? <button type="button" id="showRegister">Registration गर्नुहोस्</button></p>
+</section>
+<div id="status" class="msg" role="status" aria-live="polite"></div>
+<a class="back" href="../index.html">← NovaFacts Homepage</a>
+</main>
+<script>
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbyhz0VL9QdQIqhgY_bGAutGSULDeW0UK4KQWS9HRpsbIX92tOmYjoJi6wEm7W2mMH7-/exec";
+const SESSION_KEY="novafacts_study_logged_in",USER_KEY="novafacts_study_user";
+const $=id=>document.getElementById(id),status=$("status");
+function say(message,type=""){status.textContent=message;status.className="msg "+type;}
+function pane(which){$("registerPane").hidden=which!=="register";$("loginPane").hidden=which!=="login";say("");}
+$("showLogin").onclick=()=>pane("login");$("showRegister").onclick=()=>pane("register");
+function jsonp(action,params){return new Promise((resolve,reject)=>{const cb="nfStudy_"+Date.now()+"_"+Math.floor(Math.random()*10000),s=document.createElement("script");let q="?action="+encodeURIComponent(action);Object.entries(params).forEach(([k,v])=>q+="&"+encodeURIComponent(k)+"="+encodeURIComponent(v));q+="&callback="+cb;let timer=setTimeout(()=>{cleanup();reject(new Error("Server response समयमै आएन।"));},15000);function cleanup(){clearTimeout(timer);delete window[cb];s.remove();}window[cb]=data=>{cleanup();resolve(data)};s.onerror=()=>{cleanup();reject(new Error("Server सँग जडान हुन सकेन।"));};s.src=SCRIPT_URL+q;document.body.appendChild(s);});}
+async function sha256(value){const hash=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(value));return Array.from(new Uint8Array(hash)).map(x=>x.toString(16).padStart(2,"0")).join("");}
+async function checkEmail(email){return jsonp("emailCheck",{email});}
+$("registerBtn").onclick=async()=>{
+ const name=$("name").value.trim(),email=$("email").value.trim().toLowerCase(),password=$("password").value,grade=$("grade").value,purpose=$("purpose").value.trim(),button=$("registerBtn");
+ if(!name||!/^\S+@\S+\.\S+$/.test(email)||password.length<6||!grade){say("नाम, सही Email, ६+ अक्षरको Password र कक्षा भर्नुहोस्।","error");return;}
+ button.disabled=true;say("Registration जाँच हुँदैछ…");
+ try{
+  const check=await checkEmail(email);
+  if(check.success&&check.registered){$("loginEmail").value=email;pane("login");say("यो Email पहिले नै दर्ता छ। अब Login गर्नुहोस्।","error");return;}
+  await fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({name,email,password,festival:"NovaFacts Study - "+grade,message:purpose||"Study section registration"})});
+  say("Registration सुरक्षित हुँदैछ…");
+  let saved=false;for(let i=0;i<8;i++){await new Promise(r=>setTimeout(r,1200));try{const verify=await checkEmail(email);if(verify.success&&verify.registered){saved=true;break;}}catch(e){}}
+  if(saved){$("loginEmail").value=email;$("password").value="";pane("login");say("Registration सफल भयो। अब आफ्नो Password बाट Login गर्नुहोस्।","success");}
+  else say("Registration पुष्टि हुन सकेन। केही बेरपछि फेरि प्रयास गर्नुहोस्।","error");
+ }catch(e){say(e.message||"Registration हुन सकेन।","error");}
+ finally{button.disabled=false;}
+};
+$("loginBtn").onclick=async()=>{
+ const email=$("loginEmail").value.trim().toLowerCase(),password=$("loginPassword").value,button=$("loginBtn");
+ if(!/^\S+@\S+\.\S+$/.test(email)||!password){say("Registered Email र Password राख्नुहोस्।","error");return;}
+ button.disabled=true;say("Account जाँच हुँदैछ…");
+ try{
+  const result=await jsonp("login",{email,passwordHash:await sha256(password)});
+  if(!result.success){say(result.error||"Email वा Password मिलेन।","error");return;}
+  const user={name:result.name||"Student",email};
+  localStorage.setItem(SESSION_KEY,"true");localStorage.setItem(USER_KEY,JSON.stringify(user));
+  say("Login सफल भयो। Study Dashboard खोलिँदैछ…","success");
+  location.replace("index.html");
+ }catch(e){say(e.message||"Login हुन सकेन।","error");}
+ finally{button.disabled=false;}
+};
+if(localStorage.getItem(SESSION_KEY)==="true"&&localStorage.getItem(USER_KEY))location.replace("index.html");
+</script>
+</body></html>
