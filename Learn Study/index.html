@@ -40,6 +40,24 @@ footer{text-align:center;color:#8b9ba9;font-size:10px;padding:25px 0 0}
 @media(max-width:1050px){.columns{grid-template-columns:minmax(0,1fr) 240px}.main{padding:0 18px 28px}.app{grid-template-columns:190px minmax(0,1fr)}}
 @media(max-width:800px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto;min-height:0;padding:12px 15px;border-right:0;border-bottom:1px solid var(--line)}.logo{padding:0 5px 10px}.nav-label,.side-bottom{display:none}.nav{display:flex;overflow-x:auto}.nav a{white-space:nowrap;padding:9px 11px}.main{padding:0 14px 25px}.top{height:60px;margin-bottom:16px}.columns{grid-template-columns:1fr}.right{grid-template-columns:repeat(2,minmax(0,1fr))}.right>.search{grid-column:1/-1}.quick{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:540px){.right{grid-template-columns:1fr}.banner{min-height:160px;padding:20px}.banner h2{font-size:21px}.banner-art{font-size:48px;margin-right:4px}.lesson-grid{grid-template-columns:1fr}.lesson{min-height:94px}.quick{grid-template-columns:1fr}.profile span{display:none}.top h1{font-size:17px}}
+.profile-menu-wrap{position:relative}.profile-menu-trigger{border:0;cursor:pointer;padding:0;flex:0 0 38px;background-color:#d9eef9;background-position:center;background-size:cover}
+.profile-dropdown{position:absolute;z-index:50;right:0;top:48px;width:min(330px,calc(100vw - 28px));background:#211914;color:#f7f0e9;border:1px solid #554033;border-radius:12px;overflow:hidden;box-shadow:0 14px 38px #0005}
+.profile-dropdown[hidden]{display:none}
+.profile-dropdown-head{min-height:168px;padding:24px 18px 19px;background:#3b2a20;display:flex;align-items:center;flex-direction:column;justify-content:center;text-align:center;gap:7px}
+.profile-photo-wrap{width:66px;height:66px;border-radius:50%;overflow:hidden;background:linear-gradient(145deg,#1b83d4,#a6dfff);display:grid;place-items:center;border:2px solid #ffffff35;margin-bottom:4px}
+.profile-photo-wrap .student-photo{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.profile-photo-wrap .student-initial{font-size:28px;color:#fff;font-weight:800}
+.profile-dropdown-head strong{max-width:100%;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.profile-dropdown-head>span{font-size:12px;color:#e2d4c9}
+.profile-dropdown-actions{padding:9px 0}
+.profile-option{width:100%;min-height:38px;padding:8px 15px;display:flex;align-items:center;gap:15px;background:transparent;border:0;color:#f2e9e2;text-align:left;font-size:13px;cursor:pointer;font-weight:500}
+.profile-option>span:first-child{width:15px;color:#cbb8a9;font-size:16px;text-align:center}
+.profile-option:hover{background:#ffffff12}
+.profile-sync{cursor:default;color:#d6c8be}
+.profile-dropdown-footer{border-top:1px solid #614b3d;padding:9px 15px;display:flex;justify-content:flex-end}
+.profile-dropdown-footer button{border:1px solid #715b4d;border-radius:18px;background:#3b2a20;color:#fff;padding:7px 17px;font-size:12px;cursor:pointer}
+.profile-dropdown-footer button:hover{background:#513a2c}
+@media(max-width:540px){.profile-menu-wrap>span#studyUserName{display:none}.profile-dropdown{right:0;top:45px}}
 </style>
 
 <link rel="stylesheet" href="../mobile-nav.css">
@@ -51,25 +69,7 @@ footer{text-align:center;color:#8b9ba9;font-size:10px;padding:25px 0 0}
 <div class="app">
 <aside class="sidebar">
 <a class="logo" href="../index.html">Nova<span>Facts</span></a>
-<section class="student-profile" aria-label="Student profile">
-  <div class="student-profile-main">
-    <div class="student-photo-wrap">
-      <img id="studentPhoto" class="student-photo" alt="Student profile photo" hidden>
-      <span id="studentInitial" class="student-initial">S</span>
-      <label class="photo-edit" for="studentPhotoInput" title="Upload profile photo">📷</label>
-      <input id="studentPhotoInput" type="file" accept="image/*" hidden>
-    </div>
-    <div class="student-identity">
-      <strong id="sidebarStudentName">Student</strong>
-      <span id="sidebarStudentEmail">Signed in</span>
-      <small><i></i> Active account</small>
-    </div>
-  </div>
-  <div class="student-profile-actions">
-    <label for="studentPhotoInput">＋ Change photo</label>
-    <button type="button" id="removeStudentPhoto">Remove</button>
-  </div>
-</section>
+
 <div class="nav-label">Learning space</div>
 <nav class="nav" aria-label="Study navigation">
 <a class="active" href="#dashboard"><span class="ico">▦</span>Dashboard</a>
@@ -81,7 +81,25 @@ footer{text-align:center;color:#8b9ba9;font-size:10px;padding:25px 0 0}
 <div class="side-bottom"><div class="nav-label">Settings</div><nav class="nav"><a href="../index.html"><span class="ico">⌂</span>Main Website</a><a href="../contact.html"><span class="ico">✉</span>Contact</a><a href="../privacy-policy.html"><span class="ico">▧</span>Privacy</a></nav></div>
 </aside>
 <main class="main" id="dashboard">
-<header class="top"><h1>Study Dashboard</h1><div class="profile"><span id="studyUserName">NovaFacts Learning</span><button type="button" id="studyLogout" style="border:1px solid #d7e4ed;background:#fff;color:#36566d;border-radius:20px;padding:8px 12px;cursor:pointer">Logout</button><span class="avatar">N</span></div></header>
+<header class="top"><h1>Study Dashboard</h1><div class="profile profile-menu-wrap"><span id="studyUserName">NovaFacts Learning</span><button type="button" id="profileMenuToggle" class="avatar profile-menu-trigger" aria-label="Open student profile" aria-expanded="false">N</button>
+<div class="profile-dropdown" id="profileDropdown" hidden>
+  <div class="profile-dropdown-head">
+    <div class="profile-photo-wrap">
+      <img id="studentPhoto" class="student-photo" alt="Student profile photo" hidden>
+      <span id="studentInitial" class="student-initial">S</span>
+    </div>
+    <strong id="sidebarStudentName">Student</strong>
+    <span id="sidebarStudentEmail">Signed in</span>
+  </div>
+  <div class="profile-dropdown-actions">
+    <label class="profile-option" for="studentPhotoInput"><span>✎</span><span>Customize profile</span></label>
+    <input id="studentPhotoInput" type="file" accept="image/*" hidden>
+    <a class="profile-option" href="#lessons"><span>▣</span><span>My Learning</span></a>
+    <button type="button" class="profile-option" id="removeStudentPhoto"><span>◉</span><span>Remove profile photo</span></button>
+    <div class="profile-option profile-sync"><span>↻</span><span>Photo saved on this device</span></div>
+  </div>
+  <div class="profile-dropdown-footer"><button type="button" id="studyLogout">Sign out</button></div>
+</div></div></header>
 <div class="content"><div class="columns"><section>
 <div class="banner"><div class="banner-copy"><h2>Ready to learn something new?</h2><p>Explore lessons, practise exam questions and build your knowledge with the NovaFacts learning space.</p><a class="white-btn" href="#lessons">Explore Learning&nbsp; ›</a></div><div class="banner-art" aria-hidden="true">🎓</div></div>
 <div class="dots"><i></i><i></i><i></i></div>
@@ -109,8 +127,13 @@ footer{text-align:center;color:#8b9ba9;font-size:10px;padding:25px 0 0}
 document.getElementById('year').textContent=new Date().getFullYear();
 const search=document.getElementById('toolSearch');
 search.addEventListener('input',()=>{const q=search.value.toLowerCase();document.querySelectorAll('.lesson').forEach(card=>{card.hidden=!card.innerText.toLowerCase().includes(q)})});
-document.getElementById("studyLogout").addEventListener("click",()=>{localStorage.removeItem("novafacts_study_logged_in");localStorage.removeItem("novafacts_study_user");location.replace("register.html")});
 const PROFILE_PHOTO_KEY="novafacts_study_profile_photo";
+document.getElementById("studyLogout").addEventListener("click",()=>{localStorage.removeItem("novafacts_study_token");localStorage.removeItem("novafacts_study_logged_in");localStorage.removeItem("novafacts_study_user");location.replace("register.html")});
+const profileToggle=document.getElementById("profileMenuToggle");
+const profileDropdown=document.getElementById("profileDropdown");
+profileToggle.addEventListener("click",()=>{const open=profileDropdown.hidden;profileDropdown.hidden=!open;profileToggle.setAttribute("aria-expanded",String(open))});
+document.addEventListener("click",event=>{if(!event.target.closest(".profile-menu-wrap")){profileDropdown.hidden=true;profileToggle.setAttribute("aria-expanded","false")}});
+document.addEventListener("keydown",event=>{if(event.key==="Escape"){profileDropdown.hidden=true;profileToggle.setAttribute("aria-expanded","false")}});
 function refreshStudentProfile(){
   let u={};try{u=JSON.parse(localStorage.getItem("novafacts_study_user")||"{}")}catch(e){}
   const name=String(u.name||u.fullName||u.full_name||u.email||"Student");
@@ -122,30 +145,17 @@ function refreshStudentProfile(){
   document.getElementById("studentInitial").textContent=initial;
   const photo=localStorage.getItem(PROFILE_PHOTO_KEY);
   const img=document.getElementById("studentPhoto");
-  img.hidden=!photo;
-  img.src=photo||"";
+  img.hidden=!photo;img.src=photo||"";
   document.getElementById("studentInitial").hidden=!!photo;
-  const topAvatar=document.querySelector(".top .avatar");
-  if(topAvatar){topAvatar.textContent=photo?"":initial;topAvatar.style.backgroundImage=photo?'url("'+photo+'")':"none";topAvatar.style.backgroundSize="cover";topAvatar.style.backgroundPosition="center"}
+  profileToggle.textContent=photo?"":initial;
+  profileToggle.style.backgroundImage=photo?'url("'+photo+'")':"none";
 }
 document.getElementById("studentPhotoInput").addEventListener("change",event=>{
   const file=event.target.files&&event.target.files[0];if(!file)return;
   if(!file.type.startsWith("image/")){alert("Please choose an image file.");return}
   if(file.size>8*1024*1024){alert("Please choose an image smaller than 8 MB.");event.target.value="";return}
   const reader=new FileReader();
-  reader.onload=()=>{
-    const image=new Image();
-    image.onload=()=>{
-      const canvas=document.createElement("canvas");const side=320;canvas.width=side;canvas.height=side;
-      const scale=Math.max(side/image.width,side/image.height);
-      const sw=side/scale,sh=side/scale,sx=(image.width-sw)/2,sy=(image.height-sh)/2;
-      const ctx=canvas.getContext("2d");ctx.drawImage(image,sx,sy,sw,sh,0,0,side,side);
-      try{localStorage.setItem(PROFILE_PHOTO_KEY,canvas.toDataURL("image/jpeg",.78));refreshStudentProfile()}
-      catch(e){alert("Photo could not be saved in this browser. Try a smaller image.");}
-    };
-    image.onerror=()=>alert("Could not read this image.");
-    image.src=reader.result;
-  };
+  reader.onload=()=>{const image=new Image();image.onload=()=>{const canvas=document.createElement("canvas");const side=320;canvas.width=side;canvas.height=side;const scale=Math.max(side/image.width,side/image.height);const sw=side/scale,sh=side/scale,sx=(image.width-sw)/2,sy=(image.height-sh)/2;canvas.getContext("2d").drawImage(image,sx,sy,sw,sh,0,0,side,side);try{localStorage.setItem(PROFILE_PHOTO_KEY,canvas.toDataURL("image/jpeg",.78));refreshStudentProfile()}catch(e){alert("Photo could not be saved in this browser. Try a smaller image.")}};image.onerror=()=>alert("Could not read this image.");image.src=reader.result};
   reader.readAsDataURL(file);
 });
 document.getElementById("removeStudentPhoto").addEventListener("click",()=>{localStorage.removeItem(PROFILE_PHOTO_KEY);document.getElementById("studentPhotoInput").value="";refreshStudentProfile()});
