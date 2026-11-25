@@ -63,5 +63,24 @@
 <section class="quick" aria-label="Quick links"><a href="index.html"><span>🏠</span>Home</a><a href="Learn%20Study/index.html"><span>📚</span>Study</a><a href="Code%20Study.html"><span>💻</span>Computer</a><a href="virtual-lab.html"><span>🧪</span>Virtual Lab</a></section>
 <div class="note">यो Dashboard एउटा navigation hub हो। यसले Study, Computer, Quiz, GPA Calculator वा Homepage का मूल सामग्री हटाउँदैन—सम्बन्धित पेजमा छिटो पुग्ने बाटो मात्र दिन्छ।</div>
 </main>
+
+<!-- NovaFacts shared mobile bottom navigation -->
+<style id="novafacts-mobile-bottom-style">
+@media(max-width:767px){
+ body{padding-bottom:calc(92px + env(safe-area-inset-bottom))!important}
+ .mobile-bottom,.mobile-nav{display:none!important}
+ #nf-mobile-bottom{position:fixed;z-index:99999;left:10px;right:10px;bottom:calc(8px + env(safe-area-inset-bottom));height:78px;padding:7px 9px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:center;background:rgba(255,255,255,.94);border:1px solid rgba(220,226,237,.9);border-radius:27px;box-shadow:0 8px 30px rgba(25,45,80,.16);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);font-family:Arial,sans-serif}
+ #nf-mobile-bottom a{position:relative;display:flex;min-width:0;height:100%;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:#71809a;font-size:10px;font-weight:600;line-height:1.1;-webkit-tap-highlight-color:transparent}
+ #nf-mobile-bottom .nf-icon{width:42px;height:36px;display:flex;align-items:center;justify-content:center;font-size:21px;border-radius:50%;transition:transform .2s,background .2s}
+ #nf-mobile-bottom a.nf-active{color:#2463df}
+ #nf-mobile-bottom a.nf-active .nf-icon{width:62px;height:62px;margin-top:-31px;margin-bottom:-1px;background:linear-gradient(145deg,#4389ff,#245de7);border:5px solid #fff;box-shadow:0 7px 20px rgba(42,103,230,.32);color:#fff;font-size:27px;transform:translateY(-1px)}
+ #nf-mobile-bottom a.nf-active .nf-label{font-weight:800}
+}
+@media(min-width:768px){#nf-mobile-bottom{display:none!important}}
+@media(prefers-reduced-motion:reduce){#nf-mobile-bottom *{transition:none!important}}
+</style>
+<script id="novafacts-mobile-bottom-script">
+(()=>{if(document.getElementById('nf-mobile-bottom'))return;const p=decodeURIComponent(location.pathname).toLowerCase();const nested=p.includes('/learn study/');const prefix=nested?'../':'';const items=[{id:'home',icon:'🏠',label:'Home',href:prefix+'index.html'},{id:'computer',icon:'💻',label:'Computer',href:prefix+'Code%20Study.html'},{id:'dashboard',icon:'📊',label:'Dashboard',href:prefix+'dashboard.html'},{id:'study',icon:'📚',label:'Study',href:prefix+'Learn%20Study/index.html'},{id:'quiz',icon:'🧠',label:'Quiz',href:prefix+'quiz.html'}];let active='home';if(p.endsWith('/dashboard.html'))active='dashboard';else if(p.endsWith('/code study.html'))active='computer';else if(p.endsWith('/quiz.html'))active='quiz';else if(nested||/periodic table|gpa|question-bank|virtual-lab|ai-learning/.test(p))active='study';const nav=document.createElement('nav');nav.id='nf-mobile-bottom';nav.setAttribute('aria-label','Mobile navigation');nav.innerHTML=items.map(x=>'<a href="'+x.href+'" data-section="'+x.id+'" class="'+(x.id===active?'nf-active':'')+'" '+(x.id===active?'aria-current="page"':'')+'><span class="nf-icon" aria-hidden="true">'+x.icon+'</span><span class="nf-label">'+x.label+'</span></a>').join('');document.body.appendChild(nav)})();
+</script>
 </body>
 </html>
