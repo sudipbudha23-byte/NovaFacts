@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d1b">
+<meta name="description" content="Explore interactive 3D science experiments in NovaFacts Virtual Science Lab.">
+<title>Virtual Science Lab | NovaFacts</title>
+<style>
+:root{--bg:#080d1b;--panel:#111a2d;--panel2:#16223a;--line:#263550;--text:#edf4ff;--muted:#9aabc5;--cyan:#62d9ff;--violet:#a78bfa;--gold:#f5c76a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#1b2e50 0,transparent 45%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input{font:inherit}.top{height:68px;border-bottom:1px solid #263550;background:#080d1beF;backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:0 max(18px,calc((100% - 1120px)/2));position:sticky;top:0;z-index:10}
+.brand{font-size:21px;font-weight:900;letter-spacing:-.7px;color:#fff;text-decoration:none}.brand span{color:var(--cyan)}.toplink{color:#c5d4ea;text-decoration:none;font-size:13px;font-weight:700}
+.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padding:34px 0 70px}
+.hero{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:25px}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);font-weight:900}.hero h1{font-size:clamp(30px,5vw,48px);letter-spacing:-1.6px;margin:8px 0}.hero p{color:var(--muted);max-width:620px;line-height:1.65;margin:0}.live{border:1px solid #28526b;background:#0d2637;color:#7fe1ff;border-radius:30px;padding:9px 13px;font-size:12px;font-weight:800;white-space:nowrap}
+.tabs{display:flex;gap:9px;flex-wrap:wrap;margin:25px 0 17px}.tab{border:1px solid var(--line);background:#101a2c;color:#bdcce1;padding:10px 15px;border-radius:12px;cursor:pointer;font-weight:750}.tab.active{background:#12354a;border-color:#3b9fc4;color:#a4ebff}
+.lab{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.8fr);gap:16px}.stage,.info{background:linear-gradient(145deg,#111b2e,#0d1525);border:1px solid var(--line);border-radius:22px;overflow:hidden;min-width:0}.stagehead{padding:17px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}.stagehead h2{font-size:17px;margin:0}.stagehead small{color:var(--muted)}.visual{height:430px;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at center,#162b4a 0,#0b1425 52%,#080e1a 100%)}
+.info{padding:21px}.info h3{margin:0 0 10px;font-size:19px}.info p{color:var(--muted);line-height:1.65;font-size:13px}.fact{padding:12px 13px;border:1px solid #2b3c59;border-radius:13px;background:#121f34;margin:12px 0}.fact b{display:block;color:var(--cyan);font-size:11px;letter-spacing:.8px;margin-bottom:5px}.fact span{font-size:13px;color:#dce8f8;line-height:1.5}
+.controls{display:grid;gap:15px;margin-top:19px}.control label{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:#d4e0f1;margin-bottom:8px}.control output{color:var(--cyan);font-weight:800}.control input{width:100%;accent-color:#60d7ff}
+.planet-system{width:100%;height:100%;display:grid;place-items:center;position:relative;perspective:800px}.sun{position:absolute;width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff7bd,#ffc34d 42%,#ed672c 75%);box-shadow:0 0 25px #ffb23b,0 0 75px #ff9d2855;z-index:2}
+.orbit{position:absolute;border:1px solid #8194b533;border-radius:50%;transform:rotateX(68deg);animation:spin linear infinite}.orbit .planet{position:absolute;top:50%;left:0;width:var(--size);height:var(--size);margin-top:calc(var(--size)/-2);margin-left:calc(var(--size)/-2);border-radius:50%;background:var(--planet);box-shadow:0 0 12px color-mix(in srgb,var(--planet),transparent 35%)}
+.o1{width:125px;height:125px;animation-duration:8s}.o2{width:190px;height:190px;animation-duration:13s}.o3{width:270px;height:270px;animation-duration:20s}.o4{width:360px;height:360px;animation-duration:29s}.o1 .planet{--size:9px;--planet:#b9bfc9}.o2 .planet{--size:15px;--planet:#e8ad75}.o3 .planet{--size:17px;--planet:#4da8ff}.o4 .planet{--size:13px;--planet:#df8157}
+.planet-label{position:absolute;bottom:18px;left:18px;color:#9cb2d0;font-size:11px}
+.atom{width:300px;height:300px;position:relative;transform-style:preserve-3d;animation:float 5s ease-in-out infinite}.nucleus{position:absolute;left:50%;top:50%;width:65px;height:65px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff9aa7,#e33f66 65%,#7c1d44);box-shadow:0 0 28px #f4517966;z-index:4}.nucleus:after{content:"";position:absolute;width:19px;height:19px;left:24px;top:10px;border-radius:50%;background:#ffd5da;opacity:.8}
+.shell{position:absolute;inset:50px 0;border:1px solid #62d9ff99;border-radius:50%;transform:rotateX(68deg);animation:orbit 5s linear infinite}.shell.two{transform:rotateY(68deg);animation-duration:7s;border-color:#a78bfa99}.shell.three{transform:rotateZ(68deg) rotateX(65deg);animation-duration:9s;border-color:#f5c76a99}.electron{position:absolute;top:50%;left:0;width:13px;height:13px;margin-top:-6px;border-radius:50%;background:#7be6ff;box-shadow:0 0 15px #62d9ff}
+@keyframes orbit{to{transform:rotateX(68deg) rotateZ(360deg)}}@keyframes float{50%{transform:translateY(-8px)}} 
+.wavecanvas{width:100%;height:100%;display:block}.wavelegend{position:absolute;top:17px;left:18px;font-size:11px;color:#a7bedb}
+.panel-controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.action{background:#16364a;border:1px solid #36728f;color:#b8efff;padding:9px 12px;border-radius:10px;cursor:pointer;font-weight:800;font-size:12px}.action.secondary{background:#17233a;border-color:#344660;color:#d7e3f4}
+.hidden{display:none!important}.foot{text-align:center;color:#687c99;font-size:12px;margin-top:28px}
+@media(max-width:780px){.lab{grid-template-columns:1fr}.visual{height:350px}.hero{align-items:start;flex-direction:column}.live{align-self:start}.info{padding:18px}}
+@media(max-width:420px){.wrap{width:calc(100% - 20px);padding-top:23px}.top{padding:0 13px;height:60px}.visual{height:310px}.stagehead{padding:14px}.orbit.o4{width:300px;height:300px}.orbit.o3{width:225px;height:225px}.orbit.o2{width:155px;height:155px}.orbit.o1{width:100px;height:100px}.atom{transform:scale(.85)}}
+</style>
+</head>
+<body>
+<header class="top"><a class="brand" href="index.html">Nova<span>Facts</span> <small style="font-size:10px;color:#9aabc5">VIRTUAL LAB</small></a><a class="toplink" href="index.html">← Back to NovaFacts</a></header>
+<main class="wrap">
+<section class="hero"><div><div class="eyebrow">Explore • Experiment • Understand</div><h1>3D Virtual Science Lab</h1><p>Explore scientific ideas through interactive models and simple experiments. Choose a lab below, adjust the controls, and observe what changes.</p></div><span class="live">● INTERACTIVE LAB</span></section>
+<nav class="tabs" aria-label="Choose a virtual lab"><button class="tab active" data-lab="solar">🌌 Solar System</button><button class="tab" data-lab="atom">⚛ Atom Model</button><button class="tab" data-lab="wave">〰 Wave Lab</button></nav>
+<section class="lab">
+<div class="stage">
+<div class="stagehead"><div><h2 id="stageTitle">Solar System Explorer</h2><small id="stageSub">A simplified animated planetary model</small></div><small id="stageBadge">3D MODEL</small></div>
+<div class="visual" id="solarView">
+<div class="planet-system"><div class="sun" title="Sun"></div><div class="orbit o1"><span class="planet" title="Mercury"></span></div><div class="orbit o2"><span class="planet" title="Venus"></span></div><div class="orbit o3"><span class="planet" title="Earth"></span></div><div class="orbit o4"><span class="planet" title="Mars"></span></div></div><div class="planet-label">Not to scale · simplified inner planets</div>
+</div>
+<div class="visual hidden" id="atomView"><div class="atom"><div class="nucleus"></div><div class="shell"><i class="electron"></i></div><div class="shell two"><i class="electron"></i></div><div class="shell three"><i class="electron"></i></div></div><div class="planet-label">Conceptual electron-shell illustration · not to scale</div></div>
+<div class="visual hidden" id="waveView"><span class="wavelegend">Wave displacement over distance</span><canvas class="wavecanvas" id="waveCanvas"></canvas></div>
+</div>
+<aside class="info">
+<h3 id="infoTitle">Our Solar System</h3><p id="infoText">The Solar System contains the Sun and the objects held by its gravity. The model shows four inner planets moving around the Sun.</p>
+<div class="fact"><b>SCIENCE NOTE</b><span id="factText">A planet's orbital period increases with its average distance from the Sun (Kepler's third law).</span></div>
+<div class="controls" id="solarControls">
+<div class="control"><label for="speed">Orbit speed <output id="speedOut">1.0×</output></label><input id="speed" type="range" min=".3" max="3" step=".1" value="1"></div>
+<div class="control"><label for="orbitScale">Orbit spacing <output id="scaleOut">100%</output></label><input id="orbitScale" type="range" min="75" max="125" value="100"></div>
+</div>
+<div class="controls hidden" id="atomControls">
+<div class="control"><label for="atomSpeed">Electron animation <output id="atomSpeedOut">1.0×</output></label><input id="atomSpeed" type="range" min=".3" max="3" step=".1" value="1"></div>
+</div>
+<div class="controls hidden" id="waveControls">
+<div class="control"><label for="frequency">Frequency <output id="freqOut">2.0 Hz</output></label><input id="frequency" type="range" min=".5" max="6" step=".1" value="2"></div>
+<div class="control"><label for="amplitude">Amplitude <output id="ampOut">50%</output></label><input id="amplitude" type="range" min="10" max="100" value="50"></div>
+</div>
+<div class="panel-controls"><button class="action" id="pauseBtn">Ⅱ Pause animation</button><button class="action secondary" id="resetBtn">↺ Reset lab</button></div>
+</aside>
+</section>
+<footer class="foot">NovaFacts Virtual Science Lab · Educational models are simplified and not drawn to scale.</footer>
+</main>
+<script>
+const labs={
+ solar:{title:"Solar System Explorer",sub:"A simplified animated planetary model",info:"Our Solar System",text:"The Solar System contains the Sun and the objects held by its gravity. The model shows four inner planets moving around the Sun.",fact:"A planet's orbital period increases with its average distance from the Sun (Kepler's third law)."},
+ atom:{title:"Atomic Structure Explorer",sub:"Explore a conceptual atomic model",info:"Inside an Atom",text:"Atoms contain a tiny, dense nucleus made of protons and neutrons, with electrons described by quantum orbitals around it. This animation is a simplified teaching model.",fact:"Electrons do not travel in fixed planet-like paths in the modern quantum model. The shells here are only a visual introduction."},
+ wave:{title:"Wave Motion Simulator",sub:"Change frequency and amplitude",info:"Understanding Waves",text:"A wave transfers energy through a medium or space. Frequency describes how many cycles pass a point each second, while amplitude measures the maximum displacement.",fact:"For a wave with constant speed, increasing frequency decreases wavelength: v = fλ."}
+};
+let active="solar",paused=false,animationFrame=0;
+const $=id=>document.getElementById(id);
+function selectLab(name){
+ active=name;document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.lab===name));
+ ["solar","atom","wave"].forEach(n=>$(n+"View").classList.toggle("hidden",n!==name));
+ ["solar","atom","wave"].forEach(n=>$(n+"Controls").classList.toggle("hidden",n!==name));
+ const d=labs[name];$("stageTitle").textContent=d.title;$("stageSub").textContent=d.sub;$("infoTitle").textContent=d.info;$("infoText").textContent=d.text;$("factText").textContent=d.fact;
+ $("pauseBtn").textContent=paused?"▶ Resume animation":"Ⅱ Pause animation";
+ if(name==="wave")drawWave();
+}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>selectLab(b.dataset.lab)));
+$("speed").addEventListener("input",e=>{const v=Number(e.target.value);$("speedOut").textContent=v.toFixed(1)+"×";document.querySelectorAll(".orbit").forEach((o,i)=>o.style.animationDuration=( [8,13,20,29][i]/v)+"s")});
+$("orbitScale").addEventListener("input",e=>{const v=Number(e.target.value);$("scaleOut").textContent=v+"%";document.querySelectorAll(".orbit").forEach(o=>{const r=o.dataset.base||o.offsetWidth;o.dataset.base=r;o.style.width=(Number(r)*v/100)+"px";o.style.height=(Number(r)*v/100)+"px"})});
+$("atomSpeed").addEventListener("input",e=>{const v=Number(e.target.value);$("atomSpeedOut").textContent=v.toFixed(1)+"×";document.querySelectorAll(".shell").forEach((o,i)=>o.style.animationDuration=([5,7,9][i]/v)+"s")});
+$("frequency").addEventListener("input",e=>{$("freqOut").textContent=Number(e.target.value).toFixed(1)+" Hz";drawWave()});
+$("amplitude").addEventListener("input",e=>{$("ampOut").textContent=e.target.value+"%";drawWave()});
+function drawWave(){
+ const c=$("waveCanvas"),rect=c.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2),w=Math.max(1,rect.width),h=Math.max(1,rect.height);
+ c.width=w*dpr;c.height=h*dpr;const ctx=c.getContext("2d");ctx.scale(dpr,dpr);
+ ctx.strokeStyle="#30435f";ctx.lineWidth=1;
+ for(let x=0;x<w;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke()}
+ for(let y=0;y<h;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
+ const amp=Number($("amplitude").value)/100*h*.32,f=Number($("frequency").value);
+ ctx.beginPath();for(let x=0;x<w;x++){const y=h/2-Math.sin(x/w*Math.PI*2*f)*amp;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}
+ ctx.strokeStyle="#65ddff";ctx.lineWidth=3;ctx.shadowColor="#65ddff";ctx.shadowBlur=12;ctx.stroke();ctx.shadowBlur=0;
+ ctx.fillStyle="#a8bdd9";ctx.font="11px system-ui";ctx.fillText("0",8,h/2-9);ctx.fillText("Distance →",w-86,h-14);
+}
+$("pauseBtn").addEventListener("click",()=>{paused=!paused;document.querySelectorAll(".orbit,.atom,.shell").forEach(o=>o.style.animationPlayState=paused?"paused":"running");$("pauseBtn").textContent=paused?"▶ Resume animation":"Ⅱ Pause animation"});
+$("resetBtn").addEventListener("click",()=>{paused=false;$("speed").value=1;$("orbitScale").value=100;$("atomSpeed").value=1;$("frequency").value=2;$("amplitude").value=50;$("speed").dispatchEvent(new Event("input"));$("orbitScale").dispatchEvent(new Event("input"));$("atomSpeed").dispatchEvent(new Event("input"));$("frequency").dispatchEvent(new Event("input"));$("amplitude").dispatchEvent(new Event("input"));document.querySelectorAll(".orbit,.atom,.shell").forEach(o=>o.style.animationPlayState="running");$("pauseBtn").textContent="Ⅱ Pause animation"});
+window.addEventListener("resize",()=>{if(active==="wave")drawWave()});
+selectLab("solar");
+</script>
+</body>
+</html>
