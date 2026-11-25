@@ -3,41 +3,50 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101114">
-<meta name="description" content="Your NovaFacts learning dashboard: study, coding, science tools, quizzes and virtual labs.">
+<meta name="theme-color" content="#f7f9fc">
+<meta name="description" content="NovaFacts student dashboard: study, coding, science tools, quizzes and virtual labs.">
 <title>Dashboard | NovaFacts</title>
 <style>
-:root{--bg:#0f1012;--panel:#181a1d;--panel2:#222529;--line:rgba(255,255,255,.1);--text:#f2f3f5;--muted:#a1a5ab;--red:#e62117;--blue:#6db7ff;--green:#72d6ad;--gold:#f3c86b}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
-a{color:inherit;text-decoration:none}.top{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 max(16px,calc((100% - 1120px)/2));border-bottom:1px solid var(--line);background:#141518;position:sticky;top:0;z-index:4}
-.brand{font-weight:900;font-size:21px;letter-spacing:-.5px}.brand span{color:var(--red)}.back{font-size:13px;color:#c3c8d0;font-weight:700}
-.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padding:30px 0 55px}
-.hero{padding:27px;border:1px solid var(--line);border-radius:20px;background:radial-gradient(circle at 90% 10%,#61251f66,transparent 35%),linear-gradient(135deg,#1b1d21,#15171a);margin-bottom:22px}
-.kicker{font-size:11px;letter-spacing:1.8px;color:#ff8c82;font-weight:900}.hero h1{font-size:clamp(27px,4vw,39px);margin:10px 0 8px;letter-spacing:-1px}.hero p{color:var(--muted);font-size:14px;line-height:1.65;margin:0;max-width:670px}
-.section-title{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:27px 2px 13px}.section-title h2{font-size:18px;margin:0}.section-title small{color:var(--muted);font-size:11px}
+:root{--bg:#f6f8fc;--paper:#fff;--ink:#172033;--muted:#718096;--line:#e8edf5;--blue:#3478f6;--blue2:#eaf2ff;--shadow:0 12px 34px rgba(26,49,87,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}a{color:inherit;text-decoration:none}
+.top{height:68px;background:#ffffffed;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(18px,calc((100% - 1160px)/2));position:sticky;top:0;z-index:5}
+.brand{font-size:21px;font-weight:900;letter-spacing:-.7px}.brand span{color:var(--blue)}.back{font-size:13px;font-weight:750;color:#64748b;padding:9px 13px;border:1px solid var(--line);border-radius:11px;background:#fff}
+.wrap{width:min(1160px,calc(100% - 36px));margin:auto;padding:30px 0 58px}
+.welcome{display:grid;grid-template-columns:1fr 260px;align-items:center;gap:22px;padding:30px 34px;background:linear-gradient(115deg,#fff 0%,#fff 58%,#edf4ff 100%);border:1px solid #e5ebf5;border-radius:26px;box-shadow:var(--shadow);overflow:hidden}
+.kicker{color:var(--blue);font-size:11px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase}.welcome h1{font-size:clamp(28px,4vw,42px);letter-spacing:-1.5px;margin:10px 0 9px}.welcome p{margin:0;color:var(--muted);font-size:14px;line-height:1.7;max-width:650px}
+.hero-art{height:190px;display:grid;place-items:center;position:relative}.hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid #cfe0ff;border-radius:50%;width:180px;height:180px}.hero-art:after{width:225px;height:225px;border-style:dashed;opacity:.75}
+.main-orb{width:142px;height:142px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#4b8cff,#245bd7);box-shadow:0 18px 38px #3978ec55,inset 0 2px 4px #ffffff80;color:white;font-size:58px;position:relative;z-index:1;border:7px solid #ffffff}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:29px 2px 13px}.section-head h2{font-size:17px;letter-spacing:-.3px;margin:0}.section-head span{font-size:11px;color:#8a97aa}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
-.card{display:flex;align-items:flex-start;gap:14px;min-height:116px;padding:17px;border:1px solid var(--line);border-radius:16px;background:var(--panel);transition:transform .18s,border-color .18s,background .18s}
-.card:hover{transform:translateY(-3px);border-color:#626a78;background:#1e2126}.ico{width:43px;height:43px;flex:0 0 43px;border-radius:13px;display:grid;place-items:center;font-size:22px;background:#ffffff0d}
-.card h3{font-size:14px;margin:2px 0 6px}.card p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
-.feature{grid-column:span 2;background:linear-gradient(120deg,#182a3b,#18202d);border-color:#31506b}.feature .ico{background:#3d8ed52b}
-.learning .ico{background:#2c8b6940}.tools .ico{background:#b18a3a2c}.explore .ico{background:#7d66c52b}
-.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.quick a{padding:13px;border:1px solid var(--line);border-radius:13px;background:#15171a;text-align:center;font-size:12px;font-weight:800;color:#dbe2ed}.quick a span{display:block;font-size:19px;margin-bottom:6px}
-.note{margin-top:25px;border:1px solid var(--line);border-radius:14px;padding:15px;color:var(--muted);font-size:12px;line-height:1.6;background:#141619}
-@media(max-width:760px){.wrap{width:calc(100% - 22px);padding-top:18px}.hero{padding:21px 18px;border-radius:16px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{padding:13px;min-height:122px;display:block}.ico{width:38px;height:38px;margin-bottom:10px}.card h3{font-size:13px}.card p{font-size:11px}.feature{grid-column:span 2;display:flex;min-height:100px}.feature .ico{margin:0}.quick{grid-template-columns:repeat(2,1fr)}.section-title{margin-top:22px}}
-@media(max-width:370px){.grid{grid-template-columns:1fr}.feature{grid-column:span 1}.card{display:flex;min-height:unset}.ico{margin:0}.quick{gap:7px}}
+.card{min-width:0;display:flex;align-items:center;gap:13px;padding:16px;background:var(--paper);border:1px solid var(--line);border-radius:17px;box-shadow:0 4px 15px rgba(30,55,90,.025);transition:transform .18s,box-shadow .18s,border-color .18s}
+.card:hover{transform:translateY(-3px);border-color:#c9d9f5;box-shadow:0 12px 25px rgba(37,83,151,.09)}
+.ico{width:43px;height:43px;flex:0 0 43px;border-radius:14px;display:grid;place-items:center;font-size:21px;background:var(--tint,#eef4ff)}
+.card h3{font-size:13px;font-weight:850;margin:0 0 5px}.card p{font-size:11px;color:var(--muted);line-height:1.5;margin:0}
+.learning{--tint:#e9f1ff}.explore{--tint:#e8f8f3}.tools{--tint:#fff4df}
+.feature{grid-column:span 2;background:linear-gradient(110deg,#fff,#f2f7ff);border-color:#dce8fb}.feature .ico{width:50px;height:50px;flex-basis:50px;font-size:25px}
+.learning .ico{background:#eaf1ff}.explore .ico{background:#e7f7f1}.tools .ico{background:#fff3df}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}.quick a{display:flex;align-items:center;justify-content:center;gap:9px;padding:13px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:12px;font-weight:800;color:#53627a;transition:.18s}.quick a:hover{border-color:#c7d9fa;background:#f8fbff}.quick span{font-size:18px}
+.note{margin-top:22px;padding:15px 17px;background:#fff;border:1px solid var(--line);border-radius:15px;color:#7a879a;font-size:11px;line-height:1.65}
+@media(max-width:780px){.wrap{width:calc(100% - 22px);padding:17px 0 38px}.top{height:60px;padding:0 14px}.welcome{grid-template-columns:1fr 135px;padding:22px 18px;border-radius:20px;gap:8px}.hero-art{height:140px}.hero-art:before{width:126px;height:126px}.hero-art:after{width:154px;height:154px}.main-orb{width:100px;height:100px;font-size:42px;border-width:5px}.welcome h1{font-size:29px}.welcome p{font-size:12px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{padding:12px;gap:10px;min-height:83px;border-radius:14px}.ico{width:37px;height:37px;flex-basis:37px;font-size:18px;border-radius:12px}.card h3{font-size:12px}.card p{font-size:10px}.feature{grid-column:span 2;padding:14px}.feature .ico{width:44px;height:44px;flex-basis:44px;font-size:22px}.section-head{margin-top:23px}.quick{grid-template-columns:repeat(2,1fr);gap:8px}}
+@media(max-width:420px){.welcome{grid-template-columns:1fr 104px;padding:18px 13px}.welcome h1{font-size:25px}.hero-art{height:116px}.hero-art:before{width:104px;height:104px}.hero-art:after{width:128px;height:128px}.main-orb{width:82px;height:82px;font-size:35px}.grid{gap:8px}.card{padding:10px;gap:8px}.card p{font-size:9.5px}.feature{padding:12px}.section-head h2{font-size:15px}.section-head span{font-size:9px}}
+@media(max-width:340px){.welcome{grid-template-columns:1fr}.hero-art{display:none}.grid{grid-template-columns:1fr}.feature{grid-column:span 1}.card{min-height:72px}.card p{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
 <header class="top"><a class="brand" href="index.html">Nova<span>Facts</span></a><a class="back" href="index.html">← Home</a></header>
 <main class="wrap">
-<section class="hero"><div class="kicker">YOUR LEARNING SPACE</div><h1>NovaFacts Dashboard</h1><p>सबै Learning Sections, Science Resources र Student Tools एउटै ठाउँबाट खोल्नुहोस्। आफ्नो रुचिअनुसार अध्ययन, अभ्यास र नयाँ कुरा अन्वेषण गर्नुहोस्।</p></section>
-<div class="section-title"><h2>📚 Learn & Create</h2><small>Study and build skills</small></div>
+<section class="welcome">
+<div><div class="kicker">YOUR PERSONAL LEARNING SPACE</div><h1>NovaFacts Dashboard</h1><p>सबै Learning Sections, Science Resources र Student Tools एउटै सफा ठाउँबाट खोल्नुहोस्। अध्ययन, अभ्यास र नयाँ कुरा अन्वेषण गर्न सुरु गर्नुहोस्।</p></div>
+<div class="hero-art" aria-label="Dashboard"><div class="main-orb">▦</div></div>
+</section>
+<div class="section-head"><h2>📚 Learn & Create</h2><span>Study and build skills</span></div>
 <section class="grid learning">
 <a class="card feature" href="Learn%20Study/index.html"><div class="ico">📚</div><div><h3>Study Centre</h3><p>Study materials, subject-wise learning resources and notes.</p></div></a>
-<a class="card" href="Code%20Study.html"><div class="ico">💻</div><div><h3>Coding Centre</h3><p>Learn programming and practice coding skills.</p></div></a>
+<a class="card" href="Code%20Study.html"><div class="ico">💻</div><div><h3>Computer & Coding</h3><p>Learn programming and practice coding skills.</p></div></a>
 <a class="card" href="question-bank.html"><div class="ico">✦</div><div><h3>Exam Question Generator</h3><p>Prepare practice questions for your subjects.</p></div></a>
 </section>
-<div class="section-title"><h2>🧪 Explore Science</h2><small>Discover and experiment</small></div>
+<div class="section-head"><h2>🧪 Explore Science</h2><span>Discover and experiment</span></div>
 <section class="grid explore">
 <a class="card feature" href="virtual-lab.html"><div class="ico">🧬</div><div><h3>3D Virtual Science Lab</h3><p>Explore interactive science models, simulations and visual experiments.</p></div></a>
 <a class="card" href="Periodic%20Table.html"><div class="ico">⚛️</div><div><h3>Periodic Table</h3><p>Explore chemical elements and their properties.</p></div></a>
@@ -45,14 +54,14 @@ a{color:inherit;text-decoration:none}.top{height:62px;display:flex;align-items:c
 <a class="card" href="index.html#latest"><div class="ico">📰</div><div><h3>Latest News</h3><p>Read the latest science and technology stories.</p></div></a>
 <a class="card" href="articles.html"><div class="ico">📖</div><div><h3>Articles Library</h3><p>Explore NovaFacts articles and explainers.</p></div></a>
 </section>
-<div class="section-title"><h2>🎯 Student Tools</h2><small>Practice and track your learning</small></div>
+<div class="section-head"><h2>🎯 Student Tools</h2><span>Practice and learn</span></div>
 <section class="grid tools">
 <a class="card" href="quiz.html"><div class="ico">🧠</div><div><h3>Advanced Quiz</h3><p>Test your knowledge with topic-based questions.</p></div></a>
 <a class="card" href="GPAcalculator.html"><div class="ico">🎓</div><div><h3>GPA Calculator</h3><p>Calculate and understand your academic GPA.</p></div></a>
 <a class="card" href="my-information.html"><div class="ico">ℹ️</div><div><h3>About NovaFacts</h3><p>Learn more about this educational platform.</p></div></a>
 </section>
-<section class="quick" aria-label="Quick links"><a href="index.html"><span>⌂</span>Home</a><a href="Learn%20Study/index.html"><span>📚</span>Study</a><a href="Code%20Study.html"><span>💻</span>Coding</a><a href="virtual-lab.html"><span>🧪</span>Virtual Lab</a></section>
-<div class="note">नोट: यो Dashboard एउटा navigation hub हो। यसले Study, Coding, Quiz, GPA Calculator वा Homepage का मूल सामग्री हटाउँदैन—सम्बन्धित पेजमा छिटो पुग्ने बाटो मात्र दिन्छ।</div>
+<section class="quick" aria-label="Quick links"><a href="index.html"><span>🏠</span>Home</a><a href="Learn%20Study/index.html"><span>📚</span>Study</a><a href="Code%20Study.html"><span>💻</span>Computer</a><a href="virtual-lab.html"><span>🧪</span>Virtual Lab</a></section>
+<div class="note">यो Dashboard एउटा navigation hub हो। यसले Study, Computer, Quiz, GPA Calculator वा Homepage का मूल सामग्री हटाउँदैन—सम्बन्धित पेजमा छिटो पुग्ने बाटो मात्र दिन्छ।</div>
 </main>
 </body>
 </html>
