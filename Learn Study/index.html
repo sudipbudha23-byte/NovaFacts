@@ -58,6 +58,12 @@ footer{text-align:center;color:#8b9ba9;font-size:10px;padding:25px 0 0}
 .profile-dropdown-footer button{border:1px solid #715b4d;border-radius:18px;background:#3b2a20;color:#fff;padding:7px 17px;font-size:12px;cursor:pointer}
 .profile-dropdown-footer button:hover{background:#513a2c}
 @media(max-width:540px){.profile-menu-wrap>span#studyUserName{display:none}.profile-dropdown{right:0;top:45px}}
+.game-hub{max-width:1400px;margin:0 auto 24px;padding:18px;border:1px solid #dce9f2;border-radius:18px;background:linear-gradient(150deg,#f9fcff,#edf6fb);box-shadow:0 8px 28px #1a547511}
+.game-welcome{display:flex;align-items:center;justify-content:space-between;padding:8px 8px 17px}.game-kicker{font-size:9px;letter-spacing:1.5px;font-weight:900;color:#257ba7}.game-welcome h2{font-size:23px;margin:7px 0 5px;color:#18334b}.game-welcome p{font-size:11px;color:#71869a;margin:0}.game-trophy{font-size:42px;filter:drop-shadow(0 6px 6px #b48b3d55)}
+.game-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.game-stat{background:#fff;border:1px solid #e2edf4;border-radius:12px;padding:13px;min-width:0}.game-stat>span{font-size:9px;color:#6e8294;font-weight:850;letter-spacing:.5px}.game-stat strong{display:block;font-size:25px;margin:7px 0 3px;color:#18334b}.game-stat small{font-size:9px;color:#7c8fa0}.xp-track,.rank-progress{height:6px;background:#e7eef3;border-radius:9px;margin-top:9px;overflow:hidden}.xp-track i,.rank-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,#1786b7,#36b7a0);border-radius:9px;transition:width .3s}
+.game-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:11px;margin-top:11px}.game-card{background:#fff;border:1px solid #e2edf4;border-radius:13px;padding:16px;min-width:0}.game-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.mission-tag{font-size:9px;font-weight:900;color:#9a6a0d;background:#fff3d5;padding:6px 9px;border-radius:20px}.game-card h3{font-size:14px;margin:7px 0;color:#18334b}.game-card p{font-size:10px;line-height:1.6;color:#74889a;margin:0}.mission-reward{font-size:10px;margin:12px 0;color:#617689}.mission-reward b{color:#9b711e;margin-right:7px}.game-cta{display:inline-flex;padding:9px 13px;border-radius:8px;background:linear-gradient(110deg,#176b9d,#2499b5);color:#fff;font-size:10px;font-weight:800}.rank-card{background:linear-gradient(135deg,#18334b,#245b79);color:#fff}.rank-card .game-kicker{color:#8dd9f3}.rank-card h3{font-size:18px;color:#fff}.rank-card p,.rank-card small{color:#d2e5ef}.rank-progress{background:#ffffff30}.rank-progress span{background:#f1c45a}.subject-card{margin-top:11px}.subject-card .game-card-top h3,.activity-card .game-card-top h3{margin:5px 0 0}.subject-card .game-card-top>a{font-size:10px;color:#237ba5;font-weight:800}.subject-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:13px}.subject-grid a{display:grid;gap:5px;padding:12px 9px;border:1px solid #e5edf2;border-radius:10px;background:#f9fcfe}.subject-grid a:hover{border-color:#9ccce2;transform:translateY(-2px)}.subject-grid b{font-size:20px}.subject-grid span{font-size:10px;font-weight:850;color:#29465d}.subject-grid small{font-size:8px;color:#8395a3}.activity-card{margin-top:11px}.activity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 10px}.activity-grid>div{padding:11px;background:#f6fafc;border-radius:9px}.activity-grid strong{display:block;font-size:19px;color:#1a719c}.activity-grid small{font-size:9px;color:#7b8e9e}.game-note{padding-top:9px;border-top:1px solid #edf1f4;font-size:9px!important}
+@media(max-width:800px){.game-hub{padding:13px;margin-bottom:17px}.game-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.game-layout{grid-template-columns:1fr}.game-welcome h2{font-size:20px}}
+@media(max-width:430px){.activity-grid{grid-template-columns:repeat(2,1fr)}.game-stat strong{font-size:22px}.game-trophy{font-size:34px}}
 </style>
 
 <link rel="stylesheet" href="../mobile-nav.css">
@@ -100,6 +106,29 @@ footer{text-align:center;color:#8b9ba9;font-size:10px;padding:25px 0 0}
   </div>
   <div class="profile-dropdown-footer"><button type="button" id="studyLogout">Sign out</button></div>
 </div></div></header>
+<section class="game-hub" id="gameHub" aria-label="Learning game dashboard">
+ <div class="game-welcome"><div><span class="game-kicker">NOVAfacts • LEARN & LEVEL UP</span><h2>Your learning adventure</h2><p>Study a little every day. Earn XP, collect coins and build your knowledge.</p></div><div class="game-trophy">🏆</div></div>
+ <div class="game-stats">
+  <article class="game-stat"><span>⚡ TOTAL XP</span><strong id="gameXP">0</strong><small id="gameLevel">Level 1 · Beginner</small><div class="xp-track"><i id="gameXPBar"></i></div></article>
+  <article class="game-stat"><span>🪙 COINS</span><strong id="gameCoins">0</strong><small>Earn coins by answering questions</small></article>
+  <article class="game-stat"><span>🎯 QUIZZES</span><strong id="gameQuizzes">0</strong><small>Completed quiz sets</small></article>
+  <article class="game-stat"><span>🔥 DAILY STREAK</span><strong id="gameStreak">0 days</strong><small id="gameAccuracy">0% accuracy</small></article>
+ </div>
+ <div class="game-layout">
+  <div class="game-card daily-card"><div class="game-card-top"><span class="game-kicker">TODAY'S MISSION</span><span class="mission-tag">DAILY</span></div><h3>⚡ Daily Quiz Challenge</h3><p>Answer 10 mixed questions. Complete today's challenge to earn bonus XP and coins.</p><div class="mission-reward">🎁 Reward: <b>+25 XP</b> <b>+5 Coins</b></div><a class="game-cta" href="../quiz.html?mode=daily">Start Daily Challenge →</a></div>
+  <div class="game-card rank-card"><div class="game-card-top"><span class="game-kicker">YOUR JOURNEY</span><span>🏅</span></div><h3 id="gameRankTitle">Beginner Learner</h3><p id="gameRankText">Start solving quizzes to unlock your next learning level.</p><div class="rank-progress"><span id="rankProgressBar"></span></div><small id="rankProgressText">0 XP earned</small></div>
+ </div>
+ <div class="game-card subject-card"><div class="game-card-top"><div><span class="game-kicker">PRACTICE ARENA</span><h3>Choose your subject</h3></div><a href="../quiz.html">All quizzes ↗</a></div>
+  <div class="subject-grid">
+   <a href="../quiz.html?course=Physics"><b>⚛️</b><span>Physics</span><small>Concepts & numericals</small></a>
+   <a href="../quiz.html?course=Chemistry"><b>🧪</b><span>Chemistry</span><small>Reactions & concepts</small></a>
+   <a href="../quiz.html?course=Biology"><b>🧬</b><span>Biology</span><small>Life science practice</small></a>
+   <a href="../quiz.html?course=Mathematics"><b>📐</b><span>Mathematics</span><small>Problem solving</small></a>
+   <a href="../quiz.html?course=Computer%20Science"><b>💻</b><span>Computer Science</span><small>Logic & programming</small></a>
+  </div>
+ </div>
+ <div class="game-card activity-card"><div class="game-card-top"><div><span class="game-kicker">YOUR RECORD</span><h3>Learning statistics</h3></div><span>📊</span></div><div class="activity-grid"><div><strong id="gameAnswered">0</strong><small>Questions answered</small></div><div><strong id="gameCorrect">0</strong><small>Correct answers</small></div><div><strong id="gameBadges">0</strong><small>Milestones unlocked</small></div><div><strong id="gameActiveDays">0</strong><small>Active challenge days</small></div></div><p class="game-note">Your progress is saved in this browser for this account. A shared worldwide leaderboard needs a secure server-side score database and is not enabled yet.</p></div>
+</section>
 <div class="content"><div class="columns"><section>
 <div class="banner"><div class="banner-copy"><h2>Ready to learn something new?</h2><p>Explore lessons, practise exam questions and build your knowledge with the NovaFacts learning space.</p><a class="white-btn" href="#lessons">Explore Learning&nbsp; ›</a></div><div class="banner-art" aria-hidden="true">🎓</div></div>
 <div class="dots"><i></i><i></i><i></i></div>
@@ -127,6 +156,27 @@ footer{text-align:center;color:#8b9ba9;font-size:10px;padding:25px 0 0}
 document.getElementById('year').textContent=new Date().getFullYear();
 const search=document.getElementById('toolSearch');
 search.addEventListener('input',()=>{const q=search.value.toLowerCase();document.querySelectorAll('.lesson').forEach(card=>{card.hidden=!card.innerText.toLowerCase().includes(q)})});
+function loadLearningGameDashboard(){
+ const user=(()=>{try{return JSON.parse(localStorage.getItem("novafacts_study_user")||"{}")}catch{return {}}})();
+ const key="nfStudyGameProgress:"+String(user.email||user.id||"guest").trim().toLowerCase();
+ let p={};try{p=JSON.parse(localStorage.getItem(key)||"{}")}catch{}
+ const xp=Number(p.xp||0),coins=Number(p.coins||0),answered=Number(p.totalAnswered||0),correct=Number(p.totalCorrect||0),quizzes=Number(p.quizzesCompleted||0),days=Array.isArray(p.dailyDays)?p.dailyDays:[];
+ const levels=[{name:"Beginner",min:0},{name:"Explorer",min:100},{name:"Scholar",min:300},{name:"Expert",min:700},{name:"Master",min:1400},{name:"Legend",min:2500}];
+ let level=levels[0],next=null;for(let i=0;i<levels.length;i++){if(xp>=levels[i].min){level=levels[i];next=levels[i+1]||null}}
+ const pct=next?Math.min(100,((xp-level.min)/(next.min-level.min))*100):100;
+ const streakDays=days.slice().sort().reverse();let streak=0;let d=new Date();let today=new Date().toLocaleDateString("en-CA");if(!days.includes(today))d.setDate(d.getDate()-1);
+ while(days.includes(d.toLocaleDateString("en-CA"))){streak++;d.setDate(d.getDate()-1)}
+ const badges=[answered>=1,correct>=10,quizzes>=1,days.length>=3,xp>=500].filter(Boolean).length;
+ const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value};
+ set("gameXP",xp);set("gameCoins",coins);set("gameQuizzes",quizzes);set("gameStreak",streak+" days");set("gameAccuracy",(answered?Math.round(correct/answered*100):0)+"% accuracy");set("gameAnswered",answered);set("gameCorrect",correct);set("gameBadges",badges);set("gameActiveDays",days.length);
+ set("gameLevel","Level "+(levels.indexOf(level)+1)+" · "+level.name);
+ set("gameRankTitle",level.name+" Learner");
+ set("gameRankText",next?(next.min-xp)+" XP until "+next.name+" level. Keep your daily practice going.":"Top learning level reached. Keep learning!");
+ set("rankProgressText",next?(xp-level.min)+" / "+(next.min-level.min)+" XP to next level":xp+" XP · Maximum level");
+ const xpBar=document.getElementById("gameXPBar"),rankBar=document.getElementById("rankProgressBar");if(xpBar)xpBar.style.width=pct+"%";if(rankBar)rankBar.style.width=pct+"%";
+}
+loadLearningGameDashboard();
+window.addEventListener("storage",loadLearningGameDashboard);
 const PROFILE_PHOTO_KEY="novafacts_study_profile_photo";
 document.getElementById("studyLogout").addEventListener("click",()=>{localStorage.removeItem("novafacts_study_token");localStorage.removeItem("novafacts_study_logged_in");localStorage.removeItem("novafacts_study_user");location.replace("register.html")});
 const profileToggle=document.getElementById("profileMenuToggle");
