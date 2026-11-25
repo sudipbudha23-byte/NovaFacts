@@ -1,93 +1,184 @@
 <!doctype html>
-<html lang="ne">
+<html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101114">
-<title>Study Registration & Login | NovaFacts</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#100d20">
+<meta name="description" content="Sign in or create your NovaFacts Study account.">
+<title>NovaFacts Study — Your learning space</title>
 <style>
-:root{--ink:#20243a;--muted:#85899b;--purple:#5947e8;--purple2:#806df5}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:clamp(14px,3vw,34px);display:grid;place-items:center;background:#f1f1f4;color:var(--ink);font:15px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
-.auth-shell{width:min(1120px,100%);min-height:min(690px,calc(100vh - 50px));display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 24px 80px #24243a20;animation:rise .7s ease both}
-.form-side{display:flex;align-items:center;justify-content:center;padding:clamp(26px,5vw,70px) clamp(24px,5vw,76px)}.form-inner{width:min(100%,410px)}
-.brand{display:flex;align-items:center;gap:10px;margin-bottom:28px;color:var(--purple);font-weight:800}.brand-mark{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:linear-gradient(135deg,#6657ef,#3c32c7);color:white;font-size:19px;box-shadow:0 7px 18px #5947e83b}.brand small{display:block;color:#999bad;font-size:10px;letter-spacing:1.8px}
-h1{font-size:clamp(26px,3vw,34px);line-height:1.2;margin:0 0 7px;letter-spacing:-1px}.subtitle{color:var(--muted);font-size:13px;margin:0 0 27px}h2{font-size:17px;margin:23px 0 8px}
-label{display:block;margin:15px 0 6px;color:#45495b;font-size:12px;font-weight:650}
-input,select,textarea{width:100%;padding:13px 14px;border:1px solid #e2e3eb;border-radius:8px;background:#fff;color:#25283a;font:inherit;font-size:14px;outline:none;transition:border .2s,box-shadow .2s}
-input:focus,select:focus,textarea:focus{border-color:var(--purple2);box-shadow:0 0 0 3px #7665f21a}input::placeholder,textarea::placeholder{color:#b0b2bf}textarea{min-height:76px;resize:vertical}
-.btn{width:100%;margin-top:20px;padding:14px;border:0;border-radius:8px;background:linear-gradient(100deg,#5545e3,#6757ed);color:white;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 8px 18px #5947e82b;transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 22px #5947e83b}.btn:disabled{opacity:.6;cursor:wait;transform:none}
-.switch{text-align:center;color:#8c90a0;font-size:12px;margin:19px 0 0}.switch button{border:0;background:none;color:var(--purple);font-weight:750;cursor:pointer;font:inherit}
-.msg{min-height:22px;margin:12px 0 0;text-align:center;font-size:12px;color:var(--muted)}.msg.error{color:#c64d5a}.msg.success{color:#21875b}.back{display:block;text-align:center;color:#999bad;margin-top:20px;text-decoration:none;font-size:12px}.back:hover{color:var(--purple)}
-.visual-side{position:relative;display:flex;align-items:center;justify-content:center;padding:clamp(22px,4vw,48px);background:radial-gradient(circle at 15% 15%,#8e80ff 0,transparent 34%),linear-gradient(145deg,#7664f4,#4d3be0 70%,#392bbd);color:white;overflow:hidden}
-.visual-side:before,.visual-side:after{content:"";position:absolute;border:1px solid #ffffff22;border-radius:50%;width:430px;height:430px;animation:float 9s ease-in-out infinite}.visual-side:after{width:570px;height:570px;animation-delay:-4s}
-.art-card{position:relative;z-index:1;width:min(100%,440px);min-height:520px;border:1px solid #ffffff55;border-radius:28px;background:linear-gradient(145deg,#ffffff20,#ffffff0a);backdrop-filter:blur(12px);padding:30px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 25px 65px #2414a544;animation:float 6s ease-in-out infinite}
-.art-scene{height:300px;position:relative;border-bottom:1px solid #ffffff38;background:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:50px 50px;border-radius:18px;overflow:hidden}
-.orbit{position:absolute;width:115px;height:115px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffffffaa,#c8c2ff55 65%,transparent 68%);top:32px;left:calc(50% - 57px);filter:blur(1px)}
-.desk{position:absolute;bottom:35px;left:12%;width:76%;height:115px;border-radius:50% 50% 18px 18px;background:linear-gradient(140deg,#b9b0ff,#6e5ce5);box-shadow:0 25px 35px #2818a955}
-.person{position:absolute;bottom:47px;left:50%;transform:translateX(-50%);font-size:112px;filter:drop-shadow(0 14px 10px #271c8055);animation:float 4s ease-in-out infinite}
-.spark{position:absolute;color:#fff;font-size:22px;opacity:.85}.s1{top:34px;left:12%}.s2{top:90px;right:12%}.s3{bottom:92px;right:17%}
-.art-copy h3{font-size:24px;margin:0 0 7px;letter-spacing:-.5px}.art-copy p{font-size:13px;color:#e1ddff;margin:0;line-height:1.7}.dots{display:flex;gap:7px;justify-content:center;margin-top:19px}.dots i{width:8px;height:8px;border-radius:50%;background:#ffffff70}.dots i:first-child{width:23px;border-radius:9px;background:#fff}
-[hidden]{display:none!important}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-@media(max-width:760px){body{padding:0;background:#fff;display:block}.auth-shell{width:100%;min-height:100vh;border-radius:0;grid-template-columns:1fr;box-shadow:none}.form-side{padding:34px 24px 28px;min-height:100vh}.form-inner{max-width:440px}.visual-side{display:none}.brand{margin-bottom:32px}h1{font-size:30px}}
-@media(min-width:761px) and (max-height:760px){.auth-shell{min-height:640px}.art-card{min-height:480px}.art-scene{height:255px}}
+:root{color-scheme:dark;--bg:#100d20;--panel:#19152c;--panel2:#211b39;--line:#37304f;--text:#f8f6ff;--muted:#aaa3c1;--violet:#a78bfa;--mint:#8ce6cf;--danger:#ff9aab}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 15% 10%,#34255d 0,transparent 34%),radial-gradient(ellipse at 95% 90%,#193e48 0,transparent 28%),var(--bg);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);display:grid;place-items:center;padding:28px}
+button,input{font:inherit}.layout{width:min(1080px,100%);min-height:650px;display:grid;grid-template-columns:1.02fr .98fr;border:1px solid #ffffff18;border-radius:28px;overflow:hidden;background:#171329eF;box-shadow:0 35px 100px #05030d99;animation:enter .65s ease both}
+.story{position:relative;overflow:hidden;padding:46px;background:linear-gradient(145deg,#231a42,#17152d 72%);display:flex;flex-direction:column;justify-content:space-between}
+.story:before,.story:after{content:"";position:absolute;border:1px solid #b7a1ff28;border-radius:50%;width:390px;height:390px;right:-130px;top:90px}.story:after{width:510px;height:510px;right:-190px;top:30px;border-color:#8ce6cf18}
+.brand{display:flex;align-items:center;gap:12px;position:relative;z-index:1;font-weight:800;letter-spacing:.2px}.brand-icon{height:42px;width:42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,#b99bff,#7655d9);color:#17112a;font-size:23px;box-shadow:0 9px 25px #8c67f65c}.brand small{display:block;font-size:10px;letter-spacing:2.6px;color:#aaa0c9;font-weight:650;margin-top:1px}
+.story-copy{position:relative;z-index:1;max-width:440px;margin:54px 0 20px}.eyebrow{color:var(--mint);font-size:11px;letter-spacing:2.5px;font-weight:800;text-transform:uppercase}.story h2{font-size:clamp(34px,4.5vw,53px);line-height:1.05;letter-spacing:-2px;margin:17px 0}.story-copy p{color:#bcb5d2;max-width:370px;line-height:1.8;margin:0}
+.visual{position:relative;z-index:1;height:220px;margin:16px 0 0;display:flex;align-items:center;justify-content:center}.orbit{position:absolute;width:210px;height:210px;border:1px solid #b39aff55;border-radius:50%;box-shadow:0 0 55px #8b6bff18,inset 0 0 40px #8b6bff12}.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #8ce6cf55;border-radius:50%;inset:23px}.orbit:after{inset:47px;border-color:#b39aff77}.core{width:94px;height:94px;border-radius:28px;display:grid;place-items:center;font-size:42px;background:linear-gradient(145deg,#bca7ff,#7b61d9);box-shadow:0 15px 50px #8b6bff66;transform:rotate(-8deg);animation:levitate 5s ease-in-out infinite}.float-chip{position:absolute;padding:9px 13px;border:1px solid #ffffff24;border-radius:12px;background:#ffffff0c;backdrop-filter:blur(8px);font-size:11px;color:#ded7f7}.chip-a{top:12px;left:8%}.chip-b{right:3%;bottom:24px}.story-foot{position:relative;z-index:1;color:#8e87a9;font-size:11px}
+.form-side{display:flex;align-items:center;justify-content:center;padding:clamp(30px,5vw,66px);background:linear-gradient(155deg,#1b1730,#141124)}
+.form-wrap{width:min(100%,390px)}.mobile-brand{display:none}.form-top{margin-bottom:29px}.form-top .eyebrow{font-size:10px}.form-top h1{font-size:32px;letter-spacing:-1.1px;margin:10px 0 6px}.form-top p{color:var(--muted);font-size:13px;margin:0}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:5px;border:1px solid #ffffff12;background:#100d20;border-radius:13px;margin:25px 0 24px}.tab{border:0;border-radius:9px;padding:10px;background:transparent;color:#928ba9;font-size:13px;font-weight:700;cursor:pointer;transition:.2s}.tab.active{background:#30264b;color:#fff;box-shadow:inset 0 0 0 1px #a78bfa33}
+.field{margin:16px 0}.field label{display:block;margin:0 0 7px;color:#d8d2e8;font-size:12px;font-weight:700}.input-wrap{position:relative}.field input{width:100%;height:49px;border:1px solid var(--line);border-radius:11px;background:#100d20;color:var(--text);padding:0 14px;outline:none;transition:border .2s,box-shadow .2s}.field input::placeholder{color:#716b84}.field input:focus{border-color:var(--violet);box-shadow:0 0 0 3px #a78bfa1b}.toggle-pass{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#aaa3c1;font-size:11px;cursor:pointer;padding:7px}
+.submit{width:100%;height:51px;margin-top:9px;border:0;border-radius:11px;background:linear-gradient(100deg,#b69aff,#8d72ed);color:#18112b;font-weight:850;cursor:pointer;box-shadow:0 10px 25px #9474ef30;transition:transform .2s,filter .2s}.submit:hover{transform:translateY(-2px);filter:brightness(1.07)}.submit:disabled{opacity:.55;cursor:wait;transform:none}
+.message{min-height:22px;margin:13px 0 0;text-align:center;font-size:12px;color:var(--muted)}.message.error{color:var(--danger)}.message.success{color:var(--mint)}.footnote{text-align:center;margin:23px 0 0;color:#77718d;font-size:11px}.home{display:block;text-align:center;color:#9b93b3;text-decoration:none;font-size:12px;margin-top:20px}.home:hover{color:#d8ccff}
+[hidden]{display:none!important}@keyframes enter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}@keyframes levitate{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-10px) rotate(-3deg)}}
+@media(max-width:760px){body{padding:0;display:block;background:var(--bg)}.layout{display:block;width:100%;min-height:100vh;border:0;border-radius:0;box-shadow:none}.story{display:none}.form-side{min-height:100vh;padding:32px 25px;align-items:center}.form-wrap{max-width:430px}.mobile-brand{display:flex;margin-bottom:42px}.form-top h1{font-size:30px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
-<body><main class="auth-shell">
-<section class="form-side"><div class="form-inner">
-<div class="brand"><span class="brand-mark">✦</span><span>NovaFacts <small>STUDY SPACE</small></span></div>
-<div id="registerPane"><h1>Create your account</h1><p class="subtitle">Register to continue your learning journey.</p>
-<label for="name">पूरा नाम</label><input id="name" autocomplete="name" placeholder="तपाईंको नाम">
-<label for="email">Email Address</label><input id="email" type="email" autocomplete="email" placeholder="example@gmail.com">
-<label for="password">Password</label><input id="password" type="password" autocomplete="new-password" placeholder="कम्तीमा ६ अक्षर">
-<label for="grade">कक्षा / Class</label><select id="grade"><option value="">कक्षा छान्नुहोस्</option><option>Class 10</option><option>Class 11</option><option>Class 12</option><option>Other</option></select>
-<label for="purpose">Study interest</label><textarea id="purpose" placeholder="तपाईं के सिक्न चाहनुहुन्छ?"></textarea>
-<button class="btn" id="registerBtn" type="button">Create Account&nbsp; →</button><p class="switch">पहिले नै खाता छ? <button type="button" id="showLogin">Login गर्नुहोस्</button></p></div>
-<div id="loginPane" hidden><h1>Welcome back!</h1><p class="subtitle">Please enter your details to continue.</p>
-<label for="loginEmail">Email Address</label><input id="loginEmail" type="email" autocomplete="username" placeholder="example@gmail.com">
-<label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Password">
-<button class="btn" id="loginBtn" type="button">Login&nbsp; →</button><p class="switch">नयाँ प्रयोगकर्ता हुनुहुन्छ? <button type="button" id="showRegister">Registration गर्नुहोस्</button></p></div>
-<div id="status" class="msg" role="status" aria-live="polite"></div><a class="back" href="../index.html">← Back to NovaFacts Homepage</a>
-</div></section>
-<aside class="visual-side" aria-label="NovaFacts Study welcome panel"><div class="art-card"><div class="art-scene"><span class="spark s1">✧</span><span class="spark s2">✦</span><span class="spark s3">✧</span><div class="orbit"></div><div class="desk"></div><div class="person" aria-hidden="true">🧑🏻‍💻</div></div><div class="art-copy"><h3>Seamless learning experience</h3><p>Everything you need to learn, explore and grow — all in one customizable study space.</p><div class="dots"><i></i><i></i><i></i></div></div></div></aside>
+<body>
+<main class="layout">
+<section class="story" aria-label="NovaFacts Study introduction">
+  <div class="brand"><span class="brand-icon">✳</span><span>NovaFacts<small>STUDY SPACE</small></span></div>
+  <div class="story-copy">
+    <div class="eyebrow">LEARN · EXPLORE · GROW</div>
+    <h2>Your next idea<br>starts here.</h2>
+    <p>A focused space for curious minds. Sign in to continue exploring science, knowledge and new ways to learn.</p>
+    <div class="visual"><div class="orbit"></div><div class="core">✦</div><span class="float-chip chip-a">✧ Keep discovering</span><span class="float-chip chip-b">Knowledge grows here ↗</span></div>
+  </div>
+  <div class="story-foot">NOVAfacts STUDY · A SPACE FOR EVERY CURIOUS MIND</div>
+</section>
+<section class="form-side">
+<div class="form-wrap">
+  <div class="brand mobile-brand"><span class="brand-icon">✳</span><span>NovaFacts<small>STUDY SPACE</small></span></div>
+  <div class="form-top"><div class="eyebrow">YOUR LEARNING SPACE</div><h1 id="heading">Welcome back</h1><p id="subheading">Sign in to continue where you left off.</p></div>
+  <div class="tabs" role="tablist" aria-label="Account options">
+    <button class="tab active" id="loginTab" type="button" role="tab" aria-selected="true">Sign in</button>
+    <button class="tab" id="registerTab" type="button" role="tab" aria-selected="false">Create account</button>
+  </div>
+  <form id="authForm" novalidate>
+    <div class="field" id="nameField" hidden><label for="fullName">Full name</label><input id="fullName" name="name" autocomplete="name" placeholder="Enter your full name" maxlength="100"></div>
+    <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required></div>
+    <div class="field"><label for="password">Password</label><div class="input-wrap"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required><button class="toggle-pass" id="togglePass" type="button">Show</button></div></div>
+    <button class="submit" id="submitBtn" type="submit">Sign in <span aria-hidden="true">→</span></button>
+  </form>
+  <p class="message" id="message" role="status" aria-live="polite"></p>
+  <p class="footnote">Your account is protected with secure password hashing.</p>
+  <a class="home" href="../index.html">← Back to NovaFacts</a>
+</div>
+</section>
 </main>
 <script>
-const SCRIPT_URL="https://script.google.com/macros/s/AKfycbzfEr5e5Timz36UPwrAEAMu32LJ_-M5QjOf13mFtmTMJPSQxSJKCypYmeDhXVR2dNlM3g/exec";
-const SESSION_KEY="novafacts_study_logged_in",USER_KEY="novafacts_study_user";
-const $=id=>document.getElementById(id),status=$("status");
-function say(message,type=""){status.textContent=message;status.className="msg "+type;}
-function pane(which){$("registerPane").hidden=which!=="register";$("loginPane").hidden=which!=="login";say("");}
-$("showLogin").onclick=()=>pane("login");$("showRegister").onclick=()=>pane("register");
-function jsonp(action,params){return new Promise((resolve,reject)=>{const cb="nfStudy_"+Date.now()+"_"+Math.floor(Math.random()*10000),s=document.createElement("script");let q="?action="+encodeURIComponent(action);Object.entries(params).forEach(([k,v])=>q+="&"+encodeURIComponent(k)+"="+encodeURIComponent(v));q+="&callback="+cb;let timer=setTimeout(()=>{cleanup();reject(new Error("Server response समयमै आएन।"));},15000);function cleanup(){clearTimeout(timer);delete window[cb];s.remove();}window[cb]=data=>{cleanup();resolve(data)};s.onerror=()=>{cleanup();reject(new Error("Server सँग जडान हुन सकेन।"));};s.src=SCRIPT_URL+q;document.body.appendChild(s);});}
-async function sha256(value){const hash=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(value));return Array.from(new Uint8Array(hash)).map(x=>x.toString(16).padStart(2,"0")).join("");}
-async function checkEmail(email){return jsonp("emailCheck",{email});}
-$("registerBtn").onclick=async()=>{
- const name=$("name").value.trim(),email=$("email").value.trim().toLowerCase(),password=$("password").value,grade=$("grade").value,purpose=$("purpose").value.trim(),button=$("registerBtn");
- if(!name||!/^\S+@\S+\.\S+$/.test(email)||password.length<6||!grade){say("नाम, सही Email, ६+ अक्षरको Password र कक्षा भर्नुहोस्।","error");return;}
- button.disabled=true;say("Registration जाँच हुँदैछ…");
- try{
-  const check=await checkEmail(email);
-  if(check.success&&check.registered){$("loginEmail").value=email;pane("login");say("यो Email पहिले नै दर्ता छ। अब Login गर्नुहोस्।","error");return;}
-  await fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({name,email,password,festival:"NovaFacts Study - "+grade,message:purpose||"Study section registration"})});
-  say("Registration सुरक्षित हुँदैछ…");
-  let saved=false;for(let i=0;i<8;i++){await new Promise(r=>setTimeout(r,1200));try{const verify=await checkEmail(email);if(verify.success&&verify.registered){saved=true;break;}}catch(e){}}
-  if(saved){$("loginEmail").value=email;$("password").value="";pane("login");say("Registration सफल भयो। अब आफ्नो Password बाट Login गर्नुहोस्।","success");}
-  else say("Registration पुष्टि हुन सकेन। केही बेरपछि फेरि प्रयास गर्नुहोस्।","error");
- }catch(e){say(e.message||"Registration हुन सकेन।","error");}
- finally{button.disabled=false;}
-};
-$("loginBtn").onclick=async()=>{
- const email=$("loginEmail").value.trim().toLowerCase(),password=$("loginPassword").value,button=$("loginBtn");
- if(!/^\S+@\S+\.\S+$/.test(email)||!password){say("Registered Email र Password राख्नुहोस्।","error");return;}
- button.disabled=true;say("Account जाँच हुँदैछ…");
- try{
-  const result=await jsonp("login",{email,passwordHash:await sha256(password)});
-  if(!result.success){say(result.error||"Email वा Password मिलेन।","error");return;}
-  const user={name:result.name||"Student",email};
-  localStorage.setItem(SESSION_KEY,"true");localStorage.setItem(USER_KEY,JSON.stringify(user));
-  say("Login सफल भयो। Study Dashboard खोलिँदैछ…","success");
-  location.replace("index.html");
- }catch(e){say(e.message||"Login हुन सकेन।","error");}
- finally{button.disabled=false;}
-};
-if(localStorage.getItem(SESSION_KEY)==="true"&&localStorage.getItem(USER_KEY))location.replace("index.html");
+(() => {
+  "use strict";
+  const API = "/api/study-auth";
+  const SESSION_KEY = "novafacts_study_logged_in";
+  const TOKEN_KEY = "novafacts_study_token";
+  const USER_KEY = "novafacts_study_user";
+  const $ = id => document.getElementById(id);
+  let mode = "login";
+  const message = $("message");
+  const params = new URLSearchParams(location.search);
+  const requestedNext = params.get("next") || "index.html";
+  const safeNext = requestedNext.startsWith("/") && !requestedNext.startsWith("//") ? requestedNext : "index.html";
+
+  function showMessage(text, kind = "") {
+    message.textContent = text;
+    message.className = "message " + kind;
+  }
+  function setMode(next) {
+    mode = next;
+    const registering = mode === "register";
+    $("nameField").hidden = !registering;
+    $("heading").textContent = registering ? "Create your account" : "Welcome back";
+    $("subheading").textContent = registering ? "Join NovaFacts Study and start exploring." : "Sign in to continue where you left off.";
+    $("submitBtn").innerHTML = registering ? 'Create account <span aria-hidden="true">→</span>' : 'Sign in <span aria-hidden="true">→</span>';
+    $("password").setAttribute("autocomplete", registering ? "new-password" : "current-password");
+    $("loginTab").classList.toggle("active", !registering);
+    $("registerTab").classList.toggle("active", registering);
+    $("loginTab").setAttribute("aria-selected", String(!registering));
+    $("registerTab").setAttribute("aria-selected", String(registering));
+    showMessage("");
+  }
+  async function api(action, data = {}) {
+    const response = await fetch(API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      cache: "no-store",
+      body: JSON.stringify({ action, ...data })
+    });
+    let result;
+    try { result = await response.json(); }
+    catch { throw new Error("Server बाट बुझ्न नसकिने जवाफ आयो।"); }
+    if (!response.ok && result?.ok !== false) throw new Error("Server request असफल भयो।");
+    return result;
+  }
+  $("loginTab").addEventListener("click", () => setMode("login"));
+  $("registerTab").addEventListener("click", () => setMode("register"));
+  $("togglePass").addEventListener("click", () => {
+    const field = $("password");
+    const visible = field.type === "text";
+    field.type = visible ? "password" : "text";
+    $("togglePass").textContent = visible ? "Show" : "Hide";
+  });
+
+  $("authForm").addEventListener("submit", async event => {
+    event.preventDefault();
+    const button = $("submitBtn");
+    const email = $("email").value.trim().toLowerCase();
+    const password = $("password").value;
+    const name = $("fullName").value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showMessage("कृपया सही Email address राख्नुहोस्।", "error"); $("email").focus(); return;
+    }
+    if (mode === "register" && name.length < 2) {
+      showMessage("कृपया पूरा नाम कम्तीमा २ अक्षरमा लेख्नुहोस्।", "error"); $("fullName").focus(); return;
+    }
+    if (password.length < 8) {
+      showMessage("Password कम्तीमा ८ अक्षरको हुनुपर्छ।", "error"); $("password").focus(); return;
+    }
+
+    button.disabled = true;
+    button.textContent = mode === "register" ? "Creating account…" : "Signing in…";
+    showMessage("सुरक्षित रूपमा जाँच हुँदैछ…");
+    try {
+      if (mode === "register") {
+        const result = await api("register", { name, email, password });
+        if (!result.ok) {
+          if (result.code === "EMAIL_EXISTS") {
+            setMode("login"); $("email").value = email;
+            showMessage("यो Email पहिले नै दर्ता छ। अब Login गर्नुहोस्।", "error");
+          } else showMessage(result.error || "Registration हुन सकेन।", "error");
+          return;
+        }
+        $("password").value = "";
+        setMode("login"); $("email").value = email;
+        showMessage("Registration सफल भयो! अब Password बाट Login गर्नुहोस्।", "success");
+      } else {
+        const result = await api("login", { email, password });
+        if (!result.ok) { showMessage(result.error || "Email वा Password मिलेन।", "error"); return; }
+        if (!result.token || !result.user) throw new Error("Server ले session token पठाएन।");
+        localStorage.setItem(TOKEN_KEY, result.token);
+        localStorage.setItem(SESSION_KEY, "true");
+        localStorage.setItem(USER_KEY, JSON.stringify(result.user));
+        showMessage("Login सफल भयो। Study खोलिँदैछ…", "success");
+        location.replace(safeNext);
+      }
+    } catch (error) {
+      showMessage(error.message || "जडान हुन सकेन। फेरि प्रयास गर्नुहोस्।", "error");
+    } finally {
+      button.disabled = false;
+      button.innerHTML = mode === "register" ? 'Create account <span aria-hidden="true">→</span>' : 'Sign in <span aria-hidden="true">→</span>';
+    }
+  });
+
+  (async () => {
+    const token = localStorage.getItem(TOKEN_KEY);
+    if (!token) return;
+    try {
+      const result = await api("verify", { token });
+      if (result.ok && result.user) {
+        localStorage.setItem(SESSION_KEY, "true");
+        localStorage.setItem(USER_KEY, JSON.stringify(result.user));
+        location.replace(safeNext);
+      } else {
+        localStorage.removeItem(TOKEN_KEY);
+        localStorage.removeItem(SESSION_KEY);
+        localStorage.removeItem(USER_KEY);
+      }
+    } catch { /* Keep the sign-in form available if the verification service is temporarily offline. */ }
+  })();
+})();
 </script>
-</body></html>
+</body>
+</html>
