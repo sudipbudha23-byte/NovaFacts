@@ -17,17 +17,22 @@
 .hero-art{height:190px;display:grid;place-items:center;position:relative}.hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid #cfe0ff;border-radius:50%;width:180px;height:180px}.hero-art:after{width:225px;height:225px;border-style:dashed;opacity:.75}
 .main-orb{width:142px;height:142px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#4b8cff,#245bd7);box-shadow:0 18px 38px #3978ec55,inset 0 2px 4px #ffffff80;color:white;font-size:58px;position:relative;z-index:1;border:7px solid #ffffff}
 .section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:29px 2px 13px}.section-head h2{font-size:17px;letter-spacing:-.3px;margin:0}.section-head span{font-size:11px;color:#8a97aa}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
 .card{min-width:0;display:flex;align-items:center;gap:13px;padding:16px;background:var(--paper);border:1px solid var(--line);border-radius:17px;box-shadow:0 4px 15px rgba(30,55,90,.025);transition:transform .18s,box-shadow .18s,border-color .18s}
-.card:hover{transform:translateY(-3px);border-color:#c9d9f5;box-shadow:0 12px 25px rgba(37,83,151,.09)}
+.card:hover{transform:translateY(-2px);border-color:#9bbcf4;box-shadow:0 12px 25px rgba(37,83,151,.09)}
+.grid .card{min-height:88px;padding:17px 19px;background:#fff;border:1px solid #e5eaf2;border-radius:17px;box-shadow:0 5px 18px rgba(31,51,83,.045)}
+.grid .card h3{font-size:14px;color:#18243a}
+.grid .card p{font-size:12px;line-height:1.55;color:#66758b}
+.grid .card .ico{width:48px;height:48px;flex-basis:48px;border-radius:15px;font-size:23px}
+.grid .card.feature{background:linear-gradient(105deg,#fff 0%,#f8fbff 100%);border-color:#dce6f6}
 .ico{width:43px;height:43px;flex:0 0 43px;border-radius:14px;display:grid;place-items:center;font-size:21px;background:var(--tint,#eef4ff)}
 .card h3{font-size:13px;font-weight:850;margin:0 0 5px}.card p{font-size:11px;color:var(--muted);line-height:1.5;margin:0}
 .learning{--tint:#e9f1ff}.explore{--tint:#e8f8f3}.tools{--tint:#fff4df}
-.feature{grid-column:span 2;background:linear-gradient(110deg,#fff,#f2f7ff);border-color:#dce8fb}.feature .ico{width:50px;height:50px;flex-basis:50px;font-size:25px}
+.feature{grid-column:span 1;background:#fff;border-color:#e4eaf3}.feature .ico{width:50px;height:50px;flex-basis:50px;font-size:25px}
 .learning .ico{background:#eaf1ff}.explore .ico{background:#e7f7f1}.tools .ico{background:#fff3df}
 .quick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}.quick a{display:flex;align-items:center;justify-content:center;gap:9px;padding:13px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:12px;font-weight:800;color:#53627a;transition:.18s}.quick a:hover{border-color:#c7d9fa;background:#f8fbff}.quick span{font-size:18px}
 .note{margin-top:22px;padding:15px 17px;background:#fff;border:1px solid var(--line);border-radius:15px;color:#7a879a;font-size:11px;line-height:1.65}
-@media(max-width:780px){.wrap{width:calc(100% - 22px);padding:17px 0 38px}.top{height:60px;padding:0 14px}.welcome{grid-template-columns:1fr 135px;padding:22px 18px;border-radius:20px;gap:8px}.hero-art{height:140px}.hero-art:before{width:126px;height:126px}.hero-art:after{width:154px;height:154px}.main-orb{width:100px;height:100px;font-size:42px;border-width:5px}.welcome h1{font-size:29px}.welcome p{font-size:12px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{padding:12px;gap:10px;min-height:83px;border-radius:14px}.ico{width:37px;height:37px;flex-basis:37px;font-size:18px;border-radius:12px}.card h3{font-size:12px}.card p{font-size:10px}.feature{grid-column:span 2;padding:14px}.feature .ico{width:44px;height:44px;flex-basis:44px;font-size:22px}.section-head{margin-top:23px}.quick{grid-template-columns:repeat(2,1fr);gap:8px}}
+@media(max-width:780px){.wrap{width:calc(100% - 22px);padding:17px 0 38px}.top{height:60px;padding:0 14px}.welcome{grid-template-columns:1fr 135px;padding:22px 18px;border-radius:20px;gap:8px}.hero-art{height:140px}.hero-art:before{width:126px;height:126px}.hero-art:after{width:154px;height:154px}.main-orb{width:100px;height:100px;font-size:42px;border-width:5px}.welcome h1{font-size:29px}.welcome p{font-size:12px}.grid{grid-template-columns:1fr;gap:10px}.card{padding:12px;gap:10px;min-height:83px;border-radius:14px}.ico{width:37px;height:37px;flex-basis:37px;font-size:18px;border-radius:12px}.card h3{font-size:12px}.card p{font-size:10px}.feature{grid-column:span 1;padding:14px}.feature .ico{width:44px;height:44px;flex-basis:44px;font-size:22px}.section-head{margin-top:23px}.quick{grid-template-columns:repeat(2,1fr);gap:8px}}
 @media(max-width:420px){.welcome{grid-template-columns:1fr 104px;padding:18px 13px}.welcome h1{font-size:25px}.hero-art{height:116px}.hero-art:before{width:104px;height:104px}.hero-art:after{width:128px;height:128px}.main-orb{width:82px;height:82px;font-size:35px}.grid{gap:8px}.card{padding:10px;gap:8px}.card p{font-size:9.5px}.feature{padding:12px}.section-head h2{font-size:15px}.section-head span{font-size:9px}}
 @media(max-width:340px){.welcome{grid-template-columns:1fr}.hero-art{display:none}.grid{grid-template-columns:1fr}.feature{grid-column:span 1}.card{min-height:72px}.card p{font-size:10px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
@@ -61,6 +66,7 @@
 <section class="grid tools">
 <a class="card" href="quiz.html"><div class="ico">🧠</div><div><h3>Advanced Quiz</h3><p>Test your knowledge with topic-based questions.</p></div></a>
 <a class="card" href="GPAcalculator.html"><div class="ico">🎓</div><div><h3>GPA Calculator</h3><p>Calculate and understand your academic GPA.</p></div></a>
+<a class="card" href="AI-Learning.html"><div class="ico">✦</div><div><h3>AI Study Assistant</h3><p>Explore concepts and explanations in Nepali or English.</p></div></a>
 <a class="card" href="my-information.html"><div class="ico">ℹ️</div><div><h3>About NovaFacts</h3><p>Learn more about this educational platform.</p></div></a>
 </section>
 <section class="quick" aria-label="Quick links"><a href="index.html"><span>🏠</span>Home</a><a href="Learn%20Study/index.html"><span>📚</span>Study</a><a href="Code%20Study.html"><span>💻</span>Computer</a><a href="virtual-lab.html"><span>🧪</span>Virtual Lab</a></section>
