@@ -204,6 +204,18 @@ body{background:var(--nf-paper);color:#202642}
 .profile-menu-trigger #profileTogglePhoto[hidden],.profile-menu-trigger #profileToggleInitial[hidden]{display:none!important}
 .profile-menu-trigger #profileToggleInitial{display:grid;place-items:center;width:100%;height:100%;color:#fff;font-size:16px;font-weight:850;line-height:1}
 
+/* Fix profile avatar rendering on small and large screens */
+.profile-menu-wrap{display:flex!important;align-items:center!important;gap:10px!important;min-width:0}
+.profile-menu-wrap #studyUserName{display:block!important;max-width:min(42vw,240px)!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;color:#252b4a!important;font-size:13px!important;font-weight:800!important;line-height:1.2!important}
+.profile-menu-trigger{position:relative!important;display:grid!important;place-items:center!important;width:48px!important;height:48px!important;min-width:48px!important;min-height:48px!important;flex:0 0 48px!important;padding:0!important;border:3px solid #fff!important;border-radius:50%!important;overflow:hidden!important;background:#f1f3fb!important;box-shadow:0 4px 14px #272c6530!important}
+#profileTogglePhoto{display:block;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:center;border-radius:50%}
+#profileToggleInitial{display:grid;place-items:center;width:100%;height:100%;font-size:17px;font-weight:850;color:#fff;background:#363a82}
+#profileTogglePhoto[hidden],#profileToggleInitial[hidden],#studentPhoto[hidden],#studentInitial[hidden]{display:none!important}
+.profile-photo-wrap{width:104px!important;height:104px!important;flex:0 0 104px!important;border-radius:50%!important;overflow:hidden!important;background:#f1f3fb!important;border:4px solid #fff!important}
+.profile-photo-wrap .student-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.profile-avatar-choices .avatar-choice img{display:block;width:52px;height:52px;object-fit:cover;border-radius:12px}
+@media(max-width:540px){.profile-menu-wrap{gap:7px!important}.profile-menu-wrap #studyUserName{display:block!important;max-width:38vw!important;font-size:12px!important}.profile-menu-trigger{width:46px!important;height:46px!important;min-width:46px!important;min-height:46px!important;flex-basis:46px!important}.profile-dropdown{position:fixed!important;top:76px!important;right:12px!important;width:min(360px,calc(100vw - 24px))!important;max-height:calc(100dvh - 92px)!important;overflow-y:auto!important}}
+@media(max-width:360px){.profile-menu-wrap #studyUserName{max-width:31vw!important;font-size:11px!important}}
 </style>
 
 <link rel="stylesheet" href="../mobile-nav.css">
