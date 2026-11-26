@@ -54,6 +54,14 @@ body{background:#aaa9d6;padding:22px}
 @media(min-width:700px){body{padding:38px}.layout{width:min(560px,100%)}.form-side{padding:28px 42px 40px}.welcome-photo-frame{height:310px}}
 @media(max-width:420px){body{padding:0;background:#fff}.layout{width:100%;border-radius:0;box-shadow:none}.form-side{padding:16px 20px 30px}.welcome-photo-frame{height:260px;border-radius:0 0 20px 20px}.welcome-intro h1{font-size:25px}}
 
+
+/* Tall welcome/start artwork for mobile; full image remains visible without cropping. */
+.welcome-photo-frame{height:390px!important;background:#292d70!important;border-radius:24px 24px 18px 18px!important}
+.welcome-photo{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important}
+.welcome-intro{padding-bottom:8px}
+@media(min-width:700px){.welcome-photo-frame{height:430px!important}}
+@media(max-width:420px){.welcome-photo-frame{height:390px!important;border-radius:0 0 22px 22px!important}}
+
 </style>
 </head>
 <body>
