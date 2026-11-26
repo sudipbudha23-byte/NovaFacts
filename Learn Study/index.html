@@ -143,6 +143,21 @@ body{background:var(--nf-paper);color:#202642}
 @media(max-width:800px){.app{display:block}.sidebar{position:relative;height:auto;min-height:0;padding:11px 14px;border:0;border-bottom:1px solid #e8e9f2}.logo{padding:0 5px 10px;font-size:20px}.nav-label,.side-bottom{display:none}.nav{display:flex;overflow-x:auto;gap:4px}.nav a{white-space:nowrap;padding:9px 11px;font-size:11px}.main{padding:0 14px 90px}.top{height:55px;margin-bottom:13px}.top h1{font-size:16px}.course-hero{border-radius:18px;padding:20px 17px}.course-hero h2{font-size:22px}.course-hero p{font-size:11px}.course-categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.course-category{padding:10px;font-size:10px}.course-trending{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.course-tile-art{height:86px}}
 @media(max-width:430px){.course-trending{grid-template-columns:repeat(2,minmax(0,1fr))}.course-tile-body{padding:10px}.course-tile-body h3{font-size:11px}}
 
+
+/* Student home additions: indigo greeting and a large replaceable student photo. */
+.student-home-greeting{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:8px 0 17px;padding:17px 19px;border-radius:18px;background:linear-gradient(115deg,#2e2f8f,#5558b5);color:#fff;box-shadow:0 12px 26px #34377f25}
+.student-home-greeting small{display:block;color:#d9dcff;font-size:9px;font-weight:800;letter-spacing:1.2px}
+.student-home-greeting h2{margin:5px 0 3px;font-size:20px;color:#fff}
+.student-home-greeting p{margin:0;color:#e3e4ff;font-size:11px}
+.student-notice{width:39px;height:39px;flex:0 0 39px;display:grid;place-items:center;border:1px solid #ffffff55;border-radius:50%;background:#ffffff18;color:#fff;font-size:18px}
+.student-feature-photo{margin:20px 0 24px;overflow:hidden;border-radius:20px;background:#292d70;box-shadow:0 12px 28px #20264216}
+.student-feature-photo img{display:block;width:100%;height:270px;object-fit:cover;object-position:center}
+.student-feature-caption{padding:13px 16px;background:#fff}
+.student-feature-caption small{font-size:9px;color:#5559ad;font-weight:850;letter-spacing:1.2px}
+.student-feature-caption h3{margin:5px 0 3px;color:#262b49;font-size:15px}
+.student-feature-caption p{margin:0;color:#7c839b;font-size:10px}
+@media(max-width:800px){.student-home-greeting{margin:8px 0 14px;padding:15px 16px}.student-feature-photo img{height:220px}}
+
 </style>
 
 <link rel="stylesheet" href="../mobile-nav.css">
@@ -186,6 +201,7 @@ body{background:var(--nf-paper);color:#202642}
   <div class="profile-dropdown-footer"><button type="button" id="studyLogout">Sign out</button></div>
 </div></div></header>
 
+<section class="student-home-greeting" aria-label="Student welcome"><div><small>WELCOME TO NOVAFACTS STUDY</small><h2>Hi, <span id="homeStudentName">Student</span> 👋</h2><p>What would you like to learn today?</p></div><span class="student-notice" aria-label="Notifications">♧</span></section>
 <section class="course-discovery" aria-label="Course discovery">
  <div class="course-hero"><div class="course-hero-head"><div><small>NOVAFACTS STUDY • LEARN EVERY DAY</small><h2>Find your next favorite course</h2><p>Explore subjects, practise skills and keep moving forward.</p></div><div class="course-hero-avatar" id="courseHeroAvatar" aria-label="Student profile">S</div></div>
   <label class="course-search"><span>⌕</span><input id="courseSearch" type="search" placeholder="Search courses and learning tools..." aria-label="Search courses and learning tools"></label>
@@ -223,6 +239,11 @@ body{background:var(--nf-paper);color:#202642}
  </div>
  <div class="game-card activity-card"><div class="game-card-top"><div><span class="game-kicker">YOUR RECORD</span><h3>Learning statistics</h3></div><span>📊</span></div><div class="activity-grid"><div><strong id="gameAnswered">0</strong><small>Questions answered</small></div><div><strong id="gameCorrect">0</strong><small>Correct answers</small></div><div><strong id="gameBadges">0</strong><small>Milestones unlocked</small></div><div><strong id="gameActiveDays">0</strong><small>Active challenge days</small></div></div><p class="game-note">Your progress is saved in this browser for this account. A shared worldwide leaderboard needs a secure server-side score database and is not enabled yet.</p><div class="game-card activity-card"><div class="game-card-top"><div><span class="game-kicker">RECENT PRACTICE</span><h3>Quiz activity</h3></div><a href="../quiz.html">Practice more ↗</a></div><div id="gameRecentActivity" class="recent-activity"><p class="game-note">Your answered questions will appear here after you start practising.</p></div></div>
 </div>
+</section>
+<section class="student-feature-photo" aria-label="Student inspiration image">
+  <!-- Replace this placeholder URL with your own student portrait or learning photo. -->
+  <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=1400&q=85" alt="Student portrait for the NovaFacts Study welcome banner">
+  <div class="student-feature-caption"><small>KEEP LEARNING · KEEP GROWING</small><h3>Your next big discovery starts here.</h3><p>Explore your quizzes and learning tools, one step at a time.</p></div>
 </section>
 <div class="content"><div class="columns"><section>
 <div class="banner"><div class="banner-copy"><h2>Ready to learn something new?</h2><p>Explore lessons, practise exam questions and build your knowledge with the NovaFacts learning space.</p><a class="white-btn" href="#lessons">Explore Learning&nbsp; ›</a></div><div class="banner-art" aria-hidden="true">🎓</div></div>
@@ -301,6 +322,7 @@ function refreshStudentProfile(){
   const name=String(u.name||u.fullName||u.full_name||u.email||"Student");
   const email=String(u.email||"Signed in to NovaFacts");
   document.getElementById("studyUserName").textContent=name;
+  const homeName=document.getElementById("homeStudentName");if(homeName)homeName.textContent=name.split(/\s+/)[0];
   document.getElementById("sidebarStudentName").textContent=name;
   document.getElementById("sidebarStudentEmail").textContent=email;
   const initial=(name.trim()[0]||"S").toUpperCase();
