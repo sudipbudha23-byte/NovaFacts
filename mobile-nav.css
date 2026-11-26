@@ -10,8 +10,11 @@
   #nf-mobile-nav .nf-nav-label{white-space:nowrap}
   #nf-mobile-nav a.nf-active{color:#2563eb}
   #nf-mobile-nav a.nf-active .nf-nav-icon{transform:translateY(-2px)}
-  #nf-mobile-nav a.nf-dashboard .nf-nav-icon{width:62px;height:62px;margin-top:-27px;border:5px solid #fff;border-radius:50%;background:linear-gradient(145deg,#5b91ff,#2563eb);box-shadow:0 7px 19px rgba(37,99,235,.32);color:#fff;font-size:27px}
+  #nf-mobile-nav a.nf-study .nf-nav-icon{width:62px;height:62px;margin-top:-27px;border:5px solid #fff;border-radius:50%;background:linear-gradient(145deg,#ffd978,#3478f6 78%);box-shadow:0 0 0 3px rgba(255,255,255,.72),0 0 18px rgba(52,120,246,.48),0 0 28px rgba(245,181,54,.28);color:#fff;font-size:27px;transform:translateY(-2px);animation:nfStudyGlow 2.8s ease-in-out infinite}
+  #nf-mobile-nav a.nf-study.nf-active .nf-nav-label{color:#245fd2;font-weight:900}
+  #nf-mobile-nav a.nf-dashboard .nf-nav-icon{font-size:21px}
   #nf-mobile-nav a.nf-dashboard.nf-active .nf-nav-label{color:#2563eb;font-weight:800}
+  @keyframes nfStudyGlow{0%,100%{box-shadow:0 0 0 3px rgba(255,255,255,.72),0 0 14px rgba(52,120,246,.36),0 0 20px rgba(245,181,54,.2)}50%{box-shadow:0 0 0 3px rgba(255,255,255,.8),0 0 23px rgba(52,120,246,.62),0 0 34px rgba(245,181,54,.42)}}
   body{padding-bottom:104px!important}
 }
 @media(min-width:761px){#nf-mobile-nav{display:none!important}}
