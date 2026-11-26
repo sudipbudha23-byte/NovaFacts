@@ -190,6 +190,13 @@ body{background:var(--nf-paper);color:#202642}
 }
 @media(max-width:380px){.profile-menu-wrap #studyUserName{max-width:28vw;font-size:10px}.profile-menu-trigger{width:38px;height:38px;flex-basis:38px}}
 
+
+.profile-avatar-choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px 14px 6px;background:#fff}
+.avatar-choice{display:flex;align-items:center;gap:10px;padding:8px;border:2px solid #e6e8f4;border-radius:14px;background:#f8f9ff;color:#303653;font-size:13px;font-weight:750;cursor:pointer}
+.avatar-choice img{width:48px;height:48px;display:block;border-radius:11px;object-fit:cover;background:#eef0fa}
+.avatar-choice.selected{border-color:#5559ad;background:#eeeeff;box-shadow:0 0 0 2px #5559ad20}
+@media(max-width:800px){.profile-avatar-choices{gap:10px;padding:14px 12px 7px}.avatar-choice{min-height:64px;font-size:14px}.avatar-choice img{width:52px;height:52px}}
+
 </style>
 
 <link rel="stylesheet" href="../mobile-nav.css">
@@ -222,6 +229,10 @@ body{background:var(--nf-paper);color:#202642}
     </div>
     <strong id="sidebarStudentName">Student</strong>
     <span id="sidebarStudentEmail">Signed in</span>
+  </div>
+  <div class="profile-avatar-choices" aria-label="Choose a student avatar">
+    <button type="button" class="avatar-choice" data-student-avatar="boy"><img src="assets/avatar-boy.svg" alt=""><span>Boy</span></button>
+    <button type="button" class="avatar-choice" data-student-avatar="girl"><img src="assets/avatar-girl.svg" alt=""><span>Girl</span></button>
   </div>
   <div class="profile-dropdown-actions">
     <label class="profile-option" for="studentPhotoInput"><span>✎</span><span>Customize profile</span></label>
@@ -361,11 +372,15 @@ function refreshStudentProfile(){
   const heroAvatar=document.getElementById("courseHeroAvatar");if(heroAvatar)heroAvatar.textContent=initial;
   document.getElementById("studentInitial").textContent=initial;
   const photo=localStorage.getItem(PROFILE_PHOTO_KEY);
+  const avatarChoice=localStorage.getItem("novafacts_study_avatar_choice")||"";
+  const avatarUrl=avatarChoice==="boy"?"assets/avatar-boy.svg":avatarChoice==="girl"?"assets/avatar-girl.svg":"";
+  const shownPhoto=photo||avatarUrl;
   const img=document.getElementById("studentPhoto");
-  img.hidden=!photo;img.src=photo||"";
-  document.getElementById("studentInitial").hidden=!!photo;
-  profileToggle.textContent=photo?"":initial;
-  profileToggle.style.backgroundImage=photo?'url("'+photo+'")':"none";
+  img.hidden=!shownPhoto;img.src=shownPhoto||"";
+  document.getElementById("studentInitial").hidden=!!shownPhoto;
+  profileToggle.textContent=shownPhoto?"":initial;
+  profileToggle.style.backgroundImage=shownPhoto?'url("'+shownPhoto+'")':"none";
+  document.querySelectorAll("[data-student-avatar]").forEach(btn=>btn.classList.toggle("selected",btn.dataset.studentAvatar===avatarChoice&&!photo));
 }
 document.getElementById("studentPhotoInput").addEventListener("change",event=>{
   const file=event.target.files&&event.target.files[0];if(!file)return;
@@ -375,7 +390,13 @@ document.getElementById("studentPhotoInput").addEventListener("change",event=>{
   reader.onload=()=>{const image=new Image();image.onload=()=>{const canvas=document.createElement("canvas");const side=320;canvas.width=side;canvas.height=side;const scale=Math.max(side/image.width,side/image.height);const sw=side/scale,sh=side/scale,sx=(image.width-sw)/2,sy=(image.height-sh)/2;canvas.getContext("2d").drawImage(image,sx,sy,sw,sh,0,0,side,side);try{localStorage.setItem(PROFILE_PHOTO_KEY,canvas.toDataURL("image/jpeg",.78));refreshStudentProfile()}catch(e){alert("Photo could not be saved in this browser. Try a smaller image.")}};image.onerror=()=>alert("Could not read this image.");image.src=reader.result};
   reader.readAsDataURL(file);
 });
-document.getElementById("removeStudentPhoto").addEventListener("click",()=>{localStorage.removeItem(PROFILE_PHOTO_KEY);document.getElementById("studentPhotoInput").value="";refreshStudentProfile()});
+document.getElementById("removeStudentPhoto").addEventListener("click",()=>{localStorage.removeItem(PROFILE_PHOTO_KEY);localStorage.removeItem("novafacts_study_avatar_choice");document.getElementById("studentPhotoInput").value="";refreshStudentProfile()});
+document.querySelectorAll("[data-student-avatar]").forEach(btn=>btn.addEventListener("click",()=>{
+  localStorage.setItem("novafacts_study_avatar_choice",btn.dataset.studentAvatar);
+  localStorage.removeItem(PROFILE_PHOTO_KEY);
+  document.getElementById("studentPhotoInput").value="";
+  refreshStudentProfile();
+}));
 refreshStudentProfile();
 window.addEventListener("storage",event=>{if(event.key==="novafacts_study_user")refreshStudentProfile()});
 </script>
