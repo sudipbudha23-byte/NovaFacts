@@ -163,26 +163,53 @@ body.intro-lock #studyAuthLayout{display:none!important}
 @media(max-width:700px){.study-video-intro video{object-fit:contain}.video-intro-actions{bottom:28px}.video-intro-brand{top:18px;left:18px}}
 @media(prefers-reduced-motion:reduce){#videoStartBtn,#videoSkipBtn{transition:none}}
 
+
+/* Registration-first layout with a clear welcome banner on every screen. */
+body{display:grid;place-items:center;min-height:100vh;padding:28px;background:radial-gradient(ellipse at 12% 8%,#344b91 0,transparent 42%),#111b3d}
+.layout{width:min(1060px,100%);min-height:610px;display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.9fr);border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 28px 80px #07122f70}
+.form-side{grid-column:1;grid-row:1;padding:44px 38px;display:flex;align-items:center;justify-content:center}
+.form-wrap{width:100%;max-width:390px}
+.welcome-intro{display:none!important}
+.form-top{margin-bottom:18px}
+.form-top h1{color:#202f62}
+.tabs{grid-template-columns:1fr 1fr}
+.tab.active,.submit{background:#293f83}
+.journey-panel.welcome-banner{grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:center;min-height:610px;padding:48px;background:linear-gradient(145deg,#172e69 0%,#2469a7 58%,#eacb91 130%);color:white;position:relative;overflow:hidden}
+.welcome-banner:before{content:"";position:absolute;width:420px;height:420px;right:-170px;top:-150px;border-radius:50%;background:#ffffff18;box-shadow:0 0 0 45px #ffffff0b,0 0 0 90px #ffffff08}
+.welcome-banner-content{position:relative;z-index:1;max-width:390px}
+.welcome-banner-kicker{font-size:10px;font-weight:850;letter-spacing:2px;color:#f5d99e}
+.welcome-banner-art{width:100px;height:100px;margin:35px 0 24px;border-radius:28px;display:grid;place-items:center;background:#ffffff20;border:1px solid #ffffff45;font-size:52px;box-shadow:0 18px 40px #071b3a30}
+.welcome-banner h2{font-size:clamp(34px,4vw,48px);line-height:1.08;letter-spacing:-1.8px;margin:0 0 16px;color:#fff}
+.welcome-banner h2 span{color:#f7d99e}
+.welcome-banner p{max-width:340px;font-size:13px;line-height:1.8;color:#e7effb;margin:0 0 24px}
+.welcome-banner-points{display:grid;gap:12px;font-size:11px;font-weight:700;color:#fff}
+.welcome-banner-footer{margin-top:42px;padding-top:18px;border-top:1px solid #ffffff45;font-size:9px;letter-spacing:2px;color:#f3dfb9}
+.story{display:none!important}
+body.intro-lock{display:grid;padding:28px;overflow:auto}
+@media(max-width:760px){
+ body{display:block;padding:0;background:#f0f3fb}
+ .layout{width:100%;min-height:100vh;display:flex;flex-direction:column;border-radius:0;box-shadow:none}
+ .journey-panel.welcome-banner{order:0;min-height:0;padding:27px 24px 24px;border-radius:0 0 24px 24px}
+ .welcome-banner-content{max-width:520px;width:100%}
+ .welcome-banner-art{width:58px;height:58px;margin:15px 0 13px;border-radius:17px;font-size:31px}
+ .welcome-banner h2{font-size:28px;letter-spacing:-.8px;margin-bottom:8px}
+ .welcome-banner p{font-size:10px;line-height:1.55;margin-bottom:12px}
+ .welcome-banner-points{grid-template-columns:1fr 1fr;gap:7px;font-size:9px}
+ .welcome-banner-footer{margin-top:15px;padding-top:10px;font-size:7px}
+ .form-side{order:1;padding:25px 22px 34px;align-items:flex-start}
+ .form-wrap{max-width:480px}
+ .brand{margin-bottom:19px}
+ .form-top h1{font-size:24px}
+}
+@media(max-width:360px){.journey-panel.welcome-banner{padding:23px 18px}.welcome-banner h2{font-size:25px}.form-side{padding-left:18px;padding-right:18px}}
 </style>
 </head>
-<body class="intro-lock">
-<section id="studyVideoIntro" class="study-video-intro" aria-label="NovaFacts Study introduction">
-  <video id="studyIntroVideo" playsinline muted preload="metadata">
-    <source src="/Learn%20Study/novafacts-video.mp4" type="video/mp4">
-    Your browser does not support video.
-  </video>
-  <div class="video-intro-shade"></div>
-  <div class="video-intro-brand">✳ NovaFacts <span>STUDY</span></div>
-  <div class="video-intro-actions">
-    <p id="videoIntroHint">Your learning journey starts here.</p>
-    <button id="videoStartBtn" type="button">▶ START</button>
-    <button id="videoSkipBtn" type="button">Skip introduction →</button>
-  </div>
-</section>
-<main class="layout" id="studyAuthLayout" hidden>
+<body>
+
+<main class="layout" id="studyAuthLayout">
 <section class="form-side" aria-label="NovaFacts Study account">
 <div class="form-wrap">
-  <section class="welcome-intro" aria-label="Welcome to NovaFacts Study">
+  <section class="welcome-intro" aria-label="Welcome to NovaFacts Study" hidden>
     <div class="welcome-photo-frame"><img class="welcome-photo" src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=85" alt="Students learning together"></div>
     <h1>Welcome</h1><p>Your learning journey starts here. Discover courses, practise quizzes and grow your knowledge.</p>
     <div class="welcome-dots" aria-label="Welcome screen 2 of 3"><i></i><i></i><i></i></div>
@@ -205,20 +232,19 @@ body.intro-lock #studyAuthLayout{display:none!important}
   <a class="home" href="../index.html">← Back to NovaFacts</a>
 </div>
 </section>
-<section class="journey-panel" aria-label="Animated NovaFacts Study walkthrough">
-  <div class="journey-head"><span class="journey-kicker">WELCOME TO NOVAFACTS</span><h2>Explore your learning journey</h2><p>See how you can join, learn, take quizzes and track your progress.</p></div>
-  <div class="walk-phone" aria-label="Animated preview of the Study app">
-    <div class="walk-notch"></div>
-    <div class="walk-screen">
-      <div class="walk-scene walk-one"><div class="walk-logo">✳</div><small>WELCOME TO NOVAFACTS</small><h3>Learn something new.</h3><p>Your next discovery starts here.</p><div class="walk-illustration">📚</div><span class="walk-cta">GET STARTED&nbsp; →</span></div>
-      <div class="walk-scene walk-two"><small>YOUR ACCOUNT</small><h3>Join NovaFacts</h3><div class="walk-input">Full name</div><div class="walk-input">Email address</div><div class="walk-input">Password&nbsp; ••••••••</div><span class="walk-cta">CREATE ACCOUNT</span><p class="walk-caption">Secure sign in and registration</p></div>
-      <div class="walk-scene walk-three"><div class="walk-user"><span>👤</span><b>Student Dashboard</b><em>✦ 120 XP</em></div><h3>Explore Study</h3><div class="walk-tiles"><span>📖<small>Lessons</small></span><span>🧪<small>Science</small></span><span>📝<small>Notes</small></span></div><div class="walk-feature">✨ Recommended for you<br><b>Build your knowledge every day</b></div></div>
-      <div class="walk-scene walk-four"><small>QUICK CHALLENGE</small><h3>Test your knowledge</h3><p class="walk-question">Which habit helps you remember what you learn?</p><div class="walk-answer">A&nbsp; Reread once</div><div class="walk-answer answer-active">B&nbsp; Test yourself regularly&nbsp; ✓</div><div class="walk-answer">C&nbsp; Skip revision</div><span class="walk-cta">ANSWER CHECKED</span></div>
-      <div class="walk-scene walk-five"><div class="walk-reward">✦</div><small>GREAT PROGRESS</small><h3>Keep learning!</h3><div class="walk-points">+50 XP</div><div class="walk-coins">🪙&nbsp; Coins earned</div><p>Track your progress and celebrate every milestone.</p></div>
+<section class="journey-panel welcome-banner" aria-label="Welcome to NovaFacts Study">
+  <div class="welcome-banner-content">
+    <span class="welcome-banner-kicker">✦ WELCOME TO NOVAFACTS STUDY</span>
+    <div class="welcome-banner-art" aria-hidden="true">📚</div>
+    <h2>Learn something new.<br><span>Grow every day.</span></h2>
+    <p>Create your student account and explore lessons, science, notes and interactive quizzes in one learning space.</p>
+    <div class="welcome-banner-points">
+      <span>✓ Learn at your own pace</span>
+      <span>✓ Practise with quizzes</span>
+      <span>✓ Track your progress</span>
     </div>
-    <div class="walk-progress"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="welcome-banner-footer">LEARN · PRACTISE · DISCOVER · ACHIEVE</div>
   </div>
-  <div class="journey-foot"><span>✦</span> Learn · Practise · Grow · Achieve</div>
 </section>
 <section class="story" aria-label="Welcome to NovaFacts Study">
   <div class="story-nav">
@@ -320,7 +346,7 @@ body.intro-lock #studyAuthLayout{display:none!important}
     return result;
   }
   $("loginTab").addEventListener("click", () => setMode("login"));
-  $("registerTab").addEventListener("click", () => setMode("register"));
+  $("registerTab").addEventListener("click", () => setMode("register"));\n  setMode("register");
   $("togglePass").addEventListener("click", () => {
     const field = $("password");
     const visible = field.type === "text";
