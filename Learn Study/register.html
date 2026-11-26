@@ -206,6 +206,19 @@ body.intro-lock{display:grid;padding:28px;overflow:auto}
 </head>
 <body>
 
+<div class="study-video-intro" id="videoIntro" hidden aria-label="NovaFacts Study welcome video">
+  <video id="introVideo" autoplay muted playsinline controls preload="metadata">
+    <source src="/Learn%20Study/novafacts-video.mp4" type="video/mp4">
+    Your browser does not support HTML video.
+  </video>
+  <div class="video-intro-shade"></div>
+  <div class="video-intro-brand">NovaFacts <span>STUDY</span></div>
+  <div class="video-intro-actions">
+    <p id="videoStatus">Welcome to NovaFacts Study</p>
+    <button id="videoSkipBtn" type="button">Skip and Register&nbsp; →</button>
+  </div>
+</div>
+
 <main class="layout" id="studyAuthLayout">
 <section class="form-side" aria-label="NovaFacts Study account">
 <div class="form-wrap">
@@ -265,6 +278,7 @@ body.intro-lock{display:grid;padding:28px;overflow:auto}
   const SESSION_KEY = "novafacts_study_logged_in";
   const TOKEN_KEY = "novafacts_study_token";
   const USER_KEY = "novafacts_study_user";
+  const INTRO_KEY = "novafacts_study_intro_seen";
   const $ = id => document.getElementById(id);
   let mode = "login";
   const message = $("message");
