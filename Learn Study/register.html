@@ -28,14 +28,46 @@ button,input{font:inherit}.layout{width:min(1120px,100%);min-height:650px;displa
 @media(max-width:760px){body{display:block;padding:0;background:#fff}.layout{width:100%;min-height:100vh;display:flex;flex-direction:column;border-radius:0;box-shadow:none}.story{order:0;min-height:235px;padding:22px 24px}.story:after{left:32%;width:65%;height:150%;top:-28%}.story-nav .nav-links{gap:10px}.nav-links span:not(.nav-pill){display:none}.story-copy{right:7%;bottom:20%;max-width:250px}.story-copy h2{font-size:38px;margin:8px 0}.story-copy p{font-size:9px;max-width:205px}.story-foot{left:24px;bottom:15px;font-size:7px}.form-side{order:1;flex:1;padding:34px 25px 40px;align-items:flex-start}.form-wrap{max-width:390px;margin:0 auto}.brand{margin-bottom:25px}.form-top h1{font-size:25px}}
 @media(max-width:360px){.story{min-height:210px}.story-copy h2{font-size:32px}.form-side{padding-left:20px;padding-right:20px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Welcome-first onboarding; existing authentication logic is intentionally preserved. */
+body{background:#aaa9d6;padding:22px}
+.layout{width:min(520px,100%);min-height:0;display:block;border-radius:30px;background:#fff;overflow:visible}
+.form-side{display:block;padding:24px 26px 34px}
+.form-wrap{max-width:390px;margin:0 auto}
+.welcome-intro{margin:0 auto 30px;text-align:center}
+.welcome-photo-frame{width:100%;height:280px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#292d70;border-radius:24px 24px 18px 18px}
+.welcome-photo{display:block;width:100%;height:100%;object-fit:contain;object-position:center;background:#292d70}
+/* Replace the photo URL in the HTML below with your own student image. */
+.welcome-intro h1{font-size:27px;color:#25294f;margin:19px 0 7px;letter-spacing:-.7px}
+.welcome-intro p{max-width:280px;margin:0 auto;color:#8589a4;font-size:12px;line-height:1.6}
+.welcome-dots{display:flex;justify-content:center;gap:6px;margin:15px 0 19px}
+.welcome-dots i{width:6px;height:6px;border-radius:50%;background:#c9c9df}
+.welcome-dots i:nth-child(2){background:#34377f}
+.get-started{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:46px;border-radius:11px;background:#34377f;color:white;font-size:12px;font-weight:800;box-shadow:0 8px 18px #34377f30;transition:transform .2s,box-shadow .2s}
+.get-started:hover{transform:translateY(-2px);box-shadow:0 12px 22px #34377f40}
+#accountFormPanel{scroll-margin-top:16px;padding-top:6px}
+.form-top h1{color:#262a55}
+.tabs{background:#f0f0fb}
+.tab.active{background:#34377f}
+.submit{background:#34377f}
+.story{display:none}
+@media(min-width:700px){body{padding:38px}.layout{width:min(560px,100%)}.form-side{padding:28px 42px 40px}.welcome-photo-frame{height:310px}}
+@media(max-width:420px){body{padding:0;background:#fff}.layout{width:100%;border-radius:0;box-shadow:none}.form-side{padding:16px 20px 30px}.welcome-photo-frame{height:260px;border-radius:0 0 20px 20px}.welcome-intro h1{font-size:25px}}
+
 </style>
 </head>
 <body>
 <main class="layout">
 <section class="form-side" aria-label="NovaFacts Study account">
 <div class="form-wrap">
+  <section class="welcome-intro" aria-label="Welcome to NovaFacts Study">
+    <div class="welcome-photo-frame"><img class="welcome-photo" src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=85" alt="Students learning together"></div>
+    <h1>Welcome</h1><p>Your learning journey starts here. Discover courses, practise quizzes and grow your knowledge.</p>
+    <div class="welcome-dots" aria-label="Welcome screen 2 of 3"><i></i><i></i><i></i></div>
+    <a class="get-started" href="#accountFormPanel">Get Started&nbsp; →</a>
+  </section>
   <div class="brand"><span class="brand-icon">✳</span><span>NovaFacts<small>STUDY PORTAL</small></span></div>
-  <div class="form-top"><div class="eyebrow">YOUR LEARNING SPACE</div><h1 id="heading">Welcome back</h1><p id="subheading">Sign in to continue where you left off.</p></div>
+  <div id="accountFormPanel" class="form-top"><div class="eyebrow">YOUR LEARNING SPACE</div><h1 id="heading">Welcome back</h1><p id="subheading">Sign in to continue where you left off.</p></div>
   <div class="tabs" role="tablist" aria-label="Account options">
     <button class="tab active" id="loginTab" type="button" role="tab" aria-selected="true">Sign in</button>
     <button class="tab" id="registerTab" type="button" role="tab" aria-selected="false">Create account</button>
