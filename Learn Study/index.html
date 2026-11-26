@@ -197,6 +197,13 @@ body{background:var(--nf-paper);color:#202642}
 .avatar-choice.selected{border-color:#5559ad;background:#eeeeff;box-shadow:0 0 0 2px #5559ad20}
 @media(max-width:800px){.profile-avatar-choices{gap:10px;padding:14px 12px 7px}.avatar-choice{min-height:64px;font-size:14px}.avatar-choice img{width:52px;height:52px}}
 
+
+/* Fix: render profile avatar as a real image element, not a background image */
+.profile-menu-trigger{display:grid!important;place-items:center!important;padding:0!important;overflow:hidden!important;background:#34377f!important;border:3px solid #fff!important}
+.profile-menu-trigger #profileTogglePhoto{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.profile-menu-trigger #profileTogglePhoto[hidden],.profile-menu-trigger #profileToggleInitial[hidden]{display:none!important}
+.profile-menu-trigger #profileToggleInitial{display:grid;place-items:center;width:100%;height:100%;color:#fff;font-size:16px;font-weight:850;line-height:1}
+
 </style>
 
 <link rel="stylesheet" href="../mobile-nav.css">
@@ -220,7 +227,7 @@ body{background:var(--nf-paper);color:#202642}
 <div class="side-bottom"><div class="nav-label">Settings</div><nav class="nav"><a href="../index.html"><span class="ico">⌂</span>Main Website</a><a href="../contact.html"><span class="ico">✉</span>Contact</a><a href="../privacy-policy.html"><span class="ico">▧</span>Privacy</a></nav></div>
 </aside>
 <main class="main" id="dashboard">
-<header class="top"><h1>Study Dashboard</h1><div class="profile profile-menu-wrap"><span id="studyUserName">NovaFacts Learning</span><button type="button" id="profileMenuToggle" class="avatar profile-menu-trigger" aria-label="Open student profile" aria-expanded="false">N</button>
+<header class="top"><h1>Study Dashboard</h1><div class="profile profile-menu-wrap"><span id="studyUserName">NovaFacts Learning</span><button type="button" id="profileMenuToggle" class="avatar profile-menu-trigger" aria-label="Open student profile" aria-expanded="false"><img id="profileTogglePhoto" alt="" hidden><span id="profileToggleInitial">N</span></button>
 <div class="profile-dropdown" id="profileDropdown" hidden>
   <div class="profile-dropdown-head">
     <div class="profile-photo-wrap">
@@ -378,8 +385,12 @@ function refreshStudentProfile(){
   const img=document.getElementById("studentPhoto");
   img.hidden=!shownPhoto;img.src=shownPhoto||"";
   document.getElementById("studentInitial").hidden=!!shownPhoto;
-  profileToggle.textContent=shownPhoto?"":initial;
-  profileToggle.style.backgroundImage=shownPhoto?'url("'+shownPhoto+'")':"none";
+  const togglePhoto=document.getElementById("profileTogglePhoto");
+  const toggleInitial=document.getElementById("profileToggleInitial");
+  togglePhoto.hidden=!shownPhoto;
+  togglePhoto.src=shownPhoto||"";
+  toggleInitial.hidden=!!shownPhoto;
+  profileToggle.setAttribute("aria-label","Open "+name+"'s profile");
   document.querySelectorAll("[data-student-avatar]").forEach(btn=>btn.classList.toggle("selected",btn.dataset.studentAvatar===avatarChoice&&!photo));
 }
 document.getElementById("studentPhotoInput").addEventListener("change",event=>{
