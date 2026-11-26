@@ -158,6 +158,38 @@ body{background:var(--nf-paper);color:#202642}
 .student-feature-caption p{margin:0;color:#7c839b;font-size:10px}
 @media(max-width:800px){.student-home-greeting{margin:8px 0 14px;padding:15px 16px}.student-feature-photo img{height:220px}}
 
+
+/* Accessible student profile: readable on phones and desktop */
+.profile-menu-wrap{z-index:120;display:flex;align-items:center;gap:12px;min-width:0}
+.profile-menu-wrap #studyUserName{display:block!important;max-width:min(38vw,240px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#242844;font-size:13px;font-weight:750}
+.profile-menu-trigger{width:44px;height:44px;flex-basis:44px;border:3px solid #fff!important;border-radius:50%!important;background:#34377f!important;color:#fff!important;font-size:16px!important;font-weight:850;box-shadow:0 3px 12px #34377f35;background-position:center!important;background-size:cover!important;overflow:hidden}
+.profile-dropdown{position:absolute!important;z-index:9999!important;right:0!important;top:calc(100% + 10px)!important;width:min(360px,calc(100vw - 24px))!important;background:#fff!important;color:#202642!important;border:1px solid #e1e3f0!important;border-radius:20px!important;overflow:hidden;box-shadow:0 20px 55px #151a4530!important}
+.profile-dropdown[hidden]{display:none!important}
+.profile-dropdown-head{min-height:0!important;padding:24px 20px 20px!important;background:linear-gradient(135deg,#2e2f8f,#5558b5)!important;color:#fff!important;gap:9px!important}
+.profile-photo-wrap{width:100px!important;height:100px!important;flex:0 0 100px!important;border-radius:50%!important;border:4px solid #ffffff!important;background:#dfe2ff!important;box-shadow:0 7px 22px #15174735!important;margin:0 auto 5px!important;overflow:hidden!important}
+.profile-photo-wrap .student-photo{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;border-radius:50%!important}
+.profile-photo-wrap .student-initial{display:grid!important;place-items:center;width:100%;height:100%;font-size:38px!important;color:#34377f!important}
+.profile-dropdown-head strong{display:block!important;max-width:100%!important;color:#fff!important;font-size:17px!important;line-height:1.35;white-space:normal!important;overflow-wrap:anywhere}
+.profile-dropdown-head>span{display:block!important;max-width:100%;color:#e7e8ff!important;font-size:12px!important;line-height:1.5;overflow-wrap:anywhere}
+.profile-dropdown-actions{padding:10px!important;background:#fff!important}
+.profile-dropdown .profile-option{display:flex!important;align-items:center;gap:12px!important;min-height:46px!important;padding:10px 12px!important;border-radius:10px!important;color:#303653!important;font-size:13px!important;font-weight:650!important;text-decoration:none}
+.profile-dropdown .profile-option>span{display:inline-block!important;color:#5559ad!important}
+.profile-dropdown .profile-option:hover{background:#f0f0ff!important}
+.profile-dropdown .profile-sync{color:#7b8199!important;font-size:11px!important}
+.profile-dropdown-footer{border-top:1px solid #ececf4!important;padding:12px 16px!important;background:#fafaff!important}
+.profile-dropdown-footer button{border:0!important;border-radius:10px!important;background:#34377f!important;color:#fff!important;padding:10px 18px!important;font-weight:750}
+@media(max-width:800px){
+ .profile-menu-wrap{gap:7px}.profile-menu-wrap #studyUserName{display:block!important;max-width:35vw;font-size:11px}
+ .profile-menu-trigger{width:42px;height:42px;flex-basis:42px}
+ .profile-dropdown{position:fixed!important;top:74px!important;right:12px!important;width:min(370px,calc(100vw - 24px))!important;max-height:calc(100dvh - 92px);overflow-y:auto}
+ .profile-dropdown-head{padding:23px 16px 18px!important}
+ .profile-photo-wrap{width:108px!important;height:108px!important;flex-basis:108px!important}
+ .profile-dropdown-head strong{font-size:18px!important}
+ .profile-dropdown-head>span{font-size:13px!important}
+ .profile-dropdown .profile-option{min-height:48px!important;font-size:14px!important}
+}
+@media(max-width:380px){.profile-menu-wrap #studyUserName{max-width:28vw;font-size:10px}.profile-menu-trigger{width:38px;height:38px;flex-basis:38px}}
+
 </style>
 
 <link rel="stylesheet" href="../mobile-nav.css">
