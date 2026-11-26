@@ -256,49 +256,7 @@ body.intro-lock{display:grid;padding:28px;overflow:auto}
 </section>
 </main>
 
-<script>
-(() => {
-  const intro=document.getElementById("studyVideoIntro");
-  const video=document.getElementById("studyIntroVideo");
-  const start=document.getElementById("videoStartBtn");
-  const skip=document.getElementById("videoSkipBtn");
-  const hint=document.getElementById("videoIntroHint");
-  const layout=document.getElementById("studyAuthLayout");
-  if(!intro||!video||!start||!skip||!layout) return;
-  let finished=false;
-  function revealAccount(){
-    if(finished) return;
-    finished=true;
-    try{video.pause();}catch(_){}
-    intro.remove();
-    document.body.classList.remove("intro-lock");
-    layout.hidden=false;
-    layout.style.display="";
-  }
-  async function playIntro(){
-    start.hidden=true;
-    hint.textContent="Enjoy the NovaFacts Study introduction.";
-    try{await video.play();}
-    catch(error){
-      start.hidden=false;
-      hint.textContent="Tap Start to play the introduction, or Skip to continue.";
-    }
-  }
-  start.addEventListener("click",playIntro);
-  skip.addEventListener("click",revealAccount);
-  video.addEventListener("ended",revealAccount);
-  video.addEventListener("error",()=>{
-    hint.textContent="Video could not be loaded. You can continue to your account.";
-    start.hidden=true;
-  });
-  // Desktop attempts muted autoplay; mobile browsers can require the Start tap.
-  if(window.matchMedia("(min-width: 701px)").matches){
-    playIntro();
-  }else{
-    hint.textContent="Tap Start to begin your Study journey.";
-  }
-})();
-</script>
+
 
 <script>
 (() => {
@@ -346,7 +304,8 @@ body.intro-lock{display:grid;padding:28px;overflow:auto}
     return result;
   }
   $("loginTab").addEventListener("click", () => setMode("login"));
-  $("registerTab").addEventListener("click", () => setMode("register"));\n  setMode("register");
+  $("registerTab").addEventListener("click", () => setMode("register"));
+  setMode("register");
   $("togglePass").addEventListener("click", () => {
     const field = $("password");
     const visible = field.type === "text";
