@@ -145,10 +145,41 @@ body{background:radial-gradient(ellipse at 18% 12%,#344b91 0,transparent 42%),#1
 }
 @media(prefers-reduced-motion:reduce){.walk-scene,.walk-progress i{animation:none!important}.walk-one{opacity:1;transform:none}}
 
+
+/* Full-screen video introduction; account forms appear only after end/skip. */
+body.intro-lock{display:block;padding:0;background:#080d20;overflow:hidden}
+.study-video-intro{position:fixed;inset:0;z-index:9999;background:#080d20;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#fff}
+.study-video-intro video{position:absolute;width:100%;height:100%;object-fit:contain;background:#080d20}
+.video-intro-shade{position:absolute;inset:0;background:linear-gradient(180deg,#07132966,transparent 30%,transparent 55%,#071329bb);pointer-events:none}
+.video-intro-brand{position:absolute;top:clamp(20px,4vw,42px);left:clamp(20px,5vw,58px);font-size:clamp(17px,2vw,24px);font-weight:900;letter-spacing:-.5px;text-shadow:0 2px 12px #0008}
+.video-intro-brand span{font-size:10px;letter-spacing:2px;color:#f5cf7a;margin-left:8px}
+.video-intro-actions{position:absolute;bottom:clamp(24px,6vh,60px);left:18px;right:18px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.video-intro-actions p{margin:0 0 3px;font-size:clamp(12px,1.5vw,16px);color:#fff;text-shadow:0 2px 10px #000}
+.video-intro-actions button{border:0;cursor:pointer;font:inherit}
+#videoStartBtn{min-width:170px;padding:14px 28px;border-radius:999px;background:linear-gradient(120deg,#f6d58a,#e8ad42);color:#17244c;font-size:12px;font-weight:900;letter-spacing:1.2px;box-shadow:0 8px 28px #0005}
+#videoSkipBtn{padding:9px 16px;background:#101b36a8;border:1px solid #ffffff70;border-radius:999px;color:#fff;font-size:11px;font-weight:750}
+#videoStartBtn:hover,#videoSkipBtn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+body.intro-lock #studyAuthLayout{display:none!important}
+@media(max-width:700px){.study-video-intro video{object-fit:contain}.video-intro-actions{bottom:28px}.video-intro-brand{top:18px;left:18px}}
+@media(prefers-reduced-motion:reduce){#videoStartBtn,#videoSkipBtn{transition:none}}
+
 </style>
 </head>
-<body>
-<main class="layout">
+<body class="intro-lock">
+<section id="studyVideoIntro" class="study-video-intro" aria-label="NovaFacts Study introduction">
+  <video id="studyIntroVideo" playsinline muted preload="metadata">
+    <source src="/Learn%20Study/novafacts-video.mp4" type="video/mp4">
+    Your browser does not support video.
+  </video>
+  <div class="video-intro-shade"></div>
+  <div class="video-intro-brand">✳ NovaFacts <span>STUDY</span></div>
+  <div class="video-intro-actions">
+    <p id="videoIntroHint">Your learning journey starts here.</p>
+    <button id="videoStartBtn" type="button">▶ START</button>
+    <button id="videoSkipBtn" type="button">Skip introduction →</button>
+  </div>
+</section>
+<main class="layout" id="studyAuthLayout" hidden>
 <section class="form-side" aria-label="NovaFacts Study account">
 <div class="form-wrap">
   <section class="welcome-intro" aria-label="Welcome to NovaFacts Study">
@@ -198,6 +229,51 @@ body{background:radial-gradient(ellipse at 18% 12%,#344b91 0,transparent 42%),#1
   <div class="story-foot">NOVAfacts STUDY · KNOWLEDGE FOR CURIOUS MINDS</div>
 </section>
 </main>
+
+<script>
+(() => {
+  const intro=document.getElementById("studyVideoIntro");
+  const video=document.getElementById("studyIntroVideo");
+  const start=document.getElementById("videoStartBtn");
+  const skip=document.getElementById("videoSkipBtn");
+  const hint=document.getElementById("videoIntroHint");
+  const layout=document.getElementById("studyAuthLayout");
+  if(!intro||!video||!start||!skip||!layout) return;
+  let finished=false;
+  function revealAccount(){
+    if(finished) return;
+    finished=true;
+    try{video.pause();}catch(_){}
+    intro.remove();
+    document.body.classList.remove("intro-lock");
+    layout.hidden=false;
+    layout.style.display="";
+  }
+  async function playIntro(){
+    start.hidden=true;
+    hint.textContent="Enjoy the NovaFacts Study introduction.";
+    try{await video.play();}
+    catch(error){
+      start.hidden=false;
+      hint.textContent="Tap Start to play the introduction, or Skip to continue.";
+    }
+  }
+  start.addEventListener("click",playIntro);
+  skip.addEventListener("click",revealAccount);
+  video.addEventListener("ended",revealAccount);
+  video.addEventListener("error",()=>{
+    hint.textContent="Video could not be loaded. You can continue to your account.";
+    start.hidden=true;
+  });
+  // Desktop attempts muted autoplay; mobile browsers can require the Start tap.
+  if(window.matchMedia("(min-width: 701px)").matches){
+    playIntro();
+  }else{
+    hint.textContent="Tap Start to begin your Study journey.";
+  }
+})();
+</script>
+
 <script>
 (() => {
   "use strict";
