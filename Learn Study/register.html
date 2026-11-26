@@ -98,6 +98,53 @@ body{background:radial-gradient(ellipse at 18% 12%,#344b91 0,transparent 42%),#1
 @media(min-width:761px){.welcome-photo-frame{height:180px!important}.welcome-intro{margin-bottom:18px}.welcome-intro h1{font-size:23px;margin:12px 0 5px}.brand{margin-bottom:18px}}
 @media(prefers-reduced-motion:reduce){.journey-panel *{animation:none!important;transition:none!important}}
 
+
+/* Animated walkthrough inspired by the supplied NovaFacts prototype. */
+.journey-panel{position:relative}
+.walk-phone{position:relative;width:min(100%,290px);height:430px;margin:2px auto 0;padding:9px;border-radius:34px;background:#1c1c3a;box-shadow:0 20px 45px #172b5540;flex:none}
+.walk-notch{position:absolute;z-index:5;top:14px;left:50%;transform:translateX(-50%);width:74px;height:17px;border-radius:20px;background:#1c1c3a}
+.walk-screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:26px;background:#fff}
+.walk-scene{position:absolute;inset:0;padding:48px 19px 18px;display:flex;flex-direction:column;align-items:stretch;opacity:0;transform:translateX(18px);animation:walkScene 25s infinite;pointer-events:none}
+.walk-scene small{font-size:8px;letter-spacing:1.5px;font-weight:850;color:#7786aa}
+.walk-scene h3{font-size:20px;line-height:1.15;color:#1c2d5e;margin:10px 0 7px}
+.walk-scene p{font-size:10px;line-height:1.55;color:#7b86a0}
+.walk-one{background:linear-gradient(155deg,#eef3ff,#fff 60%,#fff3d8);animation-delay:0s;align-items:center;text-align:center}
+.walk-logo{width:37px;height:37px;border-radius:12px;display:grid;place-items:center;background:#203a7a;color:white;font-size:23px;margin-bottom:16px}
+.walk-one h3{font-size:23px}.walk-illustration{font-size:74px;margin:20px 0 16px;filter:drop-shadow(0 8px 8px #243c6b20)}
+.walk-cta{display:block;text-align:center;padding:11px 9px;border-radius:10px;background:#2f2f8f;color:#fff;font-size:9px;font-weight:850;letter-spacing:.6px;box-shadow:0 7px 16px #2f2f8f30}
+.walk-two{animation-delay:5s;background:#fff}
+.walk-input{border:1px solid #dfe4f0;border-radius:9px;padding:12px;margin:7px 0;color:#9aa3b6;font-size:9px}
+.walk-two .walk-cta{margin-top:8px}.walk-caption{text-align:center;margin-top:12px}
+.walk-three{animation-delay:10s;background:linear-gradient(160deg,#f3f6ff,#fff)}
+.walk-user{display:flex;align-items:center;gap:7px;font-size:9px;color:#203a7a;margin-bottom:20px}.walk-user span{font-size:20px}.walk-user b{flex:1}.walk-user em{font-style:normal;color:#b07a16;font-size:8px}
+.walk-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:13px 0}.walk-tiles span{padding:15px 3px;border-radius:12px;background:#eaf0ff;text-align:center;font-size:22px}.walk-tiles small{display:block;letter-spacing:0;color:#52658f;font-size:8px;margin-top:6px}
+.walk-feature{padding:16px;border-radius:13px;background:linear-gradient(120deg,#203a7a,#4c79ba);color:#e8efff;font-size:9px;line-height:1.8}.walk-feature b{font-size:12px;color:#fff}
+.walk-four{animation-delay:15s;background:#fff}.walk-question{margin:8px 0 14px!important;font-weight:700;color:#29395f!important;font-size:12px!important}
+.walk-answer{padding:11px;border:1px solid #dfe4f0;border-radius:10px;margin:5px 0;font-size:9px;color:#56627d}.answer-active{background:#e5f7ed;border-color:#42a879;color:#167447}
+.walk-four .walk-cta{margin-top:14px}
+.walk-five{animation-delay:20s;align-items:center;text-align:center;background:linear-gradient(155deg,#f1f3ff,#fff9e8)}
+.walk-reward{width:83px;height:83px;border-radius:50%;display:grid;place-items:center;margin:15px auto 18px;background:radial-gradient(circle at 35% 30%,#fff2a8,#f5b400);border:5px solid #d99a00;color:#8a5a00;font-size:42px;box-shadow:0 12px 25px #f5b40055}
+.walk-points{font-size:28px;font-weight:900;color:#2f2f8f;margin:13px 0}.walk-coins{font-size:12px;font-weight:800;color:#936800;margin-bottom:12px}
+.walk-progress{display:flex;justify-content:center;gap:5px;margin-top:12px}.walk-progress i{width:6px;height:6px;border-radius:10px;background:#aeb6d1;animation:walkDot 25s infinite}.walk-progress i:nth-child(2){animation-delay:5s}.walk-progress i:nth-child(3){animation-delay:10s}.walk-progress i:nth-child(4){animation-delay:15s}.walk-progress i:nth-child(5){animation-delay:20s}
+@keyframes walkScene{0%,2%{opacity:0;transform:translateX(18px)}4%,17%{opacity:1;transform:none}20%,100%{opacity:0;transform:translateX(-18px)}}
+@keyframes walkDot{0%,19%{width:6px;background:#aeb6d1}4%,16%{width:19px;background:#2f2f8f}20%,100%{width:6px;background:#aeb6d1}}
+@media(max-width:760px){
+ .journey-panel{padding:18px 16px 15px;gap:9px}
+ .journey-head{text-align:center}.journey-head h2{font-size:18px}.journey-head p{margin:0 auto}
+ .walk-phone{width:224px;height:340px;padding:7px;border-radius:27px}
+ .walk-screen{border-radius:21px}.walk-notch{top:11px;width:62px;height:14px}
+ .walk-scene{padding:38px 14px 13px}.walk-scene h3{font-size:17px;margin:7px 0 5px}
+ .walk-one h3{font-size:19px}.walk-logo{width:30px;height:30px;font-size:18px;margin-bottom:10px}
+ .walk-illustration{font-size:52px;margin:13px 0}.walk-cta{padding:9px;font-size:8px}
+ .walk-input{padding:9px;margin:5px 0;font-size:8px}
+ .walk-user{margin-bottom:13px}.walk-tiles{margin:9px 0}.walk-tiles span{font-size:17px;padding:10px 2px}
+ .walk-feature{padding:11px;font-size:8px}.walk-feature b{font-size:10px}
+ .walk-question{font-size:10px!important;margin-bottom:9px!important}.walk-answer{padding:8px;font-size:8px}
+ .walk-reward{width:64px;height:64px;font-size:32px;margin:10px auto 12px}.walk-points{font-size:23px;margin:9px 0}
+ .journey-foot{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){.walk-scene,.walk-progress i{animation:none!important}.walk-one{opacity:1;transform:none}}
+
 </style>
 </head>
 <body>
@@ -127,20 +174,20 @@ body{background:radial-gradient(ellipse at 18% 12%,#344b91 0,transparent 42%),#1
   <a class="home" href="../index.html">← Back to NovaFacts</a>
 </div>
 </section>
-<section class="journey-panel" aria-label="NovaFacts Study walkthrough">
-  <div class="journey-head"><span class="journey-kicker">A QUICK TOUR</span><h2>See how Study works</h2><p>One simple journey from joining NovaFacts to learning and earning rewards.</p></div>
-  <div class="journey-screen">
-    <div class="journey-top"><span class="journey-mark">✳</span><b>NovaFacts Study</b><span class="journey-live">● READY</span></div>
-    <div class="journey-welcome"><small>YOUR LEARNING SPACE</small><h3>Learn something new today.</h3><p>Build knowledge one step at a time.</p></div>
-    <div class="journey-steps">
-      <div class="journey-step"><i>01</i><span><b>Register or Login</b><small>Securely access your account</small></span><em>→</em></div>
-      <div class="journey-step"><i>02</i><span><b>Explore Study</b><small>Lessons, science tools and notes</small></span><em>→</em></div>
-      <div class="journey-step"><i>03</i><span><b>Take a Quiz</b><small>Practise and test your knowledge</small></span><em>→</em></div>
-      <div class="journey-step"><i>04</i><span><b>Earn XP & Coins</b><small>Track your learning progress</small></span><em>✦</em></div>
+<section class="journey-panel" aria-label="Animated NovaFacts Study walkthrough">
+  <div class="journey-head"><span class="journey-kicker">WELCOME TO NOVAFACTS</span><h2>Explore your learning journey</h2><p>See how you can join, learn, take quizzes and track your progress.</p></div>
+  <div class="walk-phone" aria-label="Animated preview of the Study app">
+    <div class="walk-notch"></div>
+    <div class="walk-screen">
+      <div class="walk-scene walk-one"><div class="walk-logo">✳</div><small>WELCOME TO NOVAFACTS</small><h3>Learn something new.</h3><p>Your next discovery starts here.</p><div class="walk-illustration">📚</div><span class="walk-cta">GET STARTED&nbsp; →</span></div>
+      <div class="walk-scene walk-two"><small>YOUR ACCOUNT</small><h3>Join NovaFacts</h3><div class="walk-input">Full name</div><div class="walk-input">Email address</div><div class="walk-input">Password&nbsp; ••••••••</div><span class="walk-cta">CREATE ACCOUNT</span><p class="walk-caption">Secure sign in and registration</p></div>
+      <div class="walk-scene walk-three"><div class="walk-user"><span>👤</span><b>Student Dashboard</b><em>✦ 120 XP</em></div><h3>Explore Study</h3><div class="walk-tiles"><span>📖<small>Lessons</small></span><span>🧪<small>Science</small></span><span>📝<small>Notes</small></span></div><div class="walk-feature">✨ Recommended for you<br><b>Build your knowledge every day</b></div></div>
+      <div class="walk-scene walk-four"><small>QUICK CHALLENGE</small><h3>Test your knowledge</h3><p class="walk-question">Which habit helps you remember what you learn?</p><div class="walk-answer">A&nbsp; Reread once</div><div class="walk-answer answer-active">B&nbsp; Test yourself regularly&nbsp; ✓</div><div class="walk-answer">C&nbsp; Skip revision</div><span class="walk-cta">ANSWER CHECKED</span></div>
+      <div class="walk-scene walk-five"><div class="walk-reward">✦</div><small>GREAT PROGRESS</small><h3>Keep learning!</h3><div class="walk-points">+50 XP</div><div class="walk-coins">🪙&nbsp; Coins earned</div><p>Track your progress and celebrate every milestone.</p></div>
     </div>
-    <div class="journey-bottom"><span>📚 Learn</span><span>🎯 Practise</span><span>🏆 Progress</span></div>
+    <div class="walk-progress"><i></i><i></i><i></i><i></i><i></i></div>
   </div>
-  <div class="journey-foot"><span>✦</span> Your next discovery starts here</div>
+  <div class="journey-foot"><span>✦</span> Learn · Practise · Grow · Achieve</div>
 </section>
 <section class="story" aria-label="Welcome to NovaFacts Study">
   <div class="story-nav">
