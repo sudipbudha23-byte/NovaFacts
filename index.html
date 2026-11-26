@@ -2,8 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="https://novafacts.pages.dev/favicon.png">
-  <link rel="apple-touch-icon" href="https://novafacts.pages.dev/favicon.png">
+<link rel="icon" type="image/png" href="https://novafacts.pages.dev/favicon.png">
+<link rel="apple-touch-icon" href="https://novafacts.pages.dev/favicon.png">
+  
+  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#101114">
@@ -1811,7 +1813,7 @@ input:focus-visible {
 
   <section class="right-panel">
     <h3>🛠 Explore Tools</h3>
-    <a class="tool-link" href="GPAcalculator.html"><span>🎓</span><span>GPA Calculator</span></a>
+    <a class="tool-link" href="GPAcalculator.html"><span>🎓</span><span>GPA Calculator</span></a>\n    <a class="tool-link" href="notes.html"><span>📄</span><span>PDF Notes Library</span></a>
     <a class="tool-link" href="Periodic%20Table.html"><span>⚛️</span><span>Periodic Table / आवर्त सारणी</span></a>
     <a class="tool-link question-bank-tool" href="question-bank.html"><span>✦</span><span>Exam Question Generator</span></a>
     <a class="tool-link" href="quiz.html"><span>🧠</span><span>Knowledge Quiz</span></a>
@@ -1881,7 +1883,7 @@ function applyTheme(theme) {
     .setAttribute("content", theme === "light" ? "#ffffff" : "#101114");
 }
 
-applyTheme("light");
+const savedTheme = localStorage.getItem("novafacts-theme");\napplyTheme(savedTheme === "dark" ? "dark" : "light");
 
 themeToggle.addEventListener("click", () => {
   applyTheme(document.body.classList.contains("light") ? "dark" : "light");

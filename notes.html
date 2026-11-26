@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" href="https://novafacts.pages.dev/favicon.png">
+<link rel="apple-touch-icon" href="https://novafacts.pages.dev/favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101114">
+<meta name="description" content="Save, organize, preview and download your study notes as PDF files with the NovaFacts Notes Library.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://novafacts.pages.dev/notes.html">
+
+<title>PDF Notes Library | NovaFacts</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0e14;--panel:#141a24;--panel2:#1b2431;--text:#f4f6fb;--muted:#a3afc2;--line:#293548;--gold:#e8bd70;--blue:#77b7ff;--danger:#ff8b8b}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 8% 0,#26304b 0,transparent 35%),radial-gradient(circle at 100% 20%,#3a2a19 0,transparent 28%),var(--bg);color:var(--text);font:15px Inter,Arial,sans-serif}
+a{color:inherit;text-decoration:none}button,input{font:inherit}.shell{width:min(1120px,calc(100% - 32px));margin:auto;padding:26px 0 70px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:28px}.brand{font-weight:850;font-size:21px;letter-spacing:-.6px}.brand span{color:var(--gold)}.top-actions{display:flex;gap:9px;flex-wrap:wrap}.btn{border:1px solid var(--line);border-radius:11px;padding:10px 14px;background:var(--panel2);color:var(--text);font-weight:750;cursor:pointer}.btn.primary{background:linear-gradient(120deg,#ffe1a0,#d69b4c);color:#211708;border:0}.hero{padding:30px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(120deg,#1a2331eF,#151b26eF);box-shadow:0 18px 55px #0005}.eyebrow{font-size:11px;letter-spacing:1.8px;color:var(--gold);font-weight:850}.hero h1{font-size:clamp(28px,5vw,43px);margin:12px 0 9px}.hero p{color:var(--muted);line-height:1.7;max-width:680px;margin:0}.privacy{margin-top:17px;padding:12px 14px;border:1px solid #e8bd7040;border-radius:12px;background:#e8bd7010;color:#e8d2a7;font-size:12px;line-height:1.6}
+.toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:26px 0 16px;flex-wrap:wrap}.toolbar h2{margin:0;font-size:19px}.search{width:min(340px,100%);min-height:43px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--text);outline:none}.search:focus{border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:14px}.note{border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,var(--panel),#10151d);padding:17px;min-width:0}.note-top{display:flex;justify-content:space-between;gap:10px;align-items:center}.pdf-icon{width:43px;height:43px;border-radius:12px;background:#e45d5d18;color:#ff9999;display:grid;place-items:center;font-size:20px}.file-size{font-size:10px;color:var(--muted)}.note h3{font-size:15px;margin:15px 0 6px;overflow-wrap:anywhere}.note p{font-size:12px;color:var(--muted);margin:0 0 15px}.note-actions{display:flex;gap:8px}.note-actions .btn{flex:1;padding:9px 10px;font-size:12px}.delete{color:var(--danger)}.empty{grid-column:1/-1;text-align:center;padding:44px 20px;border:1px dashed #46536a;border-radius:16px;color:var(--muted);line-height:1.8}.empty strong{display:block;color:var(--text);font-size:16px;margin-bottom:6px}
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);line-height:1.8}
+dialog{width:min(1000px,calc(100% - 24px));height:min(88vh,850px);padding:0;border:1px solid var(--line);border-radius:16px;background:#10151d;color:var(--text)}dialog::backdrop{background:#000b;backdrop-filter:blur(5px)}.viewer-head{height:56px;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line)}.viewer-head strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.viewer-frame{width:100%;height:calc(100% - 56px);border:0;background:#fff}
+@media(max-width:600px){.shell{width:calc(100% - 22px);padding-top:15px}.hero{padding:22px 18px}.top{align-items:flex-start}.brand{font-size:18px}.top-actions .btn{padding:9px 10px;font-size:12px}.toolbar{align-items:stretch}.search{width:100%}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="shell">
+<header class="top"><a class="brand" href="index.html">✦ Nova<span>Facts</span></a><div class="top-actions"><a class="btn" href="Learn%20Study/index.html">Study Dashboard</a><a class="btn" href="index.html">Home</a></div></header>
+<section class="hero"><span class="eyebrow">STUDY SMARTER · STAY ORGANIZED</span><h1>PDF Notes Library</h1><p>Add your class notes, question papers and study PDFs. Preview them anytime and download a copy whenever you need it.</p><div class="privacy">🔒 Your PDF files are stored in this browser on this device. They are not uploaded to NovaFacts or shared with other students. Use the same browser and device to access them later.</div></section>
+<section class="toolbar"><h2>My saved PDFs <span id="count" style="color:var(--muted);font-size:12px;font-weight:500">(0)</span></h2><input class="search" id="search" type="search" placeholder="Search your PDF notes…" aria-label="Search PDF notes"></section>
+<section class="grid" id="notesGrid" aria-live="polite"><div class="empty"><strong>Loading your notes…</strong>Please wait.</div></section>
+<footer>NovaFacts PDF Notes · Files stay in this browser's local storage. Clearing browser data may remove saved PDFs. Keep a separate backup of important files.</footer>
+</main>
+<input id="fileInput" type="file" accept="application/pdf,.pdf" multiple hidden>
+<dialog id="viewer"><div class="viewer-head"><strong id="viewerTitle">PDF preview</strong><button class="btn" id="closeViewer" type="button">Close ✕</button></div><iframe class="viewer-frame" id="viewerFrame" title="PDF preview"></iframe></dialog>
+<script>
+(()=> {
+ const DB_NAME="NovaFactsPDFNotes",STORE="pdfs",DB_VERSION=1;
+ const $=id=>document.getElementById(id);
+ let db=null,items=[],activeUrl=null;
+ const openDB=()=>new Promise((resolve,reject)=>{const req=indexedDB.open(DB_NAME,DB_VERSION);req.onupgradeneeded=()=>{const d=req.result;if(!d.objectStoreNames.contains(STORE)){const s=d.createObjectStore(STORE,{keyPath:"id",autoIncrement:true});s.createIndex("name","name",{unique:false})}};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)});
+ const tx=(mode,work)=>new Promise((resolve,reject)=>{const t=db.transaction(STORE,mode),s=t.objectStore(STORE);let result;try{result=work(s)}catch(e){reject(e);return}t.oncomplete=()=>resolve(result&&result.result);t.onerror=()=>reject(t.error);t.onabort=()=>reject(t.error)});
+ const fmt=size=>size<1048576?(size/1024).toFixed(0)+" KB":(size/1048576).toFixed(1)+" MB";
+ const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+ function render(){const q=$("search").value.trim().toLowerCase();const shown=items.filter(x=>x.name.toLowerCase().includes(q));$("count").textContent="("+items.length+")";const grid=$("notesGrid");grid.replaceChildren();if(!shown.length){const empty=document.createElement("div");empty.className="empty";empty.innerHTML=items.length?'<strong>No matching PDF notes</strong>Try another search.':'<strong>Your notes library is empty</strong>Choose “Add PDF Notes” to save PDFs from your device.';grid.append(empty);return}shown.forEach(item=>{const card=document.createElement("article");card.className="note";const top=document.createElement("div");top.className="note-top";const icon=document.createElement("div");icon.className="pdf-icon";icon.textContent="PDF";const size=document.createElement("span");size.className="file-size";size.textContent=fmt(item.size);top.append(icon,size);const title=document.createElement("h3");title.textContent=item.name;const meta=document.createElement("p");meta.textContent="Saved on this device · "+new Date(item.added).toLocaleDateString();const actions=document.createElement("div");actions.className="note-actions";const preview=document.createElement("button");preview.className="btn";preview.textContent="Preview";preview.onclick=()=>openPreview(item.id);const download=document.createElement("button");download.className="btn primary";download.textContent="Download";download.onclick=()=>downloadPDF(item.id);const del=document.createElement("button");del.className="btn delete";del.textContent="Delete";del.onclick=()=>removePDF(item.id);actions.append(preview,download,del);card.append(top,title,meta,actions);grid.append(card)})}
+ async function refresh(){items=await tx("readonly",s=>s.getAll());items.sort((a,b)=>b.added-a.added);render()}
+ async function addFiles(files){const pdfs=[...files];for(const file of pdfs){if(file.type!=="application/pdf"&&!file.name.toLowerCase().endsWith(".pdf")){alert(file.name+" is not a PDF file.");continue}if(file.size>30*1024*1024){alert(file.name+" is larger than 30 MB and was skipped.");continue}await tx("readwrite",s=>s.add({name:file.name,size:file.size,type:"application/pdf",added:Date.now(),blob:file}))}await refresh()}
+ async function getPDF(id){return tx("readonly",s=>s.get(Number(id)))}
+ async function downloadPDF(id){const item=await getPDF(id);if(!item)return;const url=URL.createObjectURL(item.blob);const a=document.createElement("a");a.href=url;a.download=item.name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+ async function openPreview(id){const item=await getPDF(id);if(!item)return;if(activeUrl)URL.revokeObjectURL(activeUrl);activeUrl=URL.createObjectURL(item.blob);$("viewerTitle").textContent=item.name;$("viewerFrame").src=activeUrl;$("viewer").showModal()}
+ async function removePDF(id){if(!confirm("Delete this PDF from this browser?"))return;await tx("readwrite",s=>s.delete(Number(id)));await refresh()}
+ $("fileInput").addEventListener("change",async e=>{if(e.target.files?.length){try{await addFiles(e.target.files)}catch(err){console.error(err);alert("Could not save these PDFs. Your browser storage may be full.")}e.target.value=""}});
+ $("search").addEventListener("input",render);
+ $("closeViewer").addEventListener("click",()=>{$("viewer").close()});
+ $("viewer").addEventListener("close",()=>{ $("viewerFrame").src="about:blank";if(activeUrl)URL.revokeObjectURL(activeUrl);activeUrl=null });
+ document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("viewer").open)$("viewer").close()});
+ const add=document.createElement("button");add.className="btn primary";add.type="button";add.textContent="＋ Add PDF Notes";add.addEventListener("click",()=>$("fileInput").click());$("count").parentElement.append(" ");$("count").parentElement.append(add);
+ openDB().then(async d=>{db=d;await refresh()}).catch(err=>{$("notesGrid").innerHTML='<div class="empty"><strong>Browser storage is unavailable</strong>Please open this page in a modern browser with IndexedDB enabled.</div>';console.error(err)});
+})();
+</script>
+</body></html>
