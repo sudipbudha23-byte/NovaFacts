@@ -10,6 +10,7 @@
 <meta name="description" content="Explore NovaFacts for science articles, space discoveries, AI research, an interactive periodic table, GPA calculators and free educational tools.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://novafacts.pages.dev/">
+<link rel="preload" as="image" href="logo2.png" fetchpriority="high">
 <meta name="google-site-verification" content="kw_LZmJVMz_6cTzYAYEI3S8fpvcNAgPXlO54PUzWBfc">
 <meta name="referrer" content="no-referrer-when-downgrade">
 <meta name="google-adsense-account" content="ca-pub-3412463966256762">
@@ -1728,10 +1729,10 @@ input:focus-visible {
 </nav>
   <section class="welcome nova-hero">
     <div class="hero-slides" aria-hidden="true">
-      <img class="hero-slide active" src="logo2.png" alt="" loading="eager">
-      <img class="hero-slide" src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy">
-      <img class="hero-slide" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy">
-      <img class="hero-slide" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy">
+      <img class="hero-slide active" src="logo2.png" alt="" loading="eager" fetchpriority="high" decoding="async">
+      <img class="hero-slide" src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=70" alt="" loading="lazy">
+      <img class="hero-slide" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=70" alt="" loading="lazy">
+      <img class="hero-slide" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=70" alt="" loading="lazy">
     </div>
     <div class="hero-shade" aria-hidden="true"></div>
     <div class="hero-content">
@@ -2015,7 +2016,7 @@ showNewsSkeletons();
 
 /* LOAD NEWS.JSON */
 
-fetch("news.json?v=" + Date.now())
+fetch("news.json")
   .then(response => {
     if (!response.ok) {
       throw new Error("news.json लोड हुन सकेन।");
